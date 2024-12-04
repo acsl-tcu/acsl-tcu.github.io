@@ -4,9 +4,9 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <div type="button" className="btn btn-primary">
+      <button type="button" className="btn btn-primary">
       Push!
-      </div>
+      </button>
       <main className={styles.main}>
         <Image
           className={styles.logo}
