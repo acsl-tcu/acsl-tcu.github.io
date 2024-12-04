@@ -2,11 +2,19 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+    async function fetchData() {
+      const response = await fetch('https://acsl-hp.vercel.app/api/hello');
+      const data = await response.json();
+      //document.getElementById('response').innerText = data.message;
+    }
+    fetchData();
   return (
     <div className={styles.page}>
       <button type="button" className="btn btn-primary">
       Push!
       </button>
+      <h1>GitHub Pages with Vercel Function</h1>
+      <div id="response">{data.message}</div>
       <main className={styles.main}>
         <Image
           className={styles.logo}
