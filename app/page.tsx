@@ -1,20 +1,27 @@
+"use client"
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import { useEffect, useState } from 'react';
 export default function Home() {
-    async function fetchData() {
-      const response = await fetch('https://acsl-hp.vercel.app/api/hello');
-      const data = await response.json();
-      //document.getElementById('response').innerText = data.message;
+  const [state, setState] = useState("hogehoge");
+  useEffect(() => {
+    async function fetchData(): Promise<void> {
+      try {
+        const response = await fetch('https://acsl-hp.vercel.app/api/hello');
+        const data: { message: string } = await response.json();
+        setState(data.message);
+        //document.getElementById('response').innerText = data.message;
+      } catch (error) { console.log('Fetch error:', error); }
     }
     fetchData();
+  }, []);
   return (
     <div className={styles.page}>
       <button type="button" className="btn btn-primary">
       Push!
       </button>
       <h1>GitHub Pages with Vercel Function</h1>
-      <div id="response">{data.message}</div>
+      <div id="response">{state}</div>
       <main className={styles.main}>
         <Image
           className={styles.logo}
