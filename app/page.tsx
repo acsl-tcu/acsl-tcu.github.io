@@ -20,13 +20,11 @@ const Home: React.FC = () => {
   }, []);
   return (
     <div className="container">
-      <button type="button" className="btn btn-primary">
-      Push!
-      </button>
+      <Button variant="primary">Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>
       <h1>Hello, Bootstrap!</h1>
-      <Button variant="primary">Click me!</Button>
+      
     </div>
   );
 };

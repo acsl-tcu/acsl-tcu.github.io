@@ -27,10 +27,58 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>My Next.js App</title>
+        <meta charSet="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="description" content=""></meta>
+        <title>
+          Advanced Control Systems Lab in TCU
+        </title>
+        <link href="blog.css" rel="stylesheet"></link>
       </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <div className="container">
+          <header className="border-bottom lh-1 py-3">
+            <div className="row position-sticky justify-content-between align-items-center">
+              <div className="col-6 text-center">
+                <a className="blog-header-logo text-body-emphasis text-decoration-none" href="#">高機能機械制御研究室</a>
+              </div>
+              <div className="col-6 d-flex justify-content-end align-items-center">
+                <a className="link-secondary" href="#" aria-label="Search">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5" /><path d="M21 21l-5.2-5.2" /></svg>
+                </a>
+                <a className="btn btn-sm btn-outline-secondary" href="https://www.tcu.ac.jp/index.html">東京都市大学</a>
+                <a className="btn btn-sm btn-outline-secondary" href="https://www.se.tcu.ac.jp/">理工学部</a>
+                <a className="btn btn-sm btn-outline-secondary" href="https://www.mse.tcu.ac.jp/">機械システム工学科</a>
+                <a className="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+              </div>
+            </div>
+          </header>
+
+          <div className="nav-scroller py-1 mb-3 border-bottom">
+            <nav className="nav nav-underline justify-content-between">
+              <a className="nav-item nav-link link-body-emphasis active" href="#">World</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Technology</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Design</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Culture</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Business</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Politics</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Science</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Health</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Style</a>
+              <a className="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+            </nav>
+          </div>
+        </div>
         {children}
+        <footer className="py-5 text-center text-body-secondary bg-body-tertiary">
+          <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+          <p className="mb-0">
+            <a href="#">Back to top</a>
+          </p>
+        </footer>
       </body>
     </html>
   );
