@@ -1,9 +1,8 @@
 "use client"
-//import Image from "next/image";
-//import styles from "./page.module.css";
 import { useEffect, useState } from 'react';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import Button from '@mui/material/Button';
+import App from './blog/Blog';
 
 const Home: React.FC = () => {
   const [state, setState] = useState("hogehoge");
@@ -20,11 +19,11 @@ const Home: React.FC = () => {
   }, []);
   return (
     <div className="container">
-      <Button variant="primary">Click me!</Button>
+      <Button variant="outlined">Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>
       <h1>Hello, Bootstrap!</h1>
-      
+      <App />
     </div>
   );
 };

@@ -1,6 +1,4 @@
 /* app/globals.css */ 
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
