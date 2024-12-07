@@ -5,7 +5,7 @@ import { useI18nContext } from '@/contexts/i18nContext';
 export default function Hello() {
   const { locale, messages } = useI18nContext();
   return (
-    <h1>{messages.title}</h1>
+    <h1>{messages.hello.title}</h1>
   );
 }
 
