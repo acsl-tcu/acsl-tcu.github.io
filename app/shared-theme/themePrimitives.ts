@@ -394,7 +394,7 @@ export const shape = {
   borderRadius: 8,
 };
 
-// @ts-expect-error
+// @ts-expect-error Custom CSS variable used in shadows array
 const defaultShadows: Shadows = [
   'none',
   'var(--template-palette-baseShadow)',
