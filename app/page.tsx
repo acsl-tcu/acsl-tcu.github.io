@@ -7,13 +7,13 @@ export default function RootPage() {
   const { appendBrowserLocale } = useI18nRouter();
   useEffect(() => {
     appendBrowserLocale();
-  });
+  }, []);
 }
 // "use client"
 // import { useEffect, useState } from 'react';
 // import React from 'react';
 // import Button from '@mui/material/Button';
-// import App from './blog/Blog';
+// import App from './blog/page';
 // //import { useI18nRouter } from '@/hooks/useI18nRouter';
 // import Hello from './hello/page';
 
