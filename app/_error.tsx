@@ -1,3 +1,4 @@
+"use client"
 import { NextPage, NextPageContext } from 'next'
 import Error from 'next/error'
 interface Props {
