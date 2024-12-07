@@ -17,8 +17,6 @@
     "@mui/material-nextjs": "^6.1.9",
     "markdown-to-jsx": "^7.7.1",
     "next": "15.0.3",
-    "next-intl": "^3.25.3",
-    "next-translate": "^2.6.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -28,8 +26,6 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
-    "next-translate-plugin": "^2.6.2",
     "typescript": "^5"
-  },
-  "type": "module"
+  }
 }

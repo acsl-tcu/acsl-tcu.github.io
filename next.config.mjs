@@ -1,13 +1,8 @@
-import i18nConfig from './i18n.mjs';
+/**
+* @type {import('next').NextConfig}
+*/
+const nextConfig = {
+  output: "export",
+}
 
-export default {
-  experimental: {
-    appDir: true,
-  },
-  reactStrictMode: true,
-  output: 'export', // 静的エクスポートを有効化
-  i18n: {
-    locales: i18nConfig.locales,
-    defaultLocale: i18nConfig.defaultLocale,
-  },
-};
+export default nextConfig
