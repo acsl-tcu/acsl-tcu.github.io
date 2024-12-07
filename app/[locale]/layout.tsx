@@ -1,7 +1,7 @@
 import { I18nProvider } from '@/contexts/i18nContext';
 import { locales } from '@/constants/i18n';
 import { Locale } from '@/types/i18n';
-import React from 'react';
+
 import '@/styles/main.scss';
 
 export function generateStaticParams() {
@@ -18,8 +18,10 @@ export default function LocaleLayout({
   };
 }) {
   return (
-    <I18nProvider locale={params.locale}>
-      {children}
-    </I18nProvider>
+    <html lang={params.locale}>
+      <I18nProvider locale={params.locale}>
+        {children}
+      </I18nProvider>
+    </html>
   );
 }
