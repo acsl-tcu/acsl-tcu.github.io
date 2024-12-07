@@ -1,18 +1,21 @@
 "use client"
-import React from 'react';
+import { NextPage, NextPageContext } from 'next'
+import Error from 'next/error'
+interface Props {
+  statusCode?: number
+}
 
-const ErrorPage = ({ statusCode }: { statusCode: number }) => {
-  return (
-    <div>
-      <h1>{statusCode} エラーが発生しました。</h1>
-      <p>申し訳ありませんが、ページを表示できませんでした。</p>
-    </div>
-  );
-};
+const ErrorPage: NextPage<Props> = ({ statusCode }) => {
+  return statusCode ? (
+    <Error statusCode={statusCode}></Error>
+  ) : (
+    <p>An error occurred on client</p>
+  )
+}
 
-ErrorPage.getInitialProps = ({ res, err }: { res: any; err: any }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  return { statusCode };
-};
+ErrorPage.getInitialProps = ({ res, err }: NextPageContext) => {
+  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
+  return { statusCode }
+}
 
-export default ErrorPage;
+export default ErrorPage
