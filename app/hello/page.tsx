@@ -7,7 +7,7 @@ export default function Hello() {
   return (
     <div>
       <h1>{messages.hello.title}</h1>
-      <p>{`Current locale: ${locale}`}</p>
+      <p>{locale}</p>
     </div>
   );
 }
