@@ -8,7 +8,7 @@ import Latest from './components/Latest';
 import Footer from './components/Footer';
 import AppTheme from '../shared-theme/AppTheme';
 
-export default function Blog(props: { disableCustomTheme?: boolean }) {
+export default function Blog(props: { disableCustomTheme: boolean }) {
   return (
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
