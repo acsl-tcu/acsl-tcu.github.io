@@ -8,6 +8,7 @@ export default function Hello() {
     <div>
       <p>{`Current locale: ${locale}`}</p>
       <h1>{messages.hello.title}</h1>
+      <p>{messages.hello.greeting("Visitor!")}</p>
     </div>
   );
 }
