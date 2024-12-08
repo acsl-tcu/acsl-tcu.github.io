@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import Button from '@mui/material/Button';
 import App from './blog/page';
-import Hello from './hello/page';
+import Hello from './[locale]/hello/page';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
 // Assuming you have a function to get the locale const 
 
 const Home: React.FC = () => {
   const [state, setState] = useState("hogehoge");
-  const { switchLocale } = useI18nRouter();
-  //const { appendBrowserLocale, switchLocale } = useI18nRouter();
+  //const { switchLocale } = useI18nRouter();
+  const { appendBrowserLocale, switchLocale } = useI18nRouter();
   useEffect(() => {
-    //  appendBrowserLocale();
+    appendBrowserLocale();
     async function fetchData(): Promise<void> {
       try {
         const response = await fetch('https://acsl-hp.vercel.app/api/hello');
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
   return (
     <div className="container">
       <Button variant="outlined" onClick={() => {
-        alert('clicked');
+        switchLocale('en');
       }}>Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>

@@ -12,7 +12,3 @@ export default function Hello() {
     </div>
   );
 }
-
-//    <div>
-// <h1>{messages.hello.greeting("Visitor")}</h1>
-//

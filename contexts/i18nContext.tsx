@@ -7,7 +7,7 @@ import { messagesMap } from '@/constants/i18n';
 // Define the context type 
 interface I18nContextType { locale: Locale; messages: Messages; }
 // Create the context 
-const I18nContext = createContext<I18nContextType | undefined>({ locale: 'en', messages: { hello: { title: "hoge", greeting: (i) => ("hello" + i) } } });
+const I18nContext = createContext<I18nContextType | undefined>({ locale: 'en', messages: { hello: { title: "hoge", greeting: (i) => ("hello hello " + i) } } });
 
 export const useI18nContext = () => {
   const context = useContext(I18nContext);
