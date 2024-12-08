@@ -8,7 +8,7 @@ import { useI18nRouter } from '@/hooks/useI18nRouter';
 // Assuming you have a function to get the locale const 
 
 const Home: React.FC = () => {
-  const [state, setState] = useState("hogehoge");
+  const [state, setState] = useState("hoge");
   const { switchLocale } = useI18nRouter();
   useEffect(() => {
     async function fetchData(): Promise<void> {
