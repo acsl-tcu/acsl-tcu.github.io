@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import App from './blog/page';
 import Hello from './hello/page';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
+// Assuming you have a function to get the locale const 
 
 const Home: React.FC = () => {
   const [state, setState] = useState("hogehoge");

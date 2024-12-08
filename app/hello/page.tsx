@@ -6,8 +6,8 @@ export default function Hello() {
   const { locale, messages } = useI18nContext();
   return (
     <div>
+      <p>{`Current locale: ${locale}`}</p>
       <h1>{messages.hello.title}</h1>
-      <p>{locale}</p>
     </div>
   );
 }
