@@ -1,7 +1,6 @@
 "use client"
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import React from 'react';
-import Button from '@mui/material/Button';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
 
 const Home: React.FC = () => {
