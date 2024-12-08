@@ -9,11 +9,10 @@ import { useI18nRouter } from '@/hooks/useI18nRouter';
 
 const Home: React.FC = () => {
   const [state, setState] = useState("hogehoge");
-  //const { switchLocale } = useI18nRouter();
-  const { appendBrowserLocale } = useI18nRouter();
+  const { switchLocale } = useI18nRouter();
+  //const { appendBrowserLocale, switchLocale } = useI18nRouter();
   useEffect(() => {
-    appendBrowserLocale();
-    //switchLocale('en');
+    //  appendBrowserLocale();
     async function fetchData(): Promise<void> {
       try {
         const response = await fetch('https://acsl-hp.vercel.app/api/hello');
@@ -26,7 +25,9 @@ const Home: React.FC = () => {
   });
   return (
     <div className="container">
-      <Button variant="outlined">Click me!</Button>
+      <Button variant="outlined" onClick={() => {
+        alert('clicked');
+      }}>Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>
       <h1>Hello, MUI!</h1>
