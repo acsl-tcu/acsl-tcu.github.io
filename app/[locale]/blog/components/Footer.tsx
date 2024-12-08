@@ -18,8 +18,8 @@ function Copyright() {
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
       {'Copyright © '}
-      <Link color="text.secondary" href="https://mui.com/">
-        Sitemark
+      <Link color="text.secondary" href="https://www.cl.mse.tcu.ac.jp/lab/">
+        ACSLab TCU
       </Link>
       &nbsp;
       {new Date().getFullYear()}

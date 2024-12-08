@@ -8,7 +8,7 @@ import { useI18nRouter } from '@/hooks/useI18nRouter';
 // Assuming you have a function to get the locale const 
 
 const Home: React.FC = () => {
-  const [state, setState] = useState("hogehoge");
+  const [state, setState] = useState("hoge");
   const { switchLocale } = useI18nRouter();
   useEffect(() => {
     async function fetchData(): Promise<void> {
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       }}>Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>
-      <h1>Hello, MUI!</h1>
+      <h1>ABOUT US</h1>
       <Hello />
       <App />
     </div>
