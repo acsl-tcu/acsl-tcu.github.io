@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import Button from '@mui/material/Button';
 import App from './blog/page';
-import Hello from './[locale]/hello/page';
+import Hello from './hello/page';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
 // Assuming you have a function to get the locale const 
 
