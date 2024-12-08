@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import Button from '@mui/material/Button';
 import App from './blog/page';
-//import { useI18nRouter } from '@/hooks/useI18nRouter';
 import Hello from './hello/page';
+import { useI18nRouter } from '@/hooks/useI18nRouter';
 
 const Home: React.FC = () => {
   const [state, setState] = useState("hogehoge");
-  //const { appendBrowserLocale } = useI18nRouter();
+  const { appendBrowserLocale } = useI18nRouter();
   useEffect(() => {
-    //appendBrowserLocale();
+    appendBrowserLocale();
     async function fetchData(): Promise<void> {
       try {
         const response = await fetch('https://acsl-hp.vercel.app/api/hello');
@@ -34,14 +34,4 @@ const Home: React.FC = () => {
 };
 export default Home;
 
-// 'use client';
-// import { useEffect } from 'react';
 
-// import { useI18nRouter } from '@/hooks/useI18nRouter';
-
-// export default function RootPage() {
-//   const { appendBrowserLocale } = useI18nRouter();
-//   useEffect(() => {
-//     appendBrowserLocale();
-//   }, []);
-// }
