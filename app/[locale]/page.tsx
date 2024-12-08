@@ -9,10 +9,8 @@ import { useI18nRouter } from '@/hooks/useI18nRouter';
 
 const Home: React.FC = () => {
   const [state, setState] = useState("hogehoge");
-  //const { switchLocale } = useI18nRouter();
-  const { appendBrowserLocale, switchLocale } = useI18nRouter();
+  const { switchLocale } = useI18nRouter();
   useEffect(() => {
-    appendBrowserLocale();
     async function fetchData(): Promise<void> {
       try {
         const response = await fetch('https://acsl-hp.vercel.app/api/hello');
