@@ -20,7 +20,7 @@ const Home: React.FC = () => {
       } catch (error) { console.log('Fetch error:', error); }
     }
     fetchData();
-  }, [appendBrowserLocale]);
+  });
   return (
     <div className="container">
       <Button variant="outlined">Click me!</Button>
