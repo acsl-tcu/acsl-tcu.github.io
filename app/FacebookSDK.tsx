@@ -22,6 +22,7 @@ export const FB = () => {
         data-href="https://www.facebook.com/cl.mse.tcu.ac.jp/"
         data-tabs="timeline"
         //data-width={ref?.current?.clientWidth ?? ''}
+        data-width={ref.current}
         data-height="700"
         data-small-header="true"
         data-adapt-container-width="true"
