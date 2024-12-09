@@ -5,7 +5,8 @@ import Button from '@mui/material/Button';
 import App from './blog/page';
 import Hello from './hello/page';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
-// Assuming you have a function to get the locale const 
+// Assuming you have a function to get the locale const
+import { FB } from '../FacebookSDK';
 
 const Home: React.FC = () => {
   const [state, setState] = useState("hoge");
@@ -31,9 +32,9 @@ const Home: React.FC = () => {
       <h1>ABOUT US</h1>
       <Hello />
       <App />
+      <FB />
     </div>
   );
 };
 export default Home;
-
 
