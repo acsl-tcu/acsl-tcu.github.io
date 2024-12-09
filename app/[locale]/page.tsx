@@ -29,10 +29,10 @@ const Home: React.FC = () => {
       }}>Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>
+      <FB />
       <h1>ABOUT US</h1>
       <Hello />
       <App />
-      <FB />
     </div>
   );
 };
