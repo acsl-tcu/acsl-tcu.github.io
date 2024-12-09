@@ -1,3 +1,4 @@
+"use client"
 import * as React from 'react';
 import { alpha, styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -13,6 +14,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import Sitemark from './SitemarkIcon';
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
+
+import PeopleIcon from '@mui/icons-material/People';
+import SchoolIcon from '@mui/icons-material/School';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import PlaceIcon from '@mui/icons-material/Place';
+
+import { useI18nContext } from '@/contexts/i18nContext';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -32,6 +42,19 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   boxShadow: theme.shadows[1],
   padding: '8px 12px',
 }));
+
+interface NavButtonProps {
+  children: React.ReactNode;
+
+}
+const NavButton = ({ children }: NavButtonProps) => {
+  const { locale } = useI18nContext();
+  return (
+    <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} >
+      {children}
+    </Button >);
+}
+
 
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
@@ -56,23 +79,23 @@ export default function AppAppBar() {
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
             <Sitemark />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <NavButton>
+                <PeopleIcon />Member
+              </NavButton>
               <Button variant="text" color="info" size="small">
-                Member
+                <SchoolIcon />Research
               </Button>
               <Button variant="text" color="info" size="small">
-                Research
+                <LibraryBooksIcon />Publication
               </Button>
               <Button variant="text" color="info" size="small">
-                Publication
-              </Button>
-              <Button variant="text" color="info" size="small">
-                For Applicant
+                <AddCircleIcon />For Applicant
               </Button>
               <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                Lecture
+                <MenuBookIcon />Lecture
               </Button>
               <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                Access
+                <PlaceIcon />Access
               </Button>
             </Box>
           </Box>
