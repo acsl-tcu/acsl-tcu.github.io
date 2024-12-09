@@ -2,11 +2,17 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Button from '@mui/material/Button';
-import App from './blog/page';
 import Hello from './hello/page';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
 // Assuming you have a function to get the locale const
 import { FB } from '../FacebookSDK';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import AppAppBar from './components/AppAppBar';
+import MainContent from './components/MainContent';
+import Latest from './components/Latest';
+import Footer from './components/Footer';
+import AppTheme from './shared-theme/AppTheme';
 
 const Home: React.FC = () => {
   const [state, setState] = useState("hoge");
@@ -32,7 +38,19 @@ const Home: React.FC = () => {
       <FB />
       <h1>ABOUT US</h1>
       <Hello />
-      <App />
+      <AppTheme>
+        <CssBaseline enableColorScheme />
+        <AppAppBar />
+        <Container
+          maxWidth="lg"
+          component="main"
+          sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
+        >
+          <MainContent />
+          <Latest />
+        </Container>
+        <Footer />
+      </AppTheme>
     </div>
   );
 };
