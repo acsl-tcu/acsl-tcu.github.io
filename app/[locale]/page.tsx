@@ -34,18 +34,18 @@ const Home: React.FC = () => {
       }}>Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>
-      <AppTheme>
-        <CssBaseline enableColorScheme />
-        <Container
-          maxWidth="lg"
-          component="main"
-          sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
-        >
-          <MainContent />
-          <Latest />
-        </Container>
-        <Footer />
-      </AppTheme >
+      {/* <AppTheme> */}
+      <CssBaseline enableColorScheme />
+      <Container
+        maxWidth="lg"
+        component="main"
+        sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
+      >
+        <MainContent />
+        <Latest />
+      </Container>
+      <Footer />
+      {/* </AppTheme > */}
     </div>
   );
 };

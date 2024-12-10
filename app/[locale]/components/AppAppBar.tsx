@@ -40,7 +40,7 @@ interface NavButtonProps {
 }
 const NavButton = ({ children, icon }: NavButtonProps) => {
   const { locale } = useI18nContext();
-  const IconComponent = iconMapping[icon]; // Resolve the icon component
+  const IconComponent = iconMapping[icon.replace(/\s+/g, "")]; // Resolve the icon component
   return (
     <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} >
       {IconComponent && <IconComponent />}
