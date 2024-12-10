@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import MainContent from './components/MainContent';
 import Latest from './components/Latest';
 import Footer from './components/Footer';
-import AppTheme from './shared-theme/AppTheme';
+// import AppTheme from './shared-theme/AppTheme';
 
 
 const Home: React.FC = () => {
