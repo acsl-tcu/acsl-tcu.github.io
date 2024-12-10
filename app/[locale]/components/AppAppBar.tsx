@@ -94,21 +94,21 @@ export default function AppAppBar() {
               <NavButton icon="people">
                 Member
               </NavButton>
-              <Button variant="text" color="info" size="small">
-                <SchoolIcon />Research
-              </Button>
-              <Button variant="text" color="info" size="small">
-                <LibraryBooksIcon />Publication
-              </Button>
-              <Button variant="text" color="info" size="small">
-                <AddCircleIcon />For Applicant
-              </Button>
-              <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                <MenuBookIcon />Lecture
-              </Button>
-              <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                <PlaceIcon />Access
-              </Button>
+              <NavButton icon="school">
+                Research
+              </NavButton>
+              <NavButton icon="library">
+                Publication
+              </NavButton>
+              <NavButton icon="circle">
+                For Applicant
+              </NavButton>
+              <NavButton icon="menu">
+                Lecture
+              </NavButton>
+              <NavButton icon="place">
+                Access
+              </NavButton>
             </Box>
           </Box>
           <Box
