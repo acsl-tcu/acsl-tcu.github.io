@@ -4,6 +4,7 @@ import { Locale } from '@/types/i18n';
 
 //import '@/styles/main.scss';
 import AppAppBar from './components/AppAppBar';
+import CssBaseline from '@mui/material/CssBaseline';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -24,6 +25,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <I18nProvider locale={locale}>
+        <CssBaseline enableColorScheme />
         <AppAppBar />
 
         {children}

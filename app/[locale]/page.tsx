@@ -4,13 +4,11 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
 // Assuming you have a function to get the locale const
-import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-//import AppAppBar from './components/AppAppBar';
 import MainContent from './components/MainContent';
 import Latest from './components/Latest';
 import Footer from './components/Footer';
-// import AppTheme from './shared-theme/AppTheme';
+import AppTheme from './shared-theme/AppTheme';
 
 
 const Home: React.FC = () => {
@@ -34,18 +32,17 @@ const Home: React.FC = () => {
       }}>Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>
-      {/* <AppTheme> */}
-      <CssBaseline enableColorScheme />
       <Container
         maxWidth="lg"
         component="main"
         sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
       >
-        <MainContent />
-        <Latest />
+        <AppTheme>
+          <MainContent />
+          <Latest />
+          <Footer />
+        </AppTheme >
       </Container>
-      <Footer />
-      {/* </AppTheme > */}
     </div>
   );
 };
