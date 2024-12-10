@@ -5,9 +5,8 @@ import Button from '@mui/material/Button';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
 // Assuming you have a function to get the locale const
 import MainContent from './components/MainContent';
-import Latest from './components/Latest';
-import Footer from './components/Footer';
 import AppTheme from './shared-theme/AppTheme';
+import Latest from './components/Latest';
 
 
 const Home: React.FC = () => {
@@ -35,7 +34,7 @@ const Home: React.FC = () => {
       <AppTheme>
         <MainContent />
         <Latest />
-        <Footer />
+
       </AppTheme >
     </div>
   );
