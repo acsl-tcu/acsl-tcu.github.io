@@ -15,14 +15,38 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import Sitemark from './SitemarkIcon';
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 
+import { useI18nContext } from '@/contexts/i18nContext';
+
 import PeopleIcon from '@mui/icons-material/People';
 import SchoolIcon from '@mui/icons-material/School';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PlaceIcon from '@mui/icons-material/Place';
-
-import { useI18nContext } from '@/contexts/i18nContext';
+// Mapping of icon names to components
+const iconMapping: {
+  [key: string]: React.ElementType
+} = {
+  people: PeopleIcon,
+  school: SchoolIcon,
+  library: LibraryBooksIcon,
+  circle: AddCircleIcon,
+  menu: MenuBookIcon,
+  place: PlaceIcon
+};
+interface NavButtonProps {
+  children: React.ReactNode;
+  icon: string;
+}
+const NavButton = ({ children, icon }: NavButtonProps) => {
+  const { locale } = useI18nContext();
+  const IconComponent = iconMapping[icon]; // Resolve the icon component
+  return (
+    <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} >
+      {IconComponent && <IconComponent />}
+      {children}
+    </Button >);
+}
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -42,18 +66,6 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   boxShadow: theme.shadows[1],
   padding: '8px 12px',
 }));
-
-interface NavButtonProps {
-  children: React.ReactNode;
-
-}
-const NavButton = ({ children }: NavButtonProps) => {
-  const { locale } = useI18nContext();
-  return (
-    <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} >
-      {children}
-    </Button >);
-}
 
 
 export default function AppAppBar() {
@@ -79,8 +91,8 @@ export default function AppAppBar() {
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
             <Sitemark />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <NavButton>
-                <PeopleIcon />Member
+              <NavButton icon="people">
+                Member
               </NavButton>
               <Button variant="text" color="info" size="small">
                 <SchoolIcon />Research
