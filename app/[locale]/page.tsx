@@ -4,7 +4,6 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { useI18nRouter } from '@/hooks/useI18nRouter';
 // Assuming you have a function to get the locale const
-import Container from '@mui/material/Container';
 import MainContent from './components/MainContent';
 import Latest from './components/Latest';
 import Footer from './components/Footer';
@@ -32,17 +31,12 @@ const Home: React.FC = () => {
       }}>Click me!</Button>
       <h1>GitHub Pages with Vercel Function</h1>
       <div id="response">{state}</div>
-      <Container
-        maxWidth="lg"
-        component="main"
-        sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
-      >
-        <AppTheme>
-          <MainContent />
-          <Latest />
-          <Footer />
-        </AppTheme >
-      </Container>
+
+      <AppTheme>
+        <MainContent />
+        <Latest />
+        <Footer />
+      </AppTheme >
     </div>
   );
 };
