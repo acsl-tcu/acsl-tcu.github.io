@@ -15,11 +15,12 @@ const messages: Messages = {
   accessTab: {
     setagayaCampus: "世田谷キャンパス",
     yokohamaCampus: "横浜キャンパス",
-    setagayaCampusAddressStr: "〒158-8557 東京都 世田谷区 玉堤 1-28-1 10号館<br>4F : 401-405室 : 野中謙一郎 教授，関口和真 教授",
+    setagayaCampusAddressStr: "〒158-8557 東京都 世田谷区 玉堤 1-28-1 10号館\n 4F : 401-405室 : 野中謙一郎 教授，関口和真 教授",
     yokohamaCampusAddressStr: "〒224-8551 神奈川県 横浜市 都筑区 牛久保西3-3-1",
     sec_address: "住所",
     sec_toSetagayaCampus: "世田谷キャンパスへのアクセス",
-    sec_toYokohamaCampus: "横浜キャンパスへのアクセス"
+    sec_toYokohamaCampus: "横浜キャンパスへのアクセス",
+    link: "https://www.tcu.ac.jp/access/"
   },
   lectureTab: {
     sec_bachelor: "学部",

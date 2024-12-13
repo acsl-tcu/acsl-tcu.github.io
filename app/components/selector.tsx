@@ -21,7 +21,7 @@ const Selector: React.FC<SelectorProps> = ({ title, contents, setValue }) => {
   return (
     <div>
       <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-autowidth-label">{title}</InputLabel>
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"

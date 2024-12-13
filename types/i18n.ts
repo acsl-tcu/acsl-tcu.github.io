@@ -19,6 +19,7 @@ export type Messages = {
     sec_address: string;
     sec_toSetagayaCampus: string;
     sec_toYokohamaCampus: string;
+    link: string;
   },
   lectureTab: {
     sec_bachelor: string;
