@@ -15,7 +15,8 @@ const messages: Messages = {
   accessTab: {
     setagayaCampus: "Setagaya Campus",
     yokohamaCampus: "Yokohama Campus",
-    addressStr: "Setagaya Campus Building 10 : 401-405<br>1-28-1 Tamazutsumi Setagaya-ku Tokyo<br>4F : Prof. Kenichiro Nonaka and Prof. Kazuma Sekiguchi",
+    setagayaCampusAddressStr: "Setagaya Campus Building 10 : 401-405<br>1-28-1 Tamazutsumi Setagaya-ku Tokyo<br>4F : Prof. Kenichiro Nonaka and Prof. Kazuma Sekiguchi",
+    yokohamaCampusAddressStr: "3-3-1 Ushikubo-nishi Tsuzuki-ku Yokohama-shi Kanagawa",
     sec_address: "Address",
     sec_toSetagayaCampus: "Access to Setagaya Campus",
     sec_toYokohamaCampus: "Access to Yokohama Campus"

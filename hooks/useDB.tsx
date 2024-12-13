@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
 
-const useDB = (column: string, table: string) => {
+interface UseDBOptions {
+  year?: number;
+}
+
+const useDB = (column: string, table: string, options: UseDBOptions = {}) => {
+  //default value
+  const {
+    year = new Date().getFullYear()
+  } = options;
   const [rows, setRow] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await fetch(`https://acsl-hp.vercel.app/api/read-member?column=${column}&table=${table}`);
+        const response = await fetch(`https://acsl-hp.vercel.app/api/read-member?column=${column}&table=${table}&year=${year}`);
         if (!response.ok) {
           throw new Error(`Error fetching data: ${response.statusText}`);
         }

@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import Sitemark from './SitemarkIcon';
+//import Sitemark from './SitemarkIcon';
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 
 import { useI18nContext } from '@/contexts/i18nContext';
@@ -77,7 +77,7 @@ export default function AppAppBar() {
 
   return (
     <AppBar
-      position="fixed"
+      position="sticky"
       enableColorOnDark
       sx={{
         boxShadow: 0,
@@ -89,7 +89,7 @@ export default function AppAppBar() {
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
-            <Sitemark />
+            {/* <Sitemark /> */}
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <NavButton icon="people">
                 Member

@@ -14,7 +14,8 @@ export type Messages = {
   accessTab: {
     setagayaCampus: string;
     yokohamaCampus: string;
-    addressStr: string;
+    setagayaCampusAddressStr: string;
+    yokohamaCampusAddressStr: string;
     sec_address: string;
     sec_toSetagayaCampus: string;
     sec_toYokohamaCampus: string;
