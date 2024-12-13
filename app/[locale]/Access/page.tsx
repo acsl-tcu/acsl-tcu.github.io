@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { useI18nContext } from '@/contexts/i18nContext';
+import Container from '@mui/material/Container';
 import Selector from '@/app/components/selector';
 
 export default function Access() {
@@ -23,10 +24,9 @@ export default function Access() {
     }
   }
   return (
-    <div>
-      <h1>{messages.accessTab.sec_address}</h1>
-      <Selector setValue={setValue} title={messages.accessTab.setagayaCampusAddressStr} contents={campusList} />
+    <Container maxWidth="sm">
+      <Selector setValue={setValue} title="Campus" contents={campusList} />
       {campusInfo(value)}
-    </div>
+    </Container>
   );
 }
