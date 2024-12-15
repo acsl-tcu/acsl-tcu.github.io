@@ -2,7 +2,6 @@
 import { useI18nContext } from '@/contexts/i18nContext';
 import { Locale } from '@/types/i18n';
 import useDB from '@/hooks/useDB';
-import Button from '@mui/material/Button';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
@@ -69,7 +68,8 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
 
 const Member: React.FC = () => {
   const thisYear = new Date().getFullYear();
-  const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
+  const disp_year_list = [thisYear, thisYear - 1, thisYear - 2];
+  const year_list = Array.from({ length: thisYear - 2 - 2012 }, (_, index) => thisYear - 2 - index);
 
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
@@ -92,23 +92,22 @@ const Member: React.FC = () => {
         onClose={handleClose}
         aria-labelledby="with-menu-demo-breadcrumbs"
       >
-        <MenuItem onClick={handleClose}>Breadcrumb 3</MenuItem>
-        <MenuItem onClick={handleClose}>Breadcrumb 4</MenuItem>
+        {year_list.map((year: number) => {
+          return (<>
+            <MenuItem onClick={handleClose}>{year}</MenuItem></>
+          );
+        })}
       </Menu>
       <Breadcrumbs aria-label="breadcrumbs">
-        <Link color="primary" href="#condensed-with-menu">
-          Breadcrumb 1
-        </Link>
-        <Link color="primary" href="#condensed-with-menu">
-          Breadcrumb 2
-        </Link>
+        {disp_year_list.map((year: number) => {
+          return (<> <Link color="primary" href="#condensed-with-menu">
+            {year}
+          </Link></>);
+        })}
         <IconButton color="primary" size="small" onClick={handleClick}>
           <MoreHorizIcon />
         </IconButton>
       </Breadcrumbs>
-      {year_list.map((year: number) => {
-        return (<><Button>{year}</Button></>);
-      })}
       <MemberTable year={thisYear} />
     </div>);
 }
