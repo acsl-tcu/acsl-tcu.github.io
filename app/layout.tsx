@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import "./globals.css";
-
+import Head from 'next/head';
 // export default function RootLayout({ children }: { children: ReactNode }) {
 //   return (
 //     <html>
@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
         <meta charSet="utf-8"></meta>
         <meta name="description" content="東京都市大学 理工学部 機械システム工学科 高機能機械制御研究室HP"></meta>
@@ -43,8 +43,7 @@ export default function RootLayout({
           Advanced Control Systems Lab in TCU
         </title>
         <link rel="shortcut icon" href="/favicon.ico" />
-
-      </head>
+      </Head>
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}

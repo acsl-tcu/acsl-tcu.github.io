@@ -62,7 +62,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
 
 const Member: React.FC = () => {
   const thisYear = new Date().getFullYear();
-  const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => 2013 + index);
+  const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
   return (
     <div>
       {year_list.map((year: number) => {
