@@ -57,6 +57,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   // <pre>{JSON.stringify(rows, null, 2)}</pre>
   return (
     <div>
+      <Typography variant="h4">{year}</Typography>
       {["Staff", "Doctoral course", "M2", "M1", "B4"].map((grade: string) => {
         return (
           <><LocaledTable locale={locale} members={rows.filter(member => member.grade === grade)} grade={grade} />
@@ -68,8 +69,9 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
 
 const Member: React.FC = () => {
   const thisYear = new Date().getFullYear();
+  const [dispYear, setDispYear] = useState<number>(thisYear);
   const disp_year_list = [thisYear, thisYear - 1, thisYear - 2];
-  const year_list = Array.from({ length: thisYear - 2 - 2012 }, (_, index) => thisYear - 2 - index);
+  const year_list = Array.from({ length: thisYear - 3 - 2012 }, (_, index) => thisYear - 3 - index);
 
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
@@ -83,6 +85,10 @@ const Member: React.FC = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleMenuItemClick = (year: number) => {
+    setDispYear(year);
+    handleClose();
+  };
 
   return (
     <div>
@@ -92,23 +98,22 @@ const Member: React.FC = () => {
         onClose={handleClose}
         aria-labelledby="with-menu-demo-breadcrumbs"
       >
-        {year_list.map((year: number) => {
-          return (<>
-            <MenuItem onClick={handleClose}>{year}</MenuItem></>
-          );
-        })}
+        {year_list.map((year: number) => (
+          <MenuItem key={year} onClick={() => handleMenuItemClick(year)}> {year} </MenuItem>
+        ))}
       </Menu>
       <Breadcrumbs aria-label="breadcrumbs">
         {disp_year_list.map((year: number) => {
-          return (<> <Link color="primary" href="#condensed-with-menu">
-            {year}
-          </Link></>);
+          return (<>
+            <Link color="primary" href="#condensed-with-menu" onClick={() => handleMenuItemClick(year)}>
+              {year}
+            </Link></>);
         })}
         <IconButton color="primary" size="small" onClick={handleClick}>
           <MoreHorizIcon />
         </IconButton>
       </Breadcrumbs>
-      <MemberTable year={thisYear} />
+      <MemberTable year={dispYear} />
     </div>);
 }
 export default Member;
