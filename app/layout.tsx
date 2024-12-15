@@ -42,7 +42,7 @@ export default function RootLayout({
         <title>
           Advanced Control Systems Lab in TCU
         </title>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/logo.ico" />
       </Head>
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
