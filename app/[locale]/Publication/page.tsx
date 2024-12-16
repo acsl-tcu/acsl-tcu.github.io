@@ -116,7 +116,7 @@ const Publication: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><Typography><Button onClick={() => { }}>
+              <TableCell><Typography><Button onClick={handleClick}>
                 {dispYear}</Button></Typography></TableCell>
               <TableCell>{messages.publicationTab.journal}</TableCell>
               <TableCell>{messages.publicationTab.international}</TableCell>
