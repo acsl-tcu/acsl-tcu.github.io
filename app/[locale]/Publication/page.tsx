@@ -20,31 +20,35 @@ interface Article {
 }
 
 const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
-  return (<><TableContainer component={Paper}>
-    <Table>
-      <TableBody>
-        {articles.map((article, index) => {
-          const author = article.author;
-          const magazine = article.magazine;
-          const identifier = article.identifier;
-          let title = <>article.title</>;
-          if (title) {
-            if (/http/.test(identifier)) {
-              title = <a href={identifier}>{title}</a>;
-            } else if (identifier) {
-              title = <a href={`http://doi.org/${identifier}`}>{title}</a>;
+  if (articles) {
+    return (<><TableContainer component={Paper}>
+      <Table>
+        <TableBody>
+          {articles.map((article, index) => {
+            const author = article.author;
+            const magazine = article.magazine;
+            const identifier = article.identifier;
+            let title = <>article.title</>;
+            if (title) {
+              if (/http/.test(identifier)) {
+                title = <a href={identifier}>{title}</a>;
+              } else if (identifier) {
+                title = <a href={`http://doi.org/${identifier}`}>{title}</a>;
+              }
+              return (
+                <TableRow key={index}>
+                  <TableCell>{author}{title}{magazine}{article.page}{article.date}</TableCell>
+                </TableRow>);
             }
-            return (
-              <TableRow key={index}>
-                <TableCell>{author}{title}{magazine}{article.page}{article.date}</TableCell>
-              </TableRow>);
-          }
-          return null;
-        })}
-      </TableBody>
-    </Table>
-  </TableContainer>
-  </>);
+            return null;
+          })}
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </>);
+  } else {
+    return null;
+  }
 }
 
 const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
