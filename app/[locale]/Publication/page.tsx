@@ -88,10 +88,10 @@ const Publication: React.FC = () => {
   const handleChange = (event: SelectChangeEvent) => {
     setDispYear(Number(event.target.value));
   };
-  const handleMenuItemClick = (year: number) => {
-    setDispYear(year);
-    // handleClose();
-  };
+  // const handleMenuItemClick = (year: number) => {
+  //   setDispYear(year);
+  //   // handleClose();
+  // };
 
   return (
     <div>
@@ -114,10 +114,10 @@ const Publication: React.FC = () => {
                 {/* <Typography variant="h2">
                   <Button variant="outlined" onClick={handleChange}>
                     {dispYear}
-                  </Button>
+                  </Button>onClick={() => handleMenuItemClick(year)}
                 </Typography> */}
                 <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Year</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -126,7 +126,7 @@ const Publication: React.FC = () => {
                     onChange={handleChange}
                   >
                     {year_list.map((year: number) => (
-                      <MenuItem key={year} onClick={() => handleMenuItemClick(year)}> {year} </MenuItem>
+                      <MenuItem key={year} value={year} > {year} </MenuItem>
                     ))}
                   </Select>
                 </FormControl>
