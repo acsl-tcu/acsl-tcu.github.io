@@ -2,10 +2,13 @@
 import { useI18nContext } from '@/contexts/i18nContext';
 // import { Locale } from '@/types/i18n';
 import useDB from '@/hooks/useDB';
-import { Table, TableBody, TableCell, TableContainer, TableRow, TableHead, Paper, Typography } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableRow, TableHead, Paper } from '@mui/material';
 // import Breadcrumbs from '@mui/material/Breadcrumbs';
 // import Link from '@mui/material/Link';
-import { Button, Menu, MenuItem } from '@mui/material';
+import { MenuItem } from '@mui/material';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
 // import IconButton from '@mui/material/IconButton';
 // import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState } from 'react';
@@ -70,26 +73,29 @@ const Publication: React.FC = () => {
   const [dispYear, setDispYear] = useState<number>(thisYear);
   const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
 
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-  const open = Boolean(anchorEl);
+  // const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  // const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement> | null) => {
-    if (event) {
-      setAnchorEl(event.currentTarget);
-    }
-  };
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement> | null) => {
+  //   if (event) {
+  //     setAnchorEl(event.currentTarget);
+  //   }
+  // };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
+  const handleChange = (event: SelectChangeEvent) => {
+    setDispYear(Number(event.target.value));
   };
   const handleMenuItemClick = (year: number) => {
     setDispYear(year);
-    handleClose();
+    // handleClose();
   };
 
   return (
     <div>
-      <Menu
+      {/* <Menu
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -98,26 +104,33 @@ const Publication: React.FC = () => {
         {year_list.map((year: number) => (
           <MenuItem key={year} onClick={() => handleMenuItemClick(year)}> {year} </MenuItem>
         ))}
-      </Menu>
-      {/* <Breadcrumbs aria-label="breadcrumbs">
-        {year_list.map((year: number) => {
-          return (<>
-            <Link color="primary" href="#condensed-with-menu" onClick={() => handleMenuItemClick(year)}>
-              {year}
-            </Link></>);
-        })}
-        <IconButton color="primary" size="small" onClick={handleClick}>
-          <MoreHorizIcon />
-        </IconButton>
-      </Breadcrumbs> */}
-
+      </Menu> */}
 
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><Typography><Button onClick={handleClick}>
-                {dispYear}</Button></Typography></TableCell>
+              <TableCell>
+                {/* <Typography variant="h2">
+                  <Button variant="outlined" onClick={handleChange}>
+                    {dispYear}
+                  </Button>
+                </Typography> */}
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={String(dispYear)}
+                    label="year"
+                    onChange={handleChange}
+                  >
+                    {year_list.map((year: number) => (
+                      <MenuItem key={year} onClick={() => handleMenuItemClick(year)}> {year} </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </TableCell>
               <TableCell>{messages.publicationTab.journal}</TableCell>
               <TableCell>{messages.publicationTab.international}</TableCell>
               <TableCell>{messages.publicationTab.domestic}</TableCell>
