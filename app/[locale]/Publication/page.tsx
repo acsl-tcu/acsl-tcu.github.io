@@ -3,11 +3,11 @@ import { useI18nContext } from '@/contexts/i18nContext';
 // import { Locale } from '@/types/i18n';
 import useDB from '@/hooks/useDB';
 import { Table, TableBody, TableCell, TableContainer, TableRow, TableHead, Paper, Typography } from '@mui/material';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
+// import Breadcrumbs from '@mui/material/Breadcrumbs';
+// import Link from '@mui/material/Link';
 import { Button, Menu, MenuItem } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+// import IconButton from '@mui/material/IconButton';
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState } from 'react';
 
 interface Article {
@@ -99,7 +99,7 @@ const Publication: React.FC = () => {
           <MenuItem key={year} onClick={() => handleMenuItemClick(year)}> {year} </MenuItem>
         ))}
       </Menu>
-      <Breadcrumbs aria-label="breadcrumbs">
+      {/* <Breadcrumbs aria-label="breadcrumbs">
         {year_list.map((year: number) => {
           return (<>
             <Link color="primary" href="#condensed-with-menu" onClick={() => handleMenuItemClick(year)}>
@@ -109,7 +109,7 @@ const Publication: React.FC = () => {
         <IconButton color="primary" size="small" onClick={handleClick}>
           <MoreHorizIcon />
         </IconButton>
-      </Breadcrumbs>
+      </Breadcrumbs> */}
 
 
       <TableContainer component={Paper}>
