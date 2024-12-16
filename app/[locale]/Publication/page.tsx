@@ -1,16 +1,11 @@
 'use client';
 import { useI18nContext } from '@/contexts/i18nContext';
-// import { Locale } from '@/types/i18n';
 import useDB from '@/hooks/useDB';
-import { Table, TableBody, TableCell, TableContainer, TableRow, TableHead, Paper } from '@mui/material';
-// import Breadcrumbs from '@mui/material/Breadcrumbs';
-// import Link from '@mui/material/Link';
-import { MenuItem } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableRow, TableHead, Paper, Button } from '@mui/material';
+import { MenuItem, Typography } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
-// import IconButton from '@mui/material/IconButton';
-// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState } from 'react';
 
 interface Article {
@@ -60,8 +55,11 @@ const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
   if (error) { return <div>Error: {error}</div>; }
   return (
     <div>
+      <Typography variant="h2" id={`journal${year}`}>Journal</Typography>
       <ArticleTable articles={rows[0]} />
+      <Typography variant="h2" id={`international${year}`}>International Conference</Typography>
       <ArticleTable articles={rows[1]} />
+      <Typography variant="h2" id={`domestic${year}`}>Domestic Conference</Typography>
       <ArticleTable articles={rows[2]} />
     </div>
   );
@@ -73,49 +71,17 @@ const Publication: React.FC = () => {
   const [dispYear, setDispYear] = useState<number>(thisYear);
   const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
 
-  // const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-  // const open = Boolean(anchorEl);
-
-  // const handleClick = (event: React.MouseEvent<HTMLButtonElement> | null) => {
-  //   if (event) {
-  //     setAnchorEl(event.currentTarget);
-  //   }
-  // };
-
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
   const handleChange = (event: SelectChangeEvent) => {
     setDispYear(Number(event.target.value));
   };
-  // const handleMenuItemClick = (year: number) => {
-  //   setDispYear(year);
-  //   // handleClose();
-  // };
 
   return (
     <div>
-      {/* <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="with-menu-demo-breadcrumbs"
-      >
-        {year_list.map((year: number) => (
-          <MenuItem key={year} onClick={() => handleMenuItemClick(year)}> {year} </MenuItem>
-        ))}
-      </Menu> */}
-
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
               <TableCell>
-                {/* <Typography variant="h2">
-                  <Button variant="outlined" onClick={handleChange}>
-                    {dispYear}
-                  </Button>onClick={() => handleMenuItemClick(year)}
-                </Typography> */}
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">Year</InputLabel>
                   <Select
@@ -131,9 +97,9 @@ const Publication: React.FC = () => {
                   </Select>
                 </FormControl>
               </TableCell>
-              <TableCell><a href="#journal">{messages.publicationTab.journal}</a></TableCell>
-              <TableCell>{messages.publicationTab.international}</TableCell>
-              <TableCell>{messages.publicationTab.domestic}</TableCell>
+              <TableCell><a href={`#journal${dispYear}`}>{messages.publicationTab.journal}</a></TableCell>
+              <TableCell><Button href={`#international${dispYear}`}>{messages.publicationTab.international}</Button></TableCell>
+              <TableCell><Button href={`#domestic${dispYear}`}>{messages.publicationTab.domestic}</Button></TableCell>
             </TableRow>
           </TableHead>
         </Table>
