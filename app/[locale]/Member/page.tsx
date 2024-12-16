@@ -10,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState } from 'react';
-
+import { YearSelector } from '@/app/components/yeatSelector';
 interface Member {
   jname: string;
   jsubject: string;
@@ -113,6 +113,7 @@ const Member: React.FC = () => {
           <MoreHorizIcon />
         </IconButton>
       </Breadcrumbs>
+      <YearSelector texts={["Staff", "Doctoral course", "M2", "M1", "B4"]} />
       <MemberTable year={dispYear} />
     </div>);
 }
