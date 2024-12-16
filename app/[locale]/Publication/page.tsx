@@ -131,7 +131,7 @@ const Publication: React.FC = () => {
                   </Select>
                 </FormControl>
               </TableCell>
-              <TableCell><a href="#journal>{messages.publicationTab.journal}</a></TableCell>
+              <TableCell><a href="#journal">{messages.publicationTab.journal}</a></TableCell>
               <TableCell>{messages.publicationTab.international}</TableCell>
               <TableCell>{messages.publicationTab.domestic}</TableCell>
             </TableRow>
