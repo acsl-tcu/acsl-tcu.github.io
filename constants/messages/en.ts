@@ -22,6 +22,11 @@ const messages: Messages = {
     sec_toYokohamaCampus: "Access to Yokohama Campus",
     link: "https://www.tcu.ac.jp/english/about/access/"
   },
+  publicationTab: {
+    journal: "Journal",
+    international: "International Conference",
+    domestic: "Domestic Conference"
+  },
   lectureTab: {
     sec_bachelor: "Undergraduate",
     sec_graduate: "Graduate",

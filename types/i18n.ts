@@ -21,6 +21,11 @@ export type Messages = {
     sec_toYokohamaCampus: string;
     link: string;
   },
+  publicationTab: {
+    journal: string;
+    international: string;
+    domestic: string;
+  }
   lectureTab: {
     sec_bachelor: string;
     sec_graduate: string;

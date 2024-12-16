@@ -1,26 +1,27 @@
 import { useEffect, useState } from 'react';
 
-interface UseDBOptions {
-  year?: number;
-}
-
-const useDB = (column: string, table: string, options: UseDBOptions = {}) => {
+const useDB = (tables: string[], year: number) => {
   //default value
-  const {
-    year = new Date().getFullYear()
-  } = options;
-  const [rows, setRow] = useState<any[]>([]);
+  const [rows, setRows] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
+    if (!tables || tables.length === 0) {
+      setError("No tables provided.");
+      return;
+    }
     async function fetchData(): Promise<void> {
       try {
-        const response = await fetch(`https://acsl-hp.vercel.app/api/read-member?column=${column}&table=${table}&year=${year}`);
-        if (!response.ok) {
-          throw new Error(`Error fetching data: ${response.statusText}`);
-        }
-        const result = await response.json();
-        console.log('Fetched data:', result.message);
-        setRow(result.message);
+        const results = await Promise.all(
+          tables.map(async (table) => {
+            const response = await fetch(`https://acsl-hp.vercel.app/api/read-database?table=${table}&year=${year}`);
+            if (!response.ok) {
+              throw new Error(`Error fetching data from ${table}: ${response.statusText}`);
+            }
+            const result = await response.json();
+            return result.message;
+          })
+        );
+        setRows(results);
       } catch (error) {
         console.log('Fetch error:', error);
         if (error instanceof Error) {
@@ -31,7 +32,7 @@ const useDB = (column: string, table: string, options: UseDBOptions = {}) => {
       }
     }
     fetchData();
-  }, [column, table]);
+  }, [tables, year]);
 
   return { rows, error };
 };

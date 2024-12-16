@@ -49,7 +49,7 @@ const LocaledTable: React.FC<{ locale: Locale, members: Member[], grade: string 
 };
 
 const MemberTable: React.FC<{ year: number }> = ({ year }) => {
-  const { rows, error } = useDB("*", "member", { year });
+  const { rows, error } = useDB(["member"], year);
   const { locale } = useI18nContext();
   if (error) {
     return <div>Error: {error}</div>;
