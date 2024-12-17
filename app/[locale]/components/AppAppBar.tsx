@@ -56,11 +56,6 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
   backdropFilter: 'blur(24px)',
   border: '1px solid',
-  //borderColor: (theme.vars || theme).palette.divider,
-  // backgroundColor: theme.vars
-  //   ? `rgba(${theme.vars.palette.background.defaultChannel} / 0.4)`
-  //   : alpha(theme.palette.background.default, 0.4),
-  // boxShadow: (theme.vars || theme).shadows[1],
   borderColor: theme.palette.divider,
   backgroundColor: alpha(theme.palette.background.default, 0.4),
   boxShadow: theme.shadows[1],
@@ -111,21 +106,6 @@ export default function AppAppBar() {
               </NavButton>
             </Box>
           </Box>
-          <Box
-            sx={{
-              display: { xs: 'none', md: 'flex' },
-              gap: 1,
-              alignItems: 'center',
-            }}
-          >
-            <Button color="primary" variant="text" size="small">
-              Sign in
-            </Button>
-            <Button color="primary" variant="contained" size="small">
-              Sign up
-            </Button>
-            <ColorModeIconDropdown />
-          </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
             <ColorModeIconDropdown size="medium" />
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
@@ -152,23 +132,25 @@ export default function AppAppBar() {
                     <CloseRoundedIcon />
                   </IconButton>
                 </Box>
-                <MenuItem>Features</MenuItem>
-                <MenuItem>Testimonials</MenuItem>
-                <MenuItem>Highlights</MenuItem>
-                <MenuItem>Pricing</MenuItem>
-                <MenuItem>FAQ</MenuItem>
-                <MenuItem>Blog</MenuItem>
+                <NavButton icon="people">
+                  Member
+                </NavButton>
+                <NavButton icon="school">
+                  Research
+                </NavButton>
+                <NavButton icon="library">
+                  Publication
+                </NavButton>
+                <NavButton icon="circle">
+                  For Applicant
+                </NavButton>
+                <NavButton icon="menu">
+                  Lecture
+                </NavButton>
+                <NavButton icon="place">
+                  Access
+                </NavButton>
                 <Divider sx={{ my: 3 }} />
-                <MenuItem>
-                  <Button color="primary" variant="contained" fullWidth>
-                    Sign up
-                  </Button>
-                </MenuItem>
-                <MenuItem>
-                  <Button color="primary" variant="outlined" fullWidth>
-                    Sign in
-                  </Button>
-                </MenuItem>
               </Box>
             </Drawer>
           </Box>
