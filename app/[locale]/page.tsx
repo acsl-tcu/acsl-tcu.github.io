@@ -19,7 +19,6 @@ const Home: React.FC = () => {
       <AppTheme>
         <MainContent />
         <Latest />
-
       </AppTheme >
     </div>
   );
