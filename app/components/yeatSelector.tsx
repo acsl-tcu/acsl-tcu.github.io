@@ -4,12 +4,10 @@ import { MenuItem } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
-import { useState } from 'react';
 // プロパティの型定義 
-interface TextProps { texts: string[]; }
-const YearSelector: React.FC<TextProps> = ({ texts }) => {
+interface TextProps { texts: string[]; dispYear: number, setDispYear: React.Dispatch<React.SetStateAction<number>> }
+const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear }) => {
   const thisYear = new Date().getFullYear();
-  const [dispYear, setDispYear] = useState<number>(thisYear);
   if (texts) {
     const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
 
