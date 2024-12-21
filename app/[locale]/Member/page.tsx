@@ -60,6 +60,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
           <><LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === grade)} grade={grade} />
           </>);
       })} */}
+      <LocaledTable locale={locale} members={rows} grade='Staff' />
       {/* <LocaledTable locale={locale} members={staffs} grade='Staff' />
       <LocaledTable locale={locale} members={doctor_students} grade='Doctoral course' />
       <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M2')} grade='M2' />
