@@ -13,7 +13,11 @@ const useDB = (tables: string[], year: number) => {
       try {
         const results = await Promise.all(
           tables.map(async (table) => {
-            const response = await fetch(`https://acsl-hp.vercel.app/api/read-database?table=${table}&year=${year}`);
+            const response = await fetch(`https://acsl-hp.vercel.app/api/read-database`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ table, year })
+            });
             if (!response.ok) {
               throw new Error(`Error fetching data from ${table}: ${response.statusText}`);
             }
