@@ -1,12 +1,10 @@
 'use client';
 import { useI18nContext } from '@/contexts/i18nContext';
 import useDB from '@/hooks/useDB';
-import { Table, TableBody, TableCell, TableContainer, TableRow, TableHead, Paper, Button } from '@mui/material';
-import { MenuItem, Typography } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
+import { Table, TableBody, TableCell, TableContainer, TableRow, Paper } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useState } from 'react';
+import YearSelector from '@/app/components/yeatSelector';
 
 interface Article {
   author: string;
@@ -69,41 +67,9 @@ const Publication: React.FC = () => {
   const thisYear = new Date().getFullYear();
   const { messages } = useI18nContext();
   const [dispYear, setDispYear] = useState<number>(thisYear);
-  const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setDispYear(Number(event.target.value));
-  };
-
   return (
     <div>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Year</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={String(dispYear)}
-                    label="year"
-                    onChange={handleChange}
-                  >
-                    {year_list.map((year: number) => (
-                      <MenuItem key={year} value={year} > {year} </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </TableCell>
-              <TableCell><Button href={`#journal${dispYear}`}>{messages.publicationTab.journal}</Button></TableCell>
-              <TableCell><Button href={`#international${dispYear}`}>{messages.publicationTab.international}</Button></TableCell>
-              <TableCell><Button href={`#domestic${dispYear}`}>{messages.publicationTab.domestic}</Button></TableCell>
-            </TableRow>
-          </TableHead>
-        </Table>
-      </TableContainer>
+      <YearSelector texts={[messages.publicationTab.journal, messages.publicationTab.international, messages.publicationTab.domestic]} dispYear={dispYear} setDispYear={setDispYear} />
       <PublicationTable year={dispYear} />
     </div>);
 }
