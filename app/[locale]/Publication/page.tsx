@@ -53,11 +53,11 @@ const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
   if (error) { return <div>Error: {error}</div>; }
   return (
     <div>
-      <Typography variant="h2" id={`journal${year}`}>Journal</Typography>
+      <Typography variant="h4" id={`journal${year}`}>Journal</Typography>
       <ArticleTable articles={rows[0]} />
-      <Typography variant="h2" id={`international${year}`}>International Conference</Typography>
+      <Typography variant="h4" id={`international${year}`}>International Conference</Typography>
       <ArticleTable articles={rows[1]} />
-      <Typography variant="h2" id={`domestic${year}`}>Domestic Conference</Typography>
+      <Typography variant="h4" id={`domestic${year}`}>Domestic Conference</Typography>
       <ArticleTable articles={rows[2]} />
     </div>
   );

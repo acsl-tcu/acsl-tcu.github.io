@@ -10,6 +10,7 @@ interface Member {
   jsubject: string;
   name: string;
   subject: string;
+  grade: string;
   url?: string;
 }
 
@@ -43,8 +44,8 @@ const LocaledTable: React.FC<{ locale: Locale, members: Member[], grade: string 
 };
 
 const MemberTable: React.FC<{ year: number }> = ({ year }) => {
-  const { rows, error } = useDB(["member"], year);
   const { locale } = useI18nContext();
+  const { rows, error } = useDB(["member"], year);
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -54,7 +55,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
       <Typography variant="h4">{year}</Typography>
       {["Staff", "Doctoral course", "M2", "M1", "B4"].map((grade: string) => {
         return (
-          <><LocaledTable locale={locale} members={rows.filter(member => member.grade === grade)} grade={grade} />
+          <><LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === grade)} grade={grade} />
           </>);
       })}
     </div>
