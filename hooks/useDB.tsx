@@ -11,21 +11,20 @@ const useDB = (tables: string[], year: number) => {
     }
     async function fetchData(): Promise<void> {
       try {
-        const results = await Promise.all(
-          tables.map(async (table) => {
-            const response = await fetch(`https://acsl-hp.vercel.app/api/read-database`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ table, year })
-            });
-            if (!response.ok) {
-              throw new Error(`Error fetching data from ${table}: ${response.statusText}`);
-            }
-            const result = await response.json();
-            return result.message;
-          })
-        );
-        setRows(results);
+        const response = await fetch(`https://acsl-hp.vercel.app/api/read-database`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tables, year })
+        });
+        if (!response.ok) {
+          throw new Error(`Error fetching data from ${tables}: ${response.statusText}`);
+        }
+        const result = await response.json();
+        if (result && result.message) {
+          setRows(result.message);
+        } else {
+          throw new Error('Invalid response format');
+        }
       } catch (error) {
         console.log('Fetch error:', error);
         if (error instanceof Error) {
