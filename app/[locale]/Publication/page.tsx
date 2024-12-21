@@ -63,7 +63,7 @@ const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
   );
 }
 
-const Publication: React.FC = () => {
+const PublicationPAGE: React.FC = () => {
   const thisYear = new Date().getFullYear();
   const { messages } = useI18nContext();
   const [dispYear, setDispYear] = useState<number>(thisYear);
@@ -73,5 +73,5 @@ const Publication: React.FC = () => {
       <PublicationTable year={dispYear} />
     </div>);
 }
-export default Publication;
+export default PublicationPAGE;
 

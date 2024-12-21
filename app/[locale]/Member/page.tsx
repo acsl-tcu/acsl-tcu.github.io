@@ -70,7 +70,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   );
 }
 
-const Member: React.FC = () => {
+const MemberPAGE: React.FC = () => {
   const thisYear = new Date().getFullYear();
   const [dispYear, setDispYear] = useState<number>(thisYear);
 
@@ -80,5 +80,5 @@ const Member: React.FC = () => {
       <MemberTable year={dispYear} />
     </div>);
 }
-export default Member;
+export default MemberPAGE;
 
