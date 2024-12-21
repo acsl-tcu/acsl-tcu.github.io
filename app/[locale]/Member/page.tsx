@@ -50,6 +50,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
     return <div>Error: {error}</div>;
   }
   console.log("Member data: ", rows);
+
   // <pre>{JSON.stringify(rows, null, 2)}</pre>
   return (
     <div>
@@ -59,12 +60,11 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
           <><LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === grade)} grade={grade} />
           </>);
       })} */}
-      <><LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M2')} grade='M2' />
-      </>
-      <><LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M1')} grade='M1' />
-      </>
-      <><LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'B4')} grade='B4' />
-      </>
+      {/* <LocaledTable locale={locale} members={staffs} grade='Staff' />
+      <LocaledTable locale={locale} members={doctor_students} grade='Doctoral course' />
+      <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M2')} grade='M2' />
+      <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M1')} grade='M1' />
+      <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'B4')} grade='B4' /> */}
     </div>
   );
 }
