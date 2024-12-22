@@ -9,7 +9,7 @@ interface TextProps {
   texts: string[];
   dispYear: number,
   setDispYear: React.Dispatch<React.SetStateAction<number>>
-  hrefs: string[];
+  hrefs?: string[];
 }
 const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs }) => {
   const thisYear = new Date().getFullYear();
