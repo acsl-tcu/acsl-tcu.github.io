@@ -50,7 +50,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  // console.log("Member data: ", rows);
+  console.log(`Member data:  ${rows}`);
 
   return (
     <div>
