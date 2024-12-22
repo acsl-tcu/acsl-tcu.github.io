@@ -53,6 +53,10 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  // nullチェック
+  if (!rows || rows.length === 0) {
+    return <div>Loading...</div>;
+  }
   // console.log(`Member data:  ${rows}`); // 入れると無限ループ：なぜ？
   // フィルタリング 
   // const staffs = rows.filter(member => member.grade !== 'B4' && member.grade !== 'M1' && member.grade !== 'M2');
