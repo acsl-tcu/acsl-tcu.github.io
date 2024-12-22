@@ -51,6 +51,10 @@ const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
   const { messages } = useI18nContext();
   const { rows, error } = useDB(["journal", "international", "domestic"], year);
   if (error) { return <div>Error: {error}</div>; }
+  // nullチェック
+  if (!rows || rows.length === 0) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <Typography variant="h4" id={`${messages.publicationTab.journal}${year}`}>Journal</Typography>

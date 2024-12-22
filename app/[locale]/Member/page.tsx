@@ -22,7 +22,7 @@ const LocaledTable: React.FC<{ locale: Locale, members: Member[], grade: string 
     <><Typography variant="h6">{grade}</Typography>
       <TableContainer component={Paper}>
         <Table>
-          <TableHead>
+          <TableHead id={grade}>
             <TableRow>
               <TableCell>Name </TableCell>
               <TableCell>Research Interests </TableCell>
@@ -32,9 +32,7 @@ const LocaledTable: React.FC<{ locale: Locale, members: Member[], grade: string 
             {members.map((member, index) => (
               <TableRow key={index}>
                 <TableCell>
-                  <a href={member.url || '#'} target="_blank" rel="noopener noreferrer">
-                    {locale === 'en' ? member.name : member.jname}
-                  </a>
+                  {locale === 'en' ? member.name : member.jname}
                 </TableCell>
                 <TableCell>
                   {locale === 'en' ? member.subject : member.jsubject}
@@ -79,7 +77,8 @@ const MemberPAGE: React.FC = () => {
 
   return (
     <div>
-      <YearSelector texts={["Staff", "Doctoral course", "M2", "M1", "B4"]} dispYear={dispYear} setDispYear={setDispYear} />
+      <YearSelector texts={["Staff", "Doctoral course", "M2", "M1", "B4"]}
+        hrefs={["Staff", "Doctoral course", "M2", "M1", "B4"]} dispYear={dispYear} setDispYear={setDispYear} />
       <MemberTable year={dispYear} />
     </div>);
 }

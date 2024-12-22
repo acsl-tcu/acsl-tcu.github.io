@@ -5,8 +5,13 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 // プロパティの型定義 
-interface TextProps { texts: string[]; dispYear: number, setDispYear: React.Dispatch<React.SetStateAction<number>> }
-const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear }) => {
+interface TextProps {
+  texts: string[];
+  dispYear: number,
+  setDispYear: React.Dispatch<React.SetStateAction<number>>
+  hrefs: string[];
+}
+const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs }) => {
   const thisYear = new Date().getFullYear();
   if (texts) {
     const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
@@ -15,6 +20,12 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear }) => 
       setDispYear(Number(event.target.value));
     };
 
+    if (!hrefs || hrefs.length === 0) {
+      hrefs = texts.map((text) => {
+        return `${text} ${dispYear}`;
+      });
+    }
+
     return (<>
       <TableContainer component={Paper}>
         <Table>
@@ -22,10 +33,10 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear }) => 
             <TableRow>
               <TableCell>
                 <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Year</InputLabel>
+                  <InputLabel id="select-label">Year</InputLabel>
                   <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+                    labelId="select-label"
+                    id="simple-select"
                     value={String(dispYear)}
                     label="year"
                     onChange={handleChange}
@@ -36,8 +47,8 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear }) => 
                   </Select>
                 </FormControl>
               </TableCell>
-              {texts.map((text) => {
-                return (<TableCell key={`${text}${dispYear}`} > <Button href={`#${text}${dispYear}`}>{text}</Button></TableCell>);
+              {texts.map((text, index) => {
+                return (<TableCell key={`${text}${dispYear}`} > <Button href={`#${hrefs[index]}`}>{text}</Button></TableCell>);
               })}
             </TableRow>
           </TableHead>
