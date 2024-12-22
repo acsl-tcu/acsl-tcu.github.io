@@ -48,16 +48,16 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
 }
 
 const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
-
+  const { messages } = useI18nContext();
   const { rows, error } = useDB(["journal", "international", "domestic"], year);
   if (error) { return <div>Error: {error}</div>; }
   return (
     <div>
-      <Typography variant="h4" id={`journal${year}`}>Journal</Typography>
+      <Typography variant="h4" id={`${messages.publicationTab.journal}${year}`}>Journal</Typography>
       <ArticleTable articles={rows[0]} />
-      <Typography variant="h4" id={`international${year}`}>International Conference</Typography>
+      <Typography variant="h4" id={`${messages.publicationTab.international}${year}`}>International Conference</Typography>
       <ArticleTable articles={rows[1]} />
-      <Typography variant="h4" id={`domestic${year}`}>Domestic Conference</Typography>
+      <Typography variant="h4" id={`${messages.publicationTab.domestic}${year}`}>Domestic Conference</Typography>
       <ArticleTable articles={rows[2]} />
     </div>
   );
