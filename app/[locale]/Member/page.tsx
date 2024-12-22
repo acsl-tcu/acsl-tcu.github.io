@@ -56,15 +56,15 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   // console.log(`Member data:  ${rows}`); // 入れると無限ループ：なぜ？
   // フィルタリング 
   // const staffs = rows.filter(member => member.grade !== 'B4' && member.grade !== 'M1' && member.grade !== 'M2');
-  const staffs = rows[0].filter((member: Member) => !["B4", "M1", "M2", "D1", "D2", "D2", "D3", "D4", "D5", "D6", "D7"].includes(member.grade));
-  const doctor_students = rows[0].filter((member: Member) => ["D1", "D2", "D2", "D3", "D4", "D5", "D6", "D7"].includes(member.grade));
+  // const staffs = rows[0].filter((member: Member) => !["B4", "M1", "M2", "D1", "D2", "D2", "D3", "D4", "D5", "D6", "D7"].includes(member.grade));
+  // const doctor_students = rows[0].filter((member: Member) => ["D1", "D2", "D2", "D3", "D4", "D5", "D6", "D7"].includes(member.grade));
   return (
     <div>
       {/* <pre>{JSON.stringify(rows, null, 2)}</pre> */}
       {/* <Typography variant="h4" id={`publication_${year}`}>{year}</Typography> */}
-      <LocaledTable locale={locale} members={rows} grade='Staff' />
-      <LocaledTable locale={locale} members={staffs} grade='Staff' />
-      <LocaledTable locale={locale} members={doctor_students} grade='Doctoral course' />
+      {/* <LocaledTable locale={locale} members={rows} grade='Staff' /> */}
+      {/* <LocaledTable locale={locale} members={staffs} grade='Staff' /> */}
+      {/* <LocaledTable locale={locale} members={doctor_students} grade='Doctoral course' /> */}
       <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M2')} grade='M2' />
       <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M1')} grade='M1' />
       <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'B4')} grade='B4' />
