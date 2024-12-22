@@ -55,7 +55,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   // <pre>{JSON.stringify(rows, null, 2)}</pre>
   return (
     <div>
-      <Typography variant="h4">{year}</Typography>
+      <Typography variant="h4" id={`publication_${year}`}>{year}</Typography>
       {/* {["Staff", "Doctoral course", "M2", "M1", "B4"].map((grade: string) => {
         return (
           <><LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === grade)} grade={grade} />
