@@ -18,7 +18,7 @@ interface Member {
 }
 
 const LocaledTable: React.FC<{ locale: Locale, members: Member[], grade: string }> = ({ locale, members, grade }) => {
-  const tables = members.map((member, index) => (
+  return (
     <><Typography variant="h6">{grade}</Typography>
       <TableContainer component={Paper}>
         <Table>
@@ -29,21 +29,22 @@ const LocaledTable: React.FC<{ locale: Locale, members: Member[], grade: string 
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow key={index}>
-              <TableCell>
-                <a href={member.url || '#'} target="_blank" rel="noopener noreferrer">
-                  {locale === 'en' ? member.name : member.jname}
-                </a>
-              </TableCell>
-              <TableCell>
-                {locale === 'en' ? member.subject : member.jsubject}
-              </TableCell>
-            </TableRow>
+            {members.map((member, index) => (
+              <TableRow key={index}>
+                <TableCell>
+                  <a href={member.url || '#'} target="_blank" rel="noopener noreferrer">
+                    {locale === 'en' ? member.name : member.jname}
+                  </a>
+                </TableCell>
+                <TableCell>
+                  {locale === 'en' ? member.subject : member.jsubject}
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
-    </>));
-  return <>{tables}</>;
+    </>);
 };
 
 const MemberTable: React.FC<{ year: number }> = ({ year }) => {
