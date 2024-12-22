@@ -46,11 +46,11 @@ import YearSelector from '@/app/components/yeatSelector';
 
 const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   // const { locale } = useI18nContext();
-  const { rows, error } = useDB(["member"], year);
+  const { error } = useDB(["member"], year);
   if (error) {
     return <div>Error: {error}</div>;
   }
-  console.log("Member data: ", rows);
+  // console.log("Member data: ", rows);
 
   // <pre>{JSON.stringify(rows, null, 2)}</pre>
   return (
