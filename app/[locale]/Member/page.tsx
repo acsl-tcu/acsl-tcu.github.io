@@ -46,28 +46,28 @@ import YearSelector from '@/app/components/yeatSelector';
 
 const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   // const { locale } = useI18nContext();
-  const { error } = useDB(["member"], year);
+  const { rows, error } = useDB(["member"], year);
   if (error) {
     return <div>Error: {error}</div>;
   }
   // console.log("Member data: ", rows);
 
-  // <pre>{JSON.stringify(rows, null, 2)}</pre>
-  return (
-    <div>
-      <Typography variant="h4" id={`publication_${year}`}>{year}</Typography>
-      {/* {["Staff", "Doctoral course", "M2", "M1", "B4"].map((grade: string) => {
+  //return (
+  <div>
+    <pre>{JSON.stringify(rows, null, 2)}</pre>
+    <Typography variant="h4" id={`publication_${year}`}>{year}</Typography>
+    {/* {["Staff", "Doctoral course", "M2", "M1", "B4"].map((grade: string) => {
         return (
           <><LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === grade)} grade={grade} />
           </>);
       })} */}
-      {/* <LocaledTable locale={locale} members={rows} grade='Staff' /> */}
-      {/* <LocaledTable locale={locale} members={staffs} grade='Staff' />
+    {/* <LocaledTable locale={locale} members={rows} grade='Staff' /> */}
+    {/* <LocaledTable locale={locale} members={staffs} grade='Staff' />
       <LocaledTable locale={locale} members={doctor_students} grade='Doctoral course' />
       <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M2')} grade='M2' />
       <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'M1')} grade='M1' />
       <LocaledTable locale={locale} members={rows[0].filter((member: Member) => member.grade === 'B4')} grade='B4' /> */}
-    </div>
+  </div>
   );
 }
 
