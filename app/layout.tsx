@@ -38,6 +38,7 @@ export default function RootLayout({
         <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
         <meta charSet="utf-8"></meta>
         <meta name="description" content="東京都市大学 理工学部 機械システム工学科 高機能機械制御研究室HP"></meta>
+        <meta name="keywords" content="東京都市大学,機械システム工学科,機械,制御,電機" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <title>
           Advanced Control Systems Lab in TCU
