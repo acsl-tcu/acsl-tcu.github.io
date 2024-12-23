@@ -24,7 +24,7 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
             const author = article.author;
             const magazine = article.magazine;
             const identifier = article.identifier;
-            let title = <>article.title</>;
+            let title = <>{article.title}</>;
             if (title) {
               if (/http/.test(identifier)) {
                 title = <a href={identifier}>{title}</a>;
