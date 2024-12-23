@@ -11,7 +11,7 @@ interface TextProps {
   setDispYear: React.Dispatch<React.SetStateAction<number>>
   hrefs?: string[];
 }
-const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs }) => {
+const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs = [] }) => {
   const thisYear = new Date().getFullYear();
   if (texts) {
     const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
@@ -48,7 +48,7 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs
                 </FormControl>
               </TableCell>
               {texts.map((text, index) => {
-                return (<TableCell key={`${text}${dispYear}`} > <Button href={`#${hrefs[index]}`}>{text}</Button></TableCell>);
+                return (<TableCell key={`${text}${dispYear}`} > <Button key={index} href={`#${hrefs[index]}`}>{text}</Button></TableCell>);
               })}
             </TableRow>
           </TableHead>
