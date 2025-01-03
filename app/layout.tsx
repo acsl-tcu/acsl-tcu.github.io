@@ -1,13 +1,6 @@
 import { ReactNode } from 'react';
 import "./globals.css";
 import Head from 'next/head';
-// export default function RootLayout({ children }: { children: ReactNode }) {
-//   return (
-//     <html>
-//       <body>{children}</body>
-//     </html>
-//   );
-// }
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 

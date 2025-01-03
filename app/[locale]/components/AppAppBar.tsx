@@ -23,6 +23,9 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PlaceIcon from '@mui/icons-material/Place';
+
+import { useI18nRouter } from '@/hooks/useI18nRouter';
+
 // Mapping of icon names to components
 const iconMapping: {
   [key: string]: React.ElementType
@@ -65,6 +68,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
+  const { switchLocale } = useI18nRouter();
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -105,6 +109,10 @@ export default function AppAppBar() {
                 Access
               </NavButton>
             </Box>
+          </Box>
+          <Box><Button variant="outlined" onClick={() => {
+            switchLocale('en');
+          }}>Click me!</Button>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
             <ColorModeIconDropdown size="medium" />
