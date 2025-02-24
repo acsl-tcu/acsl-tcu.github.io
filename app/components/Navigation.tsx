@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { AppBar, Toolbar, Button, Box, Container } from '@mui/material';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';

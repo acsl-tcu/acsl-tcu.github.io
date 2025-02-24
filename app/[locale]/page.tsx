@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from 'react';
 // Assuming you have a function to get the locale const
 import MainContent from './components/MainContent';

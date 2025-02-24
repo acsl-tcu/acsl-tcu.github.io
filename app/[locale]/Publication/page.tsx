@@ -1,3 +1,4 @@
+'use client';
 import { Box, Container, Typography, Paper } from '@mui/material';
 import Navigation from '@/app/components/Navigation';
 import type { Publication } from '@/types';
