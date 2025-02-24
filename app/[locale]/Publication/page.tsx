@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Paper } from '@mui/material';
-import Navigation from '@/components/Navigation';
+import Navigation from '@/app/components/Navigation';
 import type { Publication } from '@/types';
 
 const publications: Publication[] = [
