@@ -1,7 +1,7 @@
 // import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-// import { ThemeProvider } from '@mui/material/styles';
-// import CssBaseline from '@mui/material/CssBaseline';
-// import theme from '@/theme';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from '@/theme';
 import { ReactNode } from 'react';
 import "./globals.css";
 import Head from 'next/head';
@@ -44,7 +44,10 @@ export default function RootLayout({
       </Head>
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
