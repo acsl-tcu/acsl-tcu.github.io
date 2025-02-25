@@ -44,8 +44,9 @@ export default function RootLayout({
       </Head>
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <CssBaseline />
-        {children}
+        <ThemeProvider theme={theme}>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
