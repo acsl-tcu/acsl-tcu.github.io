@@ -11,18 +11,19 @@ export type Messages = {
     title: string;
     text: string;
   },
-  accessTab: {
-    setagayaCampus: string;
-    yokohamaCampus: string;
-    setagayaCampusAddressStr: string;
-    yokohamaCampusAddressStr: string;
-    setagayaCampusLink: string;
-    yokohamaCampusLink: string;
-    sec_address: string;
-    setagayaCampusSec_to: string;
-    yokohamaCampusSec_to: string;
-    link: string;
-  },
+  accessTab: Record<string, string>,
+  // accessTab: {
+  //   setagayaCampus: string;
+  //   yokohamaCampus: string;
+  //   setagayaCampusAddressStr: string;
+  //   yokohamaCampusAddressStr: string;
+  //   setagayaCampusLink: string;
+  //   yokohamaCampusLink: string;
+  //   sec_address: string;
+  //   setagayaCampusSec_to: string;
+  //   yokohamaCampusSec_to: string;
+  //   link: string;
+  // },
   publicationTab: {
     journal: string;
     international: string;
