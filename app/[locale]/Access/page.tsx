@@ -30,6 +30,8 @@ export default function Access() {
           maxWidth: "100%"
         }}
         allowFullScreen></iframe >
+      <h2>{messages.accessTab.sec_time}</h2>
+      <img src={messages.accessTab[campus + "Route"]} alt="主要駅からの乗り換え所要時間" width="100%" />
     </>)
   }
   return (
