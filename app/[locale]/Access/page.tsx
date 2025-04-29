@@ -9,19 +9,20 @@ export default function Access() {
   const campusList = [messages.accessTab.setagayaCampus, messages.accessTab.yokohamaCampus];
   const [value, setValue] = useState<string>(campusList[0]);
 
-  const campusInfo = (str: string) => {
+  const selectCampus = (str: string) => {
     switch (str) {
       case messages.accessTab.setagayaCampus:
-        return (<><a href={messages.accessTab.link} rel="noopener noreferrer"> {messages.accessTab.sec_toSetagayaCampus}</a><br />
-          <div style={{ whiteSpace: 'pre-wrap' }}>
-            {messages.accessTab.setagayaCampusAddressStr}
-          </div></>)
+        return "setagayaCampus"
       case messages.accessTab.yokohamaCampus:
-        return (<><a href={messages.accessTab.link} rel="noopener noreferrer"> {messages.accessTab.sec_toYokohamaCampus}</a><br />
-          <div style={{ whiteSpace: 'pre-wrap' }}>
-            {messages.accessTab.yokohamaCampusAddressStr}
-          </div></>)
+        return "yokohamaCampus"
     }
+  }
+  const campusInfo = (str: string) => {
+    const campus = selectCampus(str)
+    return (<><a href={messages.accessTab.link} rel="noopener noreferrer"> {messages.accessTab.[campus + "Sec_to"]}</a><br />
+      <div style={{ whiteSpace: 'pre-wrap' }}>
+        {messages.accessTab.[campus + "AddressStr"]}
+      </div></>)
   }
   return (
     <Container maxWidth="sm">

@@ -1,5 +1,5 @@
 import { Messages } from '@/types/i18n';
-
+// ここに追加したら /types/i18n.ts にも追加する。
 const messages: Messages = {
   title: "高機能機械制御研究室",
   slogan: '理論を駆使してソフトとハードの両面から制御技術の限界にチャレンジ',
@@ -17,9 +17,11 @@ const messages: Messages = {
     yokohamaCampus: "横浜キャンパス",
     setagayaCampusAddressStr: "〒158-8557 東京都 世田谷区 玉堤 1-28-1 10号館\n 4F : 401-405室 : 野中謙一郎 教授，関口和真 教授",
     yokohamaCampusAddressStr: "〒224-8551 神奈川県 横浜市 都筑区 牛久保西3-3-1",
+    setagayaCampusLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.25017428439!2d139.6488523152565!3d35.59689498021405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM1JzQ4LjgiTiAxMznCsDM5JzAzLjgiRQ!5e0!3m2!1sja!2sjp!4v1458950470602",
+    yokohamaCampusLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.25017428439!2d139.6488523152565!3d35.59689498021405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM1JzQ4LjgiTiAxMznCsDM5JzAzLjgiRQ!5e0!3m2!1sja!2sjp!4v1458950470602",
     sec_address: "住所",
-    sec_toSetagayaCampus: "世田谷キャンパスへのアクセス",
-    sec_toYokohamaCampus: "横浜キャンパスへのアクセス",
+    setagayaCampusSec_to: "世田谷キャンパスへのアクセス",
+    yokohamaCampusSec_to: "横浜キャンパスへのアクセス",
     link: "https://www.tcu.ac.jp/access/"
   },
   publicationTab: {

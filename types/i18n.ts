@@ -16,9 +16,11 @@ export type Messages = {
     yokohamaCampus: string;
     setagayaCampusAddressStr: string;
     yokohamaCampusAddressStr: string;
+    setagayaCampusLink: string;
+    yokohamaCampusLink: string;
     sec_address: string;
-    sec_toSetagayaCampus: string;
-    sec_toYokohamaCampus: string;
+    setagayaCampusSec_to: string;
+    yokohamaCampusSec_to: string;
     link: string;
   },
   publicationTab: {

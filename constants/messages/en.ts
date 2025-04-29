@@ -2,7 +2,7 @@ import { Messages } from '@/types/i18n';
 
 const messages: Messages = {
   title: "Advanced Control Systems Lab.",
-  slogan:"We challenges to the frontier of control technology from both hardware and software.",
+  slogan: "We challenges to the frontier of control technology from both hardware and software.",
   hello: {
     title: 'english hello page',
     greeting: (name: string) => `hello!,${name}`,
@@ -17,9 +17,11 @@ const messages: Messages = {
     yokohamaCampus: "Yokohama Campus",
     setagayaCampusAddressStr: "Setagaya Campus Building 10 : 401-405\n 1-28-1 Tamazutsumi Setagaya-ku Tokyo\n 402 : Prof. Kenichiro Nonaka and Prof. Kazuma Sekiguchi",
     yokohamaCampusAddressStr: "3-3-1 Ushikubo-nishi Tsuzuki-ku Yokohama-shi Kanagawa",
+    setagayaCampusLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.25017428439!2d139.6488523152565!3d35.59689498021405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM1JzQ4LjgiTiAxMznCsDM5JzAzLjgiRQ!5e0!3m2!1sja!2sjp!4v1458950470602",
+    yokohamaCampusLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.25017428439!2d139.6488523152565!3d35.59689498021405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM1JzQ4LjgiTiAxMznCsDM5JzAzLjgiRQ!5e0!3m2!1sja!2sjp!4v1458950470602",
     sec_address: "Address",
-    sec_toSetagayaCampus: "Access to Setagaya Campus",
-    sec_toYokohamaCampus: "Access to Yokohama Campus",
+    setagayaCampusSec_to: "Access to Setagaya Campus",
+    yokohamaCampusSec_to: "Access to Yokohama Campus",
     link: "https://www.tcu.ac.jp/english/about/access/"
   },
   publicationTab: {
