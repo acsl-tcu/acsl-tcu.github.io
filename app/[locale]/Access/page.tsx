@@ -22,7 +22,15 @@ export default function Access() {
     return (<><a href={messages.accessTab.link} rel="noopener noreferrer"> {messages.accessTab[campus + "Sec_to"]}</a><br />
       <div style={{ whiteSpace: 'pre-wrap' }}>
         {messages.accessTab[campus + "AddressStr"]}
-      </div></>)
+      </div>
+      <iframe
+        src={messages.accessTab[campus + "Link"]}
+        width="600" height="450" style={{
+          border: "0",
+          maxWidth: "100%"
+        }}
+        allowFullScreen></iframe >
+    </>)
   }
   return (
     <Container maxWidth="sm">
