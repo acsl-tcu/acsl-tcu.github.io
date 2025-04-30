@@ -7,38 +7,10 @@ export type Messages = {
     greeting: (name: string) => string;
     aboutUs: string;
   },
-  forApplicantTab: {
-    title: string;
-    text: string;
-  },
+  forApplicantTab: Record<string, string>,
   accessTab: Record<string, string>,
-  // accessTab: {
-  //   setagayaCampus: string;
-  //   yokohamaCampus: string;
-  //   setagayaCampusAddressStr: string;
-  //   yokohamaCampusAddressStr: string;
-  //   setagayaCampusLink: string;
-  //   yokohamaCampusLink: string;
-  //   sec_address: string;
-  //   setagayaCampusSec_to: string;
-  //   yokohamaCampusSec_to: string;
-  //   link: string;
-  // },
-  publicationTab: {
-    journal: string;
-    international: string;
-    domestic: string;
-  }
-  lectureTab: {
-    sec_bachelor: string;
-    sec_graduate: string;
-  },
-  header: {
-    tcu: string;
-    faculty: string;
-    department: string;
-  }
-  footer: {
-    copyright: string;
-  }
+  publicationTab: Record<string, string>,
+  lectureTab: Record<string, string>,
+  header: Record<string, string>,
+  footer: Record<string, string>,
 };

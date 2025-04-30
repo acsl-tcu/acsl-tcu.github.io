@@ -19,7 +19,9 @@ export default function Access() {
   }
   const campusInfo = (str: string) => {
     const campus = selectCampus(str);
-    return (<><a href={messages.accessTab.link} rel="noopener noreferrer"> {messages.accessTab[campus + "Sec_to"]}</a><br />
+    return (<>
+      <h2>{messages.accessTab.sec_address}</h2>
+      <a href={messages.accessTab.link} rel="noopener noreferrer"> {messages.accessTab[campus + "Sec_to"]}</a><br />
       <div style={{ whiteSpace: 'pre-wrap' }}>
         {messages.accessTab[campus + "AddressStr"]}
       </div>
