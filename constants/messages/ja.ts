@@ -21,7 +21,7 @@ const messages: Messages = {
     setagayaCampusAddressStr: "〒158-8557 東京都 世田谷区 玉堤 1-28-1 10号館\n 4F : 401-405室 : 野中謙一郎 教授，関口和真 教授",
     setagayaCampusSec_to: "世田谷キャンパスへのアクセス",
     setagayaCampusLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.25017428439!2d139.6488523152565!3d35.59689498021405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM1JzQ4LjgiTiAxMznCsDM5JzAzLjgiRQ!5e0!3m2!1sja!2sjp!4v1458950470602",
-    setagayaCampusRoute: "images/route.gif",
+    setagayaCampusRoute: "/images/route.gif",
     setagayaCampusBus1Link: "http://www.tokyubus.co.jp/jikoku/dia/timechart/646101_2_172581601_0.pdf?",
     setagayaCampusBus1Text: "東急東横線・東急多摩川線「多摩川」駅より東急バス［玉11系統］二子玉川駅行6分　 〈東京都市大南入口〉下車徒歩3分",
     setagayaCampusBus2Link: "http://www.tokyubus.co.jp/jikoku/dia/timechart/646101_1_171512307_0.pdf?",
@@ -32,7 +32,7 @@ const messages: Messages = {
     yokohamaCampusAddressStr: "〒224-8551 神奈川県 横浜市 都筑区 牛久保西3-3-1",
     yokohamaCampusSec_to: "横浜キャンパスへのアクセス",
     yokohamaCampusLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.25017428439!2d139.6488523152565!3d35.59689498021405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM1JzQ4LjgiTiAxMznCsDM5JzAzLjgiRQ!5e0!3m2!1sja!2sjp!4v1458950470602",
-    yokohamaCampusRoute: "images/route.gif",
+    yokohamaCampusRoute: "/images/route.gif",
   },
   publicationTab: {
     journal: "論文誌",
