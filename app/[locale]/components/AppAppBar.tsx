@@ -141,22 +141,16 @@ export default function AppAppBar() {
                   </IconButton>
                 </Box>
                 <NavButton icon="people">
-                  Member
                 </NavButton>
                 <NavButton icon="school">
-                  Research
                 </NavButton>
                 <NavButton icon="library">
-                  Publication
                 </NavButton>
                 <NavButton icon="circle">
-                  For Applicant
                 </NavButton>
                 <NavButton icon="menu">
-                  Lecture
                 </NavButton>
                 <NavButton icon="place">
-                  Access
                 </NavButton>
                 <Divider sx={{ my: 3 }} />
               </Box>
