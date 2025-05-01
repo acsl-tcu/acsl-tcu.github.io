@@ -38,7 +38,7 @@ const iconMapping: {
   place: PlaceIcon
 };
 interface NavButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   icon: string;
 }
 const NavButton = ({ children, icon }: NavButtonProps) => {
@@ -47,7 +47,7 @@ const NavButton = ({ children, icon }: NavButtonProps) => {
   return (
     <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} >
       {IconComponent && <IconComponent />}
-      {children}
+      {children || ""}
     </Button >);
 }
 
