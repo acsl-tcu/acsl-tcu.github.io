@@ -71,12 +71,19 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   );
 }
 
+const MemberPhoto: React.FC<{ year: number }> = ({ year }) => {
+  return (
+    <div><img src={`/images/member/${year}.png`} alt={year} />
+    </div>
+  );
+}
 const MemberPAGE: React.FC = () => {
   const thisYear = new Date().getFullYear();
   const [dispYear, setDispYear] = useState<number>(thisYear);
 
   return (
     <div>
+      <MemberPhoto year={dispYear} />
       <YearSelector texts={["Staff", "Doctoral course", "M2", "M1", "B4"]}
         hrefs={["Staff", "Doctoral course", "M2", "M1", "B4"]} dispYear={dispYear} setDispYear={setDispYear} />
       <MemberTable year={dispYear} />
