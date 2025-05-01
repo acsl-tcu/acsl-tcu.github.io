@@ -53,7 +53,8 @@ const NavButton = ({ children, icon }: NavButtonProps) => {
     // <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} className="hover: text-black">
     //   {IconComponent && <IconComponent />}
     //   {children || ""}
-    // </Button >);
+    // </Button >
+  );
 }
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
