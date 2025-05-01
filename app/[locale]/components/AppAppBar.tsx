@@ -1,5 +1,6 @@
 "use client";
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import { alpha, styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
@@ -45,10 +46,14 @@ const NavButton = ({ children, icon }: NavButtonProps) => {
   const { locale } = useI18nContext();
   const IconComponent = iconMapping[icon.replace(/\s+/g, "")]; // Resolve the icon component
   return (
-    <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} className="hover: text-black">
+    <NavLink to={`/${locale}/${children}`} className="hover: text-black">
       {IconComponent && <IconComponent />}
       {children || ""}
-    </Button >);
+    </NavLink>
+    // <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} className="hover: text-black">
+    //   {IconComponent && <IconComponent />}
+    //   {children || ""}
+    // </Button >);
 }
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -115,7 +120,7 @@ export default function AppAppBar() {
             </Box>
           </Box>
           <Box><Button variant="outlined" onClick={() => {
-            switchLocale('en');
+            switchLocale(locale === 'ja' ? 'en' : 'ja');
           }}>Click me!</Button>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
@@ -162,6 +167,6 @@ export default function AppAppBar() {
           </Box>
         </StyledToolbar>
       </Container>
-    </AppBar>
+    </AppBar >
   );
 }
