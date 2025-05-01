@@ -34,7 +34,7 @@ export default function Access() {
         }}
         allowFullScreen></iframe >
       <h2>{messages.accessTab.sec_time}</h2>
-      <Image src={messages.accessTab[campus + "Route"]} alt="主要駅からの乗り換え所要時間" width="100%" />
+      <Image src={messages.accessTab[campus + "Route"]} alt="主要駅からの乗り換え所要時間" className="max-w-full h-auto" />
     </>)
   }
   return (
