@@ -8,6 +8,8 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import YearSelector from '@/app/components/yeatSelector';
+import Image from "next/image";
+
 interface Member {
   jname: string;
   jsubject: string;
@@ -73,7 +75,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
 
 const MemberPhoto: React.FC<{ year: number }> = ({ year }) => {
   return (
-    <div><img src={`/images/member/${year}.png`} alt={year} />
+    <div><Image src={`/images/member/${year}.png`} alt={year} />
     </div>
   );
 }
