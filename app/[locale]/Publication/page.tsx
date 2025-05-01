@@ -28,8 +28,7 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
             let title = <>{article.title}</>;
             if (title) {
               if (/http/.test(identifier)) {
-                title = <Link href={identifier} className="text-blue-500 underline hover:text-blue-700">
->{title}</Link>;
+                title = <Link href={identifier} className="text-blue-500 underline hover:text-blue-700">{title}</Link>;
               } else if (identifier) {
                 title = <Link href={`http://doi.org/${identifier}`} className="text-blue-500 underline hover:text-blue-700">{title}</Link>;
               }
