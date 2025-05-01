@@ -28,9 +28,9 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
             let title = <>{article.title}</>;
             if (title) {
               if (/http/.test(identifier)) {
-                title = <a href={identifier}>{title}</a>;
+                title = <Link href={identifier}>{title}</Link>;
               } else if (identifier) {
-                title = <a href={`http://doi.org/${identifier}`}>{title}</a>;
+                title = <Link href={`http://doi.org/${identifier}`}>{title}</Link>;
               }
               return (
                 <TableRow key={index}>
