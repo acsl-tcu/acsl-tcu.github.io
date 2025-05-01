@@ -89,7 +89,11 @@ export default function AppAppBar() {
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
             {/* <Sitemark /> */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{
+              // display: { xs: 'none', md: 'flex' },
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}>
               <NavButton icon="people">
                 Member
               </NavButton>
