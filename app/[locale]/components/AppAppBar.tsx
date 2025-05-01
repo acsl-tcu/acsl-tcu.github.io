@@ -45,7 +45,7 @@ const NavButton = ({ children, icon }: NavButtonProps) => {
   const { locale } = useI18nContext();
   const IconComponent = iconMapping[icon.replace(/\s+/g, "")]; // Resolve the icon component
   return (
-    <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} >
+    <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} className="hover: text-black">
       {IconComponent && <IconComponent />}
       {children || ""}
     </Button >);
@@ -91,7 +91,7 @@ export default function AppAppBar() {
             {/* <Sitemark /> */}
             <Box sx={{
               // display: { xs: 'none', md: 'flex' },
-              display: 'flex',
+              display: 'flex space-x-4',
               justifyContent: 'flex-end',
             }}>
               <NavButton icon="people">
