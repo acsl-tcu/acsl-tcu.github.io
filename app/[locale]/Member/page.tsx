@@ -75,7 +75,7 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
 
 const MemberPhoto: React.FC<{ year: number }> = ({ year }) => {
   return (
-    <div><Image src={`/images/member/${year}.png`} alt={year} />
+    <div><Image src={`/images/member/${year.toString}.png`} alt={year} />
     </div>
   );
 }

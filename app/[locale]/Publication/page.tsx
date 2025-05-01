@@ -5,6 +5,7 @@ import { Table, TableBody, TableCell, TableContainer, TableRow, Paper } from '@m
 import { Typography } from '@mui/material';
 import { useState } from 'react';
 import YearSelector from '@/app/components/yeatSelector';
+import Link from "next/link";
 
 interface Article {
   author: string;

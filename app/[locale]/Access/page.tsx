@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useI18nContext } from '@/contexts/i18nContext';
 import Container from '@mui/material/Container';
 import Selector from '@/app/components/selector';
+import Image from "next/image";
 
 export default function Access() {
   const { messages } = useI18nContext();
@@ -33,7 +34,7 @@ export default function Access() {
         }}
         allowFullScreen></iframe >
       <h2>{messages.accessTab.sec_time}</h2>
-      <img src={messages.accessTab[campus + "Route"]} alt="主要駅からの乗り換え所要時間" width="100%" />
+      <Image src={messages.accessTab[campus + "Route"]} alt="主要駅からの乗り換え所要時間" width="100%" />
     </>)
   }
   return (
