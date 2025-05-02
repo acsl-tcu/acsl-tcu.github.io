@@ -1,6 +1,5 @@
 "use client";
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
 import { alpha, styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
@@ -46,14 +45,10 @@ const NavButton = ({ children, icon }: NavButtonProps) => {
   const { locale } = useI18nContext();
   const IconComponent = iconMapping[icon.replace(/\s+/g, "")]; // Resolve the icon component
   return (
-    <NavLink to={`/${locale}/${children}`} className="hover: text-black">
+    <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} className="hover: text-black">
       {IconComponent && <IconComponent />}
       {children || ""}
-    </NavLink>
-    // <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} className="hover: text-black">
-    //   {IconComponent && <IconComponent />}
-    //   {children || ""}
-    // </Button >
+    </Button >
   );
 }
 
