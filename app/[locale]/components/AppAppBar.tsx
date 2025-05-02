@@ -75,7 +75,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
   const { switchLocale } = useI18nRouter();
-
+  const { locale } = useI18nContext();
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
