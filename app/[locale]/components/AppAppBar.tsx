@@ -69,6 +69,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
   const { switchLocale } = useI18nRouter();
+  const { locale } = useI18nContext();
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -115,7 +116,7 @@ export default function AppAppBar() {
             </Box>
           </Box>
           <Box><Button variant="outlined" onClick={() => {
-            switchLocale('en');
+            switchLocale(locale === 'en' ? 'ja' : 'en');
           }}>Click me!</Button>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
