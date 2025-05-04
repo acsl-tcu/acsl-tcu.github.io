@@ -10,7 +10,7 @@ const nextConfig = {
       config.plugins.push(new BundleAnalyzerPlugin());
     }
     if (!isServer) {
-      config.optimization.splitChunks.cacheGroups = { default: false, };
+      // config.optimization.splitChunks.cacheGroups = {default: false, };
       config.optimization.runtimeChunk = 'single';
       config.module.rules.push({
         test: /\.mjs$/,

@@ -12,9 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^7.0.2",
     "@mui/material": "^7.0.2",
-    "@mui/material-nextjs": "^7.0.2",
     "markdown-to-jsx": "^7.7.1",
     "mui": "^0.0.1",
     "next": "^15.3.0",
@@ -31,6 +29,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
     "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.5",
     "typescript": "^5",
     "webpack-bundle-analyzer": "^4.10.2"
   }

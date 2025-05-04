@@ -1,168 +1,99 @@
 "use client";
-import * as React from 'react';
-import { alpha, styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
-// import MenuItem from '@mui/material/MenuItem';
-import Drawer from '@mui/material/Drawer';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-//import Sitemark from './SitemarkIcon';
-import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
+import * as React from "react";
+import { useI18nContext } from "@/contexts/i18nContext";
+import { useI18nRouter } from "@/hooks/useI18nRouter";
 
-import { useI18nContext } from '@/contexts/i18nContext';
+// import ColorModeIconDropdown from "../shared-theme/ColorModeIconDropdown";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
-import PeopleIcon from '@mui/icons-material/People';
-import SchoolIcon from '@mui/icons-material/School';
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import PlaceIcon from '@mui/icons-material/Place';
+// // アイコンのマッピング
+// import {
+//   People as PeopleIcon,
+//   School as SchoolIcon,
+//   LibraryBooks as LibraryBooksIcon,
+//   AddCircle as AddCircleIcon,
+//   MenuBook as MenuBookIcon,
+//   Place as PlaceIcon,
+// } from "@mui/icons-material";
 
-import { useI18nRouter } from '@/hooks/useI18nRouter';
+// const iconMapping: { [key: string]: React.ElementType } = {
+//   people: PeopleIcon,
+//   school: SchoolIcon,
+//   library: LibraryBooksIcon,
+//   circle: AddCircleIcon,
+//   menu: MenuBookIcon,
+//   place: PlaceIcon,
+// };
 
-// Mapping of icon names to components
-const iconMapping: {
-  [key: string]: React.ElementType
-} = {
-  people: PeopleIcon,
-  school: SchoolIcon,
-  library: LibraryBooksIcon,
-  circle: AddCircleIcon,
-  menu: MenuBookIcon,
-  place: PlaceIcon
-};
 interface NavButtonProps {
   children?: React.ReactNode;
   icon: string;
 }
+
 const NavButton = ({ children, icon }: NavButtonProps) => {
   const { locale } = useI18nContext();
-  const IconComponent = iconMapping[icon.replace(/\s+/g, "")]; // Resolve the icon component
+  // const IconComponent = iconMapping[icon.replace(/\s+/g, "")];
+
   return (
-    <Button variant="text" color="info" size="small" href={`/${locale}/${children}`} className="hover: text-black">
-      {IconComponent && <IconComponent />}
-      {children || ""}
-    </Button >
+    <a href={`/${locale}/${children}`} className="text-gray-700 hover:text-black flex items-center gap-2">
+      {icon} {/* {IconComponent && <IconComponent />} */}
+      {children}
+    </a>
   );
-}
-
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  flexShrink: 0,
-  borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
-  backdropFilter: 'blur(24px)',
-  border: '1px solid',
-  borderColor: theme.palette.divider,
-  backgroundColor: alpha(theme.palette.background.default, 0.4),
-  boxShadow: theme.shadows[1],
-  padding: '8px 12px',
-}));
-
+};
 
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
   const { switchLocale } = useI18nRouter();
   const { locale } = useI18nContext();
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
-  };
+
+  const toggleDrawer = (newOpen: boolean) => () => setOpen(newOpen);
 
   return (
-    <AppBar
-      position="sticky"
-      enableColorOnDark
-      sx={{
-        boxShadow: 0,
-        bgcolor: 'transparent',
-        backgroundImage: 'none',
-        mt: 'calc(var(--template-frame-height, 0px) + 28px)',
-      }}
-    >
-      <Container maxWidth="lg">
-        <StyledToolbar variant="dense" disableGutters>
-          <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
-            {/* <Sitemark /> */}
-            <Box sx={{
-              // display: { xs: 'none', md: 'flex' },
-              display: 'flex space-x-4',
-              justifyContent: 'flex-end',
-            }}>
-              <NavButton icon="people">
-                Member
-              </NavButton>
-              <NavButton icon="school">
-                Research
-              </NavButton>
-              <NavButton icon="library">
-                Publication
-              </NavButton>
-              <NavButton icon="circle">
-                For Applicant
-              </NavButton>
-              <NavButton icon="menu">
-                Lecture
-              </NavButton>
-              <NavButton icon="place">
-                Access
-              </NavButton>
-            </Box>
-          </Box>
-          <Box><Button variant="outlined" onClick={() => {
-            switchLocale(locale === 'ja' ? 'en' : 'ja');
-          }}>Click me!</Button>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
-            <ColorModeIconDropdown size="medium" />
-            <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
-              <MenuIcon />
-            </IconButton>
-            <Drawer
-              anchor="top"
-              open={open}
-              onClose={toggleDrawer(false)}
-              PaperProps={{
-                sx: {
-                  top: 'var(--template-frame-height, 0px)',
-                },
-              }}
-            >
-              <Box sx={{ p: 2, backgroundColor: 'background.default' }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                  }}
-                >
-                  <IconButton onClick={toggleDrawer(false)}>
-                    <CloseRoundedIcon />
-                  </IconButton>
-                </Box>
-                <NavButton icon="people">
-                </NavButton>
-                <NavButton icon="school">
-                </NavButton>
-                <NavButton icon="library">
-                </NavButton>
-                <NavButton icon="circle">
-                </NavButton>
-                <NavButton icon="menu">
-                </NavButton>
-                <NavButton icon="place">
-                </NavButton>
-                <Divider sx={{ my: 3 }} />
-              </Box>
-            </Drawer>
-          </Box>
-        </StyledToolbar>
-      </Container>
-    </AppBar >
+    <header className="sticky top-0 bg-opacity-40 backdrop-blur-md border border-gray-300 shadow-md p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <nav className="hidden md:flex space-x-4">
+          <NavButton icon="people">Member</NavButton>
+          <NavButton icon="school">Research</NavButton>
+          <NavButton icon="library">Publication</NavButton>
+          <NavButton icon="circle">For Applicant</NavButton>
+          <NavButton icon="menu">Lecture</NavButton>
+          <NavButton icon="place">Access</NavButton>
+        </nav>
+
+        <button
+          onClick={() => switchLocale(locale === "ja" ? "en" : "ja")}
+          className="border border-gray-500 px-3 py-1 rounded-md hover:bg-gray-200"
+        >
+          Click me!
+        </button>
+
+        <div className="md:hidden flex gap-2">
+          {/* <ColorModeIconDropdown size="medium" /> */}
+          <button onClick={toggleDrawer(true)} aria-label="Menu button">
+            aa  {/* <MenuIcon /> */}
+          </button>
+        </div>
+      </div>
+
+      {open && (
+        <div className="absolute inset-x-0 top-12 bg-white p-4 shadow-md">
+          <div className="flex justify-end">
+            <button onClick={toggleDrawer(false)}>
+              bb {/* <CloseRoundedIcon /> */}
+            </button>
+          </div>
+          <nav className="flex flex-col space-y-2">
+            <NavButton icon="people">Member</NavButton>
+            <NavButton icon="school">Research</NavButton>
+            <NavButton icon="library">Publication</NavButton>
+            <NavButton icon="circle">For Applicant</NavButton>
+            <NavButton icon="menu">Lecture</NavButton>
+            <NavButton icon="place">Access</NavButton>
+          </nav>
+        </div>
+      )}
+    </header>
   );
 }
