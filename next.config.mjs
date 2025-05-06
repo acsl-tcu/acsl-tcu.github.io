@@ -1,6 +1,6 @@
-import type { NextConfig } from 'next'
+// next.config.mjs
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
 
   async redirects() {
@@ -15,8 +15,8 @@ const nextConfig: NextConfig = {
         destination: '/en/Home',
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
