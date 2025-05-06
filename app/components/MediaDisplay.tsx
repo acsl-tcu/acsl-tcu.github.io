@@ -1,6 +1,6 @@
 // components/MediaDisplay.tsx
 import React from 'react';
-
+import Image from "next/image";
 interface MediaProps {
   src: string;
   caption: string;
@@ -14,7 +14,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
   if (isImage) {
     return (
       <div className="article-content-box">
-        <img className="article-figure" src={`img/${src}`} alt={caption} />
+        <Image className="article-figure" src={`img/${src}`} alt={caption} />
         <legend style={{ textAlign: 'justify' }}>
           Fig. {index} : {caption}
         </legend>
@@ -24,7 +24,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
     const videoType = src.match(/.*\.(mp4|avi)$/)?.[1];
     return (
       <div className="article-content-box">
-        <video className="article-figure" src={`img/${src}`} controls type={`video/${videoType}`}>
+        <video className="article-figure" src={`images/${src}`} controls type={`video/${videoType}`}>
           <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
         </video>
         <legend>Movie {index} : {caption}</legend>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useI18nContext } from '@/contexts/i18nContext';
-import { FB } from '@/app/components/FacebookSDK';
 
 export default function ForApplicant() {
   const { messages } = useI18nContext();

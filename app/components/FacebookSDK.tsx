@@ -7,8 +7,8 @@ export const FB = () => {
 
   useEffect(() => {
     // Facebook SDK がロードされた後、XFBML を解析
-    if ((window as any).FB && typeof (window as any).FB.XFBML.parse === 'function') {
-      (window as any).FB.XFBML.parse()
+    if (window.FB && typeof window.FB.XFBML.parse === 'function') {
+      window.FB.XFBML.parse()
     }
   }, [])
 

@@ -60,8 +60,8 @@ const MemberTable: React.FC<{ year: number }> = ({ year }) => {
   return (
     <div className="prose max-w-none">
       <h1 className="text-2xl font-bold mb-4" id={`publication_${year}`}>{year}</h1>
-      <LocaledTable locale={locale} members={all.filter(m => isStaff(m.grade))} grade='Staff' />
-      <LocaledTable locale={locale} members={all.filter(m => isDoctor(m.grade))} grade='Doctoral course' />
+      <LocaledTable locale={locale} members={all.filter((m: Member) => isStaff(m.grade))} grade='Staff' />
+      <LocaledTable locale={locale} members={all.filter((m: Member) => isDoctor(m.grade))} grade='Doctoral course' />
       <LocaledTable locale={locale} members={all.filter(isGrade('M2'))} grade='M2' />
       <LocaledTable locale={locale} members={all.filter(isGrade('M1'))} grade='M1' />
       <LocaledTable locale={locale} members={all.filter(isGrade('B4'))} grade='B4' />
