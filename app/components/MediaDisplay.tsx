@@ -24,8 +24,9 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
     const videoType = src.match(/.*\.(mp4|avi)$/)?.[1];
     return (
       <div className="article-content-box">
-        <video className="article-figure" src={`images/${src}`} controls type={`video/${videoType}`}>
-          <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
+        <video className="article-figure" src={`/images/${src}`} controls>
+          <source src={`/images/${src}`} type={`video/${videoType}`} />
+          <p>動画を再生するには video タグをサポートしたブラウザが必要です。</p>
         </video>
         <legend>Movie {index} : {caption}</legend>
       </div>
