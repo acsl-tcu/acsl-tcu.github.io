@@ -3,8 +3,8 @@ import { locales } from '@/constants/i18n';
 import { Locale } from '@/types/i18n';
 
 // import '@/styles/main.scss';
-import AppAppBar from './components/AppAppBar';
-// import Footer from './components/Footer';
+import NavBar from './components/NavBar';
+import Title from './components/Title';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -22,16 +22,17 @@ export default async function LocaleLayout({
   params,
 }: LayoutProps) {
   const { locale } = await params; // awaitで非同期データ取得
-
   return (
-    <html lang={locale}>
+    <>
       <I18nProvider locale={locale}>
-        <AppAppBar />
-        <main className="container mx-auto flex flex-col my-16 gap-4 px-4">
+        <header className="sticky top-0 bg-white dark:bg-gray-900 bg-opacity-40 backdrop-blur-md border-b border-gray-300 shadow-md">
+          <Title />
+          <NavBar />
+        </header>
+        <main className="container mx-auto flex flex-col">
           {children}
-          {/* <Footer /> */}
         </main>
       </I18nProvider>
-    </html>
+    </>
   );
 }
