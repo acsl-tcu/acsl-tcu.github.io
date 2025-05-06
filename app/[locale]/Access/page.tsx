@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import { useI18nContext } from '@/contexts/i18nContext';
-import Container from '@mui/material/Container';
 import Selector from '@/app/components/selector';
 import Image from "next/image";
 
@@ -14,7 +13,7 @@ export default function Access() {
     switch (str) {
       case messages.accessTab.yokohamaCampus:
         return "yokohamaCampus"
-      default: //case messages.accessTab.setagayaCampus:
+      default:
         return "setagayaCampus"
     }
   }
@@ -34,13 +33,14 @@ export default function Access() {
         }}
         allowFullScreen></iframe >
       <h2>{messages.accessTab.sec_time}</h2>
-      <Image src={messages.accessTab[campus + "Route"]} alt="主要駅からの乗り換え所要時間" className="max-w-full h-auto" />
+      <Image src={messages.accessTab[campus + "Route"]} alt="主要駅からの乗り換え所要時間"
+        width="600" height="450" className="object-cover" />
     </>)
   }
   return (
-    <Container maxWidth="sm">
+    <div>
       <Selector setValue={setValue} title="Campus" contents={campusList} />
       {campusInfo(value)}
-    </Container>
+    </div>
   );
 }
