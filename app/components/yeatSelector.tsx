@@ -1,63 +1,62 @@
-'use client';
-import { Table, TableCell, TableContainer, TableRow, TableHead, Paper, Button } from '@mui/material';
-import { MenuItem } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
-// プロパティの型定義 
+'use client'
+import React from 'react'
+
 interface TextProps {
-  texts: string[];
-  dispYear: number,
+  texts: string[]
+  dispYear: number
   setDispYear: React.Dispatch<React.SetStateAction<number>>
-  hrefs?: string[];
+  hrefs?: string[]
 }
+
 const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs = [] }) => {
-  const thisYear = new Date().getFullYear();
-  if (texts) {
-    const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index);
+  const thisYear = new Date().getFullYear()
+  const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index)
 
-    const handleChange = (event: SelectChangeEvent) => {
-      setDispYear(Number(event.target.value));
-    };
-
-    if (!hrefs || hrefs.length === 0) {
-      hrefs = texts.map((text) => {
-        return `${text} ${dispYear}`;
-      });
-    }
-
-    return (<>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <FormControl fullWidth>
-                  <InputLabel id="select-label">Year</InputLabel>
-                  <Select
-                    labelId="select-label"
-                    id="simple-select"
-                    value={String(dispYear)}
-                    label="year"
-                    onChange={handleChange}
-                  >
-                    {year_list.map((year: number) => (
-                      <MenuItem key={year} value={year} > {year} </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </TableCell>
-              {texts.map((text, index) => {
-                return (<TableCell key={`${text}${dispYear}`} > <Button key={index} href={`#${hrefs[index]}`}>{text}</Button></TableCell>);
-              })}
-            </TableRow>
-          </TableHead>
-        </Table>
-      </TableContainer >
-    </>);
-  } else {
-    return (<></>);
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setDispYear(Number(event.target.value))
   }
+
+  if (!hrefs || hrefs.length === 0) {
+    hrefs = texts.map((text) => `${text} ${dispYear}`)
+  }
+
+  return (
+    <div className="bg-white border border-gray-200 shadow-md rounded-2xl p-4">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+        {/* 年セレクター */}
+        <div className="w-full lg:w-56">
+          <label htmlFor="year-select" className="block mb-1 text-sm font-semibold text-gray-700">
+            Select Year
+          </label>
+          <select
+            id="year-select"
+            value={dispYear}
+            onChange={handleChange}
+            className="w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          >
+            {year_list.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* テキストボタン群 */}
+        <div className="flex flex-wrap gap-3">
+          {texts.map((text, index) => (
+            <a
+              key={`${text}${dispYear}`}
+              href={`#${hrefs[index]}`}
+              className="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg hover:scale-[1.03] active:scale-100"
+            >
+              {text}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 }
 
-export default YearSelector;
+export default YearSelector

@@ -1,8 +1,4 @@
 import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface SelectorProps {
   title: string;
@@ -13,32 +9,30 @@ interface SelectorProps {
 const Selector: React.FC<SelectorProps> = ({ title, contents, setValue }) => {
   const [selectorValue, setSelectorValue] = React.useState(contents[0]);
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectorValue(event.target.value);
     setValue(event.target.value);
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id="demo-simple-select-autowidth-label">{title}</InputLabel>
-        <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={selectorValue}
-          onChange={handleChange}
-          autoWidth
-          label={title}
-        >
-          {contents.map((i, index) => (
-            <MenuItem key={index} value={i}>
-              {i}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+    <div className="m-2 min-w-[80px]">
+      <label htmlFor="selector" className="block mb-1 text-sm font-medium text-gray-700">
+        {title}
+      </label>
+      <select
+        id="selector"
+        value={selectorValue}
+        onChange={handleChange}
+        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+      >
+        {contents.map((item, index) => (
+          <option key={index} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
     </div>
   );
-}
+};
 
 export default Selector;

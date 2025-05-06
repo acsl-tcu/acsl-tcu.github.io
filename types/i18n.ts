@@ -2,9 +2,8 @@ export type Locale = 'en' | 'ja';
 export type Messages = {
   title: string,
   slogan: string,
-  hello: {
-    title: string;
-    greeting: (name: string) => string;
+  links: Record<string, string>,
+  home: {
     aboutUs: string;
   },
   forApplicantTab: Record<string, string>,
