@@ -20,5 +20,5 @@ Ok to proceed? (y)
 ```bash
 npm install next-i18next react-i18next i18next
 npm install clsx # 
-npm install lucide-react # 各種アイコン
+npm install lucide-react react-icons # 各種アイコン
 ```
