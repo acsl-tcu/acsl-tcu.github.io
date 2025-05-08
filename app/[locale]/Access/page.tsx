@@ -39,7 +39,7 @@ export default function Access() {
   }
   return (
     <div>
-      <Selector setValue={setValue} title="Campus" contents={campusList} />
+      <Selector setValue={setValue} title="Select Campus" contents={campusList} />
       {campusInfo(value)}
     </div>
   );

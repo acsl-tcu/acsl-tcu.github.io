@@ -27,11 +27,6 @@ export default function NavBar() {
     <>
       <nav className="bg-gray dark:bg-gray-900 shadow w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-screen items-center justify-center">
-            <h1 className="bg-blue-700 text-3xl font-bold text-blue-500">
-              Tailwind CSS は動作しています！
-            </h1>
-          </div>
           <ul className="h-12 flex items-center justify-between">
             {navItems.map(({ icon: Icon, label, href }) => (
               <li key={label} className="flex-1">

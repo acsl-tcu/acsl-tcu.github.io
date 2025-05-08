@@ -25,7 +25,7 @@ export default async function LocaleLayout({
   return (
     <>
       <I18nProvider locale={locale}>
-        <header className="sticky top-0 bg-white dark:bg-gray-900 bg-opacity-40 backdrop-blur-md border-b border-gray-300 shadow-md">
+        <header className="sm:sticky sm:top-0 bg-white dark:bg-gray-900 bg-opacity-40 backdrop-blur-md border-b border-gray-300 shadow-md">
           <Title />
           <NavBar />
         </header>

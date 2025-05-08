@@ -32,15 +32,15 @@ body {
 /* ====== カスタムベーススタイル ====== */
 @layer base {
   body {
-    @apply bg-white text-gray-900 font-sans leading-relaxed dark:bg-neutral-900 dark:text-white;
+    @apply m-4 bg-white text-gray-900 font-sans leading-relaxed dark:bg-neutral-900 dark:text-white;
   }
 
   h1 {
-    @apply text-4xl font-bold tracking-tight mb-4 mt-8;
+    @apply text-2xl font-bold tracking-tight mb-2 mt-4;
   }
 
   h2 {
-    @apply text-3xl font-semibold tracking-tight mb-4 mt-6;
+    @apply text-2xl font-semibold tracking-tight mb-4 mt-6;
   }
 
   h3 {
