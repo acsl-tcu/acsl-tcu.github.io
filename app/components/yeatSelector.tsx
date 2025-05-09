@@ -23,7 +23,7 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs
     <div className="bg-white border border-gray-200 shadow-md rounded-4sm p-4">
       <div className="flex lg:flex-col">
         {/* 年セレクター */}
-        <div className="w-full lg:w-56">
+        <div className="flex items-center m-2">
           <label htmlFor="year-select" className="block mb-1 text-sm font-semibold text-gray-700">
             Select Year
           </label>
