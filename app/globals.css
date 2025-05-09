@@ -40,11 +40,11 @@ body {
   }
 
   h2 {
-    @apply text-2xl font-semibold tracking-tight mb-4 mt-6;
+    @apply text-2xl font-semibold tracking-tight mt-4;
   }
 
   h3 {
-    @apply text-2xl font-semibold mb-2 mt-4;
+    @apply text-2xl font-semibold mt-2;
   }
 
   p {
