@@ -21,9 +21,9 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs
 
   return (
     <div className="bg-white border border-gray-200 shadow-md rounded-4sm p-4">
-      <div className="flex lg:flex-col">
+      <div className="flex items-end gap-3 m-2">
         {/* 年セレクター */}
-        <div className="flex items-center m-2">
+        <div className="flex-col ">
           <label htmlFor="year-select" className="block mb-1 text-sm font-semibold text-gray-700">
             Select Year
           </label>
@@ -42,7 +42,7 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs
         </div>
 
         {/* テキストボタン群 */}
-        <div className="flex items-center gap-3 m-2">
+        <div className="flex items-end gap-3 m-2">
           {texts.map((text, index) => (
             <a
               key={`${text}${dispYear}`}
