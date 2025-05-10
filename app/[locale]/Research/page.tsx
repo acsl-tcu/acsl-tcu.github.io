@@ -62,7 +62,7 @@ interface MediaData {
 //   jfigure10_caption: string
 // }
 
-function adjustData(table: string) {
+function useAdjustData(table: string) {
   const year = new Date().getFullYear();
   const { rows, error } = useDB([table], year);
   const { locale } = useI18nContext();
@@ -86,7 +86,7 @@ function adjustData(table: string) {
 }
 
 const ApplicationTable: React.FC = () => {
-  const { data, error } = adjustData("application");
+  const { data, error } = useAdjustData("application");
 
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
@@ -168,7 +168,7 @@ const ApplicationTable: React.FC = () => {
 }
 
 const MethodTable: React.FC = () => {
-  const { data, error } = adjustData("method");
+  const { data, error } = useAdjustData("method");
 
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
