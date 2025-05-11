@@ -1,6 +1,5 @@
 'use client';
 // GitHub Pages 対応: github.ioでは、Next.js の middleware や next.config.js の redirects() を使用したページ遷移が機能しません。
-
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
