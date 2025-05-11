@@ -1,15 +1,10 @@
-'use client';
+import { redirect } from 'next/navigation';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-
-export default function LocaleRedirect({ params }: { params: { locale: string } }) {
-  const router = useRouter();
-  const { locale } = params;
-
-  useEffect(() => {
-    router.replace(`/${locale}/Home`);
-  }, [locale, router]);
-
-  return null;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  redirect(`/${locale}/Home`);
 }

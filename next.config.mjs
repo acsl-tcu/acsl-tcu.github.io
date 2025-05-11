@@ -1,23 +1,7 @@
-// next.config.mjs
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
-  async redirects() {
-    return [
-      {
-        source: '/ja',
-        destination: '/ja/Home',
-        permanent: true,
-      },
-      {
-        source: '/en',
-        destination: '/en/Home',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
