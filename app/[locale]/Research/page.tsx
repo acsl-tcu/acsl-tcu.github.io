@@ -64,11 +64,14 @@ interface MediaData {
 
 function useAdjustData(table: string) {
   const year = new Date().getFullYear();
+  console.log(table);
   const { rows, error } = useDB([table], year);
   const { locale } = useI18nContext();
   const lang = locale === 'en' ? '' : 'j';
   if (!rows || rows.length === 0)
     return { error };
+  console.log("== ROWS ========================");
+  console.log(rows);
 
   const data: MediaData[] = rows.map((row: Record<string, string>) => ({
     name: row.application_name,
@@ -164,7 +167,6 @@ const ApplicationTable: React.FC = () => {
       }
     </>
   );
-
 }
 
 const MethodTable: React.FC = () => {
@@ -173,6 +175,9 @@ const MethodTable: React.FC = () => {
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
+
+  console.log("== DATA ========================");
+  console.log(data);
 
   return (
     <>
