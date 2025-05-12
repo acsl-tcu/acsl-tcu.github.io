@@ -73,7 +73,7 @@ function useAdjustData(table: string) {
   console.log("== ROWS ========================");
   console.log(rows);
 
-  const data: MediaData[] = rows.map((row: Record<string, string>) => ({
+  const data: MediaData[] = rows[0].map((row: Record<string, string>) => ({
     name: row.application_name,
     type: row.type,
     role: row.role,
@@ -85,6 +85,7 @@ function useAdjustData(table: string) {
     })).filter(f => f.src)
   })
   );
+  console.log(data);
   return { data, error }
 }
 
