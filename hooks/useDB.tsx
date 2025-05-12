@@ -35,7 +35,7 @@ const useDB = (tables: string[], year: number) => {
       }
     }
     fetchData();
-  }, []);//tables, year
+  }, [year]);//tables, year
 
   return { rows, error };
 };

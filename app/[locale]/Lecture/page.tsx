@@ -55,7 +55,7 @@ const LectureTable: React.FC<{ year: number }> = ({ year }) => {
   if (error) return <div className="text-red-500">Error: {error}</div>;
   if (!rows || rows.length === 0) return <div className="text-gray-500">Loading...</div>;
 
-  console.log(rows);
+  // console.log(rows);
   const undergraduate = rows[0].filter((obj: Lecture) => !obj.id.includes("sm") && !obj.id.includes("sd"));
   const graduate = rows[0].filter((obj: Lecture) => obj.id.includes("sm") || obj.id.includes("sd"));
 
