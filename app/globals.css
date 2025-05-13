@@ -36,11 +36,11 @@ body {
   }
 
   h1 {
-    @apply text-[min(13vw,30px)] font-bold tracking-tight mb-2 mt-4 text-gray-900 border-l-4 border-blue-500 pl-2;
+    @apply text-[min(13vw,30px)] font-bold tracking-tight mb-2 mt-4 text-gray-700;
   }
 
   h2 {
-    @apply text-3xl font-semibold tracking-tight mb-1 mt-4;
+    @apply text-3xl font-semibold tracking-tight mb-1 mt-4  text-gray-700 border-l-4 border-blue-500 pl-2;
   }
 
   h3 {
