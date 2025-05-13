@@ -43,7 +43,8 @@ function useAdjustData(table: string) {
   return { data, error }
 }
 
-const MethodTopic: React.FC<{ item: MediaData }> = ({ item }) => {
+
+const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
   const [showContent, setShowContent] = useState(false);
   return (
     <div key={item.title} className="max-w-4xl mx-auto p-4"><button className="text-xl font-semibold hover:underline  focus:outline-none"
@@ -57,33 +58,26 @@ const MethodTopic: React.FC<{ item: MediaData }> = ({ item }) => {
     </div>
   );
 }
+
 const MethodTable: React.FC = () => {
   const { data, error } = useAdjustData("method");
 
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
-  console.log("=================");
-  console.log(data);
   return (
     <>
-      {data.map((item: MediaData) => <MethodTopic item={item} />)
+      {data.map((item: MediaData) => <Topic item={item} />)
       }
     </>
   );
 }
 
-
-const ApplicationTopic: React.FC<{ item: MediaData }> = ({ item }) => {
-  const [showContent, setShowContent] = useState(false);
+const Application: React.FC<{ items: MediaData[] }> = ({ items }) => {
   return (
-    <div key={item.title} className="max-w-4xl mx-auto p-4"><button className="text-xl font-semibold hover:underline  focus:outline-none"
-      onClick={() => setShowContent((prev) => !prev)}>{item.title}</button>
-      {
-        showContent && (<div className={`mt-4 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="mb-6 whitespace-pre-line text-gray-700">{item.abstract}</p>
-          <MediaDisplay figures={item.figures} />
-        </div>)
+    <div key={items[0].name} className="max-w-4xl mx-auto p-4">
+      <h3>{items[0].name}</h3>
+      {items.map((item: MediaData) => <Topic item={item} />)
       }
     </div>
   );
@@ -94,12 +88,20 @@ const ApplicationTable: React.FC = () => {
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
-  console.log("=================");
-  console.log(data);
+
+
+  const groupedData: { [key: string]: MediaData[] } = data.reduce((acc, item) => {
+    if (!acc[item.name]) {
+      acc[item.name] = [];
+    }
+    acc[item.name].push(item);
+    return acc;
+  }, {} as { [key: string]: MediaData[] });
   return (
     <>
-      {data.map((item: MediaData) => <MethodTopic item={item} />)
-      }
+      {Object.entries(groupedData).map(([name, items]) => (
+        <Application key={name} items={items} />
+      ))}
     </>
   );
 }
