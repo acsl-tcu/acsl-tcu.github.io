@@ -42,8 +42,8 @@ const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
     <div key={item.title} className="max-w-4xl mx-auto mb-0"><button className="text-xl font-semibold hover:underline  focus:outline-none"
       onClick={() => setShowContent((prev) => !prev)}>{item.title}</button>
       {
-        showContent && (<div className={`mt-4 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="mb-2 whitespace-pre-line text-gray-700">{item.abstract}</p>
+        showContent && (<div className={`mt-0 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+          <p className="mb-0 whitespace-pre-line text-gray-700">{item.abstract}</p>
           <MediaDisplay figures={item.figures} />
         </div>)
       }
@@ -129,9 +129,9 @@ const ResearchPAGE: React.FC = () => {
 
   return (
     <div className="p-4 space-y-6">
-      <h1 id="Method">Method</h1>
+      <h1 id="Method" className="mb-0">Method</h1>
       <MethodList />
-      <h1 id="Application">Application</h1>
+      <h1 id="Application" className="mb-0">Application</h1>
       <ApplicationList />
     </div>
   );
