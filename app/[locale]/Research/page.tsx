@@ -71,7 +71,7 @@ const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
 
   return (
     <div id="app_content"
-      key={items[0].name} className="max-w-4xl mx-auto p-4">
+      key={items[0].name} className="scroll-mt-16 max-w-4xl mx-auto p-4">
       <table className="min-w-full table-auto text-left">
         <thead className="bg-gray-100">
           <tr>
@@ -129,9 +129,9 @@ const ResearchPAGE: React.FC = () => {
 
   return (
     <div className="p-4 space-y-6">
-      <h1 id="Method" className="mb-0">Method</h1>
+      <h1 id="Method" className="mb-0">Methods</h1>
       <MethodList />
-      <h1 id="Application" className="mb-0">Application</h1>
+      <h1 id="Application" className="mb-0">Applications</h1>
       <ApplicationList />
     </div>
   );

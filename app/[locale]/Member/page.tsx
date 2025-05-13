@@ -74,7 +74,7 @@ const MemberPhoto: React.FC<{ year: number }> = ({ year }) => {
     <div className="relative w-full">
       <Image src={`/images/member/${year}.png`} alt={`${year}`} width={800}
         height={200}
-        className="w-full h-auto" />
+        className="w-full h-auto absolute inset-0 z-[-1]" />
     </div>
   );
 };
