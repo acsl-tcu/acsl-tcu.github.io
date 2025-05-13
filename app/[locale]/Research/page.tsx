@@ -65,16 +65,15 @@ const MethodList: React.FC = () => {
   );
 }
 
-const ApplicationTable: React.FC<{ items: MediaData[] }> = ({ items }) => {
+const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
   return (
-    <div key={items[0].name} className="max-w-4xl mx-auto p-4">
-      {/* <h3>{items[0].name}</h3>
-      {items.map((item: MediaData) => <Topic key={item.title} item={item} />)
-      } */}
+    <div id="app_content"
+      key={items[0].name} className="max-w-4xl mx-auto p-4">
       <table className="min-w-full table-auto text-left">
         <thead className="bg-gray-100">
           <tr>
-            <th className="p-3 border-b border-gray-200"><Image className="article-figure" src={`/images/${items[0].name}.jpg`} alt={items[0].name} /></th>
+            <th className="relative w-1/5 h-auto p-3 border-b border-gray-200">
+              <Image className="object-contain " fill src={`/images/${items[0].name}.jpg`} alt={items[0].name} /></th>
             <th className="p-3 border-b border-gray-200">{items[0].name}</th>
           </tr>
         </thead>
@@ -91,9 +90,10 @@ const ApplicationTable: React.FC<{ items: MediaData[] }> = ({ items }) => {
     </div >
   );
 }
+
 const ApplicationList: React.FC = () => {
   const { data, error } = useAdjustData("application");
-
+  const [contents, setContents] = useState<MediaData[]>([]);
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
@@ -108,16 +108,17 @@ const ApplicationList: React.FC = () => {
   }, {} as { [key: string]: MediaData[] });
   return (
     <>
-      {Object.entries(groupedData).map(([name, items]) => (
+      {/* {Object.entries(groupedData).map(([name, items]) => (
         <>
           <ApplicationTable key={name} items={items} />
         </>
-      ))}
+      ))} */}
       <ul className="grid grid-cols-2 md:grid-cols-4 gap-5">
         {Object.entries(groupedData).map(([name, items]) => (
-          <Card key={name} items={items} />
+          <Card key={name} items={items} set={() => setContents(items)} />
         ))}
       </ul>
+      <ApplicationContents items={contents} />
     </>
   );
 }

@@ -11,3 +11,8 @@ export interface MediaData {
   abstract: string;
   figures: Figure[];
 };
+
+export interface CardProps {
+  items: MediaData[];
+  set: (items) => void;
+}
