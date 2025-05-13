@@ -4,10 +4,10 @@ import { useI18nContext } from '@/contexts/i18nContext';
 import useDB from '@/hooks/useDB';
 import MediaDisplay from '@/app/components/MediaDisplay';
 import { useState } from 'react';
-import Image from "next/image";
+// import Image from "next/image";
 import { MediaData } from "./ResearchInterface";
 
-// import Card from "./ApplicationCard";
+import Card from "./ApplicationCard";
 
 
 
@@ -65,35 +65,35 @@ const MethodList: React.FC = () => {
   );
 }
 
-const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
-  return (
-    <div id="app_content"
-      key={items[0].name} className="max-w-4xl mx-auto p-4">
-      <table className="min-w-full table-auto text-left">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="relative w-1/5 h-auto p-3 border-b border-gray-200">
-              <Image className="object-contain " fill src={`/images/${items[0].name}.jpg`} alt={items[0].name} /></th>
-            <th className="p-3 border-b border-gray-200">{items[0].name}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item, index) => (
-            <tr key={index} className="hover:bg-gray-50">
-              <td colSpan={2} className="p-3 border-b border-gray-100" >
-                <Topic key={item.title} item={item} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div >
-  );
-}
+// const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
+//   return (
+//     <div id="app_content"
+//       key={items[0].name} className="max-w-4xl mx-auto p-4">
+//       <table className="min-w-full table-auto text-left">
+//         <thead className="bg-gray-100">
+//           <tr>
+//             <th className="relative w-1/5 h-auto p-3 border-b border-gray-200">
+//               <Image className="object-contain " fill src={`/images/${items[0].name}.jpg`} alt={items[0].name} /></th>
+//             <th className="p-3 border-b border-gray-200">{items[0].name}</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {items.map((item, index) => (
+//             <tr key={index} className="hover:bg-gray-50">
+//               <td colSpan={2} className="p-3 border-b border-gray-100" >
+//                 <Topic key={item.title} item={item} />
+//               </td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div >
+//   );
+// }
 
 const ApplicationList: React.FC = () => {
   const { data, error } = useAdjustData("application");
-  // const [contents, setContents] = useState<MediaData[]>([]);
+  const [contents, setContents] = useState<MediaData[]>([]);
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
@@ -116,9 +116,9 @@ const ApplicationList: React.FC = () => {
       ))} */}
       <ul className="grid grid-cols-2 md:grid-cols-4 gap-5">
         {Object.entries(groupedData).map(([name, items]) => (
-          // <Card key={name} items={items} set={() => []} />
+          <Card key={name} items={items} set={setContents} />
           // <Card key={name} items={items} set={() => setContents(items)} />
-          <ApplicationContents key={name} items={items} />
+          // <ApplicationContents key={name} items={items} />
         ))}
       </ul>
     </>
