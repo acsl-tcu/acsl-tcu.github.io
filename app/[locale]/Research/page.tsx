@@ -116,10 +116,10 @@ const ApplicationList: React.FC = () => {
         {Object.entries(groupedData).map(([name, items]) => (
           <>
             <Card key={name} items={items} set={setContents} />
-            <ApplicationContents key={name} items={contents} />
           </>
         ))}
       </ul>
+      <ApplicationContents items={contents} />
     </>
   );
 }
