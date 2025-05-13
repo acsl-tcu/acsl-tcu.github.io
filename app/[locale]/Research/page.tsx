@@ -4,6 +4,7 @@ import { useI18nContext } from '@/contexts/i18nContext';
 import useDB from '@/hooks/useDB';
 import MediaDisplay from '@/app/components/MediaDisplay';
 import { useState } from 'react';
+import Image from "next/image";
 
 interface Figure {
   src: string;
@@ -43,7 +44,6 @@ function useAdjustData(table: string) {
   return { data, error }
 }
 
-
 const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
   const [showContent, setShowContent] = useState(false);
   return (
@@ -59,7 +59,7 @@ const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
   );
 }
 
-const MethodTable: React.FC = () => {
+const MethodList: React.FC = () => {
   const { data, error } = useAdjustData("method");
 
   if (error) return <div className="text-red-500">Error: {error}</div>;
@@ -73,16 +73,33 @@ const MethodTable: React.FC = () => {
   );
 }
 
-const Application: React.FC<{ items: MediaData[] }> = ({ items }) => {
+const ApplicationTable: React.FC<{ items: MediaData[] }> = ({ items }) => {
   return (
     <div key={items[0].name} className="max-w-4xl mx-auto p-4">
-      <h3>{items[0].name}</h3>
+      {/* <h3>{items[0].name}</h3>
       {items.map((item: MediaData) => <Topic key={item.title} item={item} />)
-      }
+      } */}
+      <table className="min-w-full table-auto text-left">
+        <thead className="bg-gray-100">
+          <tr>
+            <th className="p-3 border-b border-gray-200"><Image className="article-figure" src={`/images/${items[0].name}`} alt={items[0].name} /></th>
+            <th className="p-3 border-b border-gray-200">{items[0].name}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item, index) => (
+            <tr key={index} className="hover:bg-gray-50">
+              <td className="p-3 border-b border-gray-100">
+                <Topic key={item.title} item={item} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
-const ApplicationTable: React.FC = () => {
+const ApplicationList: React.FC = () => {
   const { data, error } = useAdjustData("application");
 
   if (error) return <div className="text-red-500">Error: {error}</div>;
@@ -100,7 +117,7 @@ const ApplicationTable: React.FC = () => {
   return (
     <>
       {Object.entries(groupedData).map(([name, items]) => (
-        <Application key={name} items={items} />
+        <ApplicationTable key={name} items={items} />
       ))}
     </>
   );
@@ -111,12 +128,13 @@ const ResearchPAGE: React.FC = () => {
 
   return (
     <div className="p-4 space-y-6">
-      <h2 id="Method">Method</h2>
-      <MethodTable />
-      <h2 id="Application">Application</h2>
-      <ApplicationTable />
+      <h1 id="Method">Method</h1>
+      <MethodList />
+      <h1 id="Application">Application</h1>
+      <ApplicationList />
     </div>
   );
 };
 
 export default ResearchPAGE;
+

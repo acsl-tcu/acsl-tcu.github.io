@@ -36,19 +36,19 @@ body {
   }
 
   h1 {
-    @apply text-2xl font-bold tracking-tight mb-2 mt-4;
+    @apply text-[min(13vw,130px)] font-bold tracking-tight mb-2 mt-4;
   }
 
   h2 {
-    @apply text-2xl font-semibold tracking-tight mt-4;
+    @apply text-3xl font-semibold tracking-tight mb-1 mt-4;
   }
 
   h3 {
-    @apply text-2xl font-semibold mt-2;
+    @apply text-2xl font-semibold mb-0 mt-2;
   }
 
   p {
-    @apply text-base mb-2;
+    @apply text-base m-0;
   }
 
   a {
