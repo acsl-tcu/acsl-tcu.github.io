@@ -5,19 +5,12 @@ import useDB from '@/hooks/useDB';
 import MediaDisplay from '@/app/components/MediaDisplay';
 import { useState } from 'react';
 import Image from "next/image";
-interface Figure {
-  src: string;
-  caption: string;
-};
+import { MediaData } from "./ResearchInterface";
 
-interface MediaData {
-  name: string;
-  type: string;
-  role: string;
-  title: string;
-  abstract: string;
-  figures: Figure[];
-};
+import Card from "./ApplicationCard";
+
+
+
 
 function useAdjustData(table: string) {
   const year = new Date().getFullYear();
@@ -116,7 +109,12 @@ const ApplicationList: React.FC = () => {
   return (
     <>
       {Object.entries(groupedData).map(([name, items]) => (
-        <ApplicationTable key={name} items={items} />
+        <>
+          <ApplicationTable key={name} items={items} />
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {items.map((item, index) => (<Card item={item} />))}
+          </ul>
+        </>
       ))}
     </>
   );
