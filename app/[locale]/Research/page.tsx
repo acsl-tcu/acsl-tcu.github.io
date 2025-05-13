@@ -88,14 +88,14 @@ const ApplicationTable: React.FC<{ items: MediaData[] }> = ({ items }) => {
         <tbody>
           {items.map((item, index) => (
             <tr key={index} className="hover:bg-gray-50">
-              <td className="p-3 border-b border-gray-100 col-span-2">
+              <td colSpan={2} className="p-3 border-b border-gray-100" >
                 <Topic key={item.title} item={item} />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </div >
   );
 }
 const ApplicationList: React.FC = () => {
