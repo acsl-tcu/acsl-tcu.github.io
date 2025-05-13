@@ -84,7 +84,7 @@ function useAdjustData(table: string) {
     title: row[`${lang}title`],
     abstract: row[`${lang}abst`],
     figures: Array.from({ length: 10 }, (_, i) => i + 1).map((n) => ({
-      src: row[`figure${n}`].replace("img", "images"),
+      src: row[`figure${n}`],
       caption: row[`${lang}figure${n}_caption`],
     })).filter(f => f.src)
   })
@@ -106,12 +106,12 @@ const ResearchTable: React.FC<{ table: string }> = ({ table }) => {
       {data.map((item: MediaData) => {
         return (
           <div key={item.title} className="max-w-4xl mx-auto p-4">
-            <h3 className="text-xl font-semibold cursor-pointer hover:underline"
-              onClick={() => setShowContent((prev) => !prev)}>{item.title}</h3>
-            {showContent && (<>
+            <button className="text-xl font-semibold hover:underline  focus:outline-none"
+              onClick={() => setShowContent((prev) => !prev)}>{item.title}</button>
+            {showContent && (<div className={`mt-4 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
               <p className="mb-6 whitespace-pre-line text-gray-700">{item.abstract}</p>
               <MediaDisplay figures={item.figures} />
-            </>)}
+            </div>)}
           </div>
         );
       })

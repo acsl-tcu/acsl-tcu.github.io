@@ -16,7 +16,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
   if (isImage) {
     return (
       <div className="article-content-box">
-        <Image className="article-figure" src={`img/${src}`} alt={caption} />
+        <Image className="article-figure" src={`/images/${src}`} alt={caption} />
         <legend style={{ textAlign: 'justify' }}>
           Fig. {index} : {caption}
         </legend>
