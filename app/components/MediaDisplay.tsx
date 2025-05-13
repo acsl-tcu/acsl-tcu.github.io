@@ -1,6 +1,8 @@
+'use client'
 // components/MediaDisplay.tsx
 import React from 'react';
 import Image from "next/image";
+
 interface MediaProps {
   src: string;
   caption: string;

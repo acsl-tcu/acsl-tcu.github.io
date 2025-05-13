@@ -3,6 +3,12 @@ import React from 'react';
 import { useI18nContext } from '@/contexts/i18nContext';
 import useDB from '@/hooks/useDB';
 import MediaDisplay from '@/app/components/MediaDisplay';
+import { useState } from 'react';
+// import dynamic from 'next/dynamic';
+
+// const LazyContent = dynamic(() => import('./LazyContent'), {
+//   loading: () => <p>Loading...</p>,
+// });
 
 interface Figure {
   src: string;
@@ -88,19 +94,24 @@ function useAdjustData(table: string) {
 
 const ResearchTable: React.FC<{ table: string }> = ({ table }) => {
   const { data, error } = useAdjustData(table);
+  const [showContent, setShowContent] = useState(false);
 
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
-
+  console.log("=================");
+  console.log(data);
   return (
     <>
       {data.map((item: MediaData) => {
         return (
           <div key={item.title} className="max-w-4xl mx-auto p-4">
-            <h3>{item.title}</h3>
-            <p className="mb-6 whitespace-pre-line text-gray-700">{item.abstract}</p>
-            <MediaDisplay figures={item.figures} />
+            <h3 className="text-xl font-semibold cursor-pointer hover:underline"
+              onClick={() => setShowContent((prev) => !prev)}>{item.title}</h3>
+            {showContent && (<>
+              <p className="mb-6 whitespace-pre-line text-gray-700">{item.abstract}</p>
+              <MediaDisplay figures={item.figures} />
+            </>)}
           </div>
         );
       })
