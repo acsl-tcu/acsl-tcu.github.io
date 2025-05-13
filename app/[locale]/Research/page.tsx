@@ -5,7 +5,6 @@ import useDB from '@/hooks/useDB';
 import MediaDisplay from '@/app/components/MediaDisplay';
 import { useState } from 'react';
 import Image from "next/image";
-
 interface Figure {
   src: string;
   caption: string;
@@ -82,14 +81,14 @@ const ApplicationTable: React.FC<{ items: MediaData[] }> = ({ items }) => {
       <table className="min-w-full table-auto text-left">
         <thead className="bg-gray-100">
           <tr>
-            <th className="p-3 border-b border-gray-200"><Image className="article-figure" src={`/images/${items[0].name}`} alt={items[0].name} /></th>
+            <th className="p-3 border-b border-gray-200"><Image className="article-figure" src={`/images/${items[0].name}.jpg`} alt={items[0].name} /></th>
             <th className="p-3 border-b border-gray-200">{items[0].name}</th>
           </tr>
         </thead>
         <tbody>
           {items.map((item, index) => (
             <tr key={index} className="hover:bg-gray-50">
-              <td className="p-3 border-b border-gray-100">
+              <td className="p-3 border-b border-gray-100 col-span-2">
                 <Topic key={item.title} item={item} />
               </td>
             </tr>
