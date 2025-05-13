@@ -112,7 +112,7 @@ const ApplicationList: React.FC = () => {
 
   return (
     <>
-      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+      <ul className="grid grid-cols-4 sm:grid-cols-4 gap-5">
         {Object.entries(groupedData).map(([name, items]) => (
           <>
             <Card key={name} items={items} set={setContents} />
