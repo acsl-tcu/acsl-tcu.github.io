@@ -67,7 +67,7 @@ const MethodTable: React.FC = () => {
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
   return (
     <>
-      {data.map((item: MediaData) => <Topic item={item} />)
+      {data.map((item: MediaData) => <Topic key={item.title} item={item} />)
       }
     </>
   );
@@ -77,7 +77,7 @@ const Application: React.FC<{ items: MediaData[] }> = ({ items }) => {
   return (
     <div key={items[0].name} className="max-w-4xl mx-auto p-4">
       <h3>{items[0].name}</h3>
-      {items.map((item: MediaData) => <Topic item={item} />)
+      {items.map((item: MediaData) => <Topic key={item.title} item={item} />)
       }
     </div>
   );
