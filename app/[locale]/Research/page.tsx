@@ -39,11 +39,11 @@ function useAdjustData(table: string) {
 const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
   const [showContent, setShowContent] = useState(false);
   return (
-    <div key={item.title} className="max-w-4xl mx-auto p-4"><button className="text-xl font-semibold hover:underline  focus:outline-none"
+    <div key={item.title} className="max-w-4xl mx-auto mb-0"><button className="text-xl font-semibold hover:underline  focus:outline-none"
       onClick={() => setShowContent((prev) => !prev)}>{item.title}</button>
       {
         showContent && (<div className={`mt-4 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="mb-6 whitespace-pre-line text-gray-700">{item.abstract}</p>
+          <p className="mb-2 whitespace-pre-line text-gray-700">{item.abstract}</p>
           <MediaDisplay figures={item.figures} />
         </div>)
       }
@@ -112,7 +112,7 @@ const ApplicationList: React.FC = () => {
 
   return (
     <>
-      <ul className="grid grid-cols-4 sm:grid-cols-4 gap-5">
+      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-5">
         {Object.entries(groupedData).map(([name, items]) => (
           <>
             <Card key={name} items={items} set={setContents} />
