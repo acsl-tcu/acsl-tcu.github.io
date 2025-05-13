@@ -70,8 +70,6 @@ function useAdjustData(table: string) {
   const lang = locale === 'en' ? '' : 'j';
   if (!rows || rows.length === 0)
     return { error };
-  console.log("== ROWS ========================");
-  console.log(rows);
 
   const data: MediaData[] = rows[0].map((row: Record<string, string>) => ({
     name: row.application_name,
@@ -80,112 +78,27 @@ function useAdjustData(table: string) {
     title: row[`${lang}title`],
     abstract: row[`${lang}abst`],
     figures: Array.from({ length: 10 }, (_, i) => i + 1).map((n) => ({
-      src: row[`figure${n}`],
+      src: row[`figure${n}`].replace("img", "images"),
       caption: row[`${lang}figure${n}_caption`],
     })).filter(f => f.src)
   })
   );
-  console.log(data);
   return { data, error }
 }
 
-const ApplicationTable: React.FC = () => {
-  const { data, error } = useAdjustData("application");
+const ResearchTable: React.FC<{ table: string }> = ({ table }) => {
+  const { data, error } = useAdjustData(table);
 
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
-
-  // const { messages } = useI18nContext();
-
-  // const renderFigure = (fig: Figure, index: number) => {
-  //   const ext = fig.src?.split('.').pop()?.toLowerCase() || '';
-  //   const isImage = ['jpg', 'jpeg', 'png', 'gif', 'tiff'].includes(ext);
-  //   const isVideo = ['mp4', 'avi', 'webm'].includes(ext);
-
-  //   if (isImage) {
-  //     return (
-  //       <figure className="w-full">
-  //         <img src={`/img/${fig.src}`} alt={fig.caption} className="rounded shadow w-full h-auto" />
-  //         <figcaption className="text-sm text-gray-600 mt-2 text-justify">
-  //           Fig. {index + 1}: {fig.caption}
-  //         </figcaption>
-  //       </figure>
-  //     );
-  //   } else if (isVideo) {
-  //     return (
-  //       <figure className="w-full">
-  //         <video
-  //           controls
-  //           className="rounded shadow w-full max-h-[400px] object-contain bg-black"
-  //         >
-  //           <source src={`/img/${fig.src}`} type={`video/${ext}`} />
-  //           <p>動画を再生するには video タグをサポートしたブラウザが必要です。</p>
-  //         </video>
-  //         <figcaption className="text-sm text-gray-600 mt-2">
-  //           Movie {index + 1}: {fig.caption}
-  //         </figcaption>
-  //       </figure>
-  //     );
-  //   }
-
-  //   return null;
-  // };
-
-  // const figArea1 = data.figures.slice(0, 2);
-  // const figArea2 = data.figures.slice(2, 4);
-  {/* レスポンシブ対応: sm では縦積み、md 以上では横並び */ }
-  //   < div className="flex flex-col md:flex-row gap-4" >
-  //     {
-  //       figArea1.map((fig, idx) => (
-  //         <div key={idx} className="flex-1">
-  //           {renderFigure(fig, idx)}
-  //         </div>
-  //       ))
-  //     }
-  //   </ >
-
-  //   <div className="flex flex-col md:flex-row gap-4 mt-6">
-  //     {figArea2.map((fig, idx) => (
-  //       <div key={idx + 2} className="flex-1">
-  //         {renderFigure(fig, idx + 2)}
-  //       </div>
-  //     ))}
-  //   </div>
-  // </div >
 
   return (
     <>
       {data.map((item: MediaData) => {
         return (
           <div key={item.title} className="max-w-4xl mx-auto p-4">
-            <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-            <p className="mb-6 whitespace-pre-line text-gray-700">{item.abstract}</p>
-            <MediaDisplay figures={item.figures} />
-          </div>
-        );
-      })
-      }
-    </>
-  );
-}
-
-const MethodTable: React.FC = () => {
-  const { data, error } = useAdjustData("method");
-
-  if (error) return <div className="text-red-500">Error: {error}</div>;
-
-  if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
-
-  console.log("== DATA ========================");
-  console.log(data);
-
-  return (
-    <>
-      {data.map((item: MediaData) => {
-        return (
-          <div key={item.title} className="max-w-4xl mx-auto p-4">
-            <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+            <h3>{item.title}</h3>
             <p className="mb-6 whitespace-pre-line text-gray-700">{item.abstract}</p>
             <MediaDisplay figures={item.figures} />
           </div>
@@ -200,10 +113,10 @@ const ResearchPAGE: React.FC = () => {
 
   return (
     <div className="p-4 space-y-6">
-      <h2 className="text-xl font-semibold mb-2" id="Method">Method</h2>
-      <MethodTable />
-      <h2 className="text-xl font-semibold mb-2" id="Application">Application</h2>
-      <ApplicationTable />
+      <h2 id="Method">Method</h2>
+      <ResearchTable table="method" />
+      <h2 id="Application">Application</h2>
+      <ResearchTable table="application" />
     </div>
   );
 };

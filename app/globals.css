@@ -48,7 +48,7 @@ body {
   }
 
   p {
-    @apply text-base mb-4;
+    @apply text-base mb-2;
   }
 
   a {
