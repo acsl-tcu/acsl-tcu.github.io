@@ -14,5 +14,5 @@ export interface MediaData {
 
 export interface CardProps {
   items: MediaData[];
-  set: (items) => void;
+  set: (items: MediaData[]) => void;
 }
