@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Image from "next/image";
 import { MediaData } from "./ResearchInterface";
 
-import Card from "./ApplicationCard";
+// import Card from "./ApplicationCard";
 
 
 
