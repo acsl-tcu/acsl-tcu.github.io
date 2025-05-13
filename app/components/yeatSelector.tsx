@@ -25,14 +25,14 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs
         {/* 年セレクター */}
         <div className="flex-col relative">
           <label htmlFor="year-select" className="block mb-1 text-sm font-semibold text-gray-700 
-          absolute left-2 top-0 bg-white">
+          absolute left-2 top-0 bg-white w-20">
             Select Year
           </label>
           <select
             id="year-select"
             value={dispYear}
             onChange={handleChange}
-            className=" rounded-sm border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm w-20 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="rounded-sm border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm w-20 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
           >
             {year_list.map((year) => (
               <option key={year} value={year}>
