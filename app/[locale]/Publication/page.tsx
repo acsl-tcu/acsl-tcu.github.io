@@ -56,13 +56,13 @@ const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
 
   return (
     <div className="space-y-6">
-      <h2 id="journal" className="mb-1 mt-3 bg-gray-300">{messages.publicationTab.journal}</h2>
+      <h2 id="journal" className="mb-0 mt-3 bg-gray-300">{messages.publicationTab.journal}</h2>
       <ArticleTable articles={rows[0]} />
 
-      <h2 id="international" className="mb-1 mt-3 bg-gray-700">{messages.publicationTab.international}</h2>
+      <h2 id="international" className="mb-0 mt-3 bg-gray-300">{messages.publicationTab.international}</h2>
       <ArticleTable articles={rows[1]} />
 
-      <h2 id="domestic" className="mb-1 mt-3 bg-gray-500">{messages.publicationTab.domestic}</h2>
+      <h2 id="domestic" className="mb-0 mt-3 bg-gray-300">{messages.publicationTab.domestic}</h2>
       <ArticleTable articles={rows[2]} />
     </div>
   );
