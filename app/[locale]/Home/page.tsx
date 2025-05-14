@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   const { messages } = useI18nContext();
   return (
     <div>
-      <h3>ABOUT US</h3>
+      <h2>ABOUT US</h2>
       <p>{messages.home.aboutUs}</p>
       <FB />
     </div>

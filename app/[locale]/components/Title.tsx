@@ -26,6 +26,7 @@ export default function Title() {
           <Link href={messages.links.mse} className="text-gray-700 dark:text-gray-200 hover:text-blue-500  text-sm px-1 py-0.5 transition hidden sm:inline" >
             <div className="flex items-center"><GoTriangleRight /> Department</div>
           </Link>
+          {/* Facebook and twitter */}
           <Link href="https://www.facebook.com/cl.mse.tcu.ac.jp/" className="text-xl transition sm:text-3xl text-gray-700 dark:text-gray-200 hover:text-blue-500 transition">
             <FaFacebookSquare />
           </Link>

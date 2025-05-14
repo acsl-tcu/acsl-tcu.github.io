@@ -30,11 +30,11 @@ export default function Access() {
         width="600" height="450" style={{
           border: "0",
           maxWidth: "100%"
-        }}
+        }} className="w-full"
         allowFullScreen></iframe >
       <h2>{messages.accessTab.sec_time}</h2>
       <Image src={messages.accessTab[campus + "Route"]} alt="主要駅からの乗り換え所要時間"
-        width="600" height="450" className="object-cover" />
+        width="600" height="450" className="object-cover w-full" />
     </>)
   }
   return (

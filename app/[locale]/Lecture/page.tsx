@@ -3,7 +3,7 @@ import { useI18nContext } from '@/contexts/i18nContext';
 import { Locale } from '@/types/i18n';
 import useDB from '@/hooks/useDB';
 import { useState } from 'react';
-import YearSelector from '@/app/components/yeatSelector'; // Tailwind化済のYearSelector
+import YearSelector from '@/app/components/yeatSelector';
 
 interface Lecture {
   year: number;
@@ -61,7 +61,7 @@ const LectureTable: React.FC<{ year: number }> = ({ year }) => {
 
   return (
     <div className="prose max-w-none">
-      <h1 className="text-2xl font-bold mb-4" id={`publication_${year}`}>{year}</h1>
+      {/* <h2 className="text-2xl font-bold mb-4" id={`publication_${year}`}>{year}</h2> */}
       <LocaledTable locale={locale} lectures={undergraduate} school="Undergraduate" />
       <LocaledTable locale={locale} lectures={graduate} school="Graduate School" />
     </div>

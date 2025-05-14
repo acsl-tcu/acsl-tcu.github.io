@@ -57,6 +57,7 @@ const MethodList: React.FC = () => {
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
+
   return (
     <>
       {data.map((item: MediaData) => <Topic key={item.title} item={item} />)
@@ -129,9 +130,9 @@ const ResearchPAGE: React.FC = () => {
 
   return (
     <div className="p-4 space-y-6">
-      <h1 id="Method" className="mb-0">Methods</h1>
+      <h2 id="Method">Methods</h2>
       <MethodList />
-      <h1 id="Application" className="mb-0">Applications</h1>
+      <h2 id="Application">Applications</h2>
       <ApplicationList />
     </div>
   );

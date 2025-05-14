@@ -4,7 +4,7 @@ import useDB from '@/hooks/useDB';
 import { useState } from 'react';
 import YearSelector from '@/app/components/yeatSelector';
 import Link from "next/link";
-//import GroupedSelectTailwind from '@/app/components/groupedSelector';
+
 interface Article {
   author: string;
   title: string;
@@ -56,13 +56,13 @@ const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
 
   return (
     <div className="space-y-6">
-      <h2 id={`${messages.publicationTab.journal}${year}`}>Journal</h2>
+      <h3 id="journal">{messages.publicationTab.journal}</h3>
       <ArticleTable articles={rows[0]} />
 
-      <h2 id={`${messages.publicationTab.international}${year}`}>International Conference</h2>
+      <h3 id="international">{messages.publicationTab.international}</h3>
       <ArticleTable articles={rows[1]} />
 
-      <h2 id={`${messages.publicationTab.domestic}${year}`}>Domestic Conference</h2>
+      <h3 id="domestic">{messages.publicationTab.domestic}</h3>
       <ArticleTable articles={rows[2]} />
     </div>
   );
@@ -75,13 +75,13 @@ const PublicationPAGE: React.FC = () => {
 
   return (
     <div className="p-4">
-      {/* <GroupedSelectTailwind /> */}
       <YearSelector
         texts={[
           messages.publicationTab.journal,
           messages.publicationTab.international,
           messages.publicationTab.domestic,
         ]}
+        hrefs={["journal", "international", "domestic"]}
         dispYear={dispYear}
         setDispYear={setDispYear}
       />

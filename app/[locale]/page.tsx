@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-
+// Redirect /lang or /lang/ to /lang/Home
 export default async function Page({
   params,
 }: {

@@ -1,5 +1,5 @@
 'use client';
-
+// Redirect / to /{default lang}/Home
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
