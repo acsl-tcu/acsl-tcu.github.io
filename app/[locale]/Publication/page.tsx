@@ -59,7 +59,7 @@ const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
       <h2 id="journal" className="mb-1 mt-3">{messages.publicationTab.journal}</h2>
       <ArticleTable articles={rows[0]} />
 
-      <h2 id="international" className="mb-1 mt-3">{messages.publicationTab.international}</h3>
+      <h2 id="international" className="mb-1 mt-3">{messages.publicationTab.international}</h2>
       <ArticleTable articles={rows[1]} />
 
       <h2 id="domestic">{messages.publicationTab.domestic}</h2>
