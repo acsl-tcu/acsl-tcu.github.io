@@ -34,7 +34,7 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
             }
 
             return (
-              <tr key={index} className="border-b border-gray-200">
+              <tr key={index} className="border-b border-gray-200 even:bg-gray-200">
                 <td className="p-2 text-sm">
                   {author} {title} {magazine} {article.page} {article.date}
                 </td>
@@ -56,13 +56,13 @@ const PublicationTable: React.FC<{ year: number }> = ({ year }) => {
 
   return (
     <div className="space-y-6">
-      <h3 id="journal">{messages.publicationTab.journal}</h3>
+      <h2 id="journal" className="mb-1 mt-3">{messages.publicationTab.journal}</h2>
       <ArticleTable articles={rows[0]} />
 
-      <h3 id="international">{messages.publicationTab.international}</h3>
+      <h2 id="international" className="mb-1 mt-3">{messages.publicationTab.international}</h3>
       <ArticleTable articles={rows[1]} />
 
-      <h3 id="domestic">{messages.publicationTab.domestic}</h3>
+      <h2 id="domestic">{messages.publicationTab.domestic}</h2>
       <ArticleTable articles={rows[2]} />
     </div>
   );
