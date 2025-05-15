@@ -17,9 +17,9 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
     return (
       <div className="article-content-box">
         <Image className="article-figure" src={`/images/${src}`} alt={caption} />
-        <legend style={{ textAlign: 'justify' }}>
+        <figcaption className="py-3 px-4 bg-gray-200">
           Fig. {index} : {caption}
-        </legend>
+        </figcaption>
       </div>
     );
   } else if (isVideo) {
@@ -30,7 +30,9 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
           <source src={`/images/${src}`} type={`video/${videoType}`} />
           <p>動画を再生するには video タグをサポートしたブラウザが必要です。</p>
         </video>
-        <legend>Movie {index} : {caption}</legend>
+        <figcaption className="py-3 px-4 bg-gray-200">
+          Movie {index} : {caption}
+        </figcaption>
       </div>
     );
   }

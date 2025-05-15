@@ -6,11 +6,7 @@ import MediaDisplay from '@/app/components/MediaDisplay';
 import { useState } from 'react';
 import Image from "next/image";
 import { MediaData } from "./ResearchInterface";
-
 import Card from "./ApplicationCard";
-
-
-
 
 function useAdjustData(table: string) {
   const year = new Date().getFullYear();
@@ -54,7 +50,7 @@ const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
         }`}>
         {
           showContent && (<div className={`mt-0 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="px-4 py-3 bg-gray-50 text-gray-700">{item.abstract}</p>
+            <p className="px-4 py-3 bg-gray-200 text-gray-700">{item.abstract}</p>
             <MediaDisplay figures={item.figures} />
           </div>)
         }

@@ -25,12 +25,9 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
         <NavBar />
       </header>
       <main
-        style={{ marginTop: `${headerHeight}px` }}
-        className="container mx-auto flex flex-col"
+        className={`mt-[${headerHeight}px] container mx-auto flex flex-col`}
       >
-        <section id="main_section" className="scroll-mt-16">
-          {children}
-        </section>
+        {children}
       </main>
     </>
   );
