@@ -29,7 +29,7 @@ const LocaledTable: React.FC<{ locale: Locale, lectures: Lecture[], school: stri
           </thead>
           <tbody>
             {lectures.map((lecture, index) => (
-              <tr key={index} className="hover:bg-gray-50">
+              <tr key={index} className="hover:bg-gray-50 even:bg-gray-100">
                 <td className="p-3 border-b border-gray-100">
                   {locale === 'en' ? lecture.etitle : lecture.title}
                 </td>

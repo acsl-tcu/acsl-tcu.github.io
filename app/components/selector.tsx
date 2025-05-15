@@ -16,7 +16,7 @@ const Selector: React.FC<SelectorProps> = ({ title, contents, setValue }) => {
 
   return (
     <div className="flex-col relative m-2 pt-2 min-w-[80px]">
-      <label htmlFor="selector" className="block mb-1 pl-1 text-sm font-semibold text-gray-400           absolute left-2 bottom-7 bg-white w-28">
+      <label htmlFor="selector" className="block mb-1 pl-1 text-xs font-semibold text-gray-400 absolute left-2 bottom-7 bg-white w-28">
         {title}
       </label>
       <select

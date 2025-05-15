@@ -10,17 +10,17 @@ export default function NavBar() {
   const { locale } = useI18nContext();
   const pathname = usePathname();
   const navItems = [
-    { icon: House, label: "Home", href: `/${locale}/Home` },
-    { icon: UsersRound, label: "Member", href: `/${locale}/Member` },
-    { icon: GraduationCap, label: "Research", href: `/${locale}/Research` },
+    { icon: House, label: "Home", href: `/${locale}/Home/` },
+    { icon: UsersRound, label: "Member", href: `/${locale}/Member/` },
+    { icon: GraduationCap, label: "Research", href: `/${locale}/Research/` },
     {
-      icon: LibraryBig, label: "Publication", href: `/${locale}/Publication`
+      icon: LibraryBig, label: "Publication", href: `/${locale}/Publication/`
     },
-    { icon: Sprout, label: "For Applicant", href: `/${locale}/ForApplicant` },
+    { icon: Sprout, label: "For Applicant", href: `/${locale}/ForApplicant/` },
     {
-      icon: BookOpenText, label: "Lecture", href: `/${locale}/Lecture`
+      icon: BookOpenText, label: "Lecture", href: `/${locale}/Lecture/`
     },
-    { icon: MapPinHouse, label: "Access", href: `/${locale}/Access` },
+    { icon: MapPinHouse, label: "Access", href: `/${locale}/Access/` },
   ]
 
   return (
