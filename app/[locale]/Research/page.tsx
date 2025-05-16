@@ -46,12 +46,13 @@ const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
     </button>
-      <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${showContent ? 'max-h-screen' : 'max-h-0'
+      <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${showContent ? 'max-h-screen mb-2' : 'max-h-0'
         }`}>
         {
-          showContent && (<div className={`mt-0 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+          showContent && 
+          (<div className={`mt-0 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
             <p className="px-4 py-3 bg-gray-200 text-gray-700">{item.abstract}</p>
-            <MediaDisplay figures={item.figures} />
+            <MediaDisplay className="max-h-[300px] overflow-y-auto" figures={item.figures} />
           </div>)
         }
       </div>
@@ -79,27 +80,40 @@ const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
   if (!items || items.length === 0) return <div className="text-gray-500"></div>;
 
   return (
-    <div id="app_content"
-      key={items[0].name} className="scroll-mt-16 max-w-4xl mx-auto p-4">
-      <table className="min-w-full table-auto text-left">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="relative w-1/5 h-auto p-3 border-b border-gray-200">
-              <Image className="object-contain " fill src={`/images/${items[0].name}.jpg`} alt={items[0].name} /></th>
-            <th className="p-3 border-b border-gray-200">{items[0].name}</th>
+    <div
+    id="app_content"
+    key={items[0].name}
+    className="scroll-mt-16 max-w-4xl mx-auto p-6"
+  >
+    <table className="w-full table-auto border-collapse rounded-2xl overflow-hidden shadow-md bg-white">
+      <thead className="bg-gray-100">
+        <tr>
+          <th className="relative w-1/5 aspect-[4/3] p-0 border-b border-gray-200">
+            <div className="relative w-full h-full">
+              <Image
+                className="object-cover w-full h-full rounded-tl-2xl"
+                fill
+                src={`/images/${items[0].name}.jpg`}
+                alt={items[0].name}
+              />
+            </div>
+          </th>
+          <th className="p-4 border-b border-gray-200 text-xl font-semibold text-gray-800 align-middle">
+            {items[0].name}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {items.map((item, index) => (
+          <tr key={index} className="hover:bg-gray-50 transition-colors duration-200">
+            <td colSpan={2} className="p-4 border-b border-gray-100">
+              <Topic key={item.title} item={item} />
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {items.map((item, index) => (
-            <tr key={index} className="hover:bg-gray-50">
-              <td colSpan={2} className="p-3 border-b border-gray-100" >
-                <Topic key={item.title} item={item} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div >
+        ))}
+      </tbody>
+    </table>
+  </div>  
   );
 }
 

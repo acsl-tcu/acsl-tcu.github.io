@@ -6,7 +6,14 @@ module.exports = {
     //    './components/**/*.{js,ts,jsx,tsx}', // コンポーネントフォルダも対象に
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'rgb(0, 167, 235)',
+        // 文字や背景用に薄いバリエーションも追加するなら：
+        'primary-light': 'rgb(204, 234, 250)',
+        'primary-dark': 'rgb(0, 140, 200)',
+      },
+    },
   },
   plugins: [],
 };
