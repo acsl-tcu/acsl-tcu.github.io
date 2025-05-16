@@ -35,7 +35,7 @@ function useAdjustData(table: string) {
 const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
   const [showContent, setShowContent] = useState(false);
   return (
-    <div key={item.title} className="scroll-mt-16  pb-16 border border-gray-200 rounded-md shadow-sm"><button className="w-full flex justify-between items-center px-4 py-3 text-left bg-white hover:bg-gray-50 transition-colors duration-300"
+    <div key={item.title} className="border border-gray-200 rounded-md shadow-sm"><button className="w-full flex justify-between items-center px-4 py-3 text-left bg-white hover:bg-gray-50 transition-colors duration-300"
       onClick={() => setShowContent((prev) => !prev)}><span className="text-lg font-semibold text-gray-800">{item.title}</span>
       <svg
         className={`w-5 h-5 text-gray-500 transform transition-transform duration-300 ${showContent ? 'rotate-180' : ''}`}
@@ -83,7 +83,7 @@ const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
     <div
     id="app_content"
     key={items[0].name}
-    className="scroll-mt-16 mx-auto p-6"
+    className="scroll-mt-16 min-h-[calc(100vh-64px)] pb-16 mx-auto p-6"
   >
     <table className="w-full table-auto border-collapse rounded-2xl overflow-hidden shadow-md bg-white">
       <thead className="bg-gray-100">
