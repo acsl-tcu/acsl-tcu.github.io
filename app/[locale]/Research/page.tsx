@@ -88,10 +88,10 @@ const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
     <table className="w-full table-auto border-collapse rounded-2xl overflow-hidden shadow-md bg-white">
       <thead className="bg-gray-100">
         <tr>
-          <th className="relative w-1/5 aspect-[4/3] p-0 border-b border-gray-200">
+          <th className="relative w-1/5 p-0 border-b border-gray-200">
             <div className="relative w-full h-full">
               <Image
-                className="object-cover w-full h-full rounded-tl-2xl"
+                className="object-cover w-full aspect-square rounded-tl-2xl"
                 fill
                 src={`/images/${items[0].name}.jpg`}
                 alt={items[0].name}
