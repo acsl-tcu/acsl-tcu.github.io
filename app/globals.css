@@ -4,6 +4,9 @@
 @tailwind utilities;
 
 :root {
+  --color-primary: rgb(0, 167, 235);
+  --color-primary-dark: rgb(0, 140, 200);
+  --color-primary-ring: rgba(0, 167, 235, 0.4); /* フォーカス用 */
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -28,6 +31,43 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/* オプション：ユーティリティとして再利用したい場合 */
+/* ② カスタムユーティリティを追加 */
+@layer utilities {
+  /* 通常の色 */
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+
+  /* 状態クラス: hover */
+  .hover\:bg-primary-dark:hover {
+    background-color: var(--color-primary-dark);
+  }
+
+  .hover\:text-primary:hover {
+    color: var(--color-primary);
+  }
+
+  /* 状態クラス: focus */
+  .focus\:ring-primary:focus {
+    box-shadow: 0 0 0 3px var(--color-primary-ring);
+    outline: none;
+  }
+
+  /* 状態クラス: active */
+  .active\:bg-primary-dark:active {
+    background-color: var(--color-primary-dark);
+  }
+}
 
 /* ====== カスタムベーススタイル ====== */
 @layer base {
@@ -57,7 +97,7 @@ body {
   }
 
   a {
-    @apply text-blue-600 dark:text-blue-400  hover:text-blue-800;
+    @apply text-primary dark:text-blue-400  hover:text-blue-800;
   }
 
   /* ul {
