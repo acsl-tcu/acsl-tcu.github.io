@@ -17,7 +17,7 @@ interface Lecture {
 const LocaledTable: React.FC<{ locale: Locale, lectures: Lecture[], school: string }> = ({ locale, lectures, school }) => {
   return (
     <section className="mb-8">
-      <h2 className="text-xl font-semibold mb-2" id={school}>{school}</h2>
+      <h2 className="scroll-mt-30 text-xl font-semibold mb-2" id={school}>{school}</h2>
       <div className="overflow-x-auto border border-gray-200 rounded-md">
         <table className="min-w-full table-auto text-left">
           <thead className="bg-gray-100">
