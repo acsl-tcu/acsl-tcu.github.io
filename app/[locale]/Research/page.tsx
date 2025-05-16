@@ -52,7 +52,7 @@ const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
           showContent && 
           (<div className={`mt-0 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
             <p className="px-4 py-3 bg-gray-200 text-gray-700">{item.abstract}</p>
-            <MediaDisplay className="max-h-[300px] overflow-y-auto" figures={item.figures} />
+            <MediaDisplay figures={item.figures} />
           </div>)
         }
       </div>
