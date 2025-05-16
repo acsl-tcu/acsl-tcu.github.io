@@ -15,8 +15,8 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
 
   if (isImage) {
     return (
-      <div className="article-content-box max-h-[300px] overflow-y-auto">
-        <Image className="article-figure" src={`/images/${src}`} alt={caption} />
+      <div className="max-h-[300px]">
+        <Image src={`/images/${src}`} alt={caption} />
         <figcaption className="py-3 px-4 bg-gray-200">
           Fig. {index} : {caption}
         </figcaption>
@@ -25,8 +25,8 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
   } else if (isVideo) {
     const videoType = src.match(/.*\.(mp4|avi)$/)?.[1];
     return (
-      <div className="article-content-box max-h-[300px] overflow-y-auto">
-        <video className="article-figure" src={`/images/${src}`} controls>
+      <div className="max-h-[300px]">
+        <video src={`/images/${src}`} controls>
           <source src={`/images/${src}`} type={`video/${videoType}`} />
           <p>動画を再生するには video タグをサポートしたブラウザが必要です。</p>
         </video>
@@ -45,17 +45,13 @@ interface MediaDisplayProps {
 
 const MediaDisplay: React.FC<MediaDisplayProps> = ({ figures }) => {
   return (
-    <div className="article-content">
-      <div className="article-content-wrap">
+    <div>
         {figures.slice(0, 2).map((fig, index) => (
           <Media key={index} src={fig.src} caption={fig.caption} index={index + 1} />
         ))}
-      </div>
-      <div className="article-content-wrap">
         {figures.slice(2, 4).map((fig, index) => (
           <Media key={index + 2} src={fig.src} caption={fig.caption} index={index + 3} />
         ))}
-      </div>
     </div>
   );
 };
