@@ -45,7 +45,7 @@ const GradeTable: React.FC<{ members: Member[], grade: string }> = ({ members, g
           </thead>
           <tbody>
             {members.map((member, index) => (
-              <tr key={index} className="hover:bg-gray-50">
+              <tr key={index} className="hover:bg-gray-50 even:bg-gray-100">
                 <td className="p-3 border-b border-gray-100">
                   {member.name}
                 </td>
