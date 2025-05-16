@@ -98,7 +98,7 @@ const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
               />
             </div>
           </th>
-          <th className="p-4 border-b border-gray-200 text-xl font-semibold text-gray-800 align-middle">
+          <th className="p-4 border-b border-gray-200 text-xl font-semibold text-gray-800">
           <h3 >{items[0].name.split('_')
           .map(word => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')}</h3>
