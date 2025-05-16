@@ -57,7 +57,7 @@ body {
   }
 
   a {
-    @apply text-primary dark:text-blue-400  hover:text-blue-800;
+    @apply text-blue-600 dark:text-blue-400  hover:text-blue-800;
   }
 
   /* ul {
@@ -82,8 +82,5 @@ body {
 
   img {
     @apply max-w-full h-auto;
-  }
-  button {
-    @apply bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary-dark transition;
   }
 }
