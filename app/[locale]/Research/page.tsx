@@ -83,7 +83,7 @@ const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
     <div
     id="app_content"
     key={items[0].name}
-    className="scroll-mt-16 max-w-4xl mx-auto p-6"
+    className="scroll-mt-16 mx-auto p-6"
   >
     <table className="w-full table-auto border-collapse rounded-2xl overflow-hidden shadow-md bg-white">
       <thead className="bg-gray-100">
