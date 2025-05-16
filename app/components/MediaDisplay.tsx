@@ -16,7 +16,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
   if (isImage) {
     return (
       <div className="max-h-[300px]">
-        <Image src={`/images/${src}`} alt={caption}  className="w-full h-auto object-contain"/>
+        <Image src={`/images/${src}`} alt={caption}  className="w-auto h-full object-contain"/>
         <figcaption className="py-3 px-4 bg-gray-200">
           Fig. {index} : {caption}
         </figcaption>
@@ -25,8 +25,8 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
   } else if (isVideo) {
     const videoType = src.match(/.*\.(mp4|avi)$/)?.[1];
     return (
-      <div className="max-h-[300px] overflow-auto">
-        <video src={`/images/${src}`} controls className="w-full h-auto">
+      <div className="max-h-[300px]">
+        <video src={`/images/${src}`} controls className="w-auto h-full">
           <source src={`/images/${src}`} type={`video/${videoType}`} />
           <p>動画を再生するには video タグをサポートしたブラウザが必要です。</p>
         </video>
