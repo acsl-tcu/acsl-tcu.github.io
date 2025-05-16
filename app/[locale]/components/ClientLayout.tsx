@@ -25,7 +25,8 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
         <NavBar />
       </header>
       <main
-        className={`min-h-[${headerHeight-120}px] pb-30 container mx-auto flex flex-col`}
+        className="container mx-auto flex flex-col pb-[120px]"
+        style={{ minHeight: `${headerHeight - 120}px` }}
       >
         {children}
       </main>
