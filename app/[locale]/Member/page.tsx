@@ -33,8 +33,8 @@ function useLocaledData(table: string, year: number) {
 
 const GradeTable: React.FC<{ members: Member[], grade: string }> = ({ members, grade }) => {
   return (
-    <section className="scroll-mt-40 mb-8">
-      <h3 className="text-xl font-semibold mb-2" id={grade}>{grade}</h3>
+    <section className="mb-8">
+      <h3 className="scroll-mt-40 text-xl font-semibold mb-2" id={grade}>{grade}</h3>
       <div className="overflow-x-auto border border-gray-200 rounded-md">
         <table className="min-w-full table-auto text-left">
           <thead className="bg-gray-100">
