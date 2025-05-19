@@ -4,6 +4,7 @@ const useDB = (tables: string[], year: number) => {
   //default value
   const [rows, setRows] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     if (!tables || tables.length === 0) {
       setError("No tables provided.");

@@ -3,7 +3,7 @@
 import React from "react"
 import { useI18nContext } from '@/contexts/i18nContext';
 import { FB } from '@/app/components/FacebookSDK';
-import {News} from './News';
+import News from './News';
 const Home: React.FC = () => {
   const { messages } = useI18nContext();
   return (
