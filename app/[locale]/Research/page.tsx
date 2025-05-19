@@ -5,7 +5,7 @@ import useDB from '@/hooks/useDB';
 import MediaDisplay from '@/app/components/MediaDisplay';
 import { useState } from 'react';
 import Image from "next/image";
-import { MediaData, DatabaseFigure, Figure } from "./ResearchInterface";
+import { MediaData, DatabaseFigure } from "./ResearchInterface";
 import Card from "./ApplicationCard";
 
 function useAdjustData(table: string) {
