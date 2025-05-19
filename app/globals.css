@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* カスタムユーティリティ（状態色などは引き続き利用） */
+/* カスタムユーティリティ（状態色などは引き続き利用）
 @layer utilities {
   .bg-primary {
     background-color: rgb(0, 167, 235);
@@ -21,7 +21,7 @@
     box-shadow: 0 0 0 3px rgba(0, 167, 235, 0.4);
     outline: none;
   }
-}
+} */
 @layer base {
   html {
     font-family: 'Inter', sans-serif;
