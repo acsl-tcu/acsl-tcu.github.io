@@ -10,7 +10,7 @@ interface Article {
 
 const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
   if (!articles) return null;
-
+    console.log(articles);
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full table-auto border border-gray-300">
@@ -18,8 +18,11 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
           {articles.map((article, index) => {
             return (
               <tr key={index} className="border-b border-gray-200 even:bg-gray-100 even:dark:bg-gray-800 dark:bg-neutral-900 dark:text-gray-100">
-                <td className="p-2 text-sm">
-                  {article.author} {article.title} {article.magazine} {article.page} {article.date}
+                  <td className="p-2 text-sm font-mono w-8 text-right">
+                     {index + 1}
+                  </td>
+                  <td className="p-2 text-sm">
+                  {article.author}, <div className="italic">"{article.title}"</div>, {article.magazine}, {article.page}, {article.date}
                 </td>
               </tr>
             );
