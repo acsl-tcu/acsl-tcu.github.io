@@ -11,13 +11,13 @@ const Home: React.FC = () => {
     <h2>ABOUT US</h2>
     <p>{messages.home.aboutUs}</p>
 
-    <div className="flex flex-row gap-4">
-      <div className="w-2/3">
-        <News />
-      </div>
-      <div className="w-1/3">
-        <FB />
-      </div>
+    <div className="flex gap-4">
+     <div className="w-2/3 bg-white p-4 shadow rounded flex flex-col">
+     <News />
+     </div>
+    <div className="w-1/3 bg-white p-4 shadow rounded flex flex-col">
+      <FB />
+     </div>
     </div>
   </div>
   );
