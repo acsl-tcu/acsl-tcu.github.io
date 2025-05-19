@@ -3,14 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* ====== カスタム変数 ====== */
+html {
   --color-primary: rgb(0, 167, 235);
   --color-primary-dark: rgb(0, 140, 200);
-  --color-primary-ring: rgba(0, 167, 235, 0.4); /* フォーカス用 */
+  --color-primary-ring: rgba(0, 167, 235, 0.4);
   --background: #ffffff;
   --foreground: #171717;
 }
 
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* ====== カスタムテーマ変数 (任意) ====== */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -18,52 +25,35 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ====== グローバル適用 ====== */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-/* オプション：ユーティリティとして再利用したい場合 */
-/* ② カスタムユーティリティを追加 */
+/* ====== ユーティリティクラス追加 ====== */
 @layer utilities {
-  /* 通常の色 */
   .bg-primary {
     background-color: var(--color-primary);
   }
-
   .text-primary {
     color: var(--color-primary);
   }
-
   .border-primary {
     border-color: var(--color-primary);
   }
 
-  /* 状態クラス: hover */
   .hover\:bg-primary-dark:hover {
     background-color: var(--color-primary-dark);
   }
-
   .hover\:text-primary:hover {
     color: var(--color-primary);
   }
-
-  /* 状態クラス: focus */
   .focus\:ring-primary:focus {
     box-shadow: 0 0 0 3px var(--color-primary-ring);
     outline: none;
   }
-
-  /* 状態クラス: active */
   .active\:bg-primary-dark:active {
     background-color: var(--color-primary-dark);
   }
@@ -77,19 +67,21 @@ body {
   }
 
   body {
-    @apply m-4 bg-white text-gray-900 font-sans leading-relaxed dark:bg-neutral-900 dark:text-white;
+    @apply m-4 font-sans leading-relaxed;
+    background: var(--background);
+    color: var(--foreground);
   }
 
   h1 {
-    @apply text-[min(13vw,30px)] font-bold tracking-tight mb-2 mt-4 text-gray-700;
+    @apply text-[min(13vw,30px)] font-bold tracking-tight mb-2 mt-4 text-[var(--foreground)];
   }
 
   h2 {
-    @apply text-3xl font-semibold tracking-tight mb-1 mt-4  text-gray-700 border-l-4 border-blue-500 pl-2;
+    @apply text-3xl font-semibold tracking-tight mb-1 mt-4 border-l-4 border-blue-500 pl-2 text-[var(--foreground)];
   }
 
   h3 {
-    @apply text-2xl font-semibold mb-0 mt-2;
+    @apply text-2xl font-semibold mb-0 mt-2 text-[var(--foreground)];
   }
 
   p {
@@ -97,27 +89,19 @@ body {
   }
 
   a {
-    @apply text-blue-600 dark:text-blue-400  hover:text-blue-800;
+    @apply text-blue-600 dark:text-blue-400 hover:text-blue-800;
   }
 
-  /* ul {
-    @apply list-disc pl-6 mb-4;
-  } */
-
-  /* ol {
-    @apply list-decimal pl-6 mb-4;
-  } */
-
   blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 my-6;
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 dark:border-gray-600 dark:text-gray-300 my-6;
   }
 
   code {
-    @apply bg-gray-100 text-sm px-1 py-0.5 rounded;
+    @apply bg-gray-100 dark:bg-gray-800 text-sm px-1 py-0.5 rounded;
   }
 
   pre {
-    @apply bg-gray-100 text-sm p-4 rounded overflow-x-auto mb-4;
+    @apply bg-gray-100 dark:bg-gray-800 text-sm p-4 rounded overflow-x-auto mb-4;
   }
 
   img {
