@@ -1,4 +1,4 @@
-interface Figure {
+export interface Figure {
   src: string;
   caption: string;
 };
@@ -16,3 +16,9 @@ export interface CardProps {
   items: MediaData[];
   set: (items: MediaData[]) => void;
 }
+
+export interface DatabaseFigure {
+  path: string;
+  caption: string;
+  jcaption: string;
+};

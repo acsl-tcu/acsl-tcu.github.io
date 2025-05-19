@@ -5,7 +5,7 @@ import useDB from '@/hooks/useDB';
 import MediaDisplay from '@/app/components/MediaDisplay';
 import { useState } from 'react';
 import Image from "next/image";
-import { MediaData } from "./ResearchInterface";
+import { MediaData, DatabaseFigure, Figure } from "./ResearchInterface";
 import Card from "./ApplicationCard";
 
 function useAdjustData(table: string) {
@@ -21,12 +21,12 @@ function useAdjustData(table: string) {
     const figureData = typeof row.figure_data === 'string'
       ? JSON.parse(row.figure_data)
       : row.figure_data;
-  
-    const figures = (figureData?.figures ?? []).map((f: any) => ({
+
+    const figures = (figureData?.figures ?? []).map((f: DatabaseFigure) => ({
       src: f.path,
       caption: f[`${lang}caption`] || ""
     })).filter(f => f.src);
-  
+
     return {
       name: row.application_name,
       type: row.type,
@@ -56,7 +56,7 @@ const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
       <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${showContent ? 'max-h-screen mb-2' : 'max-h-0'
         }`}>
         {
-          showContent && 
+          showContent &&
           (<div className={`mt-0 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
             <p className="px-4 py-3 bg-gray-200 text-gray-700">{item.abstract}</p>
             <MediaDisplay figures={item.figures} />
@@ -88,41 +88,41 @@ const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
 
   return (
     <div
-    id="app_content"
-    key={items[0].name}
-    className="scroll-mt-30 mx-auto p-6"
-  >
-    <table className="w-full table-auto border-collapse rounded-2xl overflow-hidden shadow-md bg-white">
-      <thead className="bg-gray-100">
-        <tr>
-          <th className="relative w-1/5 p-0 border-b border-gray-200">
-            <div className="relative w-full h-full">
-              <Image
-                className="object-cover w-full aspect-square rounded-tl-2xl"
-                fill
-                src={`/images/${items[0].name}.jpg`}
-                alt={items[0].name}
-              />
-            </div>
-          </th>
-          <th className="p-4 border-b border-gray-200 text-xl font-semibold text-gray-800">
-          <h3 >{items[0].name.split('_')
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ')}</h3>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {items.map((item, index) => (
-          <tr key={index} className="hover:bg-gray-50 transition-colors duration-200">
-            <td colSpan={2} className="p-4 border-b border-gray-100">
-              <Topic key={item.title} item={item} />
-            </td>
+      id="app_content"
+      key={items[0].name}
+      className="scroll-mt-30 mx-auto p-6"
+    >
+      <table className="w-full table-auto border-collapse rounded-2xl overflow-hidden shadow-md bg-white">
+        <thead className="bg-gray-100">
+          <tr>
+            <th className="relative w-1/5 p-0 border-b border-gray-200">
+              <div className="relative w-full h-full">
+                <Image
+                  className="object-cover w-full aspect-square rounded-tl-2xl"
+                  fill
+                  src={`/images/${items[0].name}.jpg`}
+                  alt={items[0].name}
+                />
+              </div>
+            </th>
+            <th className="p-4 border-b border-gray-200 text-xl font-semibold text-gray-800">
+              <h3 >{items[0].name.split('_')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ')}</h3>
+            </th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>  
+        </thead>
+        <tbody>
+          {items.map((item, index) => (
+            <tr key={index} className="hover:bg-gray-50 transition-colors duration-200">
+              <td colSpan={2} className="p-4 border-b border-gray-100">
+                <Topic key={item.title} item={item} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
