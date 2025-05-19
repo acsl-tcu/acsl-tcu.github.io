@@ -3,63 +3,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ====== カスタム変数 ====== */
-html {
-  --color-primary: rgb(0, 167, 235);
-  --color-primary-dark: rgb(0, 140, 200);
-  --color-primary-ring: rgba(0, 167, 235, 0.4);
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-html.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
-/* ====== カスタムテーマ変数 (任意) ====== */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* ====== グローバル適用 ====== */
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* ====== ユーティリティクラス追加 ====== */
+/* カスタムユーティリティ（状態色などは引き続き利用） */
 @layer utilities {
   .bg-primary {
-    background-color: var(--color-primary);
+    background-color: rgb(0, 167, 235);
   }
+
   .text-primary {
-    color: var(--color-primary);
-  }
-  .border-primary {
-    border-color: var(--color-primary);
+    color: rgb(0, 167, 235);
   }
 
   .hover\:bg-primary-dark:hover {
-    background-color: var(--color-primary-dark);
+    background-color: rgb(0, 140, 200);
   }
-  .hover\:text-primary:hover {
-    color: var(--color-primary);
-  }
+
   .focus\:ring-primary:focus {
-    box-shadow: 0 0 0 3px var(--color-primary-ring);
+    box-shadow: 0 0 0 3px rgba(0, 167, 235, 0.4);
     outline: none;
   }
-  .active\:bg-primary-dark:active {
-    background-color: var(--color-primary-dark);
-  }
 }
-
-/* ====== カスタムベーススタイル ====== */
 @layer base {
   html {
     font-family: 'Inter', sans-serif;
@@ -67,21 +29,19 @@ body {
   }
 
   body {
-    @apply m-4 font-sans leading-relaxed;
-    background: var(--background);
-    color: var(--foreground);
+    @apply m-4 bg-white text-gray-900 font-sans leading-relaxed dark:bg-neutral-900 dark:text-gray-100;
   }
 
   h1 {
-    @apply text-[min(13vw,30px)] font-bold tracking-tight mb-2 mt-4 text-[var(--foreground)];
+    @apply text-[min(13vw,30px)] font-bold tracking-tight mb-2 mt-4 text-gray-700 dark:text-white;
   }
 
   h2 {
-    @apply text-3xl font-semibold tracking-tight mb-1 mt-4 border-l-4 border-blue-500 pl-2 text-[var(--foreground)];
+    @apply text-3xl font-semibold tracking-tight mb-1 mt-4 border-l-4 border-blue-500 pl-2 text-gray-700 dark:text-gray-200;
   }
 
   h3 {
-    @apply text-2xl font-semibold mb-0 mt-2 text-[var(--foreground)];
+    @apply text-2xl font-semibold mb-0 mt-2 text-gray-800 dark:text-gray-100;
   }
 
   p {
@@ -93,15 +53,15 @@ body {
   }
 
   blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 dark:border-gray-600 dark:text-gray-300 my-6;
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 my-6 dark:border-gray-600 dark:text-gray-300;
   }
 
   code {
-    @apply bg-gray-100 dark:bg-gray-800 text-sm px-1 py-0.5 rounded;
+    @apply bg-gray-100 text-sm px-1 py-0.5 rounded dark:bg-gray-800 dark:text-gray-200;
   }
 
   pre {
-    @apply bg-gray-100 dark:bg-gray-800 text-sm p-4 rounded overflow-x-auto mb-4;
+    @apply bg-gray-100 text-sm p-4 rounded overflow-x-auto mb-4 dark:bg-gray-800 dark:text-gray-200;
   }
 
   img {
