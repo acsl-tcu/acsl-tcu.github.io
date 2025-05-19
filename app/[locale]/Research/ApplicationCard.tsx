@@ -5,7 +5,7 @@ const Card: React.FC<CardProps> = ({ items, set }) => {
   return (
     <li className="px-4 py-4 shadow-lg shadow-gray-300 rounded-2xl" onClick={() => set(items)}>
       <a href="#app_content">
-        <h4 >{items[0].name.split('_')
+        <h4>{items[0].name.split('_')
           .map(word => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')}</h4>
         <div className="mt-3">

@@ -93,7 +93,7 @@ const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
       className="scroll-mt-30 mx-auto p-6"
     >
       <table className="w-full table-auto border-collapse rounded-2xl overflow-hidden shadow-md bg-white">
-        <thead className="bg-gray-100">
+        <thead className="bg-gray-100 dark:bg-neutral-900 dark:text-gray-100 ">
           <tr>
             <th className="relative w-1/5 p-0 border-b border-gray-200">
               <div className="relative w-full h-full">

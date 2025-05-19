@@ -26,7 +26,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
             className="h-full max-h-[300px] w-auto object-contain"
           />
         </div>
-        <figcaption className="py-3 px-4 bg-gray-200 w-full">
+        <figcaption className="py-3 px-4 bg-gray-200 dark:bg-neutral-900 dark:text-gray-100  w-full">
           Fig. {index} : {caption}
         </figcaption>
       </figure>
@@ -45,7 +45,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
             <p>動画を再生するには video タグをサポートしたブラウザが必要です。</p>
           </video>
         </div>
-        <figcaption className="py-3 px-4 bg-gray-200 w-full">
+        <figcaption className="py-3 px-4 bg-gray-200 dark:bg-neutral-900 dark:text-gray-100 w-full">
           Movie {index} : {caption}
         </figcaption>
       </figure>
