@@ -25,7 +25,7 @@ function useAdjustData(table: string) {
     const figures = (figureData?.figures ?? []).map((f: DatabaseFigure) => ({
       src: f.path,
       caption: f[`${lang}caption`] || ""
-    })).filter(f => f.src);
+    })).filter((f: { src: string; caption: string }) => f.src);
 
     return {
       name: row.application_name,
