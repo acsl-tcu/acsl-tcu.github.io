@@ -43,7 +43,7 @@ const News: React.FC = () => {
     return (
       <div className="space-y-6">
         <h2 id="latest-news" className="scroll-mt-30 mb-0 mt-3">Latest Publications</h2>
-        <ArticleTable articles={rows} />
+        <ArticleTable articles={rows[0]} />
       </div>
     );
 };
