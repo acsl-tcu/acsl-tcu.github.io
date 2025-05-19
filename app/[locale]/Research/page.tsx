@@ -17,18 +17,25 @@ function useAdjustData(table: string) {
   if (!rows || rows.length === 0)
     return { error };
 
-  const data: MediaData[] = rows[0].map((row: Record<string, string>) => ({
-    name: row.application_name,
-    type: row.type,
-    role: row.role,
-    title: row[`${lang}title`],
-    abstract: row[`${lang}abst`],
-    figures: Array.from({ length: 10 }, (_, i) => i + 1).map((n) => ({
-      src: row[`figure${n}`],
-      caption: row[`${lang}figure${n}_caption`],
-    })).filter(f => f.src)
-  })
-  );
+  const data: MediaData[] = rows[0].map((row: Record<string, string>) => {
+    const figureData = typeof row.figure_data === 'string'
+      ? JSON.parse(row.figure_data)
+      : row.figure_data;
+  
+    const figures = (figureData?.figures ?? []).map((f: any) => ({
+      src: f.path,
+      caption: f[`${lang}caption`] || ""
+    })).filter(f => f.src);
+  
+    return {
+      name: row.application_name,
+      type: row.type,
+      role: row.role,
+      title: row[`${lang}title`],
+      abstract: row[`${lang}abst`],
+      figures
+    };
+  });
   return { data, error }
 }
 
