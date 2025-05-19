@@ -23,7 +23,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
             width={0}
             height={0}
             sizes="100vw"
-            className="h-full max-h-[300px] w-auto object-contain"
+            className="h-full max-h-[300px] w-auto object-contain bg-neutral-100"
           />
         </div>
         <figcaption className="py-3 px-4 bg-gray-200 dark:bg-neutral-900 dark:text-gray-100  w-full">
@@ -39,7 +39,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
           <video
             src={`/images/${src}`}
             controls
-            className="h-full max-h-[300px] w-auto object-contain"
+            className="h-full max-h-[300px] w-auto object-contain bg-neutral-100"
           >
             <source src={`/images/${src}`} type={`video/${videoType}`} />
             <p>動画を再生するには video タグをサポートしたブラウザが必要です。</p>
