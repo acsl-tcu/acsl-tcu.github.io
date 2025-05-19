@@ -29,7 +29,11 @@ const LocaledTable: React.FC<{ locale: Locale, lectures: Lecture[], school: stri
           </thead>
           <tbody>
             {lectures.map((lecture, index) => (
-              <tr key={index}>
+              <tr
+              key={index}
+              className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+              onClick={() => window.open(`https://webclass.tcu.ac.jp/webclass/course.php/${lecture.id}/manage/`, '_blank')}
+            >
                 <td className="p-3 border-b border-gray-100">
                   {locale === 'en' ? lecture.etitle : lecture.title}
                 </td>
