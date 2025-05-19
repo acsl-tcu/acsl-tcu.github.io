@@ -67,7 +67,7 @@
   img {
     @apply max-w-full h-auto;
   }
-  thead {
+  th {
     @apply
       bg-gray-100 
       dark:bg-neutral-600 
