@@ -32,7 +32,7 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs
             id="year-select"
             value={dispYear}
             onChange={handleChange}
-            className="rounded-sm border border-gray-300 text-em bg-white px-3 py-2 shadow-sm w-30 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="rounded-sm border border-gray-300 text-em bg-white dark:bg-neutral-900 dark:text-gray-100  px-3 py-2 shadow-sm w-30 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
           >
             {year_list.map((year) => (
               <option key={year} value={year}>
