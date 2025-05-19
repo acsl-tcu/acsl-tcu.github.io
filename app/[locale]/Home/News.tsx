@@ -22,7 +22,7 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
                      {index + 1}
                   </td>
                   <td className="p-2 text-sm">
-                  {article.author}, <div className="italic">"{article.title}"</div>, {article.magazine}, {article.page}, {article.date}
+                  {article.author}, <span className="italic">"{article.title}"</span>, {article.magazine}, {article.page}, {article.date}
                 </td>
               </tr>
             );
