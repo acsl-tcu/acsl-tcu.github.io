@@ -14,6 +14,14 @@ interface Member {
   url?: string;
 }
 
+function toTitleCase(str: string): string {
+  return str
+    .toLowerCase()
+    .split(/\s+/) // 空白で分割（複数空白も対応）
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 function useLocaledData(table: string, year: number) {
   const { rows, error } = useDB([table], year);
   const { locale } = useI18nContext();
@@ -22,7 +30,7 @@ function useLocaledData(table: string, year: number) {
     return { error };
 
   const data: Member[] = rows[0].map((row: Record<string, string>) => ({
-    name: row[`${lang}name`],
+    name: toTitleCase(row[`${lang}name`]),
     subject: row[`${lang}subject`],
     grade: row.grade,
     url: row.url,
