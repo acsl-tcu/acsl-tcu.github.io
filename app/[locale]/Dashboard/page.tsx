@@ -1,9 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
 export default function DashboardPage() {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<User[]>([]);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
