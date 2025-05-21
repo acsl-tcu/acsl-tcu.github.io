@@ -6,6 +6,10 @@ type User = {
   name: string;
   email: string;
 };
+
+
+
+
 export default function DashboardPage() {
   const [data, setData] = useState<User[]>([]);
 
@@ -14,7 +18,7 @@ export default function DashboardPage() {
     const token = urlParams.get('token');
 
     if (!token) {
-      window.location.href = '/login';
+      window.location.href = "/login";
       return;
     }
 
