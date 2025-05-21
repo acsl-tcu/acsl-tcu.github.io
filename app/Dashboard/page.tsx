@@ -18,7 +18,7 @@ export default function DashboardPage() {
     const token = urlParams.get('token');
 
     if (!token) {
-      window.location.href = "/login";
+      window.location.href = "/Login";
       return;
     }
 
