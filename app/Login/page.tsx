@@ -7,6 +7,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const login = async () => {
+    console.log("Login action start!!");
     const res = await fetch('https://acsl-hp.vercel.app/app/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -24,7 +25,9 @@ export default function LoginPage() {
     <div>
       <input value={email} onChange={e => setEmail(e.target.value)} placeholder="email" />
       <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="password" />
-      <button onClick={login}>Login</button>
+      <button onClick={login}
+        className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 active:scale-95 transition transform duration-150"
+      >Login</button>
     </div>
   );
 }
