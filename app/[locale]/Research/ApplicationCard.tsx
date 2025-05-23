@@ -11,6 +11,10 @@ const Card: React.FC<CardProps> = ({ items, set }) => {
         <div className="mt-3">
           <Image
             src={`/images/${items[0].name}.jpg`} alt={items[0].name}
+            width={400}
+            height={400}
+            sizes="100vw"
+            priority
             className="w-full aspect-square object-cover rounded-2xl"
           />
         </div>

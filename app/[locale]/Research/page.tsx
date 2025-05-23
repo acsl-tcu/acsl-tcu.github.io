@@ -73,11 +73,10 @@ const MethodList: React.FC = () => {
   if (error) return <div className="text-red-500">Error: {error}</div>;
 
   if (!data || data.length === 0) return <div className="text-gray-500">Loading...</div>;
-
+  // console.log(data);
   return (
     <>
-      {data.map((item: MediaData) => <Topic key={item.title} item={item} />)
-      }
+      {data.map((item: MediaData) => <Topic key={item.title} item={item} />)}
     </>
   );
 }
@@ -146,9 +145,9 @@ const ApplicationList: React.FC = () => {
     <>
       <ul className="grid grid-cols-2 sm:grid-cols-4 gap-5">
         {Object.entries(groupedData).map(([name, items]) => (
-          <>
-            <Card key={name} items={items} set={setContents} />
-          </>
+          <div key={name}>
+            <Card items={items} set={setContents} />
+          </div>
         ))}
       </ul>
       <ApplicationContents items={contents} />
