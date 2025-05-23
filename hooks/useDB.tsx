@@ -12,7 +12,7 @@ const useDB = (tables: string[], year: number) => {
     }
     async function fetchData(): Promise<void> {
       try {
-        const response = await fetch(`https://acsl-hp.vercel.app/app/api/read-database-psql`, {
+        const response = await fetch(`https://acsl-hp.vercel.app/api/read-database-psql`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ tables, year })
