@@ -14,7 +14,8 @@ interface Member {
   url?: string;
 }
 
-function toTitleCase(str: string): string {
+function toTitleCase(str?: string| null): string {
+  if (!str) return '';
   return str
     .toLowerCase()
     .split(/\s+/) // 空白で分割（複数空白も対応）
