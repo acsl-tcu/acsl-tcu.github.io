@@ -22,7 +22,7 @@ export default function DashboardPage() {
       return;
     }
 
-    fetch('https://acsl-hp.vercel.app/app/api/protected/data', {
+    fetch('https://acsl-hp.vercel.app/api/protected/data', {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
