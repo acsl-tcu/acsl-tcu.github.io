@@ -1,10 +1,16 @@
-import { redirect } from 'next/navigation';
-// Redirect /lang or /lang/ to /lang/Home
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  redirect(`/${locale}/Home`);
+'use client';
+// Redirect / to /{default lang}/Home
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function RootRedirect() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const userLang = navigator.language;
+    const langPrefix = userLang.startsWith('ja') ? 'ja' : 'en';
+    router.replace(`/${langPrefix}/Home`);
+  }, [router]);
+
+  return null;
 }
