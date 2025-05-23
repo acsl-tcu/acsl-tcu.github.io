@@ -1,21 +1,18 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 type User = {
   id: number;
   name: string;
   email: string;
 };
 
-
-
-
 export default function DashboardPage() {
   const [data, setData] = useState<User[]>([]);
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
+    const token = localStorage.getItem('token'); // ✅ localStorageから取得
 
     if (!token) {
       window.location.href = "/Login";
@@ -25,8 +22,15 @@ export default function DashboardPage() {
     fetch('https://acsl-hp.vercel.app/api/protected/data', {
       headers: { Authorization: `Bearer ${token}` },
     })
-      .then((res) => res.json())
-      .then((d) => setData(d));
+      .then((res) => {
+        if (!res.ok) throw new Error('認証失敗');
+        return res.json();
+      })
+      .then((d) => setData(d))
+      .catch(() => {
+        localStorage.removeItem('token');
+        window.location.href = "/Login";
+      });
   }, []);
 
   return (

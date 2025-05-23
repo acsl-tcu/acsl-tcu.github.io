@@ -17,7 +17,8 @@ export default function LoginPage() {
 
     const data = await res.json();
     if (data.token) {
-      localStorage.setItem('token', data.token);
+      // localStorage.setItem('token', data.token);
+      localStorage.setItem('token', 'member') 
       window.location.href = "/Dashboard";
     }
   };
