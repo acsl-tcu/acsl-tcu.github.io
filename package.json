@@ -11,14 +11,19 @@
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "clsx": "^2.1.1",
+    "encoding-japanese": "^2.2.0",
+    "exceljs": "^4.4.0",
     "i18next": "^25.1.1",
     "lucide-react": "^0.507.0",
     "next": "15.3.1",
     "next-i18next": "^15.4.2",
+    "papaparse": "^5.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.8",
     "react-i18next": "^15.5.1",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "react-papaparse": "^4.4.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

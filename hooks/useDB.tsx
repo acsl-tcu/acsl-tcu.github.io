@@ -10,12 +10,22 @@ const useDB = (tables: string[], year: number) => {
       setError("No tables provided.");
       return;
     }
+
+    // tables=book&tables=author の形式に変換
+    const query = new URLSearchParams({
+      year: String(year),
+    });
+    tables.forEach(t => query.append('tables', t));
+
     async function fetchData(): Promise<void> {
       try {
-        const response = await fetch(`https://acsl-hp.vercel.app/api/read-database-psql`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ tables, year })
+        // const response = await fetch(`https://acsl-hp.vercel.app/api/read-database-psql`, {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ tables, year })
+        // });
+        const response = await fetch(`https://acsl-hp.vercel.app/api/read-database-psql?${query.toString()}`, {
+          method: 'GET',
         });
         if (!response.ok) {
           throw new Error(`Error fetching data from ${tables}: ${response.statusText}`);

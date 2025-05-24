@@ -1,42 +1,46 @@
+// app/dashboard/page.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
+import BookList from '@/app/components/BookList';
 
-type User = {
+type Book = {
   id: number;
-  name: string;
-  email: string;
+  title: string;
+  author: string;
 };
 
 export default function DashboardPage() {
-  const [data, setData] = useState<User[]>([]);
+  const [books, setBooks] = useState<Book[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('token'); // ✅ localStorageから取得
-
+    const token = localStorage.getItem('token');
     if (!token) {
-      window.location.href = "/Login";
+      window.location.href = '/Login';
       return;
     }
 
-    fetch('https://acsl-hp.vercel.app/api/protected/data', {
+    fetch('https://acsl-hp.vercel.app/api/books?tables=books&year=2024', {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
-        if (!res.ok) throw new Error('認証失敗');
+        if (!res.ok) throw new Error('認証エラーまたはデータ取得エラー');
         return res.json();
       })
-      .then((d) => setData(d))
-      .catch(() => {
+      .then((data) => setBooks(data.message[0]))
+      .catch((err) => {
+        setError(err.message);
         localStorage.removeItem('token');
-        window.location.href = "/Login";
+        // window.location.href = '/Login';
       });
   }, []);
 
   return (
-    <div>
-      <h1>認証後のデータ</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+    <div className="p-8">
+      <h1 className="text-xl font-bold mb-4">書籍一覧</h1>
+      {error && <p className="text-red-500">{error}</p>}
+      <BookList books={books} />
     </div>
   );
 }
