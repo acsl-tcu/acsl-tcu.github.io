@@ -1,12 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { TabPanel, getKeyByValue } from '@/app/components/Assets/ForTabs';
+// import { TabPanel, getKeyByValue } from '@/app/components/Assets/ForTabs';
 // import { GenTab } from '@/app/components/Assets/ForTabs';
-import ReadFile from '@/app/components/MyCSV/ReadFile';
-import GoodsTab from '@/app/components/MyTab/GoodsTab';
+// import ReadFile from '@/app/components/MyCSV/ReadFile';
+// import GoodsTab from '@/app/components/MyTab/GoodsTab';
 // import BookTab from '@/app/components/MyTab/BookTab';
-import MemberTab from '@/app/components/MyTab/MemberTab';
+// import MemberTab from '@/app/components/MyTab/MemberTab';
 // import SPAPhotoTab from '@/app/components/MySingleView/SPA_Photo';
 // import SimpleTab from '@/app/components/Tabs/SimpleTab';
 
@@ -36,7 +36,7 @@ export default function Main() {
 
       {/* Contents */}
       <div className="bg-white p-6 rounded-2xl shadow space-y-6">
-        <TabPanel value={value} index={getKeyByValue(tab_list, 'CSV read')}>
+        {/* <TabPanel value={value} index={getKeyByValue(tab_list, 'CSV read')}>
           <ReadFile />
         </TabPanel>
 
@@ -46,7 +46,7 @@ export default function Main() {
 
         <TabPanel value={value} index={getKeyByValue(tab_list, '名簿')}>
           <MemberTab value={value} index={getKeyByValue(tab_list, '名簿')} />
-        </TabPanel>
+        </TabPanel> */}
 
         {/* 他のタブも必要に応じて追加可能 */}
       </div>
