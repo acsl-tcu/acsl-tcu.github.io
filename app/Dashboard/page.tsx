@@ -8,7 +8,7 @@ import { GoodsColumns, goods_table_title } from './Goods'; // 必要なら分離
 import { MemberColumns, member_table_title } from './Member'; // 必要な
 import type { Book } from './Books'; // 必要なら分離
 import type { Good } from './Goods'; // 必要なら分離
-import type { Member } from './Member'; // 必要な
+//import type { Member } from './Member'; // 必要な
 
 export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
