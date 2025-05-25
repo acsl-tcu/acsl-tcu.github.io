@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Pencil, Trash2, Plus, Printer, FileDown } from 'lucide-react';
 import ExcelJS from 'exceljs';
+import Toast from '@/components/ui/Toast';
 
 interface Column<T> {
   key: keyof T;
@@ -34,7 +35,8 @@ export default function DataTable<T extends { id: string }>({
   const [editingId, setEditingId] = useState<string | null>(null);
   const [draftEdits, setDraftEdits] = useState<Record<string, Partial<T>>>({});
   const storageKey = 'visibleColumns_' + columns.map(c => c.key).join('_');
-
+  const [isSaving, setIsSaving] = useState(false);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [visibleKeys, setVisibleKeys] = useState<(keyof T)[]>(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem(storageKey);
@@ -107,8 +109,19 @@ export default function DataTable<T extends { id: string }>({
   };
 
   const syncChanges = async () => {
-    if (onSync) await onSync(data);
-    else alert('Sync not implemented');
+    if (!onSync) {
+      setToast({ message: 'Sync not implemented', type: 'error' });
+      return;
+    }
+    setIsSaving(true);
+    try {
+      await onSync(data);
+      setToast({ message: '同期完了しました', type: 'success' });
+    } catch (err) {
+      setToast({ message: '保存に失敗しました', type: 'error' });
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const exportCSV = () => {
@@ -314,12 +327,13 @@ export default function DataTable<T extends { id: string }>({
 
           <Button
             onClick={syncChanges}
-            className="transition-all duration-200 transform hover:scale-105 hover:bg-green-600 focus:ring-2 focus:ring-green-400"
+            disabled={isSaving}
+            className="transition-all duration-200 transform hover:scale-105 hover:bg-green-600 focus:ring-2 focus:ring-green-400 disabled:opacity-50"
           >
-            Sync to DB
+            {isSaving ? 'Saving...' : 'Sync to DB'}
           </Button>
         </div>
-
+        {toast && <Toast message={toast.message} type={toast.type} />}
       </CardContent>
     </Card>
   );
