@@ -244,6 +244,7 @@ export default function DataTable<T extends { id: string }>({
                         <Input
                           value={String(value ?? '')}
                           onChange={(e) => handleEdit(row.id, key, e.target.value)}
+                          className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                         />
                       ) : (
                         String(value ?? '')
@@ -269,6 +270,7 @@ export default function DataTable<T extends { id: string }>({
                     placeholder={String(col.key)}
                     value={(newItem[col.key] as string) ?? ''}
                     onChange={(e) => setNewItem(prev => ({ ...prev, [col.key]: e.target.value }))}
+                    className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                   />
                 </td>
               ))}
@@ -278,15 +280,46 @@ export default function DataTable<T extends { id: string }>({
             </tr>
           </tbody>
         </table>
-
         <div className="mt-4 flex justify-between items-center">
           <div className="space-x-2">
             <Button size="sm" disabled={page === 0} onClick={() => setPage(p => p - 1)}>Prev</Button>
-            <Button size="sm" disabled={page >= Math.ceil(filtered.length / ITEMS_PER_PAGE) - 1} onClick={() => setPage(p => p + 1)}>Next</Button>
+            <Button
+              size="sm"
+              disabled={page >= Math.ceil(filtered.length / ITEMS_PER_PAGE) - 1}
+              onClick={() => setPage(p => p + 1)}
+            >
+              Next
+            </Button>
           </div>
-          <div>Page {page + 1} / {Math.ceil(filtered.length / ITEMS_PER_PAGE)}</div>
-          <Button onClick={syncChanges}>Sync to DB</Button>
+
+          <div className="flex items-center gap-2">
+            Page
+            <Input
+              type="number"
+              className="w-16 text-center"
+              value={page + 1}
+              min={1}
+              max={Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE))}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                if (!isNaN(value)) {
+                  const maxPage = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+                  const newPage = Math.min(Math.max(value, 1), maxPage) - 1;
+                  setPage(newPage);
+                }
+              }}
+            />
+            / {Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE))}
+          </div>
+
+          <Button
+            onClick={syncChanges}
+            className="transition-all duration-200 transform hover:scale-105 hover:bg-green-600 focus:ring-2 focus:ring-green-400"
+          >
+            Sync to DB
+          </Button>
         </div>
+
       </CardContent>
     </Card>
   );
