@@ -51,7 +51,7 @@ export default function DataTable<T extends { id: string }>({
 
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(visibleKeys));
-  }, [visibleKeys]);
+  }, [visibleKeys, storageKey]);
 
   useEffect(() => {
     setData(initialData);

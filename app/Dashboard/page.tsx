@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable';
 import { BookColumns, book_table_title } from './Books'; // 必要なら分離
 import { GoodsColumns, goods_table_title } from './Goods'; // 必要なら分離
-import { MemberColumns, member_table_title } from './Member'; // 必要な
+// import { MemberColumns, member_table_title } from './Member'; // 必要な
 import type { Book } from './Books'; // 必要なら分離
 import type { Good } from './Goods'; // 必要なら分離
 //import type { Member } from './Member'; // 必要な
