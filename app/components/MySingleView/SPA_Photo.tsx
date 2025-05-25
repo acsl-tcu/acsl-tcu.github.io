@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useLayoutEffect, useReducer } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { TabPanel } from '../Assets/ForTabs';
-import CRUDActions from '../Assets/CRUD';
-import { Button } from '@/components/ui/button';
+// import { CRUDActions } from '../Assets/crudActions';
+// import type { CRUDState, CRUDInfo } from '../Assets/types';
 
 interface Props {
   table: string;
@@ -16,29 +16,20 @@ interface PhotoItem {
   title: string;
 }
 
-const itemData: PhotoItem[] = [
-  { img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e', title: 'Breakfast' },
-  { img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d', title: 'Burger' },
-  { img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45', title: 'Camera' },
-  { img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c', title: 'Coffee' },
-  { img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8', title: 'Hats' },
-  { img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62', title: 'Honey' },
-  { img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6', title: 'Basketball' },
-  { img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f', title: 'Fern' },
-  { img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25', title: 'Mushrooms' },
-  { img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af', title: 'Tomato basil' },
-  { img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1', title: 'Sea star' },
-  { img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6', title: 'Bike' },
-];
-
 const SPAPhotoTab = ({ table, value, index }: Props) => {
-  const [CRUD, setCRUD] = useReducer(CRUDActions, { C: [], U: [], D: [] });
-  const [photoItems, setPhotoItems] = useState<any[]>([]);
+  // const [crudState, setCrudState] = useState<CRUDState>({ C: [], U: [], D: [] });
+
+  // const handleCRUD = async (info: CRUDInfo) => {
+  //   const nextState = await CRUDActions(crudState, info);
+  //   setCrudState(nextState);
+  // };
+  // const [CRUD, setCRUD] = useReducer(CRUDActions, { C: [], U: [], D: [] });
+  const [photoItems, setPhotoItems] = useState<PhotoItem[]>([]);
   const [pageError, setError] = useState<number | string>(0);
   const [fScan, setScan] = useState(false);
 
   const toggleScan = () => {
-    setScan(!fScan);
+    setScan(prev => !prev);
   };
 
   useLayoutEffect(() => {
@@ -48,24 +39,29 @@ const SPAPhotoTab = ({ table, value, index }: Props) => {
           console.error('response.ok:', res.ok);
           console.error('response.status:', res.status);
           console.error('response.statusText:', res.statusText);
-          setError("サーバーエラー");
+          setError('サーバーエラー');
           throw new Error(res.statusText);
         }
         return res.json();
       })
-      .then(json => setPhotoItems(json))
+      .then((json: PhotoItem[]) => setPhotoItems(json))
       .catch(error => {
-        console.error("通信に失敗しました", error);
+        console.error('通信に失敗しました', error, pageError);
       });
   }, [table]);
 
   return (
     <TabPanel value={value} index={index}>
       <div className="flex justify-end mb-4">
-        <Button onClick={toggleScan}>{fScan ? 'スキャン停止' : '連続スキャン'}</Button>
+        <button
+          onClick={toggleScan}
+          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded border text-sm"
+        >
+          {fScan ? 'スキャン停止' : '連続スキャン'}
+        </button>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-h-[450px] overflow-y-auto">
-        {itemData.map((item) => (
+        {photoItems.map((item) => (
           <div key={item.img} className="rounded overflow-hidden shadow-sm">
             <img
               src={`${item.img}?w=164&h=164&fit=crop&auto=format`}

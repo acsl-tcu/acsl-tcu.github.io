@@ -1,11 +1,13 @@
 // utils/fetchHelpers.ts
 
+import { CRUDInfo } from './types';
+
 export async function sendRequest(
   method: 'POST' | 'PUT' | 'DELETE',
   url: string,
-  body: any,
+  body: BodyInit,
   isFormData: boolean = false
-) {
+): Promise<any> {
   const options: RequestInit = {
     method,
     headers: isFormData ? undefined : { 'Content-Type': 'application/json' },
@@ -20,8 +22,8 @@ export async function sendRequest(
   return res.json();
 }
 
-export async function fetchData(url: string, info: any) {
-  const params = info.Where ? `?where=${encodeURIComponent(info.Where)}` : '';
+export async function fetchData(url: string, info: CRUDInfo): Promise<unknown[]> {
+  const params = info.Where ? `?where=${encodeURIComponent(String(info.Where))}` : '';
   const res = await fetch(`${url}${params}`);
   if (!res.ok) {
     console.error('Fetch failed:', res.status, res.statusText);

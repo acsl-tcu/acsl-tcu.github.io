@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Main from './Main';
+// import Main from './Main';
 type User = {
   id: number;
   name: string;
@@ -37,7 +37,7 @@ export default function DashboardPage() {
     <div>
       <h1>認証後のデータ</h1>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-      <Main />
+      {/* <Main /> */}
     </div>
   );
 }

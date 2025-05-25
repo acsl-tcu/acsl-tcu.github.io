@@ -3,9 +3,13 @@
 import { FC, MouseEvent } from 'react';
 import ExcelJS from 'exceljs';
 
+interface DataRow {
+  [key: string]: string | number | boolean | null | undefined;
+}
+
 interface ExcelWriteProps {
   head: Record<string, string>;
-  data: Record<string, any>[];
+  data: DataRow[];
   txt?: string;
 }
 

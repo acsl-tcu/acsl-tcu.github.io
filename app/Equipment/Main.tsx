@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { TabPanel, GenTab, getKeyByValue } from '@/app/components/Assets/ForTabs';
+import { TabPanel, getKeyByValue } from '@/app/components/Assets/ForTabs';
+// import { GenTab } from '@/app/components/Assets/ForTabs';
 import ReadFile from '@/app/components/MyCSV/ReadFile';
 import GoodsTab from '@/app/components/MyTab/GoodsTab';
-import BookTab from '@/app/components/MyTab/BookTab';
+// import BookTab from '@/app/components/MyTab/BookTab';
 import MemberTab from '@/app/components/MyTab/MemberTab';
-import SPAPhotoTab from '@/app/components/MySingleView/SPA_Photo';
-import SimpleTab from '@/app/components/Tabs/SimpleTab';
+// import SPAPhotoTab from '@/app/components/MySingleView/SPA_Photo';
+// import SimpleTab from '@/app/components/Tabs/SimpleTab';
 
 export default function Main() {
   const [value, setValue] = useState(0);

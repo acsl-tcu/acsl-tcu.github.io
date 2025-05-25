@@ -43,7 +43,7 @@ const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs
         </div>
 
         {/* テキストボタン群 */}
-        <div className="flex items-end gap-3 m-2">
+        <div className="flex flex-col md:flex-row relative items-top gap-3 m-2">
           {texts.map((text, index) => (
             <a
               key={`${text}${dispYear}`}
