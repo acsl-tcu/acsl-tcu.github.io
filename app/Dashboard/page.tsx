@@ -60,7 +60,7 @@ export default function DashboardPage() {
           data={data as Book[]}
           columns={BookColumns}
           onSync={async (data) => {
-            await fetch('/api/books', {
+            await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(data),
@@ -74,7 +74,7 @@ export default function DashboardPage() {
           data={data as Good[]}
           columns={GoodsColumns}
           onSync={async (data) => {
-            await fetch('/api/goods', {
+            await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(data),
