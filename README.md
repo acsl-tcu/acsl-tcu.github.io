@@ -21,7 +21,8 @@ Ok to proceed? (y)
 npm install next-i18next react-i18next i18next
 npm install clsx # 
 npm install lucide-react react-icons # 各種アイコン
-npm install zustand 
+npm install zustand
+npm install next-auth 
 ```
 
 ## フォルダ構成
