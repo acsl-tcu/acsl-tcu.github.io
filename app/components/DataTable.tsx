@@ -3,10 +3,13 @@
 import { useEffect, useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
 import { Pencil, Trash2, Plus, Printer, FileDown } from 'lucide-react';
-import ExcelJS from 'exceljs';
 import Toast from '@/components/ui/Toast';
+import { exportCSV, exportXLSX, printTable } from '@/lib/exporters';
+import { useToast } from '@/hooks/useToast';
+import VarSelector from '@/app/components/VarSelector';
+
 
 interface Column<T> {
   key: keyof T;
@@ -36,7 +39,6 @@ export default function DataTable<T extends { id: string }>({
   const [draftEdits, setDraftEdits] = useState<Record<string, Partial<T>>>({});
   const storageKey = 'visibleColumns_' + columns.map(c => c.key).join('_');
   const [isSaving, setIsSaving] = useState(false);
-  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [visibleKeys, setVisibleKeys] = useState<(keyof T)[]>(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem(storageKey);
@@ -50,7 +52,27 @@ export default function DataTable<T extends { id: string }>({
     }
     return columns.map(c => c.key);
   });
+  const [ftable, setFtable] = useState<string>('0');
+  const ftableValue = ['0', '1'];
+  const ftableLables = ['Card', 'Table'];
 
+  const { toast, showToast } = useToast();
+
+  const syncChanges = async () => {
+    if (!onSync) {
+      showToast('Sync not implemented', 'error');
+      return;
+    }
+    setIsSaving(true);
+    try {
+      await onSync(data);
+      showToast('同期完了しました', 'success');
+    } catch {
+      showToast('保存に失敗しました', 'error');
+    } finally {
+      setIsSaving(false);
+    }
+  };
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(visibleKeys));
   }, [visibleKeys, storageKey]);
@@ -108,76 +130,8 @@ export default function DataTable<T extends { id: string }>({
     setNewItem({});
   };
 
-  const syncChanges = async () => {
-    if (!onSync) {
-      setToast({ message: 'Sync not implemented', type: 'error' });
-      return;
-    }
-    setIsSaving(true);
-    try {
-      await onSync(data);
-      setToast({ message: '同期完了しました', type: 'success' });
-    } catch (err) {
-      setToast({ message: '保存に失敗しました', type: 'error' });
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  const exportCSV = () => {
-    const exportData = data.map(row => {
-      const obj: Record<string, string> = {};
-      visibleKeys.forEach(key => {
-        obj[String(key)] = String(row[key] ?? '');
-      });
-      return obj;
-    });
-    const csvContent = [
-      visibleKeys.map(k => String(k)).join(','),
-      ...exportData.map(row => visibleKeys.map(k => row[String(k)]).join(','))
-    ].join('\n');
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'export.csv';
-    link.click();
-  };
-
-  const exportXLSX = async () => {
-    const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet('Sheet1');
-
-    // ヘッダー行
-    worksheet.addRow(visibleKeys.map(k => String(k)));
-
-    // データ行
-    data.forEach(row => {
-      const values = visibleKeys.map(key => String(row[key] ?? ''));
-      worksheet.addRow(values);
-    });
-
-    const buffer = await workbook.xlsx.writeBuffer();
-    const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'export.xlsx';
-    link.click();
-  };
-
-  const printTable = () => {
-    const printable = data.map(row =>
-      visibleKeys.map(key => String(row[key] ?? '')).join('\t')
-    ).join('\n');
-    const newWin = window.open('', '', 'width=800,height=600');
-    if (newWin) {
-      newWin.document.write('<pre>' + printable + '</pre>');
-      newWin.document.close();
-      newWin.print();
-    }
-  };
-
   return (
-    <Card className="p-4">
+    <Card className="py-4 px-0" >
       <CardContent>
         <div className="mb-4 flex flex-wrap gap-2">
           {columns.map(col => (
@@ -201,9 +155,10 @@ export default function DataTable<T extends { id: string }>({
           )}>
             {visibleKeys.length === columns.length ? 'すべて非表示' : 'すべて表示'}
           </Button>
-          <Button size="sm" onClick={printTable}><Printer size={14} className="mr-1" />印刷</Button>
-          <Button size="sm" onClick={exportCSV}><FileDown size={14} className="mr-1" />CSV</Button>
-          <Button size="sm" onClick={exportXLSX}><FileDown size={14} className="mr-1" />XLSX</Button>
+          <Button size="sm" onClick={() => printTable(data, visibleKeys)}><Printer size={14} className="mr-1" />印刷</Button>
+          <Button size="sm" onClick={() => exportCSV(data, visibleKeys)}><FileDown size={14} className="mr-1" />CSV</Button>
+          <Button size="sm" onClick={() => exportXLSX(data, visibleKeys)}><FileDown size={14} className="mr-1" />XLSX</Button>
+          <VarSelector vars={ftableValue} labels={ftableLables} current={ftable} setVar={setFtable} />
         </div>
 
         <div className="mb-4">
@@ -214,85 +169,115 @@ export default function DataTable<T extends { id: string }>({
             className="w-full"
           />
         </div>
-
-        <table className="table-auto w-full border text-sm">
-          <thead>
-            <tr className="bg-gray-100">
-              {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
-                <th key={String(col.key)} className="p-2 border">{col.label}</th>
-              ))}
-              <th className="p-2 border">Actions</th>
-            </tr>
-            <tr>
-              {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
-                <th key={String(col.key)} className="p-1 border">
-                  <Input
-                    className="text-xs"
-                    placeholder="filter"
-                    value={columnFilters[String(col.key)] ?? ''}
-                    onChange={(e) =>
-                      setColumnFilters(prev => ({
-                        ...prev,
-                        [String(col.key)]: e.target.value,
-                      }))
-                    }
-                  />
-                </th>
-              ))}
-              <th className="p-1 border"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {pageItems.map(row => (
-              <tr key={row.id} className="border-t">
-                {columns.filter(col => visibleKeys.includes(col.key)).map(col => {
-                  const key = col.key;
-                  const value = editingId === row.id
-                    ? draftEdits[row.id]?.[key] ?? row[key]
-                    : row[key];
-
-                  return (
-                    <td key={String(key)} className="p-2 border">
-                      {editingId === row.id ? (
-                        <Input
-                          value={String(value ?? '')}
-                          onChange={(e) => handleEdit(row.id, key, e.target.value)}
-                          className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
-                        />
-                      ) : (
-                        String(value ?? '')
-                      )}
-                    </td>
-                  );
-                })}
-                <td className="p-2 border flex gap-2">
-                  {editingId === row.id ? (
-                    <Button size="sm" onClick={() => applyEdit(row.id)}>Save</Button>
-                  ) : (
-                    <Button size="sm" onClick={() => setEditingId(row.id)}><Pencil size={14} /></Button>
+        {ftable === '0' ?
+          <ul className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            {pageItems.map((item, index) => (
+              <Card key={item.id ?? index} className="p-2 gap-1">
+                {'title' in item && String(item.title) && (
+                  <CardTitle>
+                    <p className="text-sm font-bold">{String(item.title)}</p>
+                  </CardTitle>
+                )}
+                {'name' in item && String(item.name) && (
+                  <CardTitle>
+                    <p className="text-sm font-bold">{String(item.name)}</p>
+                  </CardTitle>
+                )}
+                {'number' in item ?
+                  (
+                    <CardFooter className="px-0">
+                      <span className="text-sm text-muted-foreground">{String(item.number)}</span>
+                    </CardFooter>
+                  ) :
+                  (
+                    <CardFooter>
+                      <span className="text-sm text-muted-foreground">ID: {item.id}</span>
+                    </CardFooter>
                   )}
-                  <Button size="sm" variant="destructive" onClick={() => deleteItem(row.id)}><Trash2 size={14} /></Button>
+              </Card>
+            ))
+            }
+          </ul>
+          :
+          <table className="table-auto w-full border text-sm">
+            <thead>
+              <tr className="bg-gray-100">
+                {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
+                  <th key={String(col.key)} className="p-2 border">{col.label}</th>
+                ))}
+                <th className="p-2 border">Actions</th>
+              </tr>
+              <tr>
+                {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
+                  <th key={String(col.key)} className="p-1 border">
+                    <Input
+                      className="text-xs"
+                      placeholder="filter"
+                      value={columnFilters[String(col.key)] ?? ''}
+                      onChange={(e) =>
+                        setColumnFilters(prev => ({
+                          ...prev,
+                          [String(col.key)]: e.target.value,
+                        }))
+                      }
+                    />
+                  </th>
+                ))}
+                <th className="p-1 border"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {pageItems.map(row => (
+                <tr key={row.id} className="border-t">
+                  {columns.filter(col => visibleKeys.includes(col.key)).map(col => {
+                    const key = col.key;
+                    const value = editingId === row.id
+                      ? draftEdits[row.id]?.[key] ?? row[key]
+                      : row[key];
+
+                    return (
+                      <td key={String(key)} className="p-2 border">
+                        {editingId === row.id ? (
+                          <Input
+                            value={String(value ?? '')}
+                            onChange={(e) => handleEdit(row.id, key, e.target.value)}
+                            className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
+                          />
+                        ) : (
+                          String(value ?? '')
+                        )}
+                      </td>
+                    );
+                  })}
+                  <td className="p-2 border flex gap-2">
+                    {editingId === row.id ? (
+                      <Button size="sm" onClick={() => applyEdit(row.id)}>Save</Button>
+                    ) : (
+                      <Button size="sm" onClick={() => setEditingId(row.id)}><Pencil size={14} /></Button>
+                    )}
+                    <Button size="sm" variant="destructive" onClick={() => deleteItem(row.id)}><Trash2 size={14} /></Button>
+                  </td>
+                </tr>
+              ))}
+
+              <tr className="border-t">
+                {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
+                  <td key={String(col.key)} className="p-2 border">
+                    <Input
+                      placeholder={String(col.key)}
+                      value={(newItem[col.key] as string) ?? ''}
+                      onChange={(e) => setNewItem(prev => ({ ...prev, [col.key]: e.target.value }))}
+                      className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
+                    />
+                  </td>
+                ))}
+                <td className="p-2 border">
+                  <Button size="sm" onClick={addItem}><Plus size={14} /></Button>
                 </td>
               </tr>
-            ))}
-
-            <tr className="border-t">
-              {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
-                <td key={String(col.key)} className="p-2 border">
-                  <Input
-                    placeholder={String(col.key)}
-                    value={(newItem[col.key] as string) ?? ''}
-                    onChange={(e) => setNewItem(prev => ({ ...prev, [col.key]: e.target.value }))}
-                    className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
-                  />
-                </td>
-              ))}
-              <td className="p-2 border">
-                <Button size="sm" onClick={addItem}><Plus size={14} /></Button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        }
         <div className="mt-4 flex justify-between items-center">
           <div className="space-x-2">
             <Button size="sm" disabled={page === 0} onClick={() => setPage(p => p - 1)}>Prev</Button>

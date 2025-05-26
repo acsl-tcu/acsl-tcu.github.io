@@ -9,12 +9,15 @@ import { GoodsColumns, goods_table_title } from './Goods';
 import type { Book } from './Books';
 import type { Good } from './Goods';
 //import type { Member } from './Member'; 
+import VarSelector from '@/app/components/VarSelector';
 
 export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
   const [table, setTable] = useState("books");
   const [data, setData] = useState<unknown>([]);
   const [originalData, setOriginalData] = useState<unknown>([]);
+  const tableOptions = ['books', 'goods', 'members'];
+  const tableOptionLables = ['書籍', '物品', '会員'];
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -41,8 +44,6 @@ export default function DashboardPage() {
       });
   }, [table]);
 
-  const tableOptions = ['books', 'goods', 'members'];
-
   function computeDiff<T extends { id: string | number }>(original: T[], current: T[]) {
     const originalMap = new Map(original.map(item => [item.id, item]));
     const currentMap = new Map(current.map(item => [item.id, item]));
@@ -58,18 +59,8 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="p-8">
-      {tableOptions.map((t) => (
-        <button
-          key={t}
-          onClick={() => setTable(t)}
-          className={`px-4 py-2 rounded border ${table === t ? 'bg-blue-600 text-white' : 'bg-white text-gray-800'
-            }`}
-        >
-          {t === 'books' && '書籍'}
-          {t === 'goods' && '物品'}
-          {t === 'members' && '会員'}
-        </button>))}
+    <div className="px-2 w-full">
+      {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={setTable} />}
       {error && <p className="text-red-500">{error}</p>}
       {table === 'books' && (<>
         <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
@@ -84,7 +75,8 @@ export default function DashboardPage() {
               body: JSON.stringify({ added, updated, deleted }),
             });
           }}
-        /></>)}
+        />
+      </>)}
       {table === 'goods' && (<>
         <h1 className="text-xl font-bold mb-4">{goods_table_title}</h1>
         <DataTable<Good>

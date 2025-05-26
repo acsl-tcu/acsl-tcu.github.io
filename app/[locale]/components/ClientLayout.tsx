@@ -1,4 +1,4 @@
-// app/[locale]/ClientLayout.tsx
+// app/[locale]/components/ClientLayout.tsx
 'use client';
 
 import { useRef, useEffect, useState, ReactNode } from 'react';
@@ -26,7 +26,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
       </header>
       <main
         className="container mx-auto flex flex-col"
-        style={{ minHeight: `${headerHeight - 120}px` ,  paddingBottom: `${headerHeight - 120}px`}}
+        style={{ minHeight: `${headerHeight - 120}px`, paddingBottom: `${headerHeight - 120}px` }}
       >
         {children}
       </main>
