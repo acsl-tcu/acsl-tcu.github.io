@@ -282,7 +282,7 @@ export default function DataTable<T extends { id: string }>({
                             ?
                             (<div className="text-center p-2 ">
                               <div>{String(value ?? '')}</div>
-                              {"imageUrl" in row && row.imageUrl
+                              {("imageUrl" in row && typeof row.imageUrl === "string")
                                 ? (
                                   <img src={row.imageUrl} alt="uploaded" className="w-16 h-16 object-cover" />
                                 )
