@@ -52,7 +52,7 @@ export default function DataTable<T extends { id: string }>({
     }
     return columns.map(c => c.key);
   });
-  const [ftable, setFtable] = useState<string>('0');
+  const [ftable, setFtable] = useState<string>(localStorage.getItem('ftable') || '0');
   const ftableValue = ['0', '1'];
   const ftableLables = ['Card', 'Table'];
 
@@ -184,7 +184,7 @@ export default function DataTable<T extends { id: string }>({
           <Button size="sm" onClick={() => printTable(data, visibleKeys)}><Printer size={14} className="mr-1" />印刷</Button>
           <Button size="sm" onClick={() => exportCSV(data, visibleKeys)}><FileDown size={14} className="mr-1" />CSV</Button>
           <Button size="sm" onClick={() => exportXLSX(data, visibleKeys)}><FileDown size={14} className="mr-1" />XLSX</Button>
-          <VarSelector vars={ftableValue} labels={ftableLables} current={ftable} setVar={setFtable} />
+          <VarSelector vars={ftableValue} labels={ftableLables} current={ftable} setVar={(f: string) => { localStorage.setItem('ftable', f); setFtable(f); }} />
         </div>
         {/* 全体を通した検索 */}
         <div className="mb-4">

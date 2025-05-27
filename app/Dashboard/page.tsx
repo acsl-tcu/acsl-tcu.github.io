@@ -13,7 +13,7 @@ import VarSelector from '@/app/components/VarSelector';
 
 export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
-  const [table, setTable] = useState("books");
+  const [table, setTable] = useState(localStorage.getItem('table') || 'goods');
   const [data, setData] = useState<unknown>([]);
   const [originalData, setOriginalData] = useState<unknown>([]);
   const tableOptions = ['books', 'goods', 'members'];
@@ -67,7 +67,7 @@ export default function DashboardPage() {
 
   return (
     <div className="px-2 w-full">
-      {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={setTable} />}
+      {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
       {error && <p className="text-red-500">{error}</p>}
       {table === 'books' && (<>
         <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
