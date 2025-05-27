@@ -39,19 +39,19 @@ npm install next-auth
 │   ├── lab/                # 旧ホームページ対策
 │   ├── components/         # 自作コンポーネント
 │   ├── BOS/                # BuildingOS用WebSocket + 認証システム 
-│   ├── [locale]/           # 日・英言語切り替えページ
-|   │   ├── page.tsx        # Homeにredirect
-|   │   ├── layout.tsx      # locale用レイアウト
-|   │   ├── components/     # localeが必要な自作コンポーネント
-|   │   │   ├── ClientLayout.tsx      # 実体としてのレイアウト
+│   └── [locale]/           # 日・英言語切り替えページ
+|       ├── page.tsx        # Homeにredirect
+|       ├── layout.tsx      # locale用レイアウト
+|       ├── components/     # localeが必要な自作コンポーネント
+|       └── ClientLayout.tsx      # 実体としてのレイアウト
 ├── components/ui/          # UI用コンポーネント
 ├── constants/              # 定数
 ├── contexts/               # React contexts: use***Context
-├── public/                 # 基本の画像
-│   └── favicon.ico         # 静的アセット
 ├── hooks/                  # React hooks: use***
 ├── lib/                    # library 関数 = ts
-│   └── api.ts              # API fetch 用のラッパー関数など
+│   └── api/                # API fetch 用のラッパー関数など
+├── public/                 # 基本の画像
+│   └── favicon.ico         # 静的アセット
 ├── types/                  # 各種型
 ├── next.config.js          # `output: 'export'` を設定
 ├── tsconfig.json           # 各種設定
