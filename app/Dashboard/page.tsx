@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable';
 import { BookColumns, book_table_title } from './Books';
-import { GoodsColumns, goods_table_title } from './Goods';
+import { GoodsColumns, GoodsColumnsStaffHide, GoodsColumnsStudentHide, goods_table_title } from './Goods';
 // import { MemberColumns, member_table_title } from './Member'; 
 import type { Book } from './Books';
 import type { Good } from './Goods';
@@ -18,14 +18,19 @@ export default function DashboardPage() {
   const [originalData, setOriginalData] = useState<unknown>([]);
   const tableOptions = ['books', 'goods', 'members'];
   const tableOptionLables = ['書籍', '物品', '会員'];
-
+  const isStaff = localStorage.getItem('role') === 'staff';
+  const isStudent = localStorage.getItem('role') === 'student';
+  const goodsColumns = isStaff
+    ? GoodsColumns.filter(col => !GoodsColumnsStaffHide.includes(col.key))
+    : isStudent
+      ? GoodsColumns.filter(col => !GoodsColumnsStudentHide.includes(col.key))
+      : GoodsColumns; // 管理者は全てのカラムを表示
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
       window.location.href = '/Login';
       return;
     }
-
     fetch(`https://acsl-hp.vercel.app/api/${table}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -81,7 +86,7 @@ export default function DashboardPage() {
         <h1 className="text-xl font-bold mb-4">{goods_table_title}</h1>
         <DataTable<Good>
           data={data as Good[]}
-          columns={GoodsColumns}
+          columns={goodsColumns}
           onSync={async (newData) => {
             const { added, updated, deleted } = computeDiff<Good>(originalData as Good[], newData);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {

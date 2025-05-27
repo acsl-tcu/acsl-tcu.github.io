@@ -53,32 +53,12 @@ export const GoodsColumns = [
   { key: 'date', label: "購入年月日" },
   { key: 'disposal', label: "廃棄チェック" },
   { key: 'disposalReason', label: "廃棄理由" },
-  { key: 'place', label: "B棟での設置場所" },
-  { key: 'comment', label: "備考" },
-] as const;
-export const GoodsColumnsStaff = [
-  { key: 'number', label: "備品番号" },
-  { key: 'department', label: "所属名" },
-  { key: 'responsiblePerson', label: "担当者名" },
-  { key: 'no', label: "点数" },
-  { key: 'name', label: "品名" },
-  { key: 'standard', label: "型番" },
-  { key: 'shop', label: "取引先" },
-  { key: 'price', label: "取得金額" },
-  { key: 'accountItem', label: "科目" },
-  { key: 'date', label: "購入年月日" },
-  { key: 'disposal', label: "廃棄チェック" },
-  { key: 'disposalReason', label: "廃棄理由" },
-  { key: 'comment', label: "備考" },
-] as const;
-export const GoodsColumnsStudent = [
-  { key: 'number', label: "備品番号" },
-  { key: 'no', label: "点数" },
-  { key: 'name', label: "品名" },
-  { key: 'standard', label: "型番" },
-  { key: 'date', label: "購入年月日" },
-  { key: 'disposal', label: "廃棄チェック" },
   { key: 'place', label: "設置場所" },
   { key: 'comment', label: "備考" },
 ] as const;
+export const GoodsColumnsStaffHide = [
+  'place'
+]
+export const GoodsColumnsStudentHide = [
+  'department', 'responsiblePerson', 'shop', 'price', 'accountItem', 'disposalReason', 'comment']
 export const goods_table_title = '物品一覧';
