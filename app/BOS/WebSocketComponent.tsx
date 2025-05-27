@@ -13,7 +13,7 @@ export default function WebSocketComponent() {
     return () => {
       disconnect();
     };
-  }, []);
+  }, [connect, disconnect]);
 
   return <div>WebSocket: {isConnected ? '🟢 Connected' : '🔴 Disconnected'}</div>;
 }

@@ -9,7 +9,7 @@ import Toast from '@/components/ui/Toast';
 import { exportCSV, exportXLSX, printTable } from '@/lib/exporters';
 import { useToast } from '@/hooks/useToast';
 import VarSelector from '@/app/components/VarSelector';
-
+import Image from 'next/image';
 
 interface Column<T> {
   key: keyof T;
@@ -284,7 +284,13 @@ export default function DataTable<T extends { id: string }>({
                               <div>{String(value ?? '')}</div>
                               {("imageUrl" in row && typeof row.imageUrl === "string")
                                 ? (
-                                  <img src={row.imageUrl} alt="uploaded" className="w-16 h-16 object-cover" />
+                                  <Image
+                                    src={row.imageUrl}
+                                    alt="uploaded"
+                                    width={64}
+                                    height={64}
+                                    className="object-cover rounded" // 任意で角丸など追加
+                                  />
                                 )
                                 :
                                 (<div>

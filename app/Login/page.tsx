@@ -4,7 +4,6 @@
 import { useState } from 'react';
 
 export default function LoginPage() {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const login = async () => {
@@ -12,7 +11,7 @@ export default function LoginPage() {
     const res = await fetch('https://acsl-hp.vercel.app/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ email, password }),
     });
 
     const data = await res.json();
