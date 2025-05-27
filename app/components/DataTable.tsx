@@ -52,7 +52,7 @@ export default function DataTable<T extends { id: string }>({
     }
     return columns.map(c => c.key);
   });
-  const [ftable, setFtable] = useState<string>(localStorage.getItem('ftable') || '0');
+  const [ftable, setFtable] = useState<string>('0');
   const ftableValue = ['0', '1'];
   const ftableLables = ['Card', 'Table'];
 
@@ -78,6 +78,7 @@ export default function DataTable<T extends { id: string }>({
   }, [visibleKeys, storageKey]);
 
   useEffect(() => {
+    setFtable(localStorage.getItem('ftable') || ftable);
     setData(initialData);
     setFiltered(initialData);
   }, [initialData]);

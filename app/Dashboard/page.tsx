@@ -13,7 +13,7 @@ import VarSelector from '@/app/components/VarSelector';
 
 export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
-  const [table, setTable] = useState<string>(localStorage.getItem('table') || 'goods');
+  const [table, setTable] = useState<string>('goods');
   const [data, setData] = useState<unknown>([]);
   const [originalData, setOriginalData] = useState<unknown>([]);
   const tableOptions = ['books', 'goods', 'members'];
@@ -25,6 +25,7 @@ export default function DashboardPage() {
       window.location.href = '/Login';
       return;
     }
+    setTable(localStorage.getItem('table') || table);
     fetch(`https://acsl-hp.vercel.app/api/${table}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
