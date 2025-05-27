@@ -18,14 +18,14 @@ export default function LoginPage() {
     const data = await res.json();
     if (data.token) {
       localStorage.setItem('token', data.token);
+      localStorage.setItem('role', email);
       window.location.href = "/Dashboard";
     }
   };
 
   return (
     <div>
-      <input value={name} onChange={e => setName(e.target.value)} placeholder="name" />
-      <input value={email} onChange={e => setEmail(e.target.value)} placeholder="email" />
+      <input value={email} onChange={e => setEmail(e.target.value)} placeholder="name" />
       <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="password" />
       <button onClick={login}
         className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 active:scale-95 transition transform duration-150"
