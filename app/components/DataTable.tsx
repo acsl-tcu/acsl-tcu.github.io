@@ -89,14 +89,14 @@ export default function DataTable<T extends { id: string }>({
         val?.toString().toLowerCase().includes(lowerGlobal)
       )
     );
-    console.log("Filtered by global query:", filteredByGlobal);
-    console.log("Column filters:", columnFilters);
+    // console.log("Filtered by global query:", filteredByGlobal);
+    // console.log("Column filters:", columnFilters);
     const filteredByColumns = filteredByGlobal.filter(row => {
       return Object.entries(columnFilters).every(([key, value]) => {
         return row[key as keyof T]?.toString().toLowerCase().includes(value.toLowerCase());
       });
     });
-    console.log("Filtered data:", filteredByColumns);
+    // console.log("Filtered data:", filteredByColumns);
     setFiltered(filteredByColumns);
     setPage(0);
   }, [globalQuery, columnFilters, data]);
@@ -184,7 +184,7 @@ export default function DataTable<T extends { id: string }>({
           <Button size="sm" onClick={() => printTable(data, visibleKeys)}><Printer size={14} className="mr-1" />印刷</Button>
           <Button size="sm" onClick={() => exportCSV(data, visibleKeys)}><FileDown size={14} className="mr-1" />CSV</Button>
           <Button size="sm" onClick={() => exportXLSX(data, visibleKeys)}><FileDown size={14} className="mr-1" />XLSX</Button>
-          <VarSelector vars={ftableValue} labels={ftableLables} current={ftable} setVar={(f: string) => { localStorage.setItem('ftable', f); setFtable(f); }} />
+          <VarSelector vars={ftableValue} labels={ftableLables} current={ftable} setVar={(f: string) => { localStorage.setItem('ftable', f); console.log(f); setFtable(f); }} />
         </div>
         {/* 全体を通した検索 */}
         <div className="mb-4">
