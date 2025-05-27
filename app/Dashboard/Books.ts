@@ -7,6 +7,7 @@ export interface Book {
   overview: string;
   pubdate: string;
   publisher: string;
+  imageUrl?: string;
 }
 
 export const BookColumns = [
@@ -15,6 +16,7 @@ export const BookColumns = [
   { key: 'author', label: 'Author' },
   { key: 'publisher', label: 'Publisher' },
   { key: 'pubdate', label: 'Pubdate' },
+  { key: 'imageUrl', label: 'Image', type: 'image' }
 ] as const;
 
 export const book_table_title = "書籍一覧";

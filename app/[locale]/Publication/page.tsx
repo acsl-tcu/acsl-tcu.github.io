@@ -4,15 +4,7 @@ import useDB from '@/hooks/useDB';
 import { useState } from 'react';
 import YearSelector from '@/app/components/yeatSelector';
 import Link from "next/link";
-
-interface Article {
-  author: string;
-  title: string;
-  magazine: string;
-  identifier: string;
-  page: string;
-  date: string;
-}
+import { Article } from '@/types/lab_db';
 
 const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
   if (!articles) return null;
@@ -23,7 +15,10 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
         <tbody>
           {articles.map((article, index) => {
             const author = article.author;
-            const magazine = article.magazine;
+            const magazine = (article.magazine ? article.magazine : article.meeting);
+            const volume = (article.volume ? article.volume : '');
+            const number = (article.number ? article.number : '');
+            const page = (article.page ? article.page : '');
             const identifier = article.identifier;
             let title = <>{article.title}</>;
 
@@ -36,7 +31,7 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
             return (
               <tr key={index} className="border-b border-gray-200 even:bg-gray-100 even:dark:bg-gray-800 dark:bg-neutral-900 dark:text-gray-100">
                 <td className="p-2 text-sm">
-                  {author} {title} {magazine} {article.page} {article.date}
+                  {author} {title} {magazine} {volume} {number} {page} {article.date}
                 </td>
               </tr>
             );

@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
-import { Pencil, Trash2, Plus, Printer, FileDown } from 'lucide-react';
+import { Pencil, Trash2, Plus, Printer, FileDown, Upload } from 'lucide-react';
 import Toast from '@/components/ui/Toast';
 import { exportCSV, exportXLSX, printTable } from '@/lib/exporters';
 import { useToast } from '@/hooks/useToast';
@@ -89,13 +89,14 @@ export default function DataTable<T extends { id: string }>({
         val?.toString().toLowerCase().includes(lowerGlobal)
       )
     );
-
+    console.log("Filtered by global query:", filteredByGlobal);
+    console.log("Column filters:", columnFilters);
     const filteredByColumns = filteredByGlobal.filter(row => {
       return Object.entries(columnFilters).every(([key, value]) => {
         return row[key as keyof T]?.toString().toLowerCase().includes(value.toLowerCase());
       });
     });
-
+    console.log("Filtered data:", filteredByColumns);
     setFiltered(filteredByColumns);
     setPage(0);
   }, [globalQuery, columnFilters, data]);
@@ -130,6 +131,31 @@ export default function DataTable<T extends { id: string }>({
     setNewItem({});
   };
 
+  const updateImageUrl = (id: string, imageUrl: string) => {
+    setData(prev =>
+      prev.map((row: T) =>
+        row.id === id ? { ...row, imageUrl } : row
+      )
+    );
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('id', id);
+
+    const res = await fetch('/api/upload-image', {// BOX
+      method: 'POST',
+      body: formData,
+    });
+
+    const { imageUrl } = await res.json();
+    updateImageUrl(id, imageUrl); // state更新などで反映
+  };
+
   return (
     <Card className="py-4 px-0" >
       <CardContent>
@@ -160,7 +186,7 @@ export default function DataTable<T extends { id: string }>({
           <Button size="sm" onClick={() => exportXLSX(data, visibleKeys)}><FileDown size={14} className="mr-1" />XLSX</Button>
           <VarSelector vars={ftableValue} labels={ftableLables} current={ftable} setVar={setFtable} />
         </div>
-
+        {/* 全体を通した検索 */}
         <div className="mb-4">
           <Input
             placeholder="Search..."
@@ -169,7 +195,9 @@ export default function DataTable<T extends { id: string }>({
             className="w-full"
           />
         </div>
+
         {ftable === '0' ?
+          // Card表示
           <ul className="grid grid-cols-2 sm:grid-cols-5 gap-2">
             {pageItems.map((item, index) => (
               <Card key={item.id ?? index} className="p-2 gap-1">
@@ -199,6 +227,7 @@ export default function DataTable<T extends { id: string }>({
             }
           </ul>
           :
+          // Table表示
           <table className="table-auto w-full border text-sm">
             <thead>
               <tr className="bg-gray-100">
@@ -214,12 +243,17 @@ export default function DataTable<T extends { id: string }>({
                       className="text-xs"
                       placeholder="filter"
                       value={columnFilters[String(col.key)] ?? ''}
-                      onChange={(e) =>
+                      onChange={(e) => (e.target.value === '' ?
+                        setColumnFilters(prev => {
+                          const updated = { ...prev };
+                          delete updated[String(col.key)];
+                          return updated;
+                        }) :
                         setColumnFilters(prev => ({
                           ...prev,
                           [String(col.key)]: e.target.value,
                         }))
-                      }
+                      )}
                     />
                   </th>
                 ))}
@@ -227,7 +261,7 @@ export default function DataTable<T extends { id: string }>({
               </tr>
             </thead>
             <tbody>
-              {pageItems.map(row => (
+              {pageItems.map((row: T) => (
                 <tr key={row.id} className="border-t">
                   {columns.filter(col => visibleKeys.includes(col.key)).map(col => {
                     const key = col.key;
@@ -243,13 +277,36 @@ export default function DataTable<T extends { id: string }>({
                             onChange={(e) => handleEdit(row.id, key, e.target.value)}
                             className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                           />
-                        ) : (
-                          String(value ?? '')
-                        )}
+                        )
+                          : (key === 'title' || key === 'name' && typeof value === 'string'
+                            ?
+                            (<div className="text-center p-2 ">
+                              <div>{String(value ?? '')}</div>
+                              {"imageUrl" in row && row.imageUrl
+                                ? (
+                                  <img src={row.imageUrl} alt="uploaded" className="w-16 h-16 object-cover" />
+                                )
+                                :
+                                (<div>
+                                  画像
+                                  <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+                                    <Upload className="w-5 h-5 text-gray-600" />
+                                    <input
+                                      type="file"
+                                      onChange={(e) => handleImageUpload(e, row.id)}
+                                      accept="image/*"
+                                      className="hidden"
+                                    />
+                                  </label></div>
+                                )}
+                            </div>)
+                            : String(value ?? ''))
+                        }
                       </td>
                     );
                   })}
-                  <td className="p-2 border flex gap-2">
+                  {/* 保存・削除 */}
+                  <td className="p-2 border flex flex-wrap gap-2">
                     {editingId === row.id ? (
                       <Button size="sm" onClick={() => applyEdit(row.id)}>Save</Button>
                     ) : (
@@ -259,7 +316,7 @@ export default function DataTable<T extends { id: string }>({
                   </td>
                 </tr>
               ))}
-
+              {/* 新規追加 */}
               <tr className="border-t">
                 {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
                   <td key={String(col.key)} className="p-2 border">
@@ -278,6 +335,7 @@ export default function DataTable<T extends { id: string }>({
             </tbody>
           </table>
         }
+        {/* Pagination */}
         <div className="mt-4 flex justify-between items-center">
           <div className="space-x-2">
             <Button size="sm" disabled={page === 0} onClick={() => setPage(p => p - 1)}>Prev</Button>
@@ -320,6 +378,6 @@ export default function DataTable<T extends { id: string }>({
         </div>
         {toast && <Toast message={toast.message} type={toast.type} />}
       </CardContent>
-    </Card>
+    </Card >
   );
 }

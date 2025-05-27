@@ -14,7 +14,7 @@ interface Member {
   url?: string;
 }
 
-function toTitleCase(str?: string| null): string {
+function toTitleCase(str?: string | null): string {
   if (!str) return '';
   return str
     .toLowerCase()
