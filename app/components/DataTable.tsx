@@ -260,6 +260,22 @@ export default function DataTable<T extends { id: string }>({
                 ))}
                 <th className="p-1 border"></th>
               </tr>
+              {/* 新規追加 */}
+              <tr className="border-t">
+                {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
+                  <td key={String(col.key)} className="p-2 border">
+                    <Input
+                      placeholder={String(col.key)}
+                      value={(newItem[col.key] as string) ?? ''}
+                      onChange={(e) => setNewItem(prev => ({ ...prev, [col.key]: e.target.value }))}
+                      className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
+                    />
+                  </td>
+                ))}
+                <td className="p-2 border">
+                  <Button size="sm" onClick={addItem}><Plus size={14} /></Button>
+                </td>
+              </tr>
             </thead>
             <tbody>
               {pageItems.map((row: T) => (
@@ -323,22 +339,6 @@ export default function DataTable<T extends { id: string }>({
                   </td>
                 </tr>
               ))}
-              {/* 新規追加 */}
-              <tr className="border-t">
-                {columns.filter(col => visibleKeys.includes(col.key)).map(col => (
-                  <td key={String(col.key)} className="p-2 border">
-                    <Input
-                      placeholder={String(col.key)}
-                      value={(newItem[col.key] as string) ?? ''}
-                      onChange={(e) => setNewItem(prev => ({ ...prev, [col.key]: e.target.value }))}
-                      className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
-                    />
-                  </td>
-                ))}
-                <td className="p-2 border">
-                  <Button size="sm" onClick={addItem}><Plus size={14} /></Button>
-                </td>
-              </tr>
             </tbody>
           </table>
         }
