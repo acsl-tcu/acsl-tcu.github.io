@@ -39,8 +39,12 @@ export interface Good {
 //   "date", "disposal", //"disposalReason",
 //   "place", "comment"
 // ];
+interface Column<T> {
+  key: keyof T;
+  label: string;
+}
 
-export const GoodsColumns = [
+export const GoodsColumns: Column<Good>[] = [
   { key: 'number', label: "備品番号" },
   { key: 'department', label: "所属名" },
   { key: 'responsiblePerson', label: "担当者名" },
@@ -55,7 +59,7 @@ export const GoodsColumns = [
   { key: 'disposalReason', label: "廃棄理由" },
   { key: 'place', label: "設置場所" },
   { key: 'comment', label: "備考" },
-] as const;
+]
 export const GoodsColumnsStaffHide = [
   'place'
 ]

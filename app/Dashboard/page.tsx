@@ -18,13 +18,7 @@ export default function DashboardPage() {
   const [originalData, setOriginalData] = useState<unknown>([]);
   const tableOptions = ['books', 'goods', 'members'];
   const tableOptionLables = ['書籍', '物品', '会員'];
-  const isStaff = localStorage.getItem('role') === 'staff';
-  const isStudent = localStorage.getItem('role') === 'student';
-  const goodsColumns = isStaff
-    ? GoodsColumns.filter(col => !GoodsColumnsStaffHide.includes(col.key))
-    : isStudent
-      ? GoodsColumns.filter(col => !GoodsColumnsStudentHide.includes(col.key))
-      : GoodsColumns; // 管理者は全てのカラムを表示
+  const [goodsColumns, setGoodsColumns] = useState<typeof GoodsColumns>(GoodsColumns);
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -41,6 +35,14 @@ export default function DashboardPage() {
       .then((data) => {
         setData(data.message);
         setOriginalData(data.message);
+        const isStaff = localStorage.getItem('role') === 'staff';
+        const isStudent = localStorage.getItem('role') === 'student';
+        const tmp = isStaff
+          ? GoodsColumns.filter(col => !GoodsColumnsStaffHide.includes(col.key))
+          : isStudent
+            ? GoodsColumns.filter(col => !GoodsColumnsStudentHide.includes(col.key))
+            : GoodsColumns; // 管理者は全てのカラムを表示
+        setGoodsColumns(tmp);
       })
       .catch((err) => {
         setError(err.message);
