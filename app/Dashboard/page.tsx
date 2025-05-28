@@ -87,10 +87,7 @@ export default function DashboardPage() {
             const { added, updated, deleted } = computeDiff<Book>(originalData as Book[], newData);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
-              headers: {
-                'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${Token}`, 
-              },
+              credentials: 'include',             
               body: JSON.stringify({ added, updated, deleted }),
             });
           }}
@@ -105,10 +102,7 @@ export default function DashboardPage() {
             const { added, updated, deleted } = computeDiff<Good>(originalData as Good[], newData);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
-              headers: {
-                'Content-Type': 'application/json',
-                // 'Authorization': `Bearer ${Token}`, 
-              },
+              credentials: 'include',           
               body: JSON.stringify({ added, updated, deleted }),
             });
           }}
