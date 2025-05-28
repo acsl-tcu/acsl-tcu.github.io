@@ -19,15 +19,23 @@ export default function DashboardPage() {
   const tableOptions = ['books', 'goods', 'members'];
   const tableOptionLables = ['書籍', '物品', '会員'];
   const [goodsColumns, setGoodsColumns] = useState<typeof GoodsColumns>(GoodsColumns);
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      window.location.href = '/Login';
-      return;
-    }
+  // const [Token, setToken] = useState(null);
+  useEffect(() => {    
+    // const token = localStorage.getItem('token');
+    // if (!token) {
+    //   window.location.href = '/Login';
+    //   return;
+    // }
+    // setToken(token);
     setTable(localStorage.getItem('table') || table);
-    fetch(`https://acsl-hp.vercel.app/api/${table}`, {
-      headers: { Authorization: `Bearer ${token}` },
+    // fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Authorization': `Bearer ${token}`, 
+    //   },
+    // })
+     fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+      credentials: 'include', // ← Cookie を送るのに必要
     })
       .then((res) => {
         if (!res.ok) throw new Error('認証エラーまたはデータ取得エラー');
@@ -47,7 +55,7 @@ export default function DashboardPage() {
       })
       .catch((err) => {
         setError(err.message);
-        localStorage.removeItem('token');
+        // localStorage.removeItem('token');
         window.location.href = '/Login';
       });
   }, [table]);
@@ -79,7 +87,10 @@ export default function DashboardPage() {
             const { added, updated, deleted } = computeDiff<Book>(originalData as Book[], newData);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
-              headers: { 'Content-Type': 'application/json' },
+              headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': `Bearer ${Token}`, 
+              },
               body: JSON.stringify({ added, updated, deleted }),
             });
           }}
@@ -94,7 +105,10 @@ export default function DashboardPage() {
             const { added, updated, deleted } = computeDiff<Good>(originalData as Good[], newData);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
-              headers: { 'Content-Type': 'application/json' },
+              headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': `Bearer ${Token}`, 
+              },
               body: JSON.stringify({ added, updated, deleted }),
             });
           }}
