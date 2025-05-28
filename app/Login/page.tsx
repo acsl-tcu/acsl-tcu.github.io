@@ -15,10 +15,12 @@ export default function LoginPage() {
       credentials: 'include',
     });
 
-    const data = await res.json();
-    if (data.token) {
+    if (res.ok) {
       localStorage.setItem('role', email);
       window.location.href = "/Dashboard";
+    }else {
+      const err = await res.json();
+      alert("ログイン失敗: " + err.message);
     }
   };
 
