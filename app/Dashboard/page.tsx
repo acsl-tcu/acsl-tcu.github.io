@@ -20,7 +20,7 @@ export default function DashboardPage() {
   const tableOptionLables = ['書籍', '物品', '会員'];
   const [goodsColumns, setGoodsColumns] = useState<typeof GoodsColumns>(GoodsColumns);
   // const [Token, setToken] = useState(null);
-  useEffect(() => {    
+  useEffect(() => {
     // const token = localStorage.getItem('token');
     // if (!token) {
     //   window.location.href = '/Login';
@@ -34,7 +34,8 @@ export default function DashboardPage() {
     //     'Authorization': `Bearer ${token}`, 
     //   },
     // })
-     fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+    fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+      method: 'GET',
       credentials: 'include', // ← Cookie を送るのに必要
     })
       .then((res) => {
@@ -87,7 +88,7 @@ export default function DashboardPage() {
             const { added, updated, deleted } = computeDiff<Book>(originalData as Book[], newData);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
-              credentials: 'include',             
+              credentials: 'include',
               body: JSON.stringify({ added, updated, deleted }),
             });
           }}
@@ -102,7 +103,7 @@ export default function DashboardPage() {
             const { added, updated, deleted } = computeDiff<Good>(originalData as Good[], newData);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
-              credentials: 'include',           
+              credentials: 'include',
               body: JSON.stringify({ added, updated, deleted }),
             });
           }}
