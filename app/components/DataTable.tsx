@@ -81,7 +81,7 @@ export default function DataTable<T extends { id: string }>({
     setFtable(localStorage.getItem('ftable') || ftable);
     setData(initialData);
     setFiltered(initialData);
-  }, [initialData]);
+  }, [initialData, ftable]);
 
   useEffect(() => {
     const lowerGlobal = globalQuery.toLowerCase();
