@@ -10,7 +10,7 @@ import type { Book } from './Books';
 import type { Good } from './Goods';
 //import type { Member } from './Member'; 
 import VarSelector from '@/app/components/VarSelector';
-import BoxImageUploader from './BoxImageUploader';
+import BoxImageUploader from '@/app/components/BoxImageUploader';
 
 export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
@@ -78,38 +78,38 @@ export default function DashboardPage() {
 
   return (
     <div className="px-2 w-full">
-      <BoxImageUploader
-        {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
-        {error && <p className="text-red-500">{error}</p>}
-        {table === 'books' && (<>
-          <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
-          <DataTable<Book>
-            data={data as Book[]}
-            columns={BookColumns}
-            onSync={async (newData) => {
-              const { added, updated, deleted } = computeDiff<Book>(originalData as Book[], newData);
-              await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
-                method: 'PUT',
-                credentials: 'include',
-                body: JSON.stringify({ added, updated, deleted }),
-              });
-            }}
-          />
-        </>)}
-        {table === 'goods' && (<>
-          <h1 className="text-xl font-bold mb-4">{goods_table_title}</h1>
-          <DataTable<Good>
-            data={data as Good[]}
-            columns={goodsColumns}
-            onSync={async (newData) => {
-              const { added, updated, deleted } = computeDiff<Good>(originalData as Good[], newData);
-              await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
-                method: 'PUT',
-                credentials: 'include',
-                body: JSON.stringify({ added, updated, deleted }),
-              });
-            }}
-          /></>)}
+      <BoxImageUploader />
+      {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
+      {error && <p className="text-red-500">{error}</p>}
+      {table === 'books' && (<>
+        <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
+        <DataTable<Book>
+          data={data as Book[]}
+          columns={BookColumns}
+          onSync={async (newData) => {
+            const { added, updated, deleted } = computeDiff<Book>(originalData as Book[], newData);
+            await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+              method: 'PUT',
+              credentials: 'include',
+              body: JSON.stringify({ added, updated, deleted }),
+            });
+          }}
+        />
+      </>)}
+      {table === 'goods' && (<>
+        <h1 className="text-xl font-bold mb-4">{goods_table_title}</h1>
+        <DataTable<Good>
+          data={data as Good[]}
+          columns={goodsColumns}
+          onSync={async (newData) => {
+            const { added, updated, deleted } = computeDiff<Good>(originalData as Good[], newData);
+            await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+              method: 'PUT',
+              credentials: 'include',
+              body: JSON.stringify({ added, updated, deleted }),
+            });
+          }}
+        /></>)}
     </div>
   );
 }
