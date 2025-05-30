@@ -13,6 +13,7 @@ export default function BoxImageUploader() {
 
     const res = await fetch('https://acsl-hp.vercel.app/api/upload-box', {
       method: 'POST',
+      credentials: 'include',
       body: formData,
     });
 
