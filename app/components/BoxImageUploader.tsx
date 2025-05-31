@@ -9,6 +9,7 @@ export default function BoxImageUploader() {
 
   const handleUpload = async (file: File) => {
     const formData = new FormData();
+    console.log(file);
     formData.append('file', file);
 
     const res = await fetch('https://acsl-hp.vercel.app/api/upload-box', {
