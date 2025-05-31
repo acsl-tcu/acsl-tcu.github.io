@@ -141,21 +141,52 @@ export default function DataTable<T extends WithIdOrItemNumber>({
     );
   };
 
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
-    const file = e.target.files?.[0];
+  // const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
+  //   const file = e.target.files?.[0];
+  //   if (!file) return;
+
+  //   const formData = new FormData();
+  //   formData.append('file', file);
+  //   formData.append('id', id);
+
+  //   const res = await fetch('/api/upload-image', {// BOX
+  //     method: 'POST',
+  //     body: formData,
+  //   });
+
+  //   const { imageUrl } = await res.json();
+  //   updateImageUrl(id, imageUrl); // state更新などで反映
+  // };
+
+  // フロント側（e.g., DataTable.tsx）
+  const handleImageUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+    rowId: string
+  ) => {
+    const file = event.target.files?.[0];
     if (!file) return;
 
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('id', id);
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('rowId', rowId); // ファイル名として使う
 
-    const res = await fetch('/api/upload-image', {// BOX
-      method: 'POST',
-      body: formData,
-    });
+      const res = await fetch('https://acsl-hp.vercel.app/api/upload-box', {
+        method: 'POST',
+        credentials: 'include',
+        body: formData,
+      });
 
-    const { imageUrl } = await res.json();
-    updateImageUrl(id, imageUrl); // state更新などで反映
+      if (!res.ok) throw new Error('アップロードに失敗しました');
+
+      const data = await res.json();
+      const imageUrl = data.url;
+
+      updateImageUrl(rowId, imageUrl); // state更新などで反映
+    } catch (err) {
+      console.error(err);
+      alert('画像のアップロードに失敗しました');
+    }
   };
 
   return (
@@ -202,7 +233,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
           // Card表示
           <ul className="grid grid-cols-2 sm:grid-cols-5 gap-2">
             {pageItems.map((item, index) => (
-              <Card key={item.id ?? index} className="p-2 gap-1">
+              <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="p-2 gap-1">
                 {'title' in item && String(item.title) && (
                   <CardTitle>
                     <p className="text-sm font-bold">{String(item.title)}</p>
@@ -221,7 +252,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                   ) :
                   (
                     <CardFooter>
-                      <span className="text-sm text-muted-foreground">ID: {item.id}</span>
+                      <span className="text-sm text-muted-foreground">ID: {("id" in item ? item.id : item.itemNumber)}</span>
                     </CardFooter>
                   )}
               </Card>
@@ -278,6 +309,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                 </td>
               </tr>
             </thead>
+            {/* Mainデータ */}
             <tbody>
               {pageItems.map((row: T) => (
                 <tr key={"id" in row ? row.id : row.itemNumber} className="border-t">

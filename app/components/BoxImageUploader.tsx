@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-
+import Image from 'next/image';
 export default function BoxImageUploader() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -56,10 +56,12 @@ export default function BoxImageUploader() {
       {previewUrl && (
         <div className="mt-4">
           <p className="text-sm text-gray-600 mb-2">アップロードされた画像:</p>
-          <img
+          <Image
             src={previewUrl}
             alt="Uploaded preview"
-            className="w-64 h-auto border rounded"
+            width={256} // = 64 × 4 (Tailwindのw-64に相当)
+            height={160} // 高さの目安（適宜調整）
+            className="border rounded object-contain"
           />
         </div>
       )}
