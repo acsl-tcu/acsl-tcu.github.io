@@ -36,6 +36,7 @@ export default function DashboardPage() {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         setData(data.message);
         setOriginalData(data.message);
         const isStaff = localStorage.getItem('role') === 'staff';

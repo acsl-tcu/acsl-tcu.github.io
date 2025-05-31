@@ -91,14 +91,14 @@ export default function DataTable<T extends WithIdOrItemNumber>({
         val?.toString().toLowerCase().includes(lowerGlobal)
       )
     );
-    // console.log("Filtered by global query:", filteredByGlobal);
-    // console.log("Column filters:", columnFilters);
+    console.log("Filtered by global query:", filteredByGlobal);
+    console.log("Column filters:", columnFilters);
     const filteredByColumns = filteredByGlobal.filter(row => {
       return Object.entries(columnFilters).every(([key, value]) => {
         return row[key as keyof T]?.toString().toLowerCase().includes(value.toLowerCase());
       });
     });
-    // console.log("Filtered data:", filteredByColumns);
+    console.log("Filtered data:", filteredByColumns);
     setFiltered(filteredByColumns);
     setPage(0);
   }, [globalQuery, columnFilters, data]);
