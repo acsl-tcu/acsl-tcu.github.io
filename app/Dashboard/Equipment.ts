@@ -54,39 +54,7 @@ export const EquipmentColumns: Column<Equipment>[] = [
   { key: 'comment', label: '備考' }
 ];
 export const equipment_table_title = '備品一覧';
-export const EquipmentColumnsStaffHide = [
-  'itemNumber',
-  'quantity',
-  'itemName',
-  'modelNumber',
-  'vendor',
-  'acquisitionAmount',
-  'accountCategory',
-  'purchaseDate',
-  'budget',
-  'budgetNote',
-  'imageUrl',
-  'place',
-  'responsiblePerson',
-  'date',
-  'disposal',
-  'disposalReason',
-  'comment'
-];
-export const EquipmentColumnsStudentHide = [
-  'itemNumber',
-  'quantity',
-  'itemName',
-  'modelNumber',
-  'purchaseDate',
-  'budget',
-  'imageUrl',
-  'place',
-  'responsiblePerson',
-  'date',
-  'disposal',
-  'comment'
-];
+
 export interface Equipment {
   itemNumber: string;                    // 備品番号
   divisionName: string;                 // 部門名
@@ -119,3 +87,41 @@ export interface Equipment {
 
 export const equipmentKeys = ['itemNumber', 'divisionName', 'affiliationName', 'departmentName', 'personInCharge', 'quantity', 'itemName', 'modelNumber', 'vendor', 'acquisitionAmount', 'accountCategory', 'era', 'fiscalYearJapanese', 'fiscalYearWestern', 'purchaseDate', 'usefulLife', 'term', 'budget', 'budgetNote', 'approvalDocumentNumber', 'imageUrl', 'place', 'responsiblePerson', 'date', 'disposal', 'disposalReason', 'comment'
 ] as const;
+
+
+const EquipmentColumnsStaff = [
+  'itemNumber',
+  'quantity',
+  'itemName',
+  'modelNumber',
+  'vendor',
+  'acquisitionAmount',
+  'accountCategory',
+  'purchaseDate',
+  'budget',
+  'budgetNote',
+  'imageUrl',
+  'place',
+  'responsiblePerson',
+  'date',
+  'disposal',
+  'disposalReason',
+  'comment'
+];
+export const EquipmentColumnsStaffHide = equipmentKeys.filter(key => !EquipmentColumnsStaff.includes(key));
+
+const EquipmentColumnsStudent = [
+  'itemNumber',
+  'quantity',
+  'itemName',
+  'modelNumber',
+  'purchaseDate',
+  'budget',
+  'imageUrl',
+  'place',
+  'responsiblePerson',
+  'date',
+  'disposal',
+  'comment'
+];
+export const EquipmentColumnsStudentHide = equipmentKeys.filter(key => !EquipmentColumnsStudent.includes(key));
