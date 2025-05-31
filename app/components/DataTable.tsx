@@ -16,15 +16,16 @@ interface Column<T> {
   label: string;
 }
 
-interface DataTableProps<T extends { id: string }> {
+type WithIdOrItemNumber = { id: string } | { itemNumber: string };
+
+interface DataTableProps<T extends WithIdOrItemNumber> {
   data: T[];
   columns: readonly Column<T>[];
   onSync?: (data: T[]) => Promise<void>;
 }
 
 const ITEMS_PER_PAGE = 10;
-
-export default function DataTable<T extends { id: string }>({
+export default function DataTable<T extends WithIdOrItemNumber>({
   data: initialData,
   columns,
   onSync,
@@ -115,14 +116,14 @@ export default function DataTable<T extends { id: string }>({
 
   const applyEdit = (id: string) => {
     const updated = data.map(item =>
-      item.id === id ? { ...item, ...draftEdits[id] } : item
+      id === ("id" in item ? item.id : item.itemNumber) ? { ...item, ...draftEdits[id] } : item
     );
     setData(updated);
     setEditingId(null);
   };
 
   const deleteItem = (id: string) => {
-    setData(prev => prev.filter(item => item.id !== id));
+    setData(prev => prev.filter(item => ("id" in item ? item.id : item.itemNumber) !== id));
   };
 
   const addItem = () => {
@@ -135,7 +136,7 @@ export default function DataTable<T extends { id: string }>({
   const updateImageUrl = (id: string, imageUrl: string) => {
     setData(prev =>
       prev.map((row: T) =>
-        row.id === id ? { ...row, imageUrl } : row
+        ("id" in row ? row.id : row.itemNumber) === id ? { ...row, imageUrl } : row
       )
     );
   };
@@ -279,19 +280,25 @@ export default function DataTable<T extends { id: string }>({
             </thead>
             <tbody>
               {pageItems.map((row: T) => (
-                <tr key={row.id} className="border-t">
+                <tr key={"id" in row ? row.id : row.itemNumber} className="border-t">
                   {columns.filter(col => visibleKeys.includes(col.key)).map(col => {
                     const key = col.key;
-                    const value = editingId === row.id
-                      ? draftEdits[row.id]?.[key] ?? row[key]
+                    let rowid: string;
+                    if ("id" in row) {
+                      rowid = row.id;
+                    } else {
+                      rowid = row.itemNumber;
+                    }
+                    const value = editingId === rowid
+                      ? draftEdits[rowid]?.[key] ?? row[key]
                       : row[key];
 
                     return (
                       <td key={String(key)} className="p-2 border">
-                        {editingId === row.id ? (
+                        {editingId === ("id" in row ? row.id : row.itemNumber) ? (
                           <Input
                             value={String(value ?? '')}
-                            onChange={(e) => handleEdit(row.id, key, e.target.value)}
+                            onChange={(e) => handleEdit("id" in row ? row.id : row.itemNumber, key, e.target.value)}
                             className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                           />
                         )
@@ -316,7 +323,7 @@ export default function DataTable<T extends { id: string }>({
                                     <Upload className="w-5 h-5 text-gray-600" />
                                     <input
                                       type="file"
-                                      onChange={(e) => handleImageUpload(e, row.id)}
+                                      onChange={(e) => handleImageUpload(e, rowid)}
                                       accept="image/*"
                                       className="hidden"
                                     />
@@ -330,12 +337,12 @@ export default function DataTable<T extends { id: string }>({
                   })}
                   {/* 保存・削除 */}
                   <td className="p-2 border flex flex-wrap gap-2">
-                    {editingId === row.id ? (
-                      <Button size="sm" onClick={() => applyEdit(row.id)}>Save</Button>
+                    {editingId === ("id" in row ? row.id : row.itemNumber) ? (
+                      <Button size="sm" onClick={() => applyEdit("id" in row ? row.id : row.itemNumber)}>Save</Button>
                     ) : (
-                      <Button size="sm" onClick={() => setEditingId(row.id)}><Pencil size={14} /></Button>
+                      <Button size="sm" onClick={() => setEditingId("id" in row ? row.id : row.itemNumber)}><Pencil size={14} /></Button>
                     )}
-                    <Button size="sm" variant="destructive" onClick={() => deleteItem(row.id)}><Trash2 size={14} /></Button>
+                    <Button size="sm" variant="destructive" onClick={() => deleteItem("id" in row ? row.id : row.itemNumber)}><Trash2 size={14} /></Button>
                   </td>
                 </tr>
               ))}

@@ -5,12 +5,16 @@ import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable';
 import { BookColumns, book_table_title } from './Books';
 import { GoodsColumns, GoodsColumnsStaffHide, GoodsColumnsStudentHide, goods_table_title } from './Goods';
+import { EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
 // import { MemberColumns, member_table_title } from './Member'; 
 import type { Book } from './Books';
 import type { Good } from './Goods';
+import type { Equipment } from './Equipment';
 //import type { Member } from './Member'; 
 import VarSelector from '@/app/components/VarSelector';
 import BoxImageUploader from '@/app/components/BoxImageUploader';
+
+type WithIdOrItemNumber = { id: string } | { itemNumber: string };
 
 export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
@@ -20,24 +24,12 @@ export default function DashboardPage() {
   const tableOptions = ['books', 'goods', 'members'];
   const tableOptionLables = ['書籍', '物品', '会員'];
   const [goodsColumns, setGoodsColumns] = useState<typeof GoodsColumns>(GoodsColumns);
-  // const [Token, setToken] = useState(null);
+  const [equipmentColumns, setEquipmentColumns] = useState<typeof EquipmentColumns>(EquipmentColumns);
   useEffect(() => {
-    // const token = localStorage.getItem('token');
-    // if (!token) {
-    //   window.location.href = '/Login';
-    //   return;
-    // }
-    // setToken(token);
     setTable(localStorage.getItem('table') || table);
-    // fetch(`https://acsl-hp.vercel.app/api/${table}`, {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Authorization': `Bearer ${token}`, 
-    //   },
-    // })
     fetch(`https://acsl-hp.vercel.app/api/${table}`, {
       method: 'GET',
-      credentials: 'include', // ← Cookie を送るのに必要
+      credentials: 'include', // ← 認証用Cookie を送るのに必要
     })
       .then((res) => {
         if (!res.ok) throw new Error('認証エラーまたはデータ取得エラー');
@@ -54,22 +46,27 @@ export default function DashboardPage() {
             ? GoodsColumns.filter(col => !GoodsColumnsStudentHide.includes(col.key))
             : GoodsColumns; // 管理者は全てのカラムを表示
         setGoodsColumns(tmp);
+        const tmp2 = isStaff
+          ? EquipmentColumns.filter(col => !EquipmentColumnsStaffHide.includes(col.key))
+          : isStudent
+            ? EquipmentColumns.filter(col => !EquipmentColumnsStudentHide.includes(col.key))
+            : EquipmentColumns; // 管理者は全てのカラムを表示
+        setEquipmentColumns(tmp2);
       })
       .catch((err) => {
         setError(err.message);
-        // localStorage.removeItem('token');
         window.location.href = '/Login';
       });
   }, [table]);
 
-  function computeDiff<T extends { id: string | number }>(original: T[], current: T[]) {
-    const originalMap = new Map(original.map(item => [item.id, item]));
-    const currentMap = new Map(current.map(item => [item.id, item]));
+  function computeDiff<T extends WithIdOrItemNumber>(original: T[], current: T[]) {
+    const originalMap = new Map(original.map(item => [("id" in item ? item.id : item.itemNumber), item]));
+    const currentMap = new Map(current.map(item => [("id" in item ? item.id : item.itemNumber), item]));
 
-    const added = current.filter(item => !originalMap.has(item.id));
-    const deleted = original.filter(item => !currentMap.has(item.id)).map(item => item.id);
+    const added = current.filter(item => !originalMap.has(("id" in item ? item.id : item.itemNumber)));
+    const deleted = original.filter(item => !currentMap.has(("id" in item ? item.id : item.itemNumber))).map(item => ("id" in item ? item.id : item.itemNumber));
     const updated = current.filter(item => {
-      const orig = originalMap.get(item.id);
+      const orig = originalMap.get(("id" in item ? item.id : item.itemNumber));
       return orig && JSON.stringify(orig) !== JSON.stringify(item);
     });
 
@@ -103,6 +100,20 @@ export default function DashboardPage() {
           columns={goodsColumns}
           onSync={async (newData) => {
             const { added, updated, deleted } = computeDiff<Good>(originalData as Good[], newData);
+            await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+              method: 'PUT',
+              credentials: 'include',
+              body: JSON.stringify({ added, updated, deleted }),
+            });
+          }}
+        /></>)}
+      {table === 'equipment' && (<>
+        <h1 className="text-xl font-bold mb-4">{equipment_table_title}</h1>
+        <DataTable<Equipment>
+          data={data as Equipment[]}
+          columns={equipmentColumns}
+          onSync={async (newData) => {
+            const { added, updated, deleted } = computeDiff<Equipment>(originalData as Equipment[], newData);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
               credentials: 'include',
