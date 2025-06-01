@@ -12,7 +12,7 @@ import type { Good } from './Goods';
 import type { Equipment } from './Equipment';
 //import type { Member } from './Member'; 
 import VarSelector from '@/app/components/VarSelector';
-import BoxImageUploader from '@/app/components/BoxImageUploader';
+// import BoxImageUploader from '@/app/components/BoxImageUploader';
 
 type WithIdOrItemNumber = { id: string } | { itemNumber: string };
 
