@@ -164,13 +164,16 @@ export default function DataTable<T extends WithIdOrItemNumber>({
     event: React.ChangeEvent<HTMLInputElement>,
     rowId: string
   ) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
+    const files = event.target.files ? Array.from(event.target.files) : null;
+    console.log("Selected files:", files);
+    if (!files) return;
 
     try {
       const formData = new FormData();
-      formData.append('file', file);
       formData.append('rowId', rowId); // ファイル名として使う
+      for (const file of files) {
+        formData.append('file', file); // 複数追加可
+      }
 
       const res = await fetch('https://acsl-hp.vercel.app/api/upload-box', {
         method: 'POST',
@@ -181,7 +184,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
       if (!res.ok) throw new Error('アップロードに失敗しました');
 
       const data = await res.json();
-      const imageUrl = data.url;
+      const imageUrl = data.urls;
 
       updateImageUrl(rowId, imageUrl); // state更新などで反映
     } catch (err) {
