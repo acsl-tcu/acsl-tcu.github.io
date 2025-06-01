@@ -361,6 +361,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                                     <Upload className="w-5 h-5 text-gray-600" />
                                     <input
                                       type="file"
+                                      multiple
                                       onChange={(e) => handleImageUpload(e, rowid)}
                                       accept="image/*"
                                       className="hidden"
