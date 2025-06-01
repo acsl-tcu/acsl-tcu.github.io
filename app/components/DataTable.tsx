@@ -334,7 +334,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                             className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                           />
                         )
-                          : (key === 'title' || key === 'name' && typeof value === 'string'
+                          : (key === 'title' || key === 'name' || key === 'itemName' && typeof value === 'string'
                             ?
                             (<div className="text-center p-2 ">
                               <div>{String(value ?? '')}</div>
