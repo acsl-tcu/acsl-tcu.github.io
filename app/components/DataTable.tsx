@@ -185,6 +185,8 @@ export default function DataTable<T extends WithIdOrItemNumber>({
 
       const data = await res.json();
       const imageUrl = data.urls;
+      console.log("Uploaded image URL:", imageUrl);
+      if (!imageUrl) throw new Error('画像URLが取得できませんでした');
 
       updateImageUrl(rowId, imageUrl); // state更新などで反映
     } catch (err) {
