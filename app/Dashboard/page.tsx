@@ -36,7 +36,7 @@ export default function DashboardPage() {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setData(data.message);
         setOriginalData(data.message);
         const isStaff = localStorage.getItem('role') === 'staff';
@@ -76,7 +76,7 @@ export default function DashboardPage() {
 
   return (
     <div className="px-2 w-full">
-      <BoxImageUploader />
+      {/* <BoxImageUploader /> */}
       {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
       {error && <p className="text-red-500">{error}</p>}
       {table === 'books' && (<>
