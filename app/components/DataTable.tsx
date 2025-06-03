@@ -170,10 +170,19 @@ export default function DataTable<T extends WithIdOrItemNumber>({
 
     try {
       const formData = new FormData();
+
       formData.append('rowId', rowId); // ファイル名として使う
-      for (const file of files) {
-        formData.append('file', file); // 複数追加可
-      }
+
+      files.map((file, index) => {
+        const count = index + 1; // ファイル名のカウント
+        const filename = file.name || '';
+        const ext = typeof filename === 'string'
+          ? filename.split('.').pop() || 'jpg'
+          : 'jpg';
+        const finalName = `${rowId}_${count}.${ext}`;
+        console.log(`Appending file: ${finalName}`);
+        formData.append(finalName, file); // {rowid_1.jpg, rowid_2.png, ...}
+      })
 
       const res = await fetch('https://acsl-hp.vercel.app/api/upload-box', {
         method: 'POST',
