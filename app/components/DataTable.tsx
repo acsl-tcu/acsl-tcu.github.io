@@ -181,7 +181,8 @@ export default function DataTable<T extends WithIdOrItemNumber>({
           : 'jpg';
         const finalName = `${rowId}_${count}.${ext}`;
         console.log(`Appending file: ${finalName}`);
-        formData.append(finalName, file); // {rowid_1.jpg, rowid_2.png, ...}
+        formData.append('file', file, finalName);
+        // formData.append(finalName, file); // {rowid_1.jpg:file1, rowid_2.png:file2, ...}
       })
 
       const res = await fetch('https://acsl-hp.vercel.app/api/upload-box', {
