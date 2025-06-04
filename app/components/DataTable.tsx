@@ -276,51 +276,42 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                                       </div>
                                     ))}
 
-                                    {Array.from({ length: emptySlots }).map((_, idx) => (
+                                    {/* {Array.from({ length: emptySlots }).map((_, idx) => (
                                       <div
                                         key={`empty-${idx}`}
                                         className="w-1/3 aspect-square flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-gray-400"
                                       >
                                         <LucideImage className="w-6 h-6" />
                                       </div>
-                                    ))}
+                                    ))} */}
                                   </>
                                 );
                               })()}
                             </>
                           )
-                          // {Array.isArray(item.imageUrl) && item.imageUrl.length > 0 ? (
-                          //   <Image
-                          //     src={item.imageUrl[0]}
-                          //     alt="uploaded"
-                          //     width={128}
-                          //     height={128}
-                          //     className="object-cover rounded mb-2" // 任意で角丸など追加
-                          //   />
-                          // )
-                          : (<div>
-                            画像
-                            <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-                              <Upload className="w-5 h-5 text-gray-600" />
-                              <input
-                                type="file"
-                                multiple
-                                onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
-                                accept="image/*"
-                                className="hidden"
-                              />
-                            </label></div>
-                          )
+                          : (<>No Image</>)
                         }
-                        <div className=" text-muted-foreground">
+                        {/* <div className=" text-muted-foreground">
                           {('itemName' in item && String(item.itemName)) || ('name' in item && String(item.name))}
-                        </div>
+                        </div> */}
                       </div>
                     </CardContent>
                   ) :
                   (
                     <div className="text-center text-sm text-muted-foreground">No image</div>
                   )}
+                (<div>
+                  <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+                    <Upload className="w-5 h-5 text-gray-600" />
+                    <input
+                      type="file"
+                      multiple
+                      onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
+                      accept="image/*"
+                      className="hidden"
+                    />
+                  </label></div>
+                )
                 {(('title' in item && String(item.title)) || ('name' in item && String(item.name))) && (
                   <CardFooter>
                     <p className="text-sm text-gray-600">
