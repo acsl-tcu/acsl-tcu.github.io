@@ -312,18 +312,19 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                       <p className="text-sm text-gray-600">
                         {String('title' in item ? item.title : item.itemName)}
                       </p>
-                      {/* <>
+                      <br />
+                      <>
                         {columns.map(col => (() => {
                           const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
-                          (key && key in item && String(item[key]) && (
+                          (key && key in item && String(item[col.key]) && (
                             <Input
-                              key={String(item[key] ?? '')}
-                              value={String(item[key] ?? '')}
+                              key={String(item[col.key] ?? '')}
+                              value={String(item[col.key] ?? (col.key === 'place' ? '設置場所' : '使用者'))}
                               onChange={(e) => handleEdit("id" in item ? item.id : item.itemNumber, col.key, e.target.value)}
                               className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                             />))
                         }))}
-                      </> */}
+                      </>
                       <>
                         {columns.map(col => (col.key === 'place' && 'place' in item && String(item.place) && (
                           <Input
