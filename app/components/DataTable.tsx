@@ -315,6 +315,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                       <>
                         {columns.map(col => (col.key === 'place' && 'place' in item && String(item.place) && (
                           <Input
+                            key={String(item.place ?? '')}
                             value={String(item.place ?? '')}
                             onChange={(e) => handleEdit("id" in item ? item.id : item.itemNumber, col.key, e.target.value)}
                             className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
@@ -323,6 +324,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                       <>
                         {columns.map(col => (col.key === 'responsiblePerson' && 'responsiblePerson' in item && String(item.responsiblePerson) && (
                           <Input
+                            key={String(item.responsiblePerson ?? '')}
                             value={String(item.responsiblePerson ?? '')}
                             onChange={(e) => handleEdit("id" in item ? item.id : item.itemNumber, col.key, e.target.value)}
                             className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
