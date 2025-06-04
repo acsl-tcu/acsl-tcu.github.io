@@ -234,7 +234,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
           // Card表示
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {pageItems.map((item, index) => (
-              <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="w-full max-w-md rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-200">
+              <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="w-full max-w-md flex flex-col rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-200">
                 {'number' in item ?
                   (
                     <CardHeader>
