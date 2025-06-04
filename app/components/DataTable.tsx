@@ -296,39 +296,43 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                     )
                   }
 
-                  {(('title' in item && String(item.title)) || ('itemName' in item && String(item.itemName))) && (
-                    <CardFooter className="text-center flex justify-center">
-                      <div>
-                        <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-                          <Upload className="w-5 h-5 text-gray-600" />
-                          <input
-                            type="file"
-                            multiple
-                            onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
-                            accept="image/*"
-                            className="hidden"
-                          />
-                        </label></div>
-                      <p className="text-sm text-gray-600">
-                        {String('title' in item ? item.title : item.itemName)}
-                      </p>
-                      <br />
-                      <>
-                        {columns.map(col => {
-                          const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
-                          return (
-                            ((key && key in item) ?
-                              <Input
-                                key={String(item[col.key] ?? '')}
-                                value={String(item[col.key] ?? (col.key === 'place' ? '設置場所' : '使用者'))}
-                                onChange={(e) => handleEdit("id" in item ? item.id : item.itemNumber, col.key, e.target.value)}
-                                className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
-                              /> : null)
-                          )
-                        })}
-                      </>
-                    </CardFooter>
-                  )}
+                  {(('title' in item && String(item.title)) || ('itemName' in item && String(item.itemName))) &&
+                    (<>
+                      <CardFooter className="text-center flex justify-center">
+                        <div>
+                          <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+                            <Upload className="w-5 h-5 text-gray-600" />
+                            <input
+                              type="file"
+                              multiple
+                              onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
+                              accept="image/*"
+                              className="hidden"
+                            />
+                          </label>
+                        </div>
+                        <p className="text-sm text-gray-600">
+                          {String('title' in item ? item.title : item.itemName)}
+                        </p>
+                      </CardFooter>
+                      <CardFooter>
+                        <>
+                          {columns.map(col => {
+                            const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
+                            return (
+                              ((key && key in item) ?
+                                <Input
+                                  key={String(item[col.key] ?? '')}
+                                  value={String(item[col.key] ?? (col.key === 'place' ? '設置場所' : '使用者'))}
+                                  onChange={(e) => handleEdit("id" in item ? item.id : item.itemNumber, col.key, e.target.value)}
+                                  className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
+                                /> : null)
+                            )
+                          })}
+                        </>
+                      </CardFooter>
+                    </>
+                    )}
                 </Card>
               ))
             }
