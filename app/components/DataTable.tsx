@@ -233,80 +233,82 @@ export default function DataTable<T extends WithIdOrItemNumber>({
         {ftable === '0' ?
           // Card表示
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pageItems.map((item, index) => (
-              <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="w-full max-w-md flex flex-col rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-200">
-                {'number' in item ?
-                  (
-                    <CardHeader>
-                      <h2 className="text-xl font-bold text-gray-800">
-                        {String(item.number)}
-                      </h2>
-                    </CardHeader>
-                  ) :
-                  (
-                    <CardHeader>
-                      <h2 className="text-xl font-bold text-gray-800">
-                        {("id" in item ? item.id : item.itemNumber)}
-                      </h2>
-                    </CardHeader>
+            {pageItems
+              .filter(item => ("disposal" in item) && (item.disposal === 0 || item.disposal === null) || !("disposal" in item))
+              .map((item, index) => (
+                <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="w-full max-w-md flex flex-col rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-200">
+                  {'number' in item ?
+                    (
+                      <CardHeader>
+                        <h2 className="text-xl font-bold text-gray-800">
+                          {String(item.number)}
+                        </h2>
+                      </CardHeader>
+                    ) :
+                    (
+                      <CardHeader>
+                        <h2 className="text-xl font-bold text-gray-800">
+                          {("id" in item ? item.id : item.itemNumber)}
+                        </h2>
+                      </CardHeader>
+                    )}
+
+                  {'imageUrl' in item ?
+                    (
+                      <CardContent className="items-center justify-center text-center">
+                        <div className="flex gap-2">
+                          {Array.isArray(item.imageUrl) && item.imageUrl.length > 0 ?
+                            (
+                              <>
+                                {(() => {
+                                  return (
+                                    <>
+                                      {item.imageUrl.map((src: string, idx: number) => (
+                                        <div key={idx} className="w-1/3 aspect-square relative">
+                                          <Image
+                                            src={src}
+                                            alt={`image-${idx}`}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                            className="object-cover rounded-lg border border-gray-100"
+                                          />
+                                        </div>
+                                      ))}
+                                    </>
+                                  );
+                                })()}
+                              </>
+                            )
+                            : (<>No Image</>)
+                          }
+                        </div>
+                      </CardContent>
+                    ) :
+                    (
+                      <div className="text-center text-sm text-muted-foreground">No image</div>
+                    )
+                  }
+
+                  {(('title' in item && String(item.title)) || ('itemName' in item && String(item.itemName))) && (
+                    <CardFooter className="text-center flex justify-center">
+                      <div>
+                        <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+                          <Upload className="w-5 h-5 text-gray-600" />
+                          <input
+                            type="file"
+                            multiple
+                            onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
+                            accept="image/*"
+                            className="hidden"
+                          />
+                        </label></div>
+                      <p className="text-sm text-gray-600">
+                        {String('title' in item ? item.title : item.itemName)}
+                      </p>
+                    </CardFooter>
                   )}
-
-                {'imageUrl' in item ?
-                  (
-                    <CardContent className="items-center justify-center text-center">
-                      <div className="flex gap-2">
-                        {Array.isArray(item.imageUrl) && item.imageUrl.length > 0 ?
-                          (
-                            <>
-                              {(() => {
-                                return (
-                                  <>
-                                    {item.imageUrl.map((src: string, idx: number) => (
-                                      <div key={idx} className="w-1/3 aspect-square relative">
-                                        <Image
-                                          src={src}
-                                          alt={`image-${idx}`}
-                                          fill
-                                          sizes="(max-width: 768px) 100vw, 33vw"
-                                          className="object-cover rounded-lg border border-gray-100"
-                                        />
-                                      </div>
-                                    ))}
-                                  </>
-                                );
-                              })()}
-                            </>
-                          )
-                          : (<>No Image</>)
-                        }
-                      </div>
-                    </CardContent>
-                  ) :
-                  (
-                    <div className="text-center text-sm text-muted-foreground">No image</div>
-                  )
-                }
-
-                {(('title' in item && String(item.title)) || ('itemName' in item && String(item.itemName))) && (
-                  <CardFooter className="text-center flex justify-center">
-                    <div>
-                      <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-                        <Upload className="w-5 h-5 text-gray-600" />
-                        <input
-                          type="file"
-                          multiple
-                          onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
-                          accept="image/*"
-                          className="hidden"
-                        />
-                      </label></div>
-                    <p className="text-sm text-gray-600">
-                      {String('title' in item ? item.title : item.itemName)}
-                    </p>
-                  </CardFooter>
-                )}
-              </Card>
-            ))
+                </Card>
+              ))
             }
           </ul>
           :
