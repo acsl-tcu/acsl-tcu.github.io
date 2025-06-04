@@ -241,7 +241,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                       <h2 className="text-xl font-bold text-gray-800">
                         {String(item.number)}
                       </h2>
-                      {/* <span className="text-sm text-muted-foreground">{String(item.number)}</span> */}
                     </CardHeader>
                   ) :
                   (
@@ -249,7 +248,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                       <h2 className="text-xl font-bold text-gray-800">
                         {("id" in item ? item.id : item.itemNumber)}
                       </h2>
-                      {/* <span className="text-sm text-muted-foreground">ID: {("id" in item ? item.id : item.itemNumber)}</span> */}
                     </CardHeader>
                   )}
 
@@ -261,8 +259,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                           (
                             <>
                               {(() => {
-                                console.log("hgoehgoe", ('title' in item && String(item.title)) || ('name' in item && String(item.name)))
-                                // const emptySlots = maxImages - item.imageUrl.length;
                                 return (
                                   <>
                                     {item.imageUrl.map((src: string, idx: number) => (
@@ -288,8 +284,10 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                   ) :
                   (
                     <div className="text-center text-sm text-muted-foreground">No image</div>
-                  )}
-                {(('title' in item && String(item.title)) || ('name' in item && String(item.name))) && (
+                  )
+                }
+
+                {(('title' in item && String(item.title)) || ('itemName' in item && String(item.itemName))) && (
                   <CardFooter className="text-center flex justify-center">
                     <div>
                       <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
@@ -303,7 +301,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                         />
                       </label></div>
                     <p className="text-sm text-gray-600">
-                      {String('title' in item ? item.title : item.name)}
+                      {String('title' in item ? item.title : item.itemName)}
                     </p>
                   </CardFooter>
                 )}
