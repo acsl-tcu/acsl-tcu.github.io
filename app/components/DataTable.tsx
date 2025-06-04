@@ -261,9 +261,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                           (
                             <>
                               {(() => {
-                                const maxImages = 3;
                                 const emptySlots = maxImages - item.imageUrl.length;
-
                                 return (
                                   <>
                                     {item.imageUrl.map((src: string, idx: number) => (
