@@ -214,19 +214,19 @@ export default function DataTable<T extends WithIdOrItemNumber>({
             visibleKeys.length === columns.length ? [] : columns.map(c => c.key)
           )}>
             {visibleKeys.length === columns.length ? 'すべて非表示' : 'すべて表示'}
-          </Button>
+          </Button><br />
           <Button size="sm" onClick={() => printTable(data, visibleKeys)}><Printer size={14} className="mr-1" />印刷</Button>
           <Button size="sm" onClick={() => exportCSV(data, visibleKeys)}><FileDown size={14} className="mr-1" />CSV</Button>
           <Button size="sm" onClick={() => exportXLSX(data, visibleKeys)}><FileDown size={14} className="mr-1" />XLSX</Button>
+          <Button
+            onClick={syncChanges}
+            disabled={isSaving}
+            className="transition-all duration-200 transform hover:scale-105 hover:bg-green-600 focus:ring-2 focus:ring-green-400 disabled:opacity-50"
+          >
+            {isSaving ? 'Saving...' : 'Sync to DB'}
+          </Button>
           <VarSelector vars={ftableValue} labels={ftableLables} current={ftable} setVar={(f: string) => { localStorage.setItem('ftable', f); console.log(f); setFtable(f); }} />
         </div>
-        <Button
-          onClick={syncChanges}
-          disabled={isSaving}
-          className="transition-all duration-200 transform hover:scale-105 hover:bg-green-600 focus:ring-2 focus:ring-green-400 disabled:opacity-50"
-        >
-          {isSaving ? 'Saving...' : 'Sync to DB'}
-        </Button>
         {/* 全体を通した検索 */}
         <div className="mb-4">
           <Input
