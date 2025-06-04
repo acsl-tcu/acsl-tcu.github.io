@@ -10,6 +10,7 @@ import { exportCSV, exportXLSX, printTable } from '@/lib/exporters';
 import { useToast } from '@/hooks/useToast';
 import VarSelector from '@/app/components/VarSelector';
 import Image from 'next/image';
+import { ChangeEvent } from "react";
 
 interface Column<T> {
   key: keyof T;
@@ -299,7 +300,26 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                   {(('title' in item && String(item.title)) || ('itemName' in item && String(item.itemName))) &&
                     (<>
                       <CardFooter className="text-center flex justify-center">
-                        <div>
+                        <div
+                          onDrop={(e) => {
+                            e.preventDefault();
+                            const files = e.dataTransfer.files;
+                            if (files.length > 0) {
+                              const id = "id" in item ? item.id : item.itemNumber;
+
+                              // 疑似的な ChangeEvent を生成して渡す
+                              const fakeEvent = {
+                                target: {
+                                  files,
+                                },
+                              } as unknown as ChangeEvent<HTMLInputElement>;
+
+                              handleImageUpload(fakeEvent, id);
+                            }
+                          }}
+                          onDragOver={(e) => e.preventDefault()}
+                          className="border-2 border-dashed border-gray-300 p-4 rounded-md hover:bg-gray-100 transition cursor-pointer"
+                        >
                           <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
                             <Upload className="w-5 h-5 text-gray-600" />
                             <input
