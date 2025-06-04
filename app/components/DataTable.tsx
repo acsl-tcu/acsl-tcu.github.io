@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Pencil, Trash2, Plus, Printer, FileDown, Upload, LucideImage } from 'lucide-react';
+import { Pencil, Trash2, Plus, Printer, FileDown, Upload } from 'lucide-react';
 import Toast from '@/components/ui/Toast';
 import { exportCSV, exportXLSX, printTable } from '@/lib/exporters';
 import { useToast } from '@/hooks/useToast';
