@@ -255,7 +255,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
 
                 {'imageUrl' in item ?
                   (
-                    <CardContent className="px-0">
+                    <CardContent className="items-center justify-center text-center">
                       <div className="flex gap-2">
                         {Array.isArray(item.imageUrl) && item.imageUrl.length > 0 ?
                           (
@@ -300,29 +300,24 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                   (
                     <div className="text-center text-sm text-muted-foreground">No image</div>
                   )}
-                (<div>
-                  <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-                    <Upload className="w-5 h-5 text-gray-600" />
-                    <input
-                      type="file"
-                      multiple
-                      onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
-                      accept="image/*"
-                      className="hidden"
-                    />
-                  </label></div>
-                )
                 {(('title' in item && String(item.title)) || ('name' in item && String(item.name))) && (
-                  <CardFooter>
+                  <CardFooter className="text-center flex justify-center">
+                    <div>
+                      <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+                        <Upload className="w-5 h-5 text-gray-600" />
+                        <input
+                          type="file"
+                          multiple
+                          onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
+                          accept="image/*"
+                          className="hidden"
+                        />
+                      </label></div>
                     <p className="text-sm text-gray-600">
                       {String('title' in item ? item.title : item.name)}
                     </p>
-                    {/* <p className="text-sm font-bold">
-                      {String('title' in item ? item.title : item.name)}
-                    </p> */}
                   </CardFooter>
                 )}
-
               </Card>
             ))
             }
