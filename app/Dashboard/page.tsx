@@ -21,7 +21,7 @@ export default function DashboardPage() {
   const [table, setTable] = useState<string>('goods');
   const [data, setData] = useState<unknown>([]);
   const [originalData, setOriginalData] = useState<unknown>([]);
-  const tableOptions = ['equipment', 'books', 'goods', 'members'];
+  const tableOptions = ['equipment', 'books', 'equipment', 'members'];
   const tableOptionLables = ['備品', '書籍', '物品', '会員'];
   // const [goodsColumns, setGoodsColumns] = useState<typeof GoodsColumns>(GoodsColumns);
   const [equipmentColumns, setEquipmentColumns] = useState<typeof EquipmentColumns>(EquipmentColumns);
