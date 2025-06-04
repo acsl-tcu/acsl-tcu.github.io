@@ -172,14 +172,14 @@ export default function DataTable<T extends WithIdOrItemNumber>({
       const formData = new FormData();
 
       formData.append('rowId', rowId); // ファイル名として使う
-
+      const timestamp = Date.now();
       files.map((file, index) => {
         const count = index + 1; // ファイル名のカウント
         const filename = file.name || '';
         const ext = typeof filename === 'string'
           ? filename.split('.').pop() || 'jpg'
           : 'jpg';
-        const finalName = `${rowId}_${count}.${ext}`;
+        const finalName = `${rowId}_${count}_${timestamp}.${ext}`;
         console.log(`Appending file: ${finalName}`);
         formData.append('file', file, finalName);
         // formData.append(finalName, file); // {rowid_1.jpg:file1, rowid_2.png:file2, ...}
