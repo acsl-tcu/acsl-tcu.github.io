@@ -79,10 +79,12 @@ export default function DataTable<T extends WithIdOrItemNumber>({
   }, [visibleKeys, storageKey]);
 
   useEffect(() => {
-    setFtable(localStorage.getItem('ftable') || ftable);
     setData(initialData);
     setFiltered(initialData);
-  }, [initialData, ftable]);
+  }, [initialData]);
+  useEffect(() => {
+    setFtable(localStorage.getItem('ftable') || ftable);
+  }, [ftable]);
 
   useEffect(() => {
     const lowerGlobal = globalQuery.toLowerCase();
@@ -254,15 +256,13 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                       ) : (
                         <div className="text-center text-sm text-muted-foreground">画像なし</div>
                       )}
-                      <div className="text-xs text-muted-foreground">
+                      <div className=" text-muted-foreground">
                         {('itemName' in item && String(item.itemName)) || ('name' in item && String(item.name))}
                       </div>
                     </CardContent>
                   ) :
                   (
-                    <CardFooter>
-                      <span className="text-sm text-muted-foreground">ID: {("id" in item ? item.id : item.itemNumber)}</span>
-                    </CardFooter>
+                    <div className="text-center text-sm text-muted-foreground">No image</div>
                   )}
                 {'number' in item ?
                   (
@@ -329,7 +329,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                 </td>
               </tr>
             </thead>
-            {/* Mainデータ */}
+            {/* Table Mainデータ */}
             <tbody>
               {pageItems.map((row: T) => (
                 <tr key={"id" in row ? row.id : row.itemNumber} className="border-t">
