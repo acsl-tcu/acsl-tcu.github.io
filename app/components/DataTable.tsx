@@ -56,7 +56,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
   const [ftable, setFtable] = useState<string>('0');
   const ftableValue = ['0', '1'];
   const ftableLables = ['Card', 'Table'];
-  const maxImages = 3;
+  // const maxImages = 3;
 
   const { toast, showToast } = useToast();
 
@@ -261,7 +261,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                           (
                             <>
                               {(() => {
-                                const emptySlots = maxImages - item.imageUrl.length;
+                                // const emptySlots = maxImages - item.imageUrl.length;
                                 return (
                                   <>
                                     {item.imageUrl.map((src: string, idx: number) => (
