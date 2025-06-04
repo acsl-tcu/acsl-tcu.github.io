@@ -314,7 +314,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                       </p>
                       <br />
                       <>
-                        {columns.map(col => (() => {
+                        {columns.map(col => {
                           const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
                           return (
                             ((key && key in item) ?
@@ -325,7 +325,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                                 className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                               /> : null)
                           )
-                        }))}
+                        })}
                       </>
                     </CardFooter>
                   )}
