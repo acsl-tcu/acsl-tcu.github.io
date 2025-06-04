@@ -118,7 +118,6 @@ const EquipmentColumnsStudent = [
   'budget',
   'place',
   'responsiblePerson',
-  'date',
   'disposal',
   'comment'
 ];
