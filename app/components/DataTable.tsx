@@ -261,6 +261,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                           (
                             <>
                               {(() => {
+                                console.log("hgoehgoe", ('title' in item && String(item.title)) || ('name' in item && String(item.name)))
                                 // const emptySlots = maxImages - item.imageUrl.length;
                                 return (
                                   <>
@@ -275,15 +276,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                                         />
                                       </div>
                                     ))}
-
-                                    {/* {Array.from({ length: emptySlots }).map((_, idx) => (
-                                      <div
-                                        key={`empty-${idx}`}
-                                        className="w-1/3 aspect-square flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-gray-400"
-                                      >
-                                        <LucideImage className="w-6 h-6" />
-                                      </div>
-                                    ))} */}
                                   </>
                                 );
                               })()}
@@ -291,9 +283,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                           )
                           : (<>No Image</>)
                         }
-                        {/* <div className=" text-muted-foreground">
-                          {('itemName' in item && String(item.itemName)) || ('name' in item && String(item.name))}
-                        </div> */}
                       </div>
                     </CardContent>
                   ) :
