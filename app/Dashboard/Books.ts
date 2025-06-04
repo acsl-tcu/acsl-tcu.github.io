@@ -7,7 +7,7 @@ export interface Book {
   overview: string;
   pubdate: string;
   publisher: string;
-  imageUrl?: string;
+  imageUrl?: string[];
 }
 
 export const BookColumns = [

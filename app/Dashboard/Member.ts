@@ -7,7 +7,7 @@ export interface Member {
   overview: string;
   pubdate: string;
   publisher: string;
-  imageUrl?: string;
+  imageUrl?: string[];
 }
 
 export const MemberColumns = [

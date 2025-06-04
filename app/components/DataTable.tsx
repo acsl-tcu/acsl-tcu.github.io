@@ -98,7 +98,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
         return row[key as keyof T]?.toString().toLowerCase().includes(value.toLowerCase());
       });
     });
-    // console.log("Filtered data:", filteredByColumns);
+    console.log("Filtered data:", filteredByColumns);
     setFiltered(filteredByColumns);
     setPage(0);
   }, [globalQuery, columnFilters, data]);
@@ -133,7 +133,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
     setNewItem({});
   };
 
-  const updateImageUrl = (id: string, imageUrl: string) => {
+  const updateImageUrl = (id: string, imageUrl: string[]) => {
     console.log("Updating image URL for ID:", id, "to", imageUrl);
     setData(prev =>
       prev.map((row: T) =>
@@ -141,23 +141,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
       )
     );
   };
-
-  // const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
-  //   const file = e.target.files?.[0];
-  //   if (!file) return;
-
-  //   const formData = new FormData();
-  //   formData.append('file', file);
-  //   formData.append('id', id);
-
-  //   const res = await fetch('/api/upload-image', {// BOX
-  //     method: 'POST',
-  //     body: formData,
-  //   });
-
-  //   const { imageUrl } = await res.json();
-  //   updateImageUrl(id, imageUrl); // state更新などで反映
-  // };
 
   // フロント側（e.g., DataTable.tsx）
   const handleImageUpload = async (
@@ -182,7 +165,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
         const finalName = `${rowId}_${count}_${timestamp}.${ext}`;
         console.log(`Appending file: ${finalName}`);
         formData.append('file', file, finalName);
-        // formData.append(finalName, file); // {rowid_1.jpg:file1, rowid_2.png:file2, ...}
       })
 
       const res = await fetch('https://acsl-hp.vercel.app/api/upload-box', {
@@ -250,16 +232,38 @@ export default function DataTable<T extends WithIdOrItemNumber>({
           <ul className="grid grid-cols-2 sm:grid-cols-5 gap-2">
             {pageItems.map((item, index) => (
               <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="p-2 gap-1">
-                {'title' in item && String(item.title) && (
+                {(('title' in item && String(item.title)) || ('name' in item && String(item.name))) && (
                   <CardTitle>
-                    <p className="text-sm font-bold">{String(item.title)}</p>
+                    <p className="text-sm font-bold">
+                      {String('title' in item ? item.title : item.name)}
+                    </p>
                   </CardTitle>
                 )}
-                {'name' in item && String(item.name) && (
-                  <CardTitle>
-                    <p className="text-sm font-bold">{String(item.name)}</p>
-                  </CardTitle>
-                )}
+
+                {'imageUrl' in item ?
+                  (
+                    <CardContent className="px-0">
+                      {Array.isArray(item.imageUrl) && item.imageUrl.length > 0 ? (
+                        <Image
+                          src={item.imageUrl[0]}
+                          alt="uploaded"
+                          width={128}
+                          height={128}
+                          className="object-cover rounded mb-2" // 任意で角丸など追加
+                        />
+                      ) : (
+                        <div className="text-center text-sm text-muted-foreground">画像なし</div>
+                      )}
+                      <div className="text-xs text-muted-foreground">
+                        {('itemName' in item && String(item.itemName)) || ('name' in item && String(item.name))}
+                      </div>
+                    </CardContent>
+                  ) :
+                  (
+                    <CardFooter>
+                      <span className="text-sm text-muted-foreground">ID: {("id" in item ? item.id : item.itemNumber)}</span>
+                    </CardFooter>
+                  )}
                 {'number' in item ?
                   (
                     <CardFooter className="px-0">
@@ -354,10 +358,10 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                             ?
                             (<div className="text-center p-2 ">
                               <div>{String(value ?? '')}</div>
-                              {("imageUrl" in row && typeof row.imageUrl === "string")
+                              {("imageUrl" in row && Array.isArray(row.imageUrl) && row.imageUrl.length > 0)
                                 ? (
                                   <Image
-                                    src={row.imageUrl}
+                                    src={row.imageUrl[0]}
                                     alt="uploaded"
                                     width={64}
                                     height={64}

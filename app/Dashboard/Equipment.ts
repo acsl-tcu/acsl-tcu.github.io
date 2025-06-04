@@ -76,7 +76,7 @@ export interface Equipment {
   budget: number;                     // 予算
   budgetNote?: string;                // 予算（補足）
   approvalDocumentNumber?: string;    // 審議書No
-  imageUrl?: string;                  // 画像URL
+  imageUrl?: string[];                  // 画像URL
   place?: string;                     // 設置場所（オプション）
   responsiblePerson?: string;         // 担当者名（オプション）
   date?: string;                      // 日付（オプション）

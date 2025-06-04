@@ -14,7 +14,7 @@ export interface Good {
   disposalReason: string,
   place: string,
   comment: string,
-  imageUrl?: string
+  imageUrl?: string[]
 }
 // export const Good = {
 //   number: "備品番号",
