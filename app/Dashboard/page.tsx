@@ -4,11 +4,11 @@
 import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable';
 import { BookColumns, book_table_title } from './Books';
-import { GoodsColumns, GoodsColumnsStaffHide, GoodsColumnsStudentHide, goods_table_title } from './Goods';
+// import { GoodsColumns, GoodsColumnsStaffHide, GoodsColumnsStudentHide, goods_table_title } from './Goods';
 import { EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
 // import { MemberColumns, member_table_title } from './Member'; 
 import type { Book } from './Books';
-import type { Good } from './Goods';
+// import type { Good } from './Goods';
 import type { Equipment } from './Equipment';
 //import type { Member } from './Member'; 
 import VarSelector from '@/app/components/VarSelector';
