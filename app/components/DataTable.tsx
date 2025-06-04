@@ -3,8 +3,8 @@
 import { useEffect, useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
-import { Pencil, Trash2, Plus, Printer, FileDown, Upload } from 'lucide-react';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Pencil, Trash2, Plus, Printer, FileDown, Upload, LucideImage } from 'lucide-react';
 import Toast from '@/components/ui/Toast';
 import { exportCSV, exportXLSX, printTable } from '@/lib/exporters';
 import { useToast } from '@/hooks/useToast';
@@ -56,6 +56,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
   const [ftable, setFtable] = useState<string>('0');
   const ftableValue = ['0', '1'];
   const ftableLables = ['Card', 'Table'];
+  const maxImages = 3;
 
   const { toast, showToast } = useToast();
 
@@ -233,48 +234,95 @@ export default function DataTable<T extends WithIdOrItemNumber>({
           // Card表示
           <ul className="grid grid-cols-2 sm:grid-cols-5 gap-2">
             {pageItems.map((item, index) => (
-              <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="p-2 gap-1">
-                {(('title' in item && String(item.title)) || ('name' in item && String(item.name))) && (
-                  <CardTitle>
-                    <p className="text-sm font-bold">
-                      {String('title' in item ? item.title : item.name)}
-                    </p>
-                  </CardTitle>
-                )}
+              <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="w-full max-w-md rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-200">
+                {'number' in item ?
+                  (
+                    <CardHeader>
+                      <h2 className="text-xl font-bold text-gray-800">
+                        {String(item.number)}
+                      </h2>
+                      {/* <span className="text-sm text-muted-foreground">{String(item.number)}</span> */}
+                    </CardHeader>
+                  ) :
+                  (
+                    <CardHeader>
+                      <h2 className="text-xl font-bold text-gray-800">
+                        {("id" in item ? item.id : item.itemNumber)}
+                      </h2>
+                      {/* <span className="text-sm text-muted-foreground">ID: {("id" in item ? item.id : item.itemNumber)}</span> */}
+                    </CardHeader>
+                  )}
 
                 {'imageUrl' in item ?
                   (
                     <CardContent className="px-0">
-                      {Array.isArray(item.imageUrl) && item.imageUrl.length > 0 ? (
-                        <Image
-                          src={item.imageUrl[0]}
-                          alt="uploaded"
-                          width={128}
-                          height={128}
-                          className="object-cover rounded mb-2" // 任意で角丸など追加
-                        />
-                      ) : (
-                        <div className="text-center text-sm text-muted-foreground">画像なし</div>
-                      )}
-                      <div className=" text-muted-foreground">
-                        {('itemName' in item && String(item.itemName)) || ('name' in item && String(item.name))}
+                      <div className="flex gap-2">
+                        {Array.isArray(item.imageUrl) && item.imageUrl.length > 0 ?
+                          (
+                            <>
+                              {(() => {
+                                const maxImages = 3;
+                                const emptySlots = maxImages - item.imageUrl.length;
+
+                                return (
+                                  <>
+                                    {item.imageUrl.map((src: string, idx: number) => (
+                                      <div key={idx} className="w-1/3 aspect-square relative">
+                                        <Image
+                                          src={src}
+                                          alt={`image-${idx}`}
+                                          fill
+                                          sizes="(max-width: 768px) 100vw, 33vw"
+                                          className="object-cover rounded-lg border border-gray-100"
+                                        />
+                                      </div>
+                                    ))}
+
+                                    {Array.from({ length: emptySlots }).map((_, idx) => (
+                                      <div
+                                        key={`empty-${idx}`}
+                                        className="w-1/3 aspect-square flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-gray-400"
+                                      >
+                                        <LucideImage className="w-6 h-6" />
+                                      </div>
+                                    ))}
+                                  </>
+                                );
+                              })()}
+                            </>
+                          )
+                          // {Array.isArray(item.imageUrl) && item.imageUrl.length > 0 ? (
+                          //   <Image
+                          //     src={item.imageUrl[0]}
+                          //     alt="uploaded"
+                          //     width={128}
+                          //     height={128}
+                          //     className="object-cover rounded mb-2" // 任意で角丸など追加
+                          //   />
+                          // )
+                          : (
+                            <div className="text-center text-sm text-muted-foreground">画像なし</div>
+                          )}
+                        <div className=" text-muted-foreground">
+                          {('itemName' in item && String(item.itemName)) || ('name' in item && String(item.name))}
+                        </div>
                       </div>
                     </CardContent>
                   ) :
                   (
                     <div className="text-center text-sm text-muted-foreground">No image</div>
                   )}
-                {'number' in item ?
-                  (
-                    <CardFooter className="px-0">
-                      <span className="text-sm text-muted-foreground">{String(item.number)}</span>
-                    </CardFooter>
-                  ) :
-                  (
-                    <CardFooter>
-                      <span className="text-sm text-muted-foreground">ID: {("id" in item ? item.id : item.itemNumber)}</span>
-                    </CardFooter>
-                  )}
+                {(('title' in item && String(item.title)) || ('name' in item && String(item.name))) && (
+                  <CardFooter>
+                    <p className="text-sm text-gray-600">
+                      {String('title' in item ? item.title : item.name)}
+                    </p>
+                    {/* <p className="text-sm font-bold">
+                      {String('title' in item ? item.title : item.name)}
+                    </p> */}
+                  </CardFooter>
+                )}
+
               </Card>
             ))
             }
