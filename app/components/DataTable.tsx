@@ -232,7 +232,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
 
         {ftable === '0' ?
           // Card表示
-          <ul className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {pageItems.map((item, index) => (
               <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="w-full max-w-md rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-200">
                 {'number' in item ?
@@ -298,9 +298,20 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                           //     className="object-cover rounded mb-2" // 任意で角丸など追加
                           //   />
                           // )
-                          : (
-                            <div className="text-center text-sm text-muted-foreground">画像なし</div>
-                          )}
+                          : (<div>
+                            画像
+                            <label className="cursor-pointer inline-flex items-center justify-center p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+                              <Upload className="w-5 h-5 text-gray-600" />
+                              <input
+                                type="file"
+                                multiple
+                                onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
+                                accept="image/*"
+                                className="hidden"
+                              />
+                            </label></div>
+                          )
+                        }
                         <div className=" text-muted-foreground">
                           {('itemName' in item && String(item.itemName)) || ('name' in item && String(item.name))}
                         </div>
