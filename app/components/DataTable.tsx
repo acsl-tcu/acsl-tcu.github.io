@@ -317,7 +317,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                         {columns.map(col => (() => {
                           const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
                           // (key && key in item && item[col.key] && (
-                          (key && key in item ?
+                          ((key && key in item) ?
                             <Input
                               key={String(item[col.key] ?? '')}
                               value={String(item[col.key] ?? (col.key === 'place' ? '設置場所' : '使用者'))}
