@@ -23,7 +23,7 @@ export default function DashboardPage() {
   const [originalData, setOriginalData] = useState<unknown>([]);
   const tableOptions = ['equipment', 'books', 'goods', 'members'];
   const tableOptionLables = ['備品', '書籍', '物品', '会員'];
-  const [goodsColumns, setGoodsColumns] = useState<typeof GoodsColumns>(GoodsColumns);
+  // const [goodsColumns, setGoodsColumns] = useState<typeof GoodsColumns>(GoodsColumns);
   const [equipmentColumns, setEquipmentColumns] = useState<typeof EquipmentColumns>(EquipmentColumns);
   useEffect(() => {
     setTable(localStorage.getItem('table') || table);
@@ -41,12 +41,12 @@ export default function DashboardPage() {
         setOriginalData(data.message);
         const isStaff = localStorage.getItem('role') === 'staff';
         const isStudent = localStorage.getItem('role') === 'student';
-        const tmp = isStaff
-          ? GoodsColumns.filter(col => !GoodsColumnsStaffHide.includes(col.key))
-          : isStudent
-            ? GoodsColumns.filter(col => !GoodsColumnsStudentHide.includes(col.key))
-            : GoodsColumns; // 管理者は全てのカラムを表示
-        setGoodsColumns(tmp);
+        // const tmp = isStaff
+        //   ? GoodsColumns.filter(col => !GoodsColumnsStaffHide.includes(col.key))
+        //   : isStudent
+        //     ? GoodsColumns.filter(col => !GoodsColumnsStudentHide.includes(col.key))
+        //     : GoodsColumns; // 管理者は全てのカラムを表示
+        // setGoodsColumns(tmp);
         const tmp2 = isStaff
           ? EquipmentColumns.filter(col => !EquipmentColumnsStaffHide.includes(col.key))
           : isStudent
@@ -94,7 +94,7 @@ export default function DashboardPage() {
           }}
         />
       </>)}
-      {table === 'goods' && (<>
+      {/* {table === 'goods' && (<>
         <h1 className="text-xl font-bold mb-4">{goods_table_title}</h1>
         <DataTable<Good>
           data={data as Good[]}
@@ -107,7 +107,7 @@ export default function DashboardPage() {
               body: JSON.stringify({ added, updated, deleted }),
             });
           }}
-        /></>)}
+        /></>)} */}
       {table === 'equipment' && (<>
         <h1 className="text-xl font-bold mb-4">{equipment_table_title}</h1>
         <DataTable<Equipment>
