@@ -358,7 +358,9 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                                   key={`${"id" in item ? item.id : item.itemNumber}-${String(col.key)}`}
                                   value={String(item[col.key] ?? '')} // 実際の値 or 空文字
                                   placeholder={col.key === 'place' ? '設置場所' : '使用者'} // 表示だけに使う
-                                  onCompositionEnd={(e) => handleDirectEdit("id" in item ? item.id : item.itemNumber, col.key, e.currentTarget.value)}
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Enter') { handleDirectEdit("id" in item ? item.id : item.itemNumber, col.key, e.currentTarget.value) }
+                                  }}
                                   className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                                 /> : null)
                             )
