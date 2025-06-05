@@ -17,8 +17,8 @@ export default function DashboardPage() {
   const [table, setTable] = useState<string>('goods');
   const [data, setData] = useState<unknown>([]);
   const [originalData, setOriginalData] = useState<unknown>([]);
-  const tableOptions = ['equipment', 'books', 'goods', 'members'];
-  const tableOptionLables = ['備品', '書籍', '物品', '会員'];
+  const tableOptions = ['equipment', 'books', 'members'];
+  const tableOptionLables = ['備品', '書籍', '会員'];
   const [equipmentColumns, setEquipmentColumns] = useState<typeof EquipmentColumns>(EquipmentColumns);
   useEffect(() => {
     setTable(localStorage.getItem('table') || table);
