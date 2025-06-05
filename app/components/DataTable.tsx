@@ -337,6 +337,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                       </CardFooter>
                       <CardFooter>
                         <>
+                          {console.log(columns)}
                           {columns.map(col => {
                             const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
                             return (
