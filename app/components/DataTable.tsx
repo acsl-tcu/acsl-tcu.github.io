@@ -363,6 +363,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                                   placeholder={col.key === 'place' ? '設置場所' : '使用者'} // 表示だけに使う
                                   onChange={(e) => { handleEdit(rowid, col.key, e.currentTarget.value) }
                                   }
+                                  onBlur={() => applyEdit(rowid)}
                                   className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                                 /> : null)
                             )
