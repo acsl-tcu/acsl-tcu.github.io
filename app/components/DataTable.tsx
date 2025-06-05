@@ -57,6 +57,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
   const [ftable, setFtable] = useState<string>('0');
   const ftableValue = ['0', '1'];
   const ftableLables = ['Card', 'Table'];
+  // const [EditItem, setEditItem] = useState<Record<string, string>>({ 'place': '', 'responsiblePerson': '' });
   // const maxImages = 3;
 
   const { toast, showToast } = useToast();
@@ -117,19 +118,19 @@ export default function DataTable<T extends WithIdOrItemNumber>({
       [id]: { ...prev[id], [field]: value },
     }));
   };
-  const handleDirectEdit = (
-    id: string,
-    field: keyof T,
-    value: string
-  ) => {
-    setData(prev =>
-      prev.map(row =>
-        ('id' in row && row.id === id) || ('itemNumber' in row && row.itemNumber === id)
-          ? { ...row, [field]: value }
-          : row
-      )
-    );
-  };
+  // const handleDirectEdit = (
+  //   id: string,
+  //   field: keyof T,
+  //   value: string
+  // ) => {
+  //   setEditItem(prev =>
+  //     prev.map(row =>
+  //       ('id' in row && row.id === id) || ('itemNumber' in row && row.itemNumber === id)
+  //         ? { ...row, [field]: value }
+  //         : row
+  //     )
+  //   );
+  // };
 
   const applyEdit = (id: string) => {
     const updated = data.map(item =>
@@ -352,15 +353,16 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                         <>
                           {columns.map(col => {
                             const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
+                            const rowid = "id" in item ? item.id : item.itemNumber;
                             return (
                               ((key && key in item) ?
                                 <Input
-                                  key={`${"id" in item ? item.id : item.itemNumber}-${String(col.key)}`}
-                                  value={String(item[col.key] ?? '')} // 実際の値 or 空文字
+                                  key={`${rowid}-${String(col.key)}`}
+                                  value={String((draftEdits[rowid]?.[key as keyof T] ?? item[key as keyof T]) || '')}
+                                  // draftEdits[rowid]?.[key as keyof T] || ''} // 実際の値 or 空文字 draftEdits[rowid]?.[key] ?? row[key]
                                   placeholder={col.key === 'place' ? '設置場所' : '使用者'} // 表示だけに使う
-                                  onKeyDown={(e) => {
-                                    if (e.key === 'Enter') { handleDirectEdit("id" in item ? item.id : item.itemNumber, col.key, e.currentTarget.value) }
-                                  }}
+                                  onChange={(e) => { handleEdit(rowid, col.key, e.currentTarget.value) }
+                                  }
                                   className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                                 /> : null)
                             )
@@ -444,7 +446,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                         {editingId === ("id" in row ? row.id : row.itemNumber) ? (
                           <Input
                             value={String(value ?? '')}
-                            onChange={(e) => handleEdit("id" in row ? row.id : row.itemNumber, key, e.target.value)}
+                            onChange={(e) => handleEdit(editingId, key, e.target.value)}
                             className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                           />
                         )
