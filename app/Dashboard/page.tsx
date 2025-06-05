@@ -14,7 +14,7 @@ type WithIdOrItemNumber = { id: string } | { itemNumber: string };
 
 export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
-  const [table, setTable] = useState<string>('goods');
+  const [table, setTable] = useState<string>('equipment'); // 初期値は 'equipment'
   const [data, setData] = useState<unknown>([]);
   const [originalData, setOriginalData] = useState<unknown>([]);
   const tableOptions = ['equipment', 'books', 'members'];
