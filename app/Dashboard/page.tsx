@@ -4,16 +4,12 @@
 import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable';
 import { BookColumns, book_table_title } from './Books';
-// import { GoodsColumns, GoodsColumnsStaffHide, GoodsColumnsStudentHide, goods_table_title } from './Goods';
 import { EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
 // import { MemberColumns, member_table_title } from './Member'; 
 import type { Book } from './Books';
-// import type { Good } from './Goods';
 import type { Equipment } from './Equipment';
 //import type { Member } from './Member'; 
 import VarSelector from '@/app/components/VarSelector';
-// import BoxImageUploader from '@/app/components/BoxImageUploader';
-
 type WithIdOrItemNumber = { id: string } | { itemNumber: string };
 
 export default function DashboardPage() {
@@ -23,7 +19,6 @@ export default function DashboardPage() {
   const [originalData, setOriginalData] = useState<unknown>([]);
   const tableOptions = ['equipment', 'books', 'goods', 'members'];
   const tableOptionLables = ['備品', '書籍', '物品', '会員'];
-  // const [goodsColumns, setGoodsColumns] = useState<typeof GoodsColumns>(GoodsColumns);
   const [equipmentColumns, setEquipmentColumns] = useState<typeof EquipmentColumns>(EquipmentColumns);
   useEffect(() => {
     setTable(localStorage.getItem('table') || table);
@@ -41,12 +36,6 @@ export default function DashboardPage() {
         setOriginalData(data.message);
         const isStaff = localStorage.getItem('role') === 'staff';
         const isStudent = localStorage.getItem('role') === 'student';
-        // const tmp = isStaff
-        //   ? GoodsColumns.filter(col => !GoodsColumnsStaffHide.includes(col.key))
-        //   : isStudent
-        //     ? GoodsColumns.filter(col => !GoodsColumnsStudentHide.includes(col.key))
-        //     : GoodsColumns; // 管理者は全てのカラムを表示
-        // setGoodsColumns(tmp);
         const tmp2 = isStaff
           ? EquipmentColumns.filter(col => !EquipmentColumnsStaffHide.includes(col.key))
           : isStudent
@@ -76,7 +65,6 @@ export default function DashboardPage() {
 
   return (
     <div className="px-2 w-full">
-      {/* <BoxImageUploader /> */}
       {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
       {error && <p className="text-red-500">{error}</p>}
       {table === 'books' && (<>
@@ -94,20 +82,6 @@ export default function DashboardPage() {
           }}
         />
       </>)}
-      {/* {table === 'goods' && (<>
-        <h1 className="text-xl font-bold mb-4">{goods_table_title}</h1>
-        <DataTable<Good>
-          data={data as Good[]}
-          columns={goodsColumns}
-          onSync={async (newData) => {
-            const { added, updated, deleted } = computeDiff<Good>(originalData as Good[], newData);
-            await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
-              method: 'PUT',
-              credentials: 'include',
-              body: JSON.stringify({ added, updated, deleted }),
-            });
-          }}
-        /></>)} */}
       {table === 'equipment' && (<>
         <h1 className="text-xl font-bold mb-4">{equipment_table_title}</h1>
         <DataTable<Equipment>
