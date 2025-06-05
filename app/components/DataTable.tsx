@@ -117,10 +117,16 @@ export default function DataTable<T extends WithIdOrItemNumber>({
       [id]: { ...prev[id], [field]: value },
     }));
   };
-  const handleDirectEdit = (id: keyof WithIdOrItemNumber, field: keyof T, value: string) => {
+  const handleDirectEdit = (
+    id: string,
+    field: keyof T,
+    value: string
+  ) => {
     setData(prev =>
       prev.map(row =>
-        (row[id] === id ? { ...row, [field]: value } : row)
+        ('id' in row && row.id === id) || ('itemNumber' in row && row.itemNumber === id)
+          ? { ...row, [field]: value }
+          : row
       )
     );
   };
