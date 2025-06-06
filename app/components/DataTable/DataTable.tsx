@@ -92,7 +92,6 @@ export default function DataTable<T extends WithIdentifier>({
         val?.toString().toLowerCase().includes(lowerGlobal)
       )
     );
-    // console.log("Filtered by global query:", filteredByGlobal);
     setFiltered(filteredByGlobal);
     setPage(0);
   }, [globalQuery, data]);

@@ -156,8 +156,6 @@ export default function CardDisplay<T extends WithIdentifier>({
                 <>
                   {columns.map(col => {
                     const key = DataInfo.cardEditField.includes(String(col.key)) ? col.key : null;
-                    // const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
-                    // const key = col.key as keyof T;
                     const rowid = item.id;
                     return (
                       ((key && key in item) ?
