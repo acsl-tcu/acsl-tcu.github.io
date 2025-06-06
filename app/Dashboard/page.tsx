@@ -4,13 +4,13 @@
 import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable';
 import { BookColumns, book_table_title } from './Books';
-import { EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
+import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
 // import { MemberColumns, member_table_title } from './Member'; 
 import type { Book } from './Books';
-import type { Equipment } from './Equipment';
+import type { EquipmentAPI, EquipmentDB } from './Equipment';
 //import type { Member } from './Member'; 
 import VarSelector from '@/app/components/VarSelector';
-type WithIdOrItemNumber = { id: string } | { itemNumber: string };
+type WithIdentifier = { id: string, title: string };
 
 export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
@@ -49,14 +49,14 @@ export default function DashboardPage() {
       });
   }, [table]);
 
-  function computeDiff<T extends WithIdOrItemNumber>(original: T[], current: T[]) {
-    const originalMap = new Map(original.map(item => [("id" in item ? item.id : item.itemNumber), item]));
-    const currentMap = new Map(current.map(item => [("id" in item ? item.id : item.itemNumber), item]));
+  function computeDiff<T extends WithIdentifier>(original: T[], current: T[]) {
+    const originalMap = new Map(original.map(item => [item.id, item]));
+    const currentMap = new Map(current.map(item => [item.id, item]));
 
-    const added = current.filter(item => !originalMap.has(("id" in item ? item.id : item.itemNumber)));
-    const deleted = original.filter(item => !currentMap.has(("id" in item ? item.id : item.itemNumber))).map(item => ("id" in item ? item.id : item.itemNumber));
+    const added = current.filter(item => !originalMap.has(item.id));
+    const deleted = original.filter(item => !currentMap.has(item.id)).map(item => item.id);
     const updated = current.filter(item => {
-      const orig = originalMap.get(("id" in item ? item.id : item.itemNumber));
+      const orig = originalMap.get(item.id);
       return orig && JSON.stringify(orig) !== JSON.stringify(item);
     });
 
@@ -84,15 +84,17 @@ export default function DashboardPage() {
       </>)}
       {table === 'equipment' && (<>
         <h1 className="text-xl font-bold mb-4">{equipment_table_title}</h1>
-        <DataTable<Equipment>
-          data={data as Equipment[]}
+        <DataTable<EquipmentAPI>
+          data={EquipmentConvertToAPIFormat(data as EquipmentDB[])}
           columns={equipmentColumns}
           onSync={async (newData) => {
-            const { added, updated, deleted } = computeDiff<Equipment>(originalData as Equipment[], newData);
+            const { added, updated, deleted } = computeDiff<EquipmentAPI>(EquipmentConvertToAPIFormat(originalData as EquipmentDB[]), newData);
+            const added_converted = EquipmentConvertToDBFormat(added);
+            const updated_converted = EquipmentConvertToDBFormat(updated);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
               credentials: 'include',
-              body: JSON.stringify({ added, updated, deleted }),
+              body: JSON.stringify({ added_converted, updated_converted, deleted }),
             });
           }}
         /></>)}

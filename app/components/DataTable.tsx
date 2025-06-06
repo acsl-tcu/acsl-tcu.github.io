@@ -17,16 +17,17 @@ interface Column<T> {
   label: string;
 }
 
-type WithIdOrItemNumber = { id: string } | { itemNumber: string };
+type WithIdentifier = { id: string, title: string };
 
-interface DataTableProps<T extends WithIdOrItemNumber> {
+interface DataTableProps<T extends WithIdentifier> {
   data: T[];
   columns: readonly Column<T>[];
   onSync?: (data: T[]) => Promise<void>;
 }
 
 const ITEMS_PER_PAGE = 10;
-export default function DataTable<T extends WithIdOrItemNumber>({
+
+export default function DataTable<T extends WithIdentifier>({
   data: initialData,
   columns,
   onSync,
@@ -57,8 +58,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
   const [ftable, setFtable] = useState<string>('0');
   const ftableValue = ['0', '1'];
   const ftableLables = ['Card', 'Table'];
-  // const [EditItem, setEditItem] = useState<Record<string, string>>({ 'place': '', 'responsiblePerson': '' });
-  // const maxImages = 3;
 
   const { toast, showToast } = useToast();
 
@@ -118,30 +117,17 @@ export default function DataTable<T extends WithIdOrItemNumber>({
       [id]: { ...prev[id], [field]: value },
     }));
   };
-  // const handleDirectEdit = (
-  //   id: string,
-  //   field: keyof T,
-  //   value: string
-  // ) => {
-  //   setEditItem(prev =>
-  //     prev.map(row =>
-  //       ('id' in row && row.id === id) || ('itemNumber' in row && row.itemNumber === id)
-  //         ? { ...row, [field]: value }
-  //         : row
-  //     )
-  //   );
-  // };
 
   const applyEdit = (id: string) => {
     const updated = data.map(item =>
-      id === ("id" in item ? item.id : item.itemNumber) ? { ...item, ...draftEdits[id] } : item
+      id === item.id ? { ...item, ...draftEdits[id] } : item
     );
     setData(updated);
     setEditingId(null);
   };
 
   const deleteItem = (id: string) => {
-    setData(prev => prev.filter(item => ("id" in item ? item.id : item.itemNumber) !== id));
+    setData(prev => prev.filter(item => item.id !== id));
   };
 
   const addItem = () => {
@@ -155,7 +141,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
     console.log("Updating image URL for ID:", id, "to", imageUrl);
     setData(prev =>
       prev.map((row: T) =>
-        ("id" in row ? row.id : row.itemNumber) === id ? { ...row, imageUrl } : row
+        row.id === id ? { ...row, imageUrl } : row
       )
     );
   };
@@ -258,7 +244,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
             {pageItems
               .filter(item => ("disposal" in item) && (item.disposal === 0 || item.disposal === null || item.disposal === "false") || !("disposal" in item))
               .map((item, index) => (
-                <Card key={("id" in item ? item.id : item.itemNumber) ?? index} className="w-full max-w-md flex flex-col rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-200">
+                <Card key={item.id ?? index} className="w-full max-w-md flex flex-col rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-200">
                   {'number' in item ?
                     (
                       <CardHeader>
@@ -270,7 +256,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                     (
                       <CardHeader>
                         <h2 className="text-xl font-bold text-gray-800">
-                          {("id" in item ? item.id : item.itemNumber)}
+                          {item.id}
                         </h2>
                       </CardHeader>
                     )}
@@ -311,7 +297,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                     )
                   }
 
-                  {(('title' in item && String(item.title)) || ('itemName' in item && String(item.itemName))) &&
+                  {(String(item.title)) &&
                     (<>
                       <CardFooter className="text-center flex justify-center">
                         <div
@@ -319,8 +305,6 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                             e.preventDefault();
                             const files = e.dataTransfer.files;
                             if (files.length > 0) {
-                              const id = "id" in item ? item.id : item.itemNumber;
-
                               // 疑似的な ChangeEvent を生成して渡す
                               const fakeEvent = {
                                 target: {
@@ -328,7 +312,7 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                                 },
                               } as unknown as ChangeEvent<HTMLInputElement>;
 
-                              handleImageUpload(fakeEvent, id);
+                              handleImageUpload(fakeEvent, item.id);
                             }
                           }}
                           onDragOver={(e) => e.preventDefault()}
@@ -339,27 +323,26 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                             <input
                               type="file"
                               multiple
-                              onChange={(e) => handleImageUpload(e, ("id" in item ? item.id : item.itemNumber))}
+                              onChange={(e) => handleImageUpload(e, item.id)}
                               accept="image/*"
                               className="hidden"
                             />
                           </label>
                         </div>
                         <p className="text-sm text-gray-600">
-                          {String('title' in item ? item.title : item.itemName)}
+                          {String(item.title)}
                         </p>
                       </CardFooter>
                       <CardFooter>
                         <>
                           {columns.map(col => {
                             const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
-                            const rowid = "id" in item ? item.id : item.itemNumber;
+                            const rowid = item.id;
                             return (
                               ((key && key in item) ?
                                 <Input
                                   key={`${rowid}-${String(col.key)}`}
                                   value={String((draftEdits[rowid]?.[key as keyof T] ?? item[key as keyof T]) || '')}
-                                  // draftEdits[rowid]?.[key as keyof T] || ''} // 実際の値 or 空文字 draftEdits[rowid]?.[key] ?? row[key]
                                   placeholder={col.key === 'place' ? '設置場所' : '使用者'} // 表示だけに使う
                                   onChange={(e) => { handleEdit(rowid, col.key, e.currentTarget.value) }
                                   }
@@ -429,29 +412,24 @@ export default function DataTable<T extends WithIdOrItemNumber>({
             {/* Table Mainデータ */}
             <tbody>
               {pageItems.map((row: T) => (
-                <tr key={"id" in row ? row.id : row.itemNumber} className="border-t">
+                <tr key={row.id} className="border-t">
                   {columns.filter(col => visibleKeys.includes(col.key)).map(col => {
                     const key = col.key;
-                    let rowid: string;
-                    if ("id" in row) {
-                      rowid = row.id;
-                    } else {
-                      rowid = row.itemNumber;
-                    }
+                    const rowid = row.id;
                     const value = editingId === rowid
                       ? draftEdits[rowid]?.[key] ?? row[key]
                       : row[key];
 
                     return (
                       <td key={String(key)} className="p-2 border">
-                        {editingId === ("id" in row ? row.id : row.itemNumber) ? (
+                        {editingId === row.id ? (
                           <Input
                             value={String(value ?? '')}
                             onChange={(e) => handleEdit(editingId, key, e.target.value)}
                             className="transition-all duration-200 transform hover:scale-105 hover:bg-blue-50 focus:ring-2 focus:ring-blue-400"
                           />
                         )
-                          : (key === 'title' || key === 'name' || key === 'itemName' && typeof value === 'string'
+                          : (key === 'title' && typeof value === 'string'
                             ?
                             (<div className="text-center p-2 ">
                               <div>{String(value ?? '')}</div>
@@ -487,12 +465,12 @@ export default function DataTable<T extends WithIdOrItemNumber>({
                   })}
                   {/* 保存・削除 */}
                   <td className="p-2 border flex flex-wrap gap-2">
-                    {editingId === ("id" in row ? row.id : row.itemNumber) ? (
-                      <Button size="sm" onClick={() => applyEdit("id" in row ? row.id : row.itemNumber)}>Save</Button>
+                    {editingId === row.id ? (
+                      <Button size="sm" onClick={() => applyEdit(row.id)}>Save</Button>
                     ) : (
-                      <Button size="sm" onClick={() => setEditingId("id" in row ? row.id : row.itemNumber)}><Pencil size={14} /></Button>
+                      <Button size="sm" onClick={() => setEditingId(row.id)}><Pencil size={14} /></Button>
                     )}
-                    <Button size="sm" variant="destructive" onClick={() => deleteItem("id" in row ? row.id : row.itemNumber)}><Trash2 size={14} /></Button>
+                    <Button size="sm" variant="destructive" onClick={() => deleteItem(row.id)}><Trash2 size={14} /></Button>
                   </td>
                 </tr>
               ))}
