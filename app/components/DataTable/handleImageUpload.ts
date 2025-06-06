@@ -27,7 +27,7 @@ export const handleImageUpload = async (
       formData.append('file', file, finalName);
     })
 
-    const res = await fetch('https://acsl-hp.vercel.app/api/upload-box', {
+    const res = await fetch('https://acsl-hp.vercel.app/api/upload', {
       method: 'POST',
       credentials: 'include',
       body: formData,
