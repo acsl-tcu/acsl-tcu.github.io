@@ -18,17 +18,17 @@ interface DataTableProps<T extends WithIdentifier> {
   pageItems: T[];
   data: T[];
   setData: React.Dispatch<React.SetStateAction<T[]>>;
-  columns: readonly Column<T>[];
+  DataInfo: { columns: readonly Column<T>[], cardEditField: string[] };
 }
 
 export default function CardDisplay<T extends WithIdentifier>({
   pageItems,
   data,
   setData,
-  columns,
+  DataInfo,
 }: DataTableProps<T>) {
   const [draftEdits, setDraftEdits] = useState<Record<string, Partial<T>>>({});
-
+  const columns = DataInfo.columns;
   const handleEdit = (id: string, field: keyof T, value: string) => {
     setDraftEdits(prev => ({
       ...prev,
@@ -155,8 +155,9 @@ export default function CardDisplay<T extends WithIdentifier>({
               <CardFooter>
                 <>
                   {columns.map(col => {
+                    const key = DataInfo.cardEditField.includes(String(col.key)) ? col.key : null;
                     // const key = (col.key === 'place' ? 'place' : (col.key === 'responsiblePerson' ? 'responsiblePerson' : null));
-                    const key = col.key as keyof T;
+                    // const key = col.key as keyof T;
                     const rowid = item.id;
                     return (
                       ((key && key in item) ?

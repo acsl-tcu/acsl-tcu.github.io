@@ -21,7 +21,7 @@ type WithIdentifier = { id: string, title: string };
 
 interface DataTableProps<T extends WithIdentifier> {
   data: T[];
-  columns: readonly Column<T>[];
+  DataInfo: { columns: readonly Column<T>[], cardEditField: string[] };
   onSync?: (data: T[]) => Promise<void>;
 }
 
@@ -29,9 +29,10 @@ const ITEMS_PER_PAGE = 10;
 
 export default function DataTable<T extends WithIdentifier>({
   data: initialData,
-  columns,
+  DataInfo,
   onSync,
 }: DataTableProps<T>) {
+  const columns = DataInfo.columns;
   const [data, setData] = useState<T[]>([]);
   const [filtered, setFiltered] = useState<T[]>([]);
   const [page, setPage] = useState(0);
@@ -104,6 +105,7 @@ export default function DataTable<T extends WithIdentifier>({
   return (
     <Card className="py-4 px-0" >
       <CardContent>
+        {/* Header */}
         <div className="mb-4 flex flex-wrap gap-2">
           {columns.map(col => (
             <label key={String(col.key)} className="flex items-center gap-1">
@@ -147,10 +149,10 @@ export default function DataTable<T extends WithIdentifier>({
             className="w-full"
           />
         </div>
-
+        {/* 本体 */}
         {ftable === '0' ?
           // Card表示
-          <CardDisplay pageItems={pageItems} data={data} setData={setData} columns={columns} />
+          <CardDisplay pageItems={pageItems} data={data} setData={setData} DataInfo={DataInfo} />
           :
           <TableDisplay globalFilteredData={filtered} data={data} setData={setData} columns={columns} visibleKeys={visibleKeys} page={page} setPage={setPage}
             ITEMS_PER_PAGE={ITEMS_PER_PAGE} />

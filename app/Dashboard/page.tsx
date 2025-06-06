@@ -69,8 +69,7 @@ export default function DashboardPage() {
         <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
         <DataTable<BookAPI>
           data={BookConvertToAPIFormat(data as BookDB[])}
-
-          columns={BookColumns}
+          DataInfo={{ columns: BookColumns, cardEditField: [''] }}
           onSync={async (newData) => {
             const { added, updated, deleted } = computeDiff<BookAPI>(BookConvertToAPIFormat(originalData as BookDB[]), newData);
             const added_converted = BookConvertToDBFormat(added);
@@ -87,7 +86,7 @@ export default function DashboardPage() {
         <h1 className="text-xl font-bold mb-4">{equipment_table_title}</h1>
         <DataTable<EquipmentAPI>
           data={EquipmentConvertToAPIFormat(data as EquipmentDB[])}
-          columns={equipmentColumns}
+          DataInfo={{ columns: equipmentColumns, cardEditField: ['place', 'responsiblePerson'] }}
           onSync={async (newData) => {
             const { added, updated, deleted } = computeDiff<EquipmentAPI>(EquipmentConvertToAPIFormat(originalData as EquipmentDB[]), newData);
             const added_converted = EquipmentConvertToDBFormat(added);
