@@ -1,6 +1,18 @@
+// DB => API 変換関数
+export const BookConvertToAPIFormat = (rows: BookDB[]): BookAPI[] => rows.map(({ isbn, ...rest }) => ({ id: isbn, ...rest, }));
+// API から DB 変換関数
+export const BookConvertToDBFormat = (rows: BookAPI[]): BookDB[] => rows.map(({ id, ...rest }) => ({ isbn: id, ...rest, }));
 
-export interface Book {
+export interface BookAPI {
   id: string;
+  title: string;
+  author: string;
+  overview: string;
+  pubdate: string;
+  publisher: string;
+  imageUrl?: string[];
+}
+export interface BookDB {
   isbn: string;
   title: string;
   author: string;
@@ -11,7 +23,7 @@ export interface Book {
 }
 
 export const BookColumns = [
-  { key: 'isbn', label: 'ISBN' },
+  { key: 'id', label: 'ISBN' },
   { key: 'title', label: 'Title' },
   { key: 'author', label: 'Author' },
   { key: 'publisher', label: 'Publisher' },

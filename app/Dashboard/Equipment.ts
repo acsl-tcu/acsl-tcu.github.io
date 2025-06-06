@@ -112,7 +112,7 @@ export const equipmentKeys = ['id', 'divisionName', 'affiliationName', 'departme
 
 
 const EquipmentColumnsStaff = [
-  'itemNumber',
+  'id',
   'quantity',
   'title',
   'modelNumber',
@@ -132,7 +132,7 @@ const EquipmentColumnsStaff = [
 export const EquipmentColumnsStaffHide = equipmentKeys.filter(key => !EquipmentColumnsStaff.includes(key));
 
 const EquipmentColumnsStudent = [
-  'itemNumber',
+  'id',
   'quantity',
   'title',
   'modelNumber',

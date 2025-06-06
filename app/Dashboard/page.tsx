@@ -3,12 +3,10 @@
 
 import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable';
-import { BookColumns, book_table_title } from './Books';
 import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
-// import { MemberColumns, member_table_title } from './Member'; 
-import type { Book } from './Books';
 import type { EquipmentAPI, EquipmentDB } from './Equipment';
-//import type { Member } from './Member'; 
+import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from './Books';
+import type { BookAPI, BookDB } from './Books';
 import VarSelector from '@/app/components/VarSelector';
 type WithIdentifier = { id: string, title: string };
 
@@ -69,15 +67,18 @@ export default function DashboardPage() {
       {error && <p className="text-red-500">{error}</p>}
       {table === 'books' && (<>
         <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
-        <DataTable<Book>
-          data={data as Book[]}
+        <DataTable<BookAPI>
+          data={BookConvertToAPIFormat(data as BookDB[])}
+
           columns={BookColumns}
           onSync={async (newData) => {
-            const { added, updated, deleted } = computeDiff<Book>(originalData as Book[], newData);
+            const { added, updated, deleted } = computeDiff<BookAPI>(BookConvertToAPIFormat(originalData as BookDB[]), newData);
+            const added_converted = BookConvertToDBFormat(added);
+            const updated_converted = BookConvertToDBFormat(updated);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
               credentials: 'include',
-              body: JSON.stringify({ added, updated, deleted }),
+              body: JSON.stringify({ added_converted, updated_converted, deleted }),
             });
           }}
         />
