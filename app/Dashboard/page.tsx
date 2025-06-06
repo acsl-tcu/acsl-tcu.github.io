@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import DataTable from '@/app/components/DataTable';
+import DataTable from '@/app/components/DataTable/DataTable';
 import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
 import type { EquipmentAPI, EquipmentDB } from './Equipment';
 import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from './Books';
