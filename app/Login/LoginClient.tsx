@@ -4,20 +4,6 @@ import { useSearchParams } from 'next/navigation';
 import { useState,useEffect } from 'react';
 
 export default function LoginClient() {
-//   const searchParams = useSearchParams();
-//   const redirect = searchParams.get('redirect') || '/Dashboard';
-
-//   async function handleLogin() {
-//     const res = await fetch('/api/login', { method: 'POST' });
-//     if (res.ok) {
-//       localStorage.setItem('role', 'email@example.com');
-//       window.location.href = redirect;
-//     } else {
-//       const err = await res.json();
-//       alert('ログイン失敗: ' + err.message);
-//     }
-//   }
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const searchParams = useSearchParams();

@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable/DataTable';
-import SimpleTable from '@/app/components/DataTable/SimpleTable';
 import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from '../Dashboard/Equipment';
 import type { EquipmentAPI, EquipmentDB } from '../Dashboard/Equipment';
 import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from '../Dashboard/Books';
