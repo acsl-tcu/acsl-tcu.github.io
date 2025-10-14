@@ -1,8 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
-
+import { useState,useEffect } from 'react';
 
 export default function LoginClient() {
 //   const searchParams = useSearchParams();
@@ -26,7 +25,13 @@ export default function LoginClient() {
   
     // redirectは string | string[] | undefined なのでstring型に変換
     const redirectUrl = Array.isArray(redirectQuery) ? redirectQuery[0] : redirectQuery;
-  
+    const error = searchParams.get('error');
+    useEffect(() => {
+    if (error) {
+        console.log('Error message:', error);
+        }
+    }, [error]);
+
     const login = async () => {
       console.log("Login action start!!");
       const res = await fetch('https://acsl-hp.vercel.app/api/login', {
