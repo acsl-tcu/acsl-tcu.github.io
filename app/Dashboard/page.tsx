@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable/DataTable';
+import SimpleTable from '@/app/components/DataTable/SimpleTable';
 import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
 import type { EquipmentAPI, EquipmentDB } from './Equipment';
 import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from './Books';
@@ -66,6 +67,7 @@ export default function DashboardPage() {
 
   return (
     <div className="px-2 w-full">
+      {<SimpleTable columns={TeacherColumns} data={TeacherConvertToAPIFormat(data as TeacherDB[])}/>}
       {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
       {error && <p className="text-red-500">{error}</p>}
       {table === 'curriculum/teachers' && (<>

@@ -2,7 +2,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 
 
-export default function DataTable({
+export default function SimpleTable({
   columns,
   data
 }) {
