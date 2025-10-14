@@ -1,14 +1,16 @@
 // DB => API変換関数
 export const SubjectConvertToAPIFormat = (rows: SubjectDB[]): SubjectAPI[] =>
-  rows.map(({ sid, ...rest }) => ({
+  rows.map(({ sid,name, ...rest }) => ({
     id: sid,
+    title: name,
     ...rest,
   }));
 
 // API => DB変換関数
 export const SubjectConvertToDBFormat = (rows: SubjectAPI[]): SubjectDB[] =>
-  rows.map(({ id, ...rest }) => ({
+  rows.map(({ id, title, ...rest }) => ({
     sid: id,
+    name: title,
     createdAt: new Date(),
     updatedAt: new Date(),
     ...rest,
@@ -16,7 +18,7 @@ export const SubjectConvertToDBFormat = (rows: SubjectAPI[]): SubjectDB[] =>
 
 export interface SubjectAPI {
   id: string;              // sidをidとして扱う
-  name: string;
+  title: string;
   credits?: string;        // Decimalはstring
   unitNumber?: string;     // Decimalはstring
   courseType?: 'REQUIRED' | 'ELECTIVE';
