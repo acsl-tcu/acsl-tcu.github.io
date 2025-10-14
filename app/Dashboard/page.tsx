@@ -47,7 +47,7 @@ export default function DashboardPage() {
       })
       .catch((err) => {
         setError(err.message);
-        window.location.href = '/Login?redirect=/Dashboard';
+        window.location.href = `/Login?redirect=/Dashboard&error=${err}`;
       });
   }, [table]);
 
@@ -67,7 +67,6 @@ export default function DashboardPage() {
 
   return (
     <div className="px-2 w-full">
-      {<SimpleTable columns={TeacherColumns} data={TeacherConvertToAPIFormat(data as TeacherDB[])}/>}
       {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
       {error && <p className="text-red-500">{error}</p>}
       {table === 'curriculum/teachers' && (<>
