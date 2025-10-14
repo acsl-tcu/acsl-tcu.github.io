@@ -1,5 +1,4 @@
 // app/[locale]/layout.tsx
-import type { LayoutProps } from 'next';
 import { I18nProvider } from '@/contexts/i18nContext';
 import { locales } from '@/constants/i18n';
 import type { Locale } from '@/types/i18n';
@@ -17,10 +16,15 @@ export async function generateStaticParams(): Promise<{ locale: Locale }[]> {
   return locales.map((l) => ({ locale: l }));
 }
 
-export default async function LocaleLayout(
-  { children, params }: LayoutProps<'/[locale]'>
-) {
-  const { locale } = await params; // params: Promise<{ locale: Locale }>
+type Props = {
+  children: React.ReactNode;
+  // <= あなたの環境(typed routes)が要求している Promise 形
+  params: Promise<{ locale: Locale }>;
+};
+
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
+
   return (
     <I18nProvider locale={locale}>
       <ClientLayout>{children}</ClientLayout>
