@@ -3,11 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import SimpleTable from '@/app/components/DataTable/SimpleTable';
-// import { SubjectConvertToAPIFormat, SubjectConvertToDBFormat, SubjectColumns, subject_table_title } from '../Dashboard/Subjects';
-// import type { SubjectAPI, SubjectDB } from '../Dashboard/Subjects';
-// import { TeacherConvertToAPIFormat, TeacherConvertToDBFormat, TeacherColumns, teacher_table_title } from '../Dashboard/Teachers';
-// import type { TeacherAPI, TeacherDB } from '../Dashboard/Teachers';
-import {  TeacherColumns } from '../Dashboard/Teachers';
+import { SubjectColumns } from '../../Dashboard/Subjects';
 
 export default function DashboardPage() {
   const [table, setTable] = useState('curriculum/teachers');
@@ -27,14 +23,13 @@ export default function DashboardPage() {
       })
       .catch((err) => {
         console.log(err)
-        window.location.href = '/Login?redirect=/MSE';
+        window.location.href = '/Login?redirect=/MSE/Subjects';
       });
   }, [table]);
-   TeacherColumns
    
   return (
     <div className="px-2 w-full">
-      {<SimpleTable columns={columns} data={data}/>}      
+      {<SimpleTable columns={SubjectColumns} data={data}/>}      
     </div>
   );
 }
