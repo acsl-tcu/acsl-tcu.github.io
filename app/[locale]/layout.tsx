@@ -19,11 +19,11 @@ export async function generateStaticParams(): Promise<{ locale: Locale }[]> {
 type Props = {
   children: React.ReactNode;
   // <= あなたの環境(typed routes)が要求している Promise 形
-  params: Promise<{ locale: Locale }>;
+  params: { locale: Locale };
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
-  const { locale } = await params;
+  const { locale } = params;
 
   return (
     <I18nProvider locale={locale}>
