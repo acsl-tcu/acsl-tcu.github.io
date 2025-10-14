@@ -1,19 +1,11 @@
 'use client';
 import { Card, CardContent } from '@/components/ui/card';
 
-interface Column<T> {
-  key: keyof T;
-  label: string;
-}
-interface DataTableProps<T> {
-  columns: Column<T>[];
-  initdata: T[];
-}
 
-export default function DataTable<T>({
+export default function DataTable({
   columns,
   data
-}: DataTableProps<T>) {
+}) {
   return (
     <Card className="py-4 px-0" >
       <CardContent>
@@ -40,8 +32,8 @@ export default function DataTable<T>({
       </thead>
       {/* Table Mainデータ */}
       <tbody>
-        {data.map((row: T) => (
-          <tr key={row.id} className="border-t">
+        {data.map((row,index) => (
+          <tr key={index} className="border-t">
             {columns.map(col => {
               const key = col.key;
               const value = row[key];
