@@ -1,6 +1,6 @@
 // DB => API変換関数
 export const OfferingConvertToAPIFormat = (rows: OfferingDB[]): OfferingAPI[] =>
-  rows.map(({ id, subjectId, termId, createdAt, updatedAt, ...rest }) => ({
+  rows.map(({ id, subjectId, termId,  ...rest }) => ({
     id: id.toString(),
     subjectId,
     termId,

@@ -1,6 +1,6 @@
 // DB => API変換関数
 export const StudentConvertToAPIFormat = (rows: StudentDB[]): StudentAPI[] =>
-  rows.map(({ sid, createdAt, updatedAt, ...rest }) => ({
+  rows.map(({ sid, ...rest }) => ({
     id: sid,
     ...rest,
   }));
