@@ -3,9 +3,13 @@ import { I18nProvider } from '@/contexts/i18nContext';
 import { locales } from '@/constants/i18n';
 import type { Locale } from '@/types/i18n';
 import ClientLayout from './components/ClientLayout';
-import { notFound } from 'next/navigation';
 
-// 生成しないパラメータは 404 にする（SSG/ISR向け）
+// frame structure setting
+// Site title: h1
+// Each page title: h2
+// Section:
+
+// 必要に応じて：SSGで動的パラメータを固定
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<{ locale: Locale }[]> {
@@ -14,20 +18,16 @@ export async function generateStaticParams(): Promise<{ locale: Locale }[]> {
 
 type Props = {
   children: React.ReactNode;
-  // ← ここを Locale に（string をやめる）
-  params: Promise<{ locale: Locale }>;
+  // <= あなたの環境(typed routes)が要求している Promise 形
+  params: Promise<{ locale: string }>;
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-
-  // 念のため実行時も検証（build時は型で担保されるが、直叩き対策）
-  if (!((locales as readonly string[]).includes(locale))) {
-    notFound();
-  }
-
+// localeをLocale型に明示的にキャスト（※安全に変換する処理を入れてください）
+  const typedLocale = locale as Locale;
   return (
-    <I18nProvider locale={locale}>
+    <I18nProvider locale={typedLocale}>
       <ClientLayout>{children}</ClientLayout>
     </I18nProvider>
   );

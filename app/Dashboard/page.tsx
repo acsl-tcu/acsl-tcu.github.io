@@ -7,6 +7,8 @@ import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColum
 import type { EquipmentAPI, EquipmentDB } from './Equipment';
 import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from './Books';
 import type { BookAPI, BookDB } from './Books';
+import { SubjectConvertToAPIFormat, SubjectConvertToDBFormat, SubjectColumns, subject_table_title } from './Subjects';
+import type { SubjectAPI, SubjectDB } from './Subjects';
 import VarSelector from '@/app/components/VarSelector';
 type WithIdentifier = { id: string, title: string };
 
@@ -64,15 +66,15 @@ export default function DashboardPage() {
     <div className="px-2 w-full">
       {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
       {error && <p className="text-red-500">{error}</p>}
-      {table === 'timetable' && (<>
-        <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
-        <DataTable<BookAPI>
-          data={BookConvertToAPIFormat(data as BookDB[])}
-          DataInfo={{ columns: BookColumns, cardEditField: [''] }}
+      {table === 'curriculum/subjects' && (<>
+        <h1 className="text-xl font-bold mb-4">{subject_table_title}</h1>
+        <DataTable<SubjectAPI>
+          data={SubjectConvertToAPIFormat(data as SubjectDB[])}
+          DataInfo={{ columns: SubjectColumns, cardEditField: [''] }}
           onSync={async (newData) => {
-            const { added, updated, deleted } = computeDiff<BookAPI>(BookConvertToAPIFormat(originalData as BookDB[]), newData);
-            const added_converted = BookConvertToDBFormat(added);
-            const updated_converted = BookConvertToDBFormat(updated);
+            const { added, updated, deleted } = computeDiff<SubjectAPI>(SubjectConvertToAPIFormat(originalData as SubjectDB[]), newData);
+            const added_converted = SubjectConvertToDBFormat(added);
+            const updated_converted = SubjectConvertToDBFormat(updated);
             await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
               method: 'PUT',
               credentials: 'include',
