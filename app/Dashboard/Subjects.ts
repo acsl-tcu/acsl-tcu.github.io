@@ -16,7 +16,7 @@ export const SubjectConvertToDBFormat = (rows: SubjectAPI[]): SubjectDB[] =>
 
 export interface SubjectAPI {
   id: string;              // sidをidとして扱う
-  name: string;
+  title: string;
   credits?: string;        // Decimalはstring
   unitNumber?: string;     // Decimalはstring
   courseType?: 'REQUIRED' | 'ELECTIVE';
@@ -36,7 +36,7 @@ export interface SubjectDB {
 
 export const SubjectColumns = [
   { key: 'id', label: 'SID' },
-  { key: 'name', label: 'Name' },
+  { key: 'title', label: 'Name' },
   { key: 'credits', label: 'Credits' },
   { key: 'unitNumber', label: 'Unit Number' },
   { key: 'courseType', label: 'Course Type' },
