@@ -27,7 +27,7 @@ export default function DashboardPage() {
       })
       .catch((err) => {
         console.log(err)
-        window.location.href = '/Login';
+        window.location.href = '/Login?redirect=/MSE';
       });
   }, [table]);
 

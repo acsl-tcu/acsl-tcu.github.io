@@ -47,7 +47,7 @@ export default function DashboardPage() {
       })
       .catch((err) => {
         setError(err.message);
-        window.location.href = '/Login';
+        window.location.href = '/Login?redirect=/Dashboard';
       });
   }, [table]);
 
