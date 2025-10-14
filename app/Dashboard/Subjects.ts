@@ -16,7 +16,7 @@ export const SubjectConvertToDBFormat = (rows: SubjectAPI[]): SubjectDB[] =>
 
 export interface SubjectAPI {
   id: string;              // sidをidとして扱う
-  title: string;
+  name: string;
   credits?: string;        // Decimalはstring
   unitNumber?: string;     // Decimalはstring
   courseType?: 'REQUIRED' | 'ELECTIVE';
