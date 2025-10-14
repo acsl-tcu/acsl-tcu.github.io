@@ -15,8 +15,8 @@ export default function DashboardPage() {
   const [table, setTable] = useState<string>('equipment'); // 初期値は 'equipment'
   const [data, setData] = useState<unknown>([]);
   const [originalData, setOriginalData] = useState<unknown>([]);
-  const tableOptions = ['equipment', 'books', 'members'];
-  const tableOptionLables = ['備品', '書籍', '会員'];
+  const tableOptions = ['curriculum/subjects','curriculum/teachers','equipment', 'books', 'members'];
+  const tableOptionLables = ['科目','教員', '備品', '書籍', '会員'];
   const [equipmentColumns, setEquipmentColumns] = useState<typeof EquipmentColumns>(EquipmentColumns);
   useEffect(() => {
     setTable(localStorage.getItem('table') || table);
@@ -64,6 +64,23 @@ export default function DashboardPage() {
     <div className="px-2 w-full">
       {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
       {error && <p className="text-red-500">{error}</p>}
+      {table === 'timetable' && (<>
+        <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
+        <DataTable<BookAPI>
+          data={BookConvertToAPIFormat(data as BookDB[])}
+          DataInfo={{ columns: BookColumns, cardEditField: [''] }}
+          onSync={async (newData) => {
+            const { added, updated, deleted } = computeDiff<BookAPI>(BookConvertToAPIFormat(originalData as BookDB[]), newData);
+            const added_converted = BookConvertToDBFormat(added);
+            const updated_converted = BookConvertToDBFormat(updated);
+            await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+              method: 'PUT',
+              credentials: 'include',
+              body: JSON.stringify({ added_converted, updated_converted, deleted }),
+            });
+          }}
+        />
+      </>)}
       {table === 'books' && (<>
         <h1 className="text-xl font-bold mb-4">{book_table_title}</h1>
         <DataTable<BookAPI>
