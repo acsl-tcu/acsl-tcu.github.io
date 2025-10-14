@@ -4,14 +4,14 @@
 import { useEffect, useState } from 'react';
 import DataTable from '@/app/components/DataTable/DataTable';
 import SimpleTable from '@/app/components/DataTable/SimpleTable';
-import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
-import type { EquipmentAPI, EquipmentDB } from './Equipment';
-import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from './Books';
-import type { BookAPI, BookDB } from './Books';
-import { SubjectConvertToAPIFormat, SubjectConvertToDBFormat, SubjectColumns, subject_table_title } from './Subjects';
-import type { SubjectAPI, SubjectDB } from './Subjects';
-import { TeacherConvertToAPIFormat, TeacherConvertToDBFormat, TeacherColumns, teacher_table_title } from './Teachers';
-import type { TeacherAPI, TeacherDB } from './Teachers';
+import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from '../Dashboard/Equipment';
+import type { EquipmentAPI, EquipmentDB } from '../Dashboard/Equipment';
+import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from '../Dashboard/Books';
+import type { BookAPI, BookDB } from '../Dashboard/Books';
+import { SubjectConvertToAPIFormat, SubjectConvertToDBFormat, SubjectColumns, subject_table_title } from '../Dashboard/Subjects';
+import type { SubjectAPI, SubjectDB } from '../Dashboard/Subjects';
+import { TeacherConvertToAPIFormat, TeacherConvertToDBFormat, TeacherColumns, teacher_table_title } from '../Dashboard/Teachers';
+import type { TeacherAPI, TeacherDB } from '../Dashboard/Teachers';
 import VarSelector from '@/app/components/VarSelector';
 type WithIdentifier = { id: string, title: string };
 
