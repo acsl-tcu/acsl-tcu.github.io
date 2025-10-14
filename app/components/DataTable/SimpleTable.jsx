@@ -6,6 +6,8 @@ export default function SimpleTable({
   columns,
   data
 }) {
+  console.log(data)
+  console.log(columns)
   return (
     <Card className="py-4 px-0" >
       <CardContent>

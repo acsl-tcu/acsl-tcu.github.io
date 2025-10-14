@@ -2,6 +2,15 @@
 
 Access to [https://acsl-tcu.github.io/](https://acsl-tcu.github.io/)
 
+## Develop
+
+あたらしい環境で開発する場合はGithub desktopでcloneし、VSCodeで開きターミナルで
+```bash
+npm ci
+npx next build
+```
+でエラーが出ない状態を作りgithubにpushしdeployする。
+
 ## Setup
 
 ```bash
