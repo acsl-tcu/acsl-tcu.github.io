@@ -9,6 +9,8 @@ import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_
 import type { BookAPI, BookDB } from './Books';
 import { SubjectConvertToAPIFormat, SubjectConvertToDBFormat, SubjectColumns, subject_table_title } from './Subjects';
 import type { SubjectAPI, SubjectDB } from './Subjects';
+import { TeacherConvertToAPIFormat, TeacherConvertToDBFormat, TeacherColumns, teacher_table_title } from './Teachers';
+import type { TeacherAPI, TeacherDB } from './Teachers';
 import VarSelector from '@/app/components/VarSelector';
 type WithIdentifier = { id: string, title: string };
 
