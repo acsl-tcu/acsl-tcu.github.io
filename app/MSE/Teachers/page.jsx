@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import SimpleTable from '@/app/components/DataTable/SimpleTable';
-import { SubjectColumns } from '../../Dashboard/Subjects';
+import { TeacherColumns } from '../../Dashboard/Teachers';
 
 export default function DashboardPage() {
   const [table, setTable] = useState('curriculum/teachers');
@@ -23,13 +23,13 @@ export default function DashboardPage() {
       })
       .catch((err) => {
         console.log(err)
-        window.location.href = '/Login?redirect=/MSE/Subjects';
+        window.location.href = '/Login?redirect=/MSE/Teachers';
       });
   }, [table]);
    
   return (
     <div className="px-2 w-full">
-      {<SimpleTable columns={SubjectColumns} data={data}/>}      
+      {<SimpleTable columns={TeacherColumns} data={data}/>}      
     </div>
   );
 }
