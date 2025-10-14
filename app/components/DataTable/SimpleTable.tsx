@@ -1,7 +1,4 @@
 'use client';
-
-import TableDisplay from './TableDisplay';
-import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface Column<T> {
@@ -12,13 +9,11 @@ interface DataTableProps<T> {
   columns: Column<T>[];
   initdata: T[];
 }
-const ITEMS_PER_PAGE = 10;
 
 export default function DataTable<T>({
   columns,
-  initdata
+  data
 }: DataTableProps<T>) {
-  const [data, setData] = useState<T[]>(initdata);
   return (
     <Card className="py-4 px-0" >
       <CardContent>
@@ -49,7 +44,6 @@ export default function DataTable<T>({
           <tr key={row.id} className="border-t">
             {columns.map(col => {
               const key = col.key;
-              const rowid = row.id;
               const value = row[key];
               return (
                 <td key={String(key)} className="p-2 border">
