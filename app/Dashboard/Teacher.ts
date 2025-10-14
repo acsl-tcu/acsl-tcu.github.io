@@ -1,14 +1,16 @@
 // DB => API変換関数
 export const TeacherConvertToAPIFormat = (rows: TeacherDB[]): TeacherAPI[] =>
-  rows.map(({ sid,  ...rest }) => ({
+  rows.map(({ sid, name,  ...rest }) => ({
     id: sid,
+    title: name,
     ...rest,
   }));
 
 // API => DB変換関数
 export const TeacherConvertToDBFormat = (rows: TeacherAPI[]): TeacherDB[] =>
-  rows.map(({ id, ...rest }) => ({
+  rows.map(({ id, title, ...rest }) => ({
     sid: id,
+    name: title,
     createdAt: new Date(),
     updatedAt: new Date(),
     ...rest,
@@ -16,7 +18,7 @@ export const TeacherConvertToDBFormat = (rows: TeacherAPI[]): TeacherDB[] =>
 
 export interface TeacherAPI {
   id: string;           // sidをidとして扱う
-  name: string;
+  title: string;
   readingKana?: string;
   birthYear?: number;
   position?: 'PROFESSOR' | 'ASSOCIATE_PROFESSOR' | 'LECTURER' | 'ASSISTANT_PROFESSOR' | 'RESEARCH_ASSISTANT' | 'PART_TIME_LECTURER' | 'STAFF' | 'OTHER';
@@ -46,7 +48,7 @@ export interface TeacherDB {
 
 export const TeacherColumns = [
   { key: 'id', label: 'SID' },
-  { key: 'name', label: 'Name' },
+  { key: 'title', label: 'Name' },
   { key: 'readingKana', label: 'Reading Kana' },
   { key: 'birthYear', label: 'Birth Year' },
   { key: 'position', label: 'Position' },

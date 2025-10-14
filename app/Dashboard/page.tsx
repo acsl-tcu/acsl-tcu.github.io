@@ -66,6 +66,23 @@ export default function DashboardPage() {
     <div className="px-2 w-full">
       {<VarSelector vars={tableOptions} labels={tableOptionLables} current={table} setVar={(t: string) => { localStorage.setItem('table', t); setTable(t); }} />}
       {error && <p className="text-red-500">{error}</p>}
+      {table === 'curriculum/teachers' && (<>
+        <h1 className="text-xl font-bold mb-4">{teacher_table_title}</h1>
+        <DataTable<TeacherAPI>
+          data={TeacherConvertToAPIFormat(data as TeacherDB[])}
+          DataInfo={{ columns: TeacherColumns, cardEditField: [''] }}
+          onSync={async (newData) => {
+            const { added, updated, deleted } = computeDiff<TeacherAPI>(TeacherConvertToAPIFormat(originalData as TeacherDB[]), newData);
+            const added_converted = TeacherConvertToDBFormat(added);
+            const updated_converted = TeacherConvertToDBFormat(updated);
+            await fetch(`https://acsl-hp.vercel.app/api/${table}`, {
+              method: 'PUT',
+              credentials: 'include',
+              body: JSON.stringify({ added_converted, updated_converted, deleted }),
+            });
+          }}
+        />
+      </>)}
       {table === 'curriculum/subjects' && (<>
         <h1 className="text-xl font-bold mb-4">{subject_table_title}</h1>
         <DataTable<SubjectAPI>
