@@ -2,7 +2,7 @@
 import { useI18nContext } from '@/contexts/i18nContext';
 import useDB from '@/hooks/useDB';
 import { useState } from 'react';
-import YearSelector from '@/app/components/yeatSelector';
+import YearSelector from '@/components/lab/yeatSelector';
 import Link from "next/link";
 import { Article } from '@/types/lab_db';
 

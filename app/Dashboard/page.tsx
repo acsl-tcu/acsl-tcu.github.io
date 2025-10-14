@@ -2,16 +2,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import DataTable from '@/app/components/DataTable/DataTable';
-import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from '../Dashboard/Equipment';
-import type { EquipmentAPI, EquipmentDB } from '../Dashboard/Equipment';
-import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from '../Dashboard/Books';
-import type { BookAPI, BookDB } from '../Dashboard/Books';
-import { SubjectConvertToAPIFormat, SubjectConvertToDBFormat, SubjectColumns, subject_table_title } from '../Dashboard/Subjects';
-import type { SubjectAPI, SubjectDB } from '../Dashboard/Subjects';
-import { TeacherConvertToAPIFormat, TeacherConvertToDBFormat, TeacherColumns, teacher_table_title } from '../Dashboard/Teachers';
-import type { TeacherAPI, TeacherDB } from '../Dashboard/Teachers';
-import VarSelector from '@/app/components/VarSelector';
+import DataTable from '@/components/DataTable/DataTable';
+import { EquipmentConvertToAPIFormat, EquipmentConvertToDBFormat, EquipmentColumns, EquipmentColumnsStaffHide, EquipmentColumnsStudentHide, equipment_table_title } from './Equipment';
+import type { EquipmentAPI, EquipmentDB } from './Equipment';
+import { BookConvertToAPIFormat, BookConvertToDBFormat, BookColumns, book_table_title } from './Books';
+import type { BookAPI, BookDB } from './Books';
+import { SubjectConvertToAPIFormat, SubjectConvertToDBFormat, SubjectColumns, subject_table_title } from './Subjects';
+import type { SubjectAPI, SubjectDB } from './Subjects';
+import { TeacherConvertToAPIFormat, TeacherConvertToDBFormat, TeacherColumns, teacher_table_title } from './Teachers';
+import type { TeacherAPI, TeacherDB } from './Teachers';
+import VarSelector from '@/components/lab/VarSelector';
 type WithIdentifier = { id: string, title: string };
 
 export default function DashboardPage() {
@@ -19,8 +19,8 @@ export default function DashboardPage() {
   const [table, setTable] = useState<string>('equipment'); // 初期値は 'equipment'
   const [data, setData] = useState<unknown>([]);
   const [originalData, setOriginalData] = useState<unknown>([]);
-  const tableOptions = ['curriculum/subjects','curriculum/teachers','equipment', 'books', 'members'];
-  const tableOptionLables = ['科目','教員', '備品', '書籍', '会員'];
+  const tableOptions = ['curriculum/subjects', 'curriculum/teachers', 'equipment', 'books', 'members'];
+  const tableOptionLables = ['科目', '教員', '備品', '書籍', '会員'];
   const [equipmentColumns, setEquipmentColumns] = useState<typeof EquipmentColumns>(EquipmentColumns);
   useEffect(() => {
     setTable(localStorage.getItem('table') || table);

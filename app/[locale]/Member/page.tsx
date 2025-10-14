@@ -3,7 +3,7 @@ import { useI18nContext } from '@/contexts/i18nContext';
 // import { Locale } from '@/types/i18n';
 import useDB from '@/hooks/useDB';
 import { useState } from 'react';
-import YearSelector from '@/app/components/yeatSelector';
+import YearSelector from '@/components/lab/yeatSelector';
 import Image from "next/image";
 
 interface Member {

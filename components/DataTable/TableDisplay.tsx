@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pencil, Trash2, Plus, Upload } from 'lucide-react';
 import Image from 'next/image';
-import { handleImageUpload } from '@/app/components/DataTable/handleImageUpload';
+import { handleImageUpload } from '@/components/DataTable/handleImageUpload';
 interface Column<T> {
   key: keyof T;
   label: string;

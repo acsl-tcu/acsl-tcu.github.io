@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useDroppable, useDraggable } from "@dnd-kit/core";
-import type { SubjectCard as SubjectCardType, SlotId } from "@/app/MSE/lib/types/timetable";
+import type { SubjectCard as SubjectCardType, SlotId } from "@/lib/types/timetable";
 
 export default function DroppableCell({ id, children }: { id: string; children?: React.ReactNode }) {
   const { isOver, setNodeRef } = useDroppable({ id });

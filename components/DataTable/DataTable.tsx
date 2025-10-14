@@ -10,7 +10,7 @@ import { Printer, FileDown } from 'lucide-react';
 import Toast from '@/components/ui/Toast';
 import { exportCSV, exportXLSX, printTable } from '@/lib/exporters';
 import { useToast } from '@/hooks/useToast';
-import VarSelector from '@/app/components/VarSelector';
+import VarSelector from '@/components/lab/VarSelector';
 
 interface Column<T> {
   key: keyof T;

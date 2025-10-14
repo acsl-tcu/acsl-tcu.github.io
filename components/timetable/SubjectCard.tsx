@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useDraggable } from "@dnd-kit/core";
-import type { SubjectCard as SubjectCardType } from "@/app/MSE/lib/types/timetable";
+import type { SubjectCard as SubjectCardType } from "@/lib/types/timetable";
 
 /**
  * プール（未配当）に置くカード。id は offeringId 単体。

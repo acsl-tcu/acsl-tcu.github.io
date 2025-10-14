@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Upload } from 'lucide-react';
 import Image from 'next/image';
-import { handleImageUpload } from '@/app/components/DataTable/handleImageUpload';
+import { handleImageUpload } from '@/components/DataTable/handleImageUpload';
 import { ChangeEvent } from "react";
 interface Column<T> {
   key: keyof T;

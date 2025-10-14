@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import SimpleTable from '@/app/components/DataTable/SimpleTable';
+import SimpleTable from '@/components/DataTable/SimpleTable';
 import { SubjectColumns } from '../../Dashboard/Subjects';
 
 export default function DashboardPage() {

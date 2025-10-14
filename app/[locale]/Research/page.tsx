@@ -2,7 +2,7 @@
 import React from 'react';
 import { useI18nContext } from '@/contexts/i18nContext';
 import useDB from '@/hooks/useDB';
-import MediaDisplay from '@/app/components/MediaDisplay';
+import MediaDisplay from '@/components/lab/MediaDisplay';
 import { useState } from 'react';
 import Image from "next/image";
 import { MediaData, DatabaseFigure } from "./ResearchInterface";

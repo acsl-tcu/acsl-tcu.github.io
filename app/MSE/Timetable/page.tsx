@@ -1,6 +1,6 @@
 // import dynamic from "next/dynamic";
 
-import TimetableBoard from "./TimetableBoard";
+import TimetableBoard from "@/components/timetable/TimetableBoard";
 // dnd-kit を含むため SSR 無効でクライアント描画
 // const TimetableBoard = dynamic(() => import("@/app/MSE/components/timetable/TimetableBoard"), { ssr: false });
 

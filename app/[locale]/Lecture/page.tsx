@@ -3,7 +3,7 @@ import { useI18nContext } from '@/contexts/i18nContext';
 import { Locale } from '@/types/i18n';
 import useDB from '@/hooks/useDB';
 import { useState } from 'react';
-import YearSelector from '@/app/components/yeatSelector';
+import YearSelector from '@/components/lab/yeatSelector';
 
 interface Lecture {
   year: number;
@@ -31,10 +31,10 @@ const LocaledTable: React.FC<{ locale: Locale, lectures: Lecture[], school: stri
           <tbody>
             {lectures.map((lecture, index) => (
               <tr
-              key={index}
-              className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={() => window.open(`https://webclass.tcu.ac.jp/webclass/course.php/${year}${lecture.id}/manage/`, '_blank')}
-            >
+                key={index}
+                className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+                onClick={() => window.open(`https://webclass.tcu.ac.jp/webclass/course.php/${year}${lecture.id}/manage/`, '_blank')}
+              >
                 <td className="p-3 border-b border-gray-100">
                   {locale === 'en' ? lecture.etitle : lecture.title}
                 </td>

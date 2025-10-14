@@ -4,8 +4,8 @@
 "use client";
 import React from "react";
 import { DndContext, DragEndEvent, PointerSensor, useSensor, useSensors, closestCenter } from "@dnd-kit/core";
-import DroppableCell, { SubjectCardInCell } from "@/app/MSE/components/timetable/DroppableCell";
-import SubjectCard from "@/app/MSE/components/timetable/SubjectCard";
+import DroppableCell, { SubjectCardInCell } from "@/components/timetable/DroppableCell";
+import SubjectCard from "@/components/timetable/SubjectCard";
 
 // 型はこのファイル内にも定義（lib/types と一致させる）
 export type Grade = 1 | 2 | 3 | 4;
@@ -68,7 +68,7 @@ export default function TimetableBoard({
     setLoading(true);
     const params = new URLSearchParams({ grade: String(g), quarter: q });
     if (y) params.set("year", String(y));
-    const res = await fetch(`/api/timetable?${params.toString()}`, { cache: "no-store" });
+    const res = await fetch(`https://acsl-hp.vercel.app/api/timetable?${params.toString()}`, { cache: "no-store" });
     const data = (await res.json()) as TimetablePayload;
     setServer(data);
     setPlacement(data.placement);

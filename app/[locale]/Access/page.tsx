@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { useI18nContext } from '@/contexts/i18nContext';
-import Selector from '@/app/components/selector';
+import Selector from '@/components/lab/selector';
 import Image from "next/image";
 
 export default function Access() {
