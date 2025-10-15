@@ -1,6 +1,6 @@
 // DB => API変換関数
 export const SubjectConvertToAPIFormat = (rows: SubjectDB[]): SubjectAPI[] =>
-  rows.map(({ sid,name, ...rest }) => ({
+  rows.map(({ sid, name, ...rest }) => ({
     id: sid,
     title: name,
     ...rest,
@@ -37,8 +37,8 @@ export interface SubjectDB {
 }
 
 export const SubjectColumns = [
-  { key: 'id', label: 'SID' },
-  { key: 'title', label: 'Name' },
+  { key: 'sid', label: 'ID' },
+  { key: 'name', label: 'Name' },
   { key: 'credits', label: 'Credits' },
   { key: 'unitNumber', label: 'Unit Number' },
   { key: 'courseType', label: 'Course Type' },
