@@ -1,6 +1,6 @@
 // DB => API変換関数
 export const TeacherConvertToAPIFormat = (rows: TeacherDB[]): TeacherAPI[] =>
-  rows.map(({ sid, name,  ...rest }) => ({
+  rows.map(({ sid, name, ...rest }) => ({
     id: sid,
     title: name,
     ...rest,
@@ -47,8 +47,8 @@ export interface TeacherDB {
 }
 
 export const TeacherColumns = [
-  { key: 'id', label: 'SID' },
-  { key: 'title', label: 'Name' },
+  { key: 'sid', label: 'SID' },
+  { key: 'name', label: 'Name' },
   { key: 'readingKana', label: 'Reading Kana' },
   { key: 'birthYear', label: 'Birth Year' },
   { key: 'position', label: 'Position' },
