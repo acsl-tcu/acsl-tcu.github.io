@@ -217,9 +217,12 @@ export default function TimetableBoard({
   const save = async () => {
     setSaving(true);
     try {
-      const res = await fetch("/api/timetable/save", {
+      const res = await fetch("https://acsl-hp.vercel.app/api/timetable/save", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: 'include', // ← 認証用Cookie を送るのに必要
         body: JSON.stringify({ placement, grade, quarter, year }),
       });
       if (!res.ok) throw new Error("保存に失敗しました");
