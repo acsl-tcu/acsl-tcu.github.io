@@ -81,6 +81,7 @@ export default function TimetableBoard({
       //return (await res.json()) as TimetablePayload;
     })
       .then((data) => {
+        console.log(data);
         setServer(data);
         setPlacement(data.placement);
         setHistory([]);
