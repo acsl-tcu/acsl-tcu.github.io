@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import SimpleTable from '@/components/DataTable/SimpleTable';
-import { SubjectColumns } from '../../Dashboard/Subjects';
+import { SubjectColumns } from '../Subjects';
 
 export default function DashboardPage() {
   const [table, setTable] = useState('curriculum/subjects');
