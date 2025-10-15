@@ -210,7 +210,7 @@ export default function TimetableBoard({
   const subjectMap = React.useMemo(() => {
     const m = new Map<string, SubjectCardT>();
     for (const s of server.subjects) m.set(s.offeringId, s);
-    console.log("subjectMap:", m, server.subjects);
+    console.log("subjectMap:", m, server);
     return m;
   }, [server.subjects]);
 
