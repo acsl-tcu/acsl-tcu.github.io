@@ -316,7 +316,7 @@ export default function TimetableBoard({
                         <DroppableCell key={label} id={label}>
                           <div className="flex flex-col gap-2">
                             {offeringIds.map((oid) => {
-                              const subj = subjectMap.get(oid);
+                              const subj = subjectMap.get(String(oid));
                               console.log("renderCard:", { oid, subj, subjectMap });
                               if (!subj) return null;
                               return (
