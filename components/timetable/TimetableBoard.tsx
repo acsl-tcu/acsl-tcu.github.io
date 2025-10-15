@@ -7,7 +7,6 @@ import { DndContext, DragEndEvent, PointerSensor, useSensor, useSensors, closest
 import DroppableCell, { SubjectCardInCell } from "@/components/timetable/DroppableCell";
 import SubjectCard from "@/components/timetable/SubjectCard";
 
-import { useEffect, useState } from 'react';
 
 // 型はこのファイル内にも定義（lib/types と一致させる）
 export type Grade = 1 | 2 | 3 | 4;
