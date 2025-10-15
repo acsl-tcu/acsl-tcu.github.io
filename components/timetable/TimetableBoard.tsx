@@ -89,7 +89,7 @@ export default function TimetableBoard({
       })
       .catch((err) => {
         console.log(err)
-        window.location.href = '/Login?redirect=/MSE/Timetable';
+        // window.location.href = '/Login?redirect=/MSE/Timetable';
       });
   }, []);
 
