@@ -7,10 +7,10 @@ import { DndContext, DragStartEvent, DragEndEvent, PointerSensor, useSensor, use
 import DroppableCell, { SubjectCardInCell } from "@/components/timetable/DroppableCell";
 import SubjectCard from "@/components/timetable/SubjectCard";
 import {
-  type Placement as PlacementT,
+  // type Placement as PlacementT,
   clonePlacement,
   addTimeslot,
-  removeTimeslot,
+  // removeTimeslot,
   moveTimeslot,
   clearAllTimeslots,
 } from "@/lib/placement";
