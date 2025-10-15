@@ -203,12 +203,14 @@ export default function TimetableBoard({
         if (label) map.get(label)!.push(offeringId);
       }
     }
+    console.log("byLabelOfferings:", map);
     return map;
   }, [placement, byId]);
 
   const subjectMap = React.useMemo(() => {
     const m = new Map<string, SubjectCardT>();
     for (const s of server.subjects) m.set(s.offeringId, s);
+    console.log("subjectMap:", m, server.subjects);
     return m;
   }, [server.subjects]);
 
