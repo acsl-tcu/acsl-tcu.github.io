@@ -311,11 +311,13 @@ export default function TimetableBoard({
                     {DAYS.map((d) => {
                       const label = `${d}-${p}` as SlotLabel;
                       const offeringIds = byLabelOfferings.get(label) ?? [];
+                      console.log("inTable:", { label, offeringIds });
                       return (
                         <DroppableCell key={label} id={label}>
                           <div className="flex flex-col gap-2">
                             {offeringIds.map((oid) => {
                               const subj = subjectMap.get(oid);
+                              console.log("renderCard:", { oid, subj });
                               if (!subj) return null;
                               return (
                                 <SubjectCardInCell
