@@ -34,7 +34,7 @@ function clonePlacement(src: Record<string, number[]>): Record<string, number[]>
 export default function TimetableBoard({
   initialGrade = 1,
   initialQuarter = "Q1",
-  initialYear,
+  initialYear = 2025,
 }: {
   initialGrade?: Grade;
   initialQuarter?: Quarter;

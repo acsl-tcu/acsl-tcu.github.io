@@ -5,5 +5,5 @@ import TimetableBoard from "@/components/timetable/TimetableBoard";
 // const TimetableBoard = dynamic(() => import("@/app/MSE/components/timetable/TimetableBoard"), { ssr: false });
 
 export default function Page() {
-  return <TimetableBoard initialQuarter="Q1" initialGrade={1} />;
+  return <TimetableBoard initialQuarter="Q1" initialGrade={1} initialYear={2025}/>;
 }
