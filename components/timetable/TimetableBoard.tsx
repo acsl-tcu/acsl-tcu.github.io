@@ -208,8 +208,8 @@ export default function TimetableBoard({
   }, [placement, byId]);
 
   const subjectMap = React.useMemo(() => {
-    const m = new Map<string, SubjectCardT>();
-    for (const s of server.subjects) m.set(s.offeringId, s);
+    const m = new Map<number, SubjectCardT>();
+    for (const s of server.subjects) m.set(Number(s.offeringId), s);
     console.log("subjectMap:", m, server);
     return m;
   }, [server.subjects]);
@@ -316,7 +316,7 @@ export default function TimetableBoard({
                         <DroppableCell key={label} id={label}>
                           <div className="flex flex-col gap-2">
                             {offeringIds.map((oid) => {
-                              const subj = subjectMap.get(String(oid));
+                              const subj = subjectMap.get(Number(oid));
                               console.log("renderCard:", { oid, subj, subjectMap });
                               if (!subj) return null;
                               return (
