@@ -70,17 +70,27 @@ export default function TimetableBoard({
     const params = new URLSearchParams({ grade: String(g), quarter: q });
     if (y) params.set("year", String(y));
 
-    const res = await fetch(`https://acsl-hp.vercel.app/api/timetable?${params.toString()}`, {
+    //const res = await 
+    fetch(`https://acsl-hp.vercel.app/api/timetable?${params.toString()}`, {
       method: 'GET',
       credentials: 'include', // ← 認証用Cookie を送るのに必要      
       cache: "no-store"
-    });
-    const data = (await res.json()) as TimetablePayload;
-    setServer(data);
-    setPlacement(data.placement);
-    setHistory([]);
-    setFuture([]);
-    setLoading(false);
+    }).then((res) => {
+      if (!res.ok) throw new Error('認証エラーまたはデータ取得エラー');
+      return res.json();
+      //return (await res.json()) as TimetablePayload;
+    })
+      .then((data) => {
+        setServer(data);
+        setPlacement(data.placement);
+        setHistory([]);
+        setFuture([]);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err)
+        window.location.href = '/Login?redirect=/MSE/Timetable';
+      });
   }, []);
 
   React.useEffect(() => { void fetchData(grade, quarter, year); }, [grade, quarter, year, fetchData]);

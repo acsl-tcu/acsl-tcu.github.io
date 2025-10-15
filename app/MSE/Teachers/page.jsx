@@ -23,7 +23,7 @@ export default function DashboardPage() {
       })
       .catch((err) => {
         console.log(err)
-        window.location.href = '/Login?error=1';
+        window.location.href = '/Login?redirect=/MSE/Teachers';
       });
   }, [table]);
 
