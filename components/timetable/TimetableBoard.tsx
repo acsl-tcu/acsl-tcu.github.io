@@ -3,9 +3,17 @@
 // =============================================
 "use client";
 import React from "react";
-import { DndContext, DragEndEvent, PointerSensor, useSensor, useSensors, closestCenter } from "@dnd-kit/core";
+import { DndContext, DragStartEvent, DragEndEvent, PointerSensor, useSensor, useSensors, closestCenter, DragOverlay } from "@dnd-kit/core";
 import DroppableCell, { SubjectCardInCell } from "@/components/timetable/DroppableCell";
 import SubjectCard from "@/components/timetable/SubjectCard";
+import {
+  type Placement as PlacementT,
+  clonePlacement,
+  addTimeslot,
+  removeTimeslot,
+  moveTimeslot,
+  clearAllTimeslots,
+} from "@/lib/placement";
 
 
 // 型はこのファイル内にも定義（lib/types と一致させる）
@@ -24,12 +32,6 @@ export type TimetablePayload = {
 
 const DAYS: DayOfWeek[] = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 const PERIODS = [1, 2, 3, 4, 5, 6];
-
-function clonePlacement(src: Record<string, number[]>): Record<string, number[]> {
-  const dst: Record<string, number[]> = {};
-  for (const k of Object.keys(src)) dst[k] = [...src[k]];
-  return dst;
-}
 
 export default function TimetableBoard({
   initialGrade = 1,
@@ -50,8 +52,32 @@ export default function TimetableBoard({
   const [future, setFuture] = React.useState<Record<string, number[]>[]>([]);
   const [loading, setLoading] = React.useState(false);
   const [saving, setSaving] = React.useState(false);
-
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
+
+  type DragMode = "move" | "clone";
+  type DragMeta = {
+    offeringId: string;     // 文字列ID（既存仕様に合わせる）
+    fromLabel?: string;     // 例: 'Mon-1'。pool なら undefined
+    mode: DragMode;
+  } | null;
+
+  const [drag, setDrag] = React.useState<DragMeta>(null);
+
+  React.useEffect(() => {
+    if (!drag) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Control") return;
+      setDrag(d => d ? { ...d, mode: e.type === "keydown" ? "clone" : "move" } : d);
+      document.body.classList.toggle("cursor-copy", e.type === "keydown");
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("keyup", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("keyup", onKey);
+      document.body.classList.remove("cursor-copy");
+    };
+  }, [drag]);
 
   // label <-> id 変換マップ
   const byLabel = React.useMemo(() => {
@@ -120,50 +146,64 @@ export default function TimetableBoard({
     });
   };
 
+  const onDragStart = (event: DragStartEvent) => {
+    const activeId = String(event.active.id);
+    if (activeId.includes("@@")) {
+      const [offeringId, fromLabel] = activeId.split("@@");
+      setDrag({ offeringId, fromLabel, mode: "move" });
+    } else {
+      setDrag({ offeringId: activeId, fromLabel: undefined, mode: "move" });
+    }
+  };
+
   // DnD:
   // - pool <- offeringId: 全 meeting 削除（空配列）
   // - slotLabel <- offeringId: その slotId を追加
   // - pool/slotLabel <- `${offeringId}@@${slotId}`: その meeting を移動/削除
   const onDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
+    setDrag(null);
+    document.body.classList.remove("cursor-copy");
     if (!over) return;
-    const overId = String(over.id);
-    const activeId = String(active.id);
 
-    const next = clonePlacement(placement);
+    const overId = String(over.id);        // "pool" or "Mon-1"
+    const activeId = String(active.id);    // "offeringId" or "offeringId@@Mon-1"
 
-    if (activeId.includes("@@")) {
-      const [offeringId, fromIdStr] = activeId.split("@@");
-      const fromId = Number(fromIdStr);
-      if (overId === "pool") {
-        next[offeringId] = (next[offeringId] ?? []).filter((id) => id !== fromId);
-      } else if (/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)-\d+$/.test(overId)) {
-        const toId = byLabel.get(overId as SlotLabel);
-        if (toId != null) {
-          next[offeringId] = (next[offeringId] ?? []).filter((id) => id !== fromId);
-          if (!next[offeringId].includes(toId)) next[offeringId].push(toId);
-        }
-      }
-      pushHistory(next);
-      return;
-    }
-
-    // 新規（pool の offeringId カード）
-    const offeringId = activeId;
+    // 1) pool に落とした場合
     if (overId === "pool") {
-      next[offeringId] = [];
-      pushHistory(next);
+      if (drag?.mode !== "clone") {
+        // clone なら何もしない（元は残す）。move なら全 meeting 削除
+        const offeringId = activeId.includes("@@") ? activeId.split("@@")[0] : activeId;
+        pushHistory(clearAllTimeslots(placement, offeringId));
+      }
       return;
     }
-    if (/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)-\d+$/.test(overId)) {
-      const toId = byLabel.get(overId as SlotLabel);
-      if (toId != null) {
-        const arr = next[offeringId] ?? [];
-        if (!arr.includes(toId)) arr.push(toId);
-        next[offeringId] = arr;
-        pushHistory(next);
+
+    // 2) セル（Mon-1 など）に落とした場合
+    if (!/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)-\d+$/.test(overId)) return;
+    const toId = byLabel.get(overId as SlotLabel);
+    if (toId == null) return;
+
+    // 2-1) 既存 meeting（セル上のカード）をドラッグ
+    if (activeId.includes("@@")) {
+      const [offeringId, fromLabel] = activeId.split("@@");
+      const fromId = byLabel.get(fromLabel as SlotLabel);
+      if (fromId == null) return;
+
+      if (drag?.mode === "clone") {
+        // 元は残し、to を追加
+        pushHistory(addTimeslot(placement, offeringId, toId));
+      } else {
+        // from を外して to を追加（移動）
+        pushHistory(moveTimeslot(placement, offeringId, fromId, toId));
       }
+      return;
     }
+
+    // 2-2) pool から新規ドラッグ
+    const offeringId = activeId;
+    // pool→セルは clone/move ともに結果は「to を追加」（未配当は元々空なので）
+    pushHistory(addTimeslot(placement, offeringId, toId));
   };
 
   const onRemoveInCell = (offeringId: string, slotLabel: SlotLabel) => {
@@ -292,7 +332,15 @@ export default function TimetableBoard({
       {loading ? (
         <div className="text-sm text-slate-500">読み込み中...</div>
       ) : (
-        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEnd}>
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragStart={onDragStart} onDragEnd={onDragEnd}>
+          <DragOverlay>
+            {drag && (
+              <div className="rounded-xl border bg-white px-3 py-2 text-sm shadow">
+                <span>Subject #{drag.offeringId}</span>
+                <span className="ml-2 text-xs opacity-70">[{drag.mode.toUpperCase()}]</span>
+              </div>
+            )}
+          </DragOverlay>
           <div className="overflow-x-auto">
             <div className="min-w-[900px] rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
               <div className="grid grid-cols-[100px_repeat(5,1fr)] gap-2">
@@ -317,8 +365,15 @@ export default function TimetableBoard({
                           <div className="flex flex-col gap-2">
                             {offeringIds.map((oid) => {
                               const subj = subjectMap.get(Number(oid));
-                              console.log("renderCard:", { oid, subj, subjectMap });
+                              // console.log("renderCard:", { oid, subj, subjectMap });
                               if (!subj) return null;
+                              const hide =
+                                drag &&
+                                drag.mode === "move" &&
+                                drag.fromLabel === label &&        // ここが元セル
+                                drag.offeringId === String(oid);   // これが対象カード
+
+                              if (hide) return null;
                               return (
                                 <SubjectCardInCell
                                   key={`${oid}@@${label}`}
