@@ -7,6 +7,8 @@ import { DndContext, DragEndEvent, PointerSensor, useSensor, useSensors, closest
 import DroppableCell, { SubjectCardInCell } from "@/components/timetable/DroppableCell";
 import SubjectCard from "@/components/timetable/SubjectCard";
 
+import { useEffect, useState } from 'react';
+
 // 型はこのファイル内にも定義（lib/types と一致させる）
 export type Grade = 1 | 2 | 3 | 4;
 export type Quarter = "Q1" | "Q2" | "Q3" | "Q4";
@@ -68,7 +70,12 @@ export default function TimetableBoard({
     setLoading(true);
     const params = new URLSearchParams({ grade: String(g), quarter: q });
     if (y) params.set("year", String(y));
-    const res = await fetch(`https://acsl-hp.vercel.app/api/timetable?${params.toString()}`, { cache: "no-store" });
+
+    const res = await fetch(`https://acsl-hp.vercel.app/api/timetable?${params.toString()}`, {
+      method: 'GET',
+      credentials: 'include', // ← 認証用Cookie を送るのに必要      
+      cache: "no-store"
+    });
     const data = (await res.json()) as TimetablePayload;
     setServer(data);
     setPlacement(data.placement);

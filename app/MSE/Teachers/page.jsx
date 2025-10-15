@@ -23,10 +23,10 @@ export default function DashboardPage() {
       })
       .catch((err) => {
         console.log(err)
-        window.location.href = '/Login?redirect=/MSE/Teachers';
+        window.location.href = '/Login?error=1';
       });
   }, [table]);
-   
+
   return (
     <div className="px-2 w-full">
       {<SimpleTable columns={TeacherColumns} data={data}/>}      
