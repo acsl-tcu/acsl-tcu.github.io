@@ -317,7 +317,7 @@ export default function TimetableBoard({
                           <div className="flex flex-col gap-2">
                             {offeringIds.map((oid) => {
                               const subj = subjectMap.get(oid);
-                              console.log("renderCard:", { oid, subj });
+                              console.log("renderCard:", { oid, subj, subjectMap });
                               if (!subj) return null;
                               return (
                                 <SubjectCardInCell
