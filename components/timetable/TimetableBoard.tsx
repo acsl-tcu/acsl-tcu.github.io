@@ -37,11 +37,15 @@ export default function TimetableBoard({
   initialGrade = 1,
   initialQuarter = "Q1",
   initialYear = 2025,
+  mode = "single",
 }: {
   initialGrade?: Grade;
   initialQuarter?: Quarter;
   initialYear?: number;
+  // mode: 1行：将来 matrixChild で親管理のフェッチに切替えるためのフラグ
+  mode?: "single" | "matrixChild";
 }) {
+  console.log(mode);
   const [grade, setGrade] = React.useState<Grade>(initialGrade);
   const [quarter, setQuarter] = React.useState<Quarter>(initialQuarter);
   const [year, setYear] = React.useState<number | undefined>(initialYear);

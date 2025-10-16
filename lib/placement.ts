@@ -1,39 +1,39 @@
-// /lib/placement.ts
-// used in TimetableBoard and SubjectCardInCell
-export type Placement = Record<string, number[]>;
+// lib/placement.ts（抜粋・例：ロジックは変更しない）
 
-/** 全 shallow copy（各配列はコピー） */
-export function clonePlacement(src: Placement): Placement {
-  const dst: Placement = {};
-  for (const k of Object.keys(src)) dst[k] = [...src[k]];
-  return dst;
+// clonePlacement: 入=placement／出=ディープコピー（破壊的変更を避けるため）
+export function clonePlacement(p: Record<string, number[]>): Record<string, number[]> {
+  return Object.fromEntries(Object.entries(p).map(([k, v]) => [k, [...v]]));
 }
 
-/** offering に timeslot を重複なしで追加 */
-export function addTimeslot(src: Placement, offeringId: string, tsId: number): Placement {
-  const dst = clonePlacement(src);
-  const arr = dst[offeringId] ?? [];
-  dst[offeringId] = arr.includes(tsId) ? arr : [...arr, tsId];
-  return dst;
+// addTimeslot: 入=p, offeringId, slotId／出=slotId を追加した新配置
+export function addTimeslot(
+  p: Record<string, number[]>,
+  offeringId: string,
+  slotId: number
+) {
+  const next = clonePlacement(p);
+  const arr = new Set(next[offeringId] ?? []);
+  arr.add(slotId);
+  next[offeringId] = [...arr];
+  return next;
 }
 
-/** offering から特定 timeslot を削除 */
-export function removeTimeslot(src: Placement, offeringId: string, tsId: number): Placement {
-  const dst = clonePlacement(src);
-  if (!dst[offeringId]) return dst;
-  dst[offeringId] = dst[offeringId].filter((x) => x !== tsId);
-  return dst;
+// moveTimeslot: 入=p, offeringId, fromId, toId／出=from を外し to を追加した新配置
+export function moveTimeslot(
+  p: Record<string, number[]>,
+  offeringId: string,
+  fromId: number,
+  toId: number
+) {
+  const next = clonePlacement(p);
+  next[offeringId] = (next[offeringId] ?? []).filter((id) => id !== fromId);
+  next[offeringId]!.push(toId);
+  return next;
 }
 
-/** offering の timeslot を from→to へ移動（from を外して to を追加） */
-export function moveTimeslot(src: Placement, offeringId: string, fromTsId: number, toTsId: number): Placement {
-  if (fromTsId === toTsId) return src;
-  return addTimeslot(removeTimeslot(src, offeringId, fromTsId), offeringId, toTsId);
-}
-
-/** offering の全 timeslot をクリア（＝未配当） */
-export function clearAllTimeslots(src: Placement, offeringId: string): Placement {
-  const dst = clonePlacement(src);
-  dst[offeringId] = [];
-  return dst;
+// clearAllTimeslots: 入=p, offeringId／出=対象 offering の全スロットを空にした新配置
+export function clearAllTimeslots(p: Record<string, number[]>, offeringId: string) {
+  const next = clonePlacement(p);
+  next[offeringId] = [];
+  return next;
 }
