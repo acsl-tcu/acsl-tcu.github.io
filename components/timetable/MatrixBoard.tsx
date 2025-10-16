@@ -107,6 +107,29 @@ export default function MatrixBoard({
       document.body.classList.remove("cursor-copy");
     };
   }, [drag]);
+
+  const undo = React.useCallback(() => {
+    setHistory(h => {
+      if (!h.length) return h;
+      const prev = h[h.length - 1];
+      setFuture(f => [placement, ...f]);
+      if (!equalsPlacement(placement, prev)) setPlacement(prev);  // 無駄なset防止
+      return h.slice(0, -1);
+    });
+  }, [placement]);
+  const redo = React.useCallback(() => {
+    setFuture(f => {
+      if (!f.length) return f;
+      const nxt = f[0];
+      setHistory(h => {
+        const appended = [...h, placement];
+        if (appended.length > HISTORY_LIMIT) appended.shift();
+        return appended;
+      });
+      if (!equalsPlacement(placement, nxt)) setPlacement(nxt);
+      return f.slice(1);
+    });
+  }, [placement]);
   // Keyboard shortcuts: Ctrl+Z / Ctrl+Shift+Z / Ctrl+Y
   React.useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -160,28 +183,6 @@ export default function MatrixBoard({
     });
     setPlacement(next);
     setFuture([]);                                                // 新分岐
-  };
-  const undo = () => {
-    setHistory(h => {
-      if (!h.length) return h;
-      const prev = h[h.length - 1];
-      setFuture(f => [placement, ...f]);
-      if (!equalsPlacement(placement, prev)) setPlacement(prev);  // 無駄なset防止
-      return h.slice(0, -1);
-    });
-  };
-  const redo = () => {
-    setFuture(f => {
-      if (!f.length) return f;
-      const nxt = f[0];
-      setHistory(h => {
-        const appended = [...h, placement];
-        if (appended.length > HISTORY_LIMIT) appended.shift();
-        return appended;
-      });
-      if (!equalsPlacement(placement, nxt)) setPlacement(nxt);
-      return f.slice(1);
-    });
   };
   // resetToServer: 入=なし／出=なし。サーバ状態へ巻き戻し（未保存破棄）
   const resetToServer = () => {
