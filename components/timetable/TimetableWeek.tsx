@@ -8,6 +8,15 @@ import type {
   // SlotLabel,
 } from "@/components/timetable/TimetableBoard";
 
+type SlotId =
+  | `Mon-${number}`
+  | `Tue-${number}`
+  | `Wed-${number}`
+  | `Thu-${number}`
+  | `Fri-${number}`
+  | `Sat-${number}`
+  | `Sun-${number}`;
+
 // DragMeta: 1行：親が管理するドラッグ状態の薄い型
 type DragMeta = { offeringId: string; fromLabel?: string; mode: "move" | "clone" } | null;
 
@@ -91,7 +100,7 @@ export default function TimetableWeek({
                         <SubjectCardInCell
                           key={`${oid}@@${label}`}
                           subject={subj}
-                          slotId={label}
+                          slotId={label as SlotId}
                           onRemove={onRemoveInCell}
                         />
                       );
