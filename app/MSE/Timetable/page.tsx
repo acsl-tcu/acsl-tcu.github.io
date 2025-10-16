@@ -5,5 +5,11 @@ import TimetableBoard from "@/components/timetable/TimetableBoard";
 // const TimetableBoard = dynamic(() => import("@/app/MSE/components/timetable/TimetableBoard"), { ssr: false });
 
 export default function Page() {
-  return <TimetableBoard initialQuarter="Q1" initialGrade={1} initialYear={2025}/>;
+  return (<>
+    <TimetableBoard initialQuarter="Q1" initialGrade={1} initialYear={2025} />
+    <TimetableBoard initialQuarter="Q2" initialGrade={1} initialYear={2025} />
+    <TimetableBoard initialQuarter="Q3" initialGrade={1} initialYear={2025} />
+    <TimetableBoard initialQuarter="Q4" initialGrade={1} initialYear={2025} />
+
+  </>);
 }
