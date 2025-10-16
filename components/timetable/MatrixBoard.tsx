@@ -91,6 +91,94 @@ export default function MatrixBoard({
   const canRedo = future.length > 0;
   const [drag, setDrag] = React.useState<DragMeta>(null);                                                        // 1行：ドラッグ状態
   const dragging = !!drag; // 1行：ドラッグ中フラグ
+
+
+  // === スクロール＆ナビ状態 ===
+  const containerRef = React.useRef<HTMLDivElement | null>(null); // 1行：盤面のスクロール容器
+  const panelRefs = React.useRef<Record<string, HTMLDivElement | null>>({}); // 1行：各パネルの参照(Q|Gキー)
+  const [curQ, setCurQ] = React.useState<number>(0); // 1行：現在のクォーター行インデックス(0-3)
+  const [curG, setCurG] = React.useState<number>(0); // 1行：現在の学年列インデックス(0-3)
+
+  // keyFrom: 入=q,g／出="Q? - G?" のユニークキー（refs とナビ表示に使用）
+  const keyFrom = (q: Quarter, g: Grade) => `${q}-${g}`;
+
+  // indexFrom: 入=q(Quarter)／出=行インデックス(0..3)
+  const indexFromQ = (q: Quarter) => QUARTERS.indexOf(q);
+  // indexFrom: 入=g(Grade)／出=列インデックス(0..3)
+  const indexFromG = (g: Grade) => GRADES.indexOf(g);
+
+  // scrollToPanel: 入=行idx,列idx／出=なし。該当パネルへ滑らかにスクロール
+  const scrollToPanel = React.useCallback((qi: number, gi: number) => {
+    const q = QUARTERS[Math.max(0, Math.min(3, qi))];
+    const g = GRADES[Math.max(0, Math.min(3, gi))];
+    const k = keyFrom(q, g);
+    const node = panelRefs.current[k];
+    if (node) node.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+  }, []);
+
+
+  // IntersectionObserver: 一番見えているパネルを現在位置として記録
+  React.useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const entriesMap = new Map<string, number>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const k = (e.target as HTMLElement).dataset.key;
+          if (!k) return;
+          entriesMap.set(k, e.intersectionRatio);
+
+        });
+        // 最大の可視率のパネルを現在位置に
+        let bestKey = "";
+        let bestRatio = -1;
+        entriesMap.forEach((r, k) => {
+          if (r > bestRatio) { bestRatio = r; bestKey = k; }
+
+        });
+        if (bestKey) {
+          const [qStr, gStr] = bestKey.split("-");
+          const qi = indexFromQ(qStr as Quarter);
+          const gi = indexFromG(Number(gStr) as Grade);
+          if (qi !== -1 && gi !== -1) { setCurQ(qi); setCurG(gi); }
+
+        }
+
+      },
+      { root: container, threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    // 監視開始
+    QUARTERS.forEach((q) => {
+      GRADES.forEach((g) => {
+        const k = keyFrom(q, g);
+        const node = panelRefs.current[k];
+        if (node) io.observe(node);
+
+      });
+
+    });
+    return () => io.disconnect();
+
+  }, [server.timeSlots]); // 盤面リビルド後に張り直す
+
+  // Shift+矢印で盤面単位ジャンプ
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (!e.shiftKey) return;
+      if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) e.preventDefault();
+      if (e.key === "ArrowLeft") scrollToPanel(curQ, Math.max(0, curG - 1));
+      if (e.key === "ArrowRight") scrollToPanel(curQ, Math.min(3, curG + 1));
+      if (e.key === "ArrowUp") scrollToPanel(Math.max(0, curQ - 1), curG);
+      if (e.key === "ArrowDown") scrollToPanel(Math.min(3, curQ + 1), curG);
+
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+
+  }, [curQ, curG, scrollToPanel]);
+
+
   // Ctrl で Clone/Move 切替
   React.useEffect(() => {
     if (!drag) return;
@@ -382,6 +470,26 @@ export default function MatrixBoard({
           </div>
         </div>
       </div>
+      {/* ミニマップ：現在位置を可視化しクリックでジャンプ */}
+      <div className="mb-3 flex items-center gap-3">
+        <div className="text-sm font-medium">ナビ</div>
+        <div className="grid grid-rows-4 grid-cols-4 gap-1">
+          {QUARTERS.map((q, qi) =>
+            GRADES.map((g, gi) => (
+              <button
+                key={`nav-${q}-${g}`}
+                onClick={() => scrollToPanel(qi, gi)}
+                className={`h-7 w-10 rounded-md text-xs font-medium transition
+                ${qi === curQ && gi === curG ? "bg-blue-600 text-white" : "bg-slate-100 hover:bg-slate-200"}`}
+                title={`${q} / ${g}年`}
+              >
+                {q}-{g}
+              </button>
+            ))
+          )}
+        </div>
+        <div className="text-xs text-slate-500">Shift+矢印で移動</div>
+      </div>
 
       {loading ? (
         <div className="text-sm text-slate-500">読み込み中...</div>
@@ -399,11 +507,19 @@ export default function MatrixBoard({
           {/* レイアウト：左=4×4 盤面（scroll-snap）、右 or 下=未配当プール（sticky） */}
           <div className={poolPos === "right" ? "grid grid-cols-[1fr_360px] gap-4" : "grid grid-rows-[1fr_auto] gap-4"}>
             {/* 左・上：4×4 盤面 */}
-            <div className="overflow-auto snap-both snap-mandatory rounded-2xl border border-slate-200 p-3">
+            <div ref={containerRef} className="overflow-auto snap-both snap-mandatory scroll-smooth rounded-2xl border border-slate-200 p-3">
               <div className="grid grid-rows-4 grid-cols-4 gap-4 min-w-[1200px] min-h-[800px]">
                 {QUARTERS.map((q) =>
                   GRADES.map((g) => (
-                    <div key={`${q}-${g}`} className="snap-start">
+                    <div
+                      key={`${q}-${g}`}
+                      data-key={keyFrom(q, g)}
+                      ref={(el) => { (panelRefs.current[keyFrom(q, g)] = el) }}
+                      className={`snap-start transition-colors ${curQ === indexFromQ(q) && curG === indexFromG(g)
+                        ? "outline outline-blue-400 outline-offset-2 rounded-2xl"
+                        : ""
+                        }`}
+                    >
                       <TimetableWeek
                         title={`${year} / ${q} / ${g}年`}
                         days={DAYS}
