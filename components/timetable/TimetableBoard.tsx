@@ -292,7 +292,7 @@ export default function TimetableBoard({
     for (const s of server.subjects) m.set(Number(s.offeringId), s);
     console.log("subjectMap:", m, server);
     return m;
-  }, [server.subjects]);
+  }, [server]);
 
   const poolOfferings = React.useMemo(
     () => server.subjects.filter((s) => (placement[s.offeringId] ?? []).length === 0),

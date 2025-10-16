@@ -5,7 +5,7 @@ import DroppableCell, { SubjectCardInCell } from "@/components/timetable/Droppab
 import type {
   DayOfWeek,
   SubjectCardT,
-  SlotLabel,
+  // SlotLabel,
 } from "@/components/timetable/TimetableBoard";
 
 // DragMeta: 1行：親が管理するドラッグ状態の薄い型
