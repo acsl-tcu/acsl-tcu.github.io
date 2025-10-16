@@ -27,6 +27,8 @@ import {
   moveTimeslot,
   clearAllTimeslots,
 } from "@/lib/placement";
+import { Search } from "lucide-react";  // 検索アイコン
+import { cn } from "@/lib/utils";        // Tailwind クラス結合ヘルパ（なければ手動でOK）
 
 // equalsPlacement: 入=a,b／出=配置が完全一致するか（順不同の配列にも対応）
 const equalsPlacement = (a: Record<string, number[]>, b: Record<string, number[]>) => {
@@ -116,6 +118,10 @@ export default function MatrixBoard({
     if (node) node.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
   }, []);
 
+  // === プール検索・フィルタ ===
+  const [search, setSearch] = React.useState("");          // 検索語
+  const [filterGrade, setFilterGrade] = React.useState<Grade | "all">("all");
+  const [filterQuarter, setFilterQuarter] = React.useState<Quarter | "all">("all");
 
   // IntersectionObserver: 一番見えているパネルを現在位置として記録
   React.useEffect(() => {
@@ -365,6 +371,20 @@ export default function MatrixBoard({
     [server.subjects, placement]
   );
 
+  // filteredPool: 入=全subjects／出=検索・フィルタ後の配列
+  const filteredPool = React.useMemo(() => {
+    return poolOfferings.filter((s) => {
+      const matchText =
+        !search ||
+        s.name.toLowerCase().includes(search.toLowerCase()) ||
+        (s.code ?? "").toLowerCase().includes(search.toLowerCase());
+      const matchGrade = filterGrade === "all" || s.code?.includes(`G${filterGrade}`) || true; // ★必要ならDB上の属性に変更
+      const matchQuarter = filterQuarter === "all" || s.code?.includes(filterQuarter) || true;
+      return matchText && matchGrade && matchQuarter;
+
+    });
+  }, [poolOfferings, search, filterGrade, filterQuarter]);
+
   const dirty = React.useMemo(
     () => JSON.stringify(server.placement) !== JSON.stringify(placement),
     [server.placement, placement]
@@ -456,17 +476,24 @@ export default function MatrixBoard({
             >
               {saving ? "保存中..." : "保存"}
             </button>
-            <div className="ml-3 flex items-center gap-2 text-sm">
-              <label className="font-medium">プール位置</label>
-              <select
-                value={poolPos}
-                onChange={(e) => setPoolPos(e.target.value as "right" | "bottom")}
-                className="rounded-xl border border-slate-300 bg-white px-2 py-1 shadow-sm"
-              >
-                <option value="right">右固定</option>
-                <option value="bottom">下固定</option>
-              </select>
-            </div>
+            <button
+              type="button"
+              onClick={() => setPoolPos(poolPos === "right" ? "bottom" : "right")}
+              className="flex items-center gap-1 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm hover:bg-slate-50"
+              title={`プール位置切替 (${poolPos === "right" ? "右→下" : "下→右"})`}
+            >
+              {poolPos === "right" ? (
+                <>
+                  <span>📥</span>
+                  <span>右固定</span>
+                </>
+              ) : (
+                <>
+                  <span>📤</span>
+                  <span>下固定</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
       </div>
@@ -537,18 +564,67 @@ export default function MatrixBoard({
             </div>
 
             {/* 右 or 下：未配当プール（sticky） */}
-            <div className={poolPos === "right" ? "sticky top-3 h-[calc(100vh-120px)] overflow-auto" : ""}>
+            <div
+              className={cn(
+                poolPos === "right"
+                  ? "sticky top-3 h-[calc(100vh-120px)] overflow-auto transition-all duration-300"
+                  : "overflow-auto border-t border-slate-200 pt-3 transition-all duration-300"
+              )}
+            >
               <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                <div className="mb-2 flex items-center gap-2">
-                  <h2 className="text-lg font-semibold">未配当（全体）</h2>
-                  <p className="text-sm text-slate-500">プールから盤面へドラッグ</p>
-                </div>
-                <DroppableCell id="pool">
-                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    {poolOfferings.map((s) => (
-                      <SubjectCard key={s.offeringId} subject={s} />
-                    ))}
+                <div className="mb-3 flex flex-col gap-2">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-semibold">未配当科目プール</h2>
+                    <span className="text-xs text-slate-400">（全学年共通）</span>
                   </div>
+                  <div className="relative">
+                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-slate-400" />
+                    <input
+                      type="text"
+                      placeholder="科目名・コード検索"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      className="w-full rounded-lg border border-slate-300 pl-8 pr-3 py-2 text-sm focus:border-blue-400 focus:ring-1 focus:ring-blue-300"
+                    />
+                  </div>
+                  <div className="flex gap-2 text-sm">
+                    <select
+                      value={filterGrade}
+                      onChange={(e) => setFilterGrade(e.target.value as Grade | "all")}
+                      className="rounded-lg border border-slate-300 bg-white px-2 py-1"
+                    >
+                      <option value="all">全学年</option>
+                      {[1, 2, 3, 4].map((g) => (
+                        <option key={g} value={g}>
+                          {g}年
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      value={filterQuarter}
+                      onChange={(e) => setFilterQuarter(e.target.value as Quarter | "all")}
+                      className="rounded-lg border border-slate-300 bg-white px-2 py-1"
+                    >
+                      <option value="all">全Q</option>
+                      {["Q1", "Q2", "Q3", "Q4"].map((q) => (
+                        <option key={q} value={q}>
+                          {q}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <DroppableCell id="pool">
+                  {filteredPool.length === 0 ? (
+                    <div className="py-6 text-center text-sm text-slate-400">該当科目がありません</div>
+                  ) : (
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                      {filteredPool.map((s) => (
+                        <SubjectCard key={s.offeringId} subject={s} />
+                      ))}
+                    </div>
+                  )}
                 </DroppableCell>
               </div>
             </div>
