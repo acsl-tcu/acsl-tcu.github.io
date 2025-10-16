@@ -17,6 +17,7 @@
     "encoding-japanese": "^2.2.0",
     "exceljs": "^4.4.0",
     "i18next": "^25.1.1",
+    "jszip": "^3.10.1",
     "lucide-react": "^0.507.0",
     "next": "15.5.5",
     "next-auth": "^4.24.11",

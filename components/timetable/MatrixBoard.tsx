@@ -29,6 +29,7 @@ import {
 } from "@/lib/placement";
 import { Search } from "lucide-react";  // 検索アイコン
 import { cn } from "@/lib/utils";        // Tailwind クラス結合ヘルパ（なければ手動でOK）
+import { makeZipBlob, readZip, downloadBlob, SubjectRow, TimeSlotRow } from "@/lib/csv";
 
 // equalsPlacement: 入=a,b／出=配置が完全一致するか（順不同の配列にも対応）
 const equalsPlacement = (a: Record<string, number[]>, b: Record<string, number[]>) => {
@@ -122,6 +123,44 @@ export default function MatrixBoard({
   const [search, setSearch] = React.useState("");          // 検索語
   const [filterGrade, setFilterGrade] = React.useState<Grade | "all">("all");
   const [filterQuarter, setFilterQuarter] = React.useState<Quarter | "all">("all");
+
+
+  // import群の下
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null); // 1行：インポート用の隠し<input type="file">
+
+  // exportCsvZip: 入=なし／出=Zipをダウンロード
+  const exportCsvZip = async () => {
+    const data = {
+      subjects: server.subjects as SubjectRow[],
+      timeSlots: server.timeSlots as TimeSlotRow[], // label は global を保持
+      placement,
+    };
+    const blob = await makeZipBlob(data);
+    downloadBlob(blob, `timetable_${year}.zip`);
+  };
+
+  // onClickImport: 入=なし／出=ファイル選択ダイアログ表示
+  const onClickImport = () => fileInputRef.current?.click();
+
+  // onImportFile: 入=changeイベント／出=Zip読込→状態置換
+  const onImportFile: React.ChangeEventHandler<HTMLInputElement> = async (e) => {
+    const f = e.target.files?.[0];
+    if (!f) return;
+    try {
+      const parsed = await readZip(f);
+      // 基本方針：取り込み内容で丸ごと置換（タイムスロットID/ラベルはCSVを信頼）
+      setServer({ subjects: parsed.subjects, timeSlots: parsed.timeSlots, placement: parsed.placement });
+      setPlacement(parsed.placement);
+      setHistory([]);
+      setFuture([]);
+    } catch (err) {
+      console.error(err);
+      alert("インポートに失敗しました。Zipの内容（3CSV）が正しいか確認してください。");
+    } finally {
+      e.target.value = ""; // 同じファイルを連続選択してもchangeが発火するようリセット
+    }
+  };
+
 
   // IntersectionObserver: 一番見えているパネルを現在位置として記録
   React.useEffect(() => {
@@ -494,6 +533,31 @@ export default function MatrixBoard({
                 </>
               )}
             </button>
+            <button
+              type="button"
+              onClick={exportCsvZip}
+              className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm hover:bg-slate-50"
+              title="現在の状態を subjects.csv / timeslots.csv / placement.csv にまとめてZip保存"
+            >
+              エクスポート（CSV Zip）
+            </button>
+
+            <button
+              type="button"
+              onClick={onClickImport}
+              className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm hover:bg-slate-50"
+              title="CSV Zip から取り込み"
+            >
+              インポート（CSV Zip）
+            </button>
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".zip"
+              className="hidden"
+              onChange={onImportFile}
+            />
           </div>
         </div>
       </div>
