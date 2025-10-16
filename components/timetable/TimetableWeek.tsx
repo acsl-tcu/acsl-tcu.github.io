@@ -7,15 +7,7 @@ import type {
   SubjectCardT,
   // SlotLabel,
 } from "@/components/timetable/TimetableBoard";
-
-type SlotId =
-  | `Mon-${number}`
-  | `Tue-${number}`
-  | `Wed-${number}`
-  | `Thu-${number}`
-  | `Fri-${number}`
-  | `Sat-${number}`
-  | `Sun-${number}`;
+import type { SlotId } from "@/lib/types/timetable";
 
 // DragMeta: 1行：親が管理するドラッグ状態の薄い型
 type DragMeta = { offeringId: string; fromLabel?: string; mode: "move" | "clone" } | null;
