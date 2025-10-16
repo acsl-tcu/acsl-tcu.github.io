@@ -30,7 +30,8 @@ import {
 import { Search } from "lucide-react";  // 検索アイコン
 import { cn } from "@/lib/utils";        // Tailwind クラス結合ヘルパ（なければ手動でOK）
 import { makeZipBlob, readZip, downloadBlob, SubjectRow, TimeSlotRow } from "@/lib/csv";
-
+// MatrixBoard.tsx（importsに追加）
+import { computePlacementDiff } from "@/lib/diff";
 // equalsPlacement: 入=a,b／出=配置が完全一致するか（順不同の配列にも対応）
 const equalsPlacement = (a: Record<string, number[]>, b: Record<string, number[]>) => {
   const ak = Object.keys(a).sort();
@@ -447,22 +448,42 @@ export default function MatrixBoard({
     pushHistory(next);
   };
 
-  // 保存（丸ごと保存：必要ならAPIを /timetable/save-matrix に変更）
+  // 保存（丸ごと保存/差分保存：必要ならAPIを /timetable/save-matrix に変更）
+  // save: 入=なし／出=サーバ保存（差分が小さければ /patch、そうでなければ /save）
   const save = async () => {
     setSaving(true);
     try {
-      const res = await fetch("https://acsl-hp.vercel.app/api/timetable/save", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ placement, year }), // 3行：入=全体のplacement & year／出=200想定（サーバ側調整可）
-      });
-      if (!res.ok) throw new Error("保存に失敗しました");
+      // 差分を計算
+      const diff = computePlacementDiff(server.placement, placement);
+      const SMALL_PATCH_THRESHOLD = 40; // 1行：閾値（お好みで）
+
+      if (diff.total > 0 && diff.total <= SMALL_PATCH_THRESHOLD) {
+        // 差分保存
+        const res = await fetch("https://acsl-hp.vercel.app/api/timetable/patch", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ add: diff.add, remove: diff.remove, year }),
+        });
+        if (!res.ok) throw new Error("差分保存に失敗しました");
+      } else {
+        // 丸ごと保存（既存API）
+        const res = await fetch("https://acsl-hp.vercel.app/api/timetable/save", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({ placement, year }), // 既存saveに合わせて grade/quarter を外す全体保存版ならAPI側調整
+        });
+        if (!res.ok) throw new Error("保存に失敗しました");
+      }
+
+      // サーバ状態の更新と履歴クリア
       setServer((p) => ({ ...p, placement }));
       setHistory([]);
       setFuture([]);
     } catch (e) {
       console.error(e);
+      alert("保存に失敗しました。ネットワークや認証設定をご確認ください。");
     } finally {
       setSaving(false);
     }
