@@ -15,7 +15,12 @@ import {
   clearAllTimeslots,
 } from "@/lib/placement";
 import TimetableWeek from "@/components/timetable/TimetableWeek";
-
+import {
+  encodeGlobalLabel,
+  isGlobalLabel,
+  isLocalLabel,
+  toGlobalFromLocal,
+} from "@/lib/idcodec";
 // 型はこのファイル内にも定義（lib/types と一致させる）
 export type Grade = 1 | 2 | 3 | 4;
 export type Quarter = "Q1" | "Q2" | "Q3" | "Q4";
@@ -85,15 +90,25 @@ export default function TimetableBoard({
 
   // label <-> id 変換マップ
   const byLabel = React.useMemo(() => {
-    const m = new Map<SlotLabel, number>();
-    for (const ts of server.timeSlots) m.set(ts.label, ts.id);
+    // 単面でも鍵は globalLabel に統一（DBはローカルlabelを返す想定なので昇格する）
+    const m = new Map<string, number>();
+    for (const ts of server.timeSlots) {
+      const global = toGlobalFromLocal(quarter, grade, ts.label as SlotLabel);
+      m.set(global, ts.id);
+    }
     return m;
-  }, [server.timeSlots]);
+  }, [server.timeSlots, quarter, grade]);
+
   const byId = React.useMemo(() => {
-    const m = new Map<number, SlotLabel>();
-    for (const ts of server.timeSlots) m.set(ts.id, ts.label);
+    const m = new Map<number, string>();
+    for (const ts of server.timeSlots) {
+      const global = toGlobalFromLocal(quarter, grade, ts.label as SlotLabel);
+      m.set(ts.id, global);
+    }
     return m;
-  }, [server.timeSlots]);
+  }, [server.timeSlots, quarter, grade]);
+
+
 
   const fetchData = React.useCallback(async (g: Grade, q: Quarter, y?: number) => {
     setLoading(true);
@@ -170,8 +185,8 @@ export default function TimetableBoard({
     document.body.classList.remove("cursor-copy");
     if (!over) return;
 
-    const overId = String(over.id);        // "pool" or "Mon-1"
-    const activeId = String(active.id);    // "offeringId" or "offeringId@@Mon-1"
+    const overId = String(over.id);        // "pool" or "Q2|G3|Mon-1"（将来: 常にglobal）
+    const activeId = String(active.id);    // "offeringId" or "offeringId@@<label>"
 
     // 1) pool に落とした場合
     if (overId === "pool") {
@@ -183,15 +198,27 @@ export default function TimetableBoard({
       return;
     }
 
-    // 2) セル（Mon-1 など）に落とした場合
-    if (!/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)-\d+$/.test(overId)) return;
-    const toId = byLabel.get(overId as SlotLabel);
+    // 2) セル（global/localいずれか）に落とした場合
+    //    受け取った overId が local なら、現在のQ/Gで global に昇格する
+    const toKey = isGlobalLabel(overId)
+      ? overId
+      : isLocalLabel(overId)
+        ? toGlobalFromLocal(quarter, grade, overId as SlotLabel)
+        : null;
+    if (!toKey) return;
+    const toId = byLabel.get(toKey);
     if (toId == null) return;
 
     // 2-1) 既存 meeting（セル上のカード）をドラッグ
     if (activeId.includes("@@")) {
-      const [offeringId, fromLabel] = activeId.split("@@");
-      const fromId = byLabel.get(fromLabel as SlotLabel);
+      const [offeringId, fromLabelRaw] = activeId.split("@@");
+      const fromKey = isGlobalLabel(fromLabelRaw)
+        ? fromLabelRaw
+        : isLocalLabel(fromLabelRaw)
+          ? toGlobalFromLocal(quarter, grade, fromLabelRaw as SlotLabel)
+          : null;
+      if (!fromKey) return;
+      const fromId = byLabel.get(fromKey);
       if (fromId == null) return;
 
       if (drag?.mode === "clone") {
@@ -210,8 +237,9 @@ export default function TimetableBoard({
     pushHistory(addTimeslot(placement, offeringId, toId));
   };
 
-  const onRemoveInCell = (offeringId: string, slotLabel: SlotLabel) => {
-    const tsId = byLabel.get(slotLabel);
+  // onRemoveInCell: ★ 受け取るのは globalLabel
+  const onRemoveInCell = (offeringId: string, slotLabel: string) => {
+    const tsId = byLabel.get(slotLabel); // globalLabel -> id
     if (tsId == null) return;
     const next = clonePlacement(placement);
     next[offeringId] = (next[offeringId] ?? []).filter((id) => id !== tsId);
@@ -242,17 +270,22 @@ export default function TimetableBoard({
 
   // 表示用: label -> offeringId[]
   const byLabelOfferings = React.useMemo(() => {
-    const map = new Map<SlotLabel, string[]>();
-    for (const day of DAYS) for (const p of PERIODS) map.set(`${day}-${p}` as SlotLabel, []);
+    const map = new Map<string, string[]>();
+    // 単面の全セル分、グローバルラベルで初期化
+    for (const day of DAYS) for (const p of PERIODS) {
+      const g = encodeGlobalLabel(quarter, grade, day, p);
+      map.set(g, []);
+    }
     for (const [offeringId, ids] of Object.entries(placement)) {
       for (const id of ids) {
-        const label = byId.get(id);
-        if (label) map.get(label)!.push(offeringId);
+        const globalLabel = byId.get(id);
+        if (globalLabel) map.get(globalLabel)!.push(offeringId);
       }
     }
     console.log("byLabelOfferings:", map);
     return map;
-  }, [placement, byId]);
+  }, [placement, byId, quarter, grade]);
+
 
   const subjectMap = React.useMemo(() => {
     const m = new Map<number, SubjectCardT>();
@@ -354,10 +387,13 @@ export default function TimetableBoard({
               days={DAYS}
               periods={PERIODS}
               // getOfferingIds: 入=SlotLabel／出=そのセルの offeringId 群（親の事前計算をラップ）
+              // getOfferingIds: globalLabel で引く（将来 4×4 でも同じ）
               getOfferingIds={(label) => byLabelOfferings.get(label) ?? []}
               subjectMap={subjectMap}
               drag={drag}
               onRemoveInCell={onRemoveInCell}
+              // makeLabel: 各セルIDを globalLabel にする（単面でも "Q|G|Day-Period"）
+              makeLabel={(d, p) => encodeGlobalLabel(quarter, grade, d, p)}
             />
           </div>
 

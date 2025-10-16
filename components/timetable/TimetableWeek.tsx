@@ -21,17 +21,19 @@ type Props = {
   // periods: 1行：縦軸の時限配列（例：[1,2,3,4,5,6]）
   periods: number[];
 
-  // getOfferingIds: 3行：入=SlotLabel／出=そのセルに配置された offeringId 群。親の計算結果を参照。
-  getOfferingIds: (label: SlotLabel) => string[];
-
+  // getOfferingIds: 入=セルID（local/globalどちらでも可）／出=そのセルの offeringId 群
+  getOfferingIds: (label: string) => string[];
   // subjectMap: 1行：offeringId(number) -> Subject データ
   subjectMap: Map<number, SubjectCardT>;
 
   // drag: 1行：ドラッグ中カードの可視制御に使用（元セルを一時非表示）
   drag: DragMeta;
 
-  // onRemoveInCell: 3行：入=offeringId, slotLabel／出=なし。セル内バッジの×押下で meeting を除去。
-  onRemoveInCell: (offeringId: string, slotLabel: SlotLabel) => void;
+  // onRemoveInCell: 入=offeringId, セルID（local/global）／出=なし
+  onRemoveInCell: (offeringId: string, slotLabel: string) => void;
+
+  // makeLabel: 入=day,period／出=セルID。Step2でglobal化、Step1は省略可（ローカル既定）
+  makeLabel?: (day: DayOfWeek, period: number) => string;
 };
 
 export default function TimetableWeek({
@@ -42,6 +44,7 @@ export default function TimetableWeek({
   subjectMap,
   drag,
   onRemoveInCell,
+  makeLabel,
 }: Props) {
   return (
     <div className="min-w-[900px] rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -65,7 +68,7 @@ export default function TimetableWeek({
               {p} 限
             </div>
             {days.map((d) => {
-              const label = `${d}-${p}` as SlotLabel;
+              const label = makeLabel ? makeLabel(d, p) : `${d}-${p}`;
               const offeringIds = getOfferingIds(label) ?? [];
 
               return (
