@@ -2,12 +2,7 @@
 "use client";
 import React from "react";
 import DroppableCell, { SubjectCardInCell } from "@/components/timetable/DroppableCell";
-import type {
-  DayOfWeek,
-  SubjectCardT,
-  // SlotLabel,
-} from "@/components/timetable/TimetableBoard";
-import type { SlotId } from "@/lib/types/timetable";
+import type { DayOfWeek, SubjectCardT, SlotLabel } from "@/lib/types/timetable";
 
 // DragMeta: 1行：親が管理するドラッグ状態の薄い型
 type DragMeta = { offeringId: string; fromLabel?: string; mode: "move" | "clone" } | null;
@@ -92,7 +87,7 @@ export default function TimetableWeek({
                         <SubjectCardInCell
                           key={`${oid}@@${label}`}
                           subject={subj}
-                          slotId={label as SlotId}
+                          slotId={label as SlotLabel}
                           onRemove={onRemoveInCell}
                         />
                       );

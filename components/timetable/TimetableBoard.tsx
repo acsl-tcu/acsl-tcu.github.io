@@ -21,19 +21,8 @@ import {
   isLocalLabel,
   toGlobalFromLocal,
 } from "@/lib/idcodec";
-// 型はこのファイル内にも定義（lib/types と一致させる）
-export type Grade = 1 | 2 | 3 | 4;
-export type Quarter = "Q1" | "Q2" | "Q3" | "Q4";
-export type DayOfWeek = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
-export type SlotLabel = `${DayOfWeek}-${number}`;
+import { Grade, Quarter, DayOfWeek, SlotLabel, TimetablePayload, SubjectCardT } from "@/lib/types/timetable";
 
-export type TimeSlotInfo = { id: number; day: DayOfWeek; period: number; label: SlotLabel };
-export type SubjectCardT = { offeringId: string; code?: string; name: string; units?: number | null };
-export type TimetablePayload = {
-  subjects: SubjectCardT[];
-  timeSlots: TimeSlotInfo[];
-  placement: Record<string, number[]>; // offeringId -> timeSlotId[]
-};
 
 const DAYS: DayOfWeek[] = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 const PERIODS = [1, 2, 3, 4, 5, 6];

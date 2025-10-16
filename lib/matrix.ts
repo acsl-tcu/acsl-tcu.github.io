@@ -1,5 +1,5 @@
 // lib/matrix.ts
-import type {
+import {
   Grade,
   Quarter,
   SlotLabel,
@@ -7,7 +7,7 @@ import type {
   SubjectCardT,
   TimeSlotInfo,
   TimetablePayload,
-} from "@/components/timetable/MatrixBoard";
+} from "@/lib/types/timetable";
 import { encodeGlobalLabel } from "@/lib/idcodec";
 
 // PanelData: 1行：1面ぶんの生データと座標

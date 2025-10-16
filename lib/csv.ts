@@ -11,7 +11,7 @@ export type DayOfWeek = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
 
 export type SubjectRow = { offeringId: string; code?: string; name: string; units?: number | null; grade?: Grade; quarter?: Quarter };
 export type TimeSlotRow = { id: number; quarter: Quarter; grade: Grade; day: DayOfWeek; period: number; label: string }; // label=global
-export type PlacementRow = { offeringId: string; timeSlotId: number };
+export type PlacementRow = { offeringId: string; timeslotId: number };
 
 export type ExportData = {
   subjects: SubjectRow[];
@@ -42,7 +42,7 @@ export function parseCsv<T extends object>(csv: string): T[] {
 export const flattenPlacement = (p: Record<string, number[]>): PlacementRow[] => {
   const out: PlacementRow[] = [];
   for (const [offeringId, ids] of Object.entries(p ?? {})) {
-    for (const id of ids ?? []) out.push({ offeringId, timeSlotId: id });
+    for (const id of ids ?? []) out.push({ offeringId, timeslotId: id });
   }
   return out;
 };
@@ -51,7 +51,7 @@ export const flattenPlacement = (p: Record<string, number[]>): PlacementRow[] =>
 export const inflatePlacement = (rows: PlacementRow[]): Record<string, number[]> => {
   const out: Record<string, number[]> = {};
   for (const r of rows) {
-    (out[r.offeringId] ??= []).push(r.timeSlotId);
+    (out[r.offeringId] ??= []).push(r.timeslotId);
   }
   return out;
 };
