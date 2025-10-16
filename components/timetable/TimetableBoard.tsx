@@ -358,6 +358,7 @@ export default function TimetableBoard({
               subjectMap={subjectMap}
               drag={drag}
               onRemoveInCell={onRemoveInCell}
+            />
           </div>
 
           {/* 未配当（Meeting の無い Offering） */}
