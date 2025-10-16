@@ -28,6 +28,25 @@ import {
   clearAllTimeslots,
 } from "@/lib/placement";
 
+// equalsPlacement: 入=a,b／出=配置が完全一致するか（順不同の配列にも対応）
+const equalsPlacement = (a: Record<string, number[]>, b: Record<string, number[]>) => {
+  const ak = Object.keys(a).sort();
+  const bk = Object.keys(b).sort();
+  if (ak.length !== bk.length) return false;
+  for (let i = 0; i < ak.length; i++) if (ak[i] !== bk[i]) return false;
+  for (const k of ak) {
+    const av = (a[k] ?? []).slice().sort((x, y) => x - y);
+    const bv = (b[k] ?? []).slice().sort((x, y) => x - y);
+    if (av.length !== bv.length) return false;
+    for (let i = 0; i < av.length; i++) if (av[i] !== bv[i]) return false;
+  }
+  return true;
+};
+
+// HISTORY_LIMIT: 1行：履歴の最大保持件数（メモリ対策）
+const HISTORY_LIMIT = 100;
+
+
 // ==== 共有型（TimetableBoard と一致させる）====
 export type Grade = 1 | 2 | 3 | 4;                // 1行：学年（1〜4）
 export type Quarter = "Q1" | "Q2" | "Q3" | "Q4";  // 1行：クォーター
@@ -65,10 +84,13 @@ export default function MatrixBoard({
   // 全体データ（subjects/timeSlots/placement）を親で一元管理
   const [server, setServer] = React.useState<TimetablePayload>({ subjects: [], timeSlots: [], placement: {} }); // 1行：サーバ（基準）
   const [placement, setPlacement] = React.useState<Record<string, number[]>>({});                                // 1行：編集中
+
   const [history, setHistory] = React.useState<Record<string, number[]>[]>([]);                                  // 1行：Undo用
   const [future, setFuture] = React.useState<Record<string, number[]>[]>([]);                                    // 1行：Redo用
+  const canUndo = history.length > 0;
+  const canRedo = future.length > 0;
   const [drag, setDrag] = React.useState<DragMeta>(null);                                                        // 1行：ドラッグ状態
-
+  const dragging = !!drag; // 1行：ドラッグ中フラグ
   // Ctrl で Clone/Move 切替
   React.useEffect(() => {
     if (!drag) return;
@@ -85,7 +107,19 @@ export default function MatrixBoard({
       document.body.classList.remove("cursor-copy");
     };
   }, [drag]);
-
+  // Keyboard shortcuts: Ctrl+Z / Ctrl+Shift+Z / Ctrl+Y
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const ctrl = e.ctrlKey || e.metaKey;        // mac対策: Cmd
+      if (!ctrl) return;
+      if (e.key.toLowerCase() === "z" && !e.shiftKey) { e.preventDefault(); if (canUndo) undo(); }
+      else if ((e.key.toLowerCase() === "z" && e.shiftKey) || e.key.toLowerCase() === "y") {
+        e.preventDefault(); if (canRedo) redo();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [canUndo, canRedo, undo, redo]);
   // byLabel( globalLabel -> id ) / byId( id -> globalLabel )
   const byLabel = React.useMemo(() => {
     const m = new Map<string, number>();
@@ -116,17 +150,23 @@ export default function MatrixBoard({
   React.useEffect(() => { void fetchAll(year); }, [year, fetchAll]);
 
   // Undo/Redo 基本操作
+  // pushHistory: 入=次配置／出=なし。差分がなければ積まない・上限管理。
   const pushHistory = (next: Record<string, number[]>) => {
-    setHistory(h => [...h, placement]);
+    if (equalsPlacement(placement, next)) return;                 // 変化なしを弾く
+    setHistory(h => {
+      const appended = [...h, placement];
+      if (appended.length > HISTORY_LIMIT) appended.shift();      // 上限管理
+      return appended;
+    });
     setPlacement(next);
-    setFuture([]);
+    setFuture([]);                                                // 新分岐
   };
   const undo = () => {
     setHistory(h => {
       if (!h.length) return h;
       const prev = h[h.length - 1];
       setFuture(f => [placement, ...f]);
-      setPlacement(prev);
+      if (!equalsPlacement(placement, prev)) setPlacement(prev);  // 無駄なset防止
       return h.slice(0, -1);
     });
   };
@@ -134,12 +174,22 @@ export default function MatrixBoard({
     setFuture(f => {
       if (!f.length) return f;
       const nxt = f[0];
-      setHistory(h => [...h, placement]);
-      setPlacement(nxt);
+      setHistory(h => {
+        const appended = [...h, placement];
+        if (appended.length > HISTORY_LIMIT) appended.shift();
+        return appended;
+      });
+      if (!equalsPlacement(placement, nxt)) setPlacement(nxt);
       return f.slice(1);
     });
   };
-
+  // resetToServer: 入=なし／出=なし。サーバ状態へ巻き戻し（未保存破棄）
+  const resetToServer = () => {
+    if (equalsPlacement(placement, server.placement)) return;
+    setPlacement(server.placement);
+    setHistory([]);
+    setFuture([]);
+  };
   // DnD: start
   const onDragStart = (event: DragStartEvent) => {
     const activeId = String(event.active.id);
@@ -230,7 +280,16 @@ export default function MatrixBoard({
     () => JSON.stringify(server.placement) !== JSON.stringify(placement),
     [server.placement, placement]
   );
-
+  // 未保存で離脱しそうなときに警告
+  React.useEffect(() => {
+    const handler = (e: BeforeUnloadEvent) => {
+      if (!dirty) return;
+      e.preventDefault();
+      e.returnValue = ""; // 一部ブラウザ仕様
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [dirty]);
   // セル削除（globalLabel を受ける）
   const onRemoveInCell = (offeringId: string, globalLabel: string) => {
     const tsId = byLabel.get(globalLabel);
@@ -278,7 +337,7 @@ export default function MatrixBoard({
             <button
               type="button"
               onClick={undo}
-              disabled={history.length === 0}
+              disabled={!canUndo}
               className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm disabled:opacity-40"
             >
               Undo
@@ -286,15 +345,24 @@ export default function MatrixBoard({
             <button
               type="button"
               onClick={redo}
-              disabled={future.length === 0}
+              disabled={!canRedo}
               className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm disabled:opacity-40"
             >
               Redo
             </button>
             <button
               type="button"
+              onClick={resetToServer}
+              disabled={!dirty}
+              className="rounded-xl border border-rose-200 bg-white px-3 py-2 text-sm shadow-sm text-rose-600 disabled:opacity-40"
+              title="未保存の変更を破棄してサーバ状態に戻す"
+            >
+              Reset
+            </button>
+            <button
+              type="button"
               onClick={save}
-              disabled={!dirty || saving}
+              disabled={dragging || !dirty || saving}
               className="rounded-xl bg-blue-600 px-3 py-2 text-sm font-medium text-white shadow-sm disabled:opacity-40"
             >
               {saving ? "保存中..." : "保存"}
