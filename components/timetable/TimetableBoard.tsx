@@ -4,7 +4,7 @@
 "use client";
 import React from "react";
 import { DndContext, DragStartEvent, DragEndEvent, PointerSensor, useSensor, useSensors, closestCenter, DragOverlay } from "@dnd-kit/core";
-import DroppableCell, { SubjectCardInCell } from "@/components/timetable/DroppableCell";
+import DroppableCell from "@/components/timetable/DroppableCell";
 import SubjectCard from "@/components/timetable/SubjectCard";
 import {
   // type Placement as PlacementT,
