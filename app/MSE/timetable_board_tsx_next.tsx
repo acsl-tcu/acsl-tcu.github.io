@@ -27,11 +27,11 @@ export type Subject = {
 };
 
 // A slot is identified by day + period ("コマ")
-export type SlotId = `${DayOfWeek}-${number}`; // e.g. "Mon-1"
+export type SlotLabel = `${DayOfWeek}-${number}`; // e.g. "Mon-1"
 
 // Where a subject is placed
 export type Placement =
-  | { type: "slot"; slotId: SlotId }
+  | { type: "slot"; SlotLabel: SlotLabel }
   | { type: "pool" };
 
 // ===== Constants =====
@@ -50,11 +50,11 @@ const demoSubjects: Subject[] = [
 
 // 初期配置例: 一部は未配当 (pool)
 const initialPlacement: Record<string, Placement> = {
-  s1: { type: "slot", slotId: "Mon-1" },
-  s2: { type: "slot", slotId: "Wed-3" },
+  s1: { type: "slot", SlotLabel: "Mon-1" },
+  s2: { type: "slot", SlotLabel: "Wed-3" },
   s3: { type: "pool" },
   s4: { type: "pool" },
-  s5: { type: "slot", slotId: "Fri-2" },
+  s5: { type: "slot", SlotLabel: "Fri-2" },
 };
 
 // ===== UI Pieces =====
@@ -134,7 +134,7 @@ export default function TimetableBoard() {
 
     // 時間割セル: 形式 "Mon-1"
     if (/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)-\d+$/.test(overId)) {
-      const next: Placement = { type: "slot", slotId: overId as SlotId };
+      const next: Placement = { type: "slot", SlotLabel: overId as SlotLabel };
       setPlacement((prev) => ({ ...prev, [subjectId]: next }));
       void persistMove(subjectId, next, grade, quarter);
     }
@@ -148,7 +148,7 @@ export default function TimetableBoard() {
     q: Quarter
   ) {
     try {
-      console.log(subjectId,deepStrictEqual,g,q);
+      console.log(subjectId, deepStrictEqual, g, q);
       // ここをあなたの API に合わせて調整
       // await fetch("/api/timetable/move", {
       //   method: "POST",
@@ -161,17 +161,17 @@ export default function TimetableBoard() {
   }
 
   // 表示用: 各セルに入っている科目を抽出
-const subjectBySlot = React.useMemo(() => {
-  const map: Record<SlotId, Subject[]> = Object.fromEntries(
-    DAYS.flatMap((day) => PERIODS.map((p) => [`${day}-${p}` as SlotId, []]))
-  ) as Record<SlotId, Subject[]>;
+  const subjectBySlot = React.useMemo(() => {
+    const map: Record<SlotLabel, Subject[]> = Object.fromEntries(
+      DAYS.flatMap((day) => PERIODS.map((p) => [`${day}-${p}` as SlotLabel, []]))
+    ) as Record<SlotLabel, Subject[]>;
 
-  for (const s of subjects) {
-    const plc = placement[s.id];
-    if (plc?.type === "slot") map[plc.slotId].push(s);
-  }
-  return map;
-}, [subjects, placement]);
+    for (const s of subjects) {
+      const plc = placement[s.id];
+      if (plc?.type === "slot") map[plc.SlotLabel].push(s);
+    }
+    return map;
+  }, [subjects, placement]);
 
   const poolSubjects = React.useMemo(
     () => subjects.filter((s) => placement[s.id]?.type !== "slot"),
@@ -246,7 +246,7 @@ const subjectBySlot = React.useMemo(() => {
                     {p} 限
                   </div>
                   {DAYS.map((d) => {
-                    const id = `${d}-${p}` as SlotId;
+                    const id = `${d}-${p}` as SlotLabel;
                     const items = subjectBySlot[id];
                     return (
                       <DroppableCell key={id} id={id}>

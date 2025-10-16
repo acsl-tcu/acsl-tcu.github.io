@@ -14,7 +14,7 @@ export type SubjectCardT = { offeringId: string; code?: string; name: string; un
 export type TimeSlotInfo = { id: number; day: DayOfWeek; period: number; label: string };              // 1行：globalラベル
 export type TimetablePayload = { subjects: SubjectCardT[]; timeSlots: TimeSlotInfo[]; placement: Record<string, number[]> }; // 1行：全体
 
-// 複数Meeting対応: offeringId -> SlotId[]（空配列=未配当）
+// 複数Meeting対応: offeringId -> SlotLabel[]（空配列=未配当）
 export type Placement = Record<string, SlotLabel[]>;
 export type SubjectCard = {
   offeringId: string;

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useDroppable, useDraggable } from "@dnd-kit/core";
-import type { SubjectCard as SubjectCardType, SlotId } from "@/lib/types/timetable";
+import type { SubjectCard as SubjectCardType, SlotLabel } from "@/lib/types/timetable";
 
 export default function DroppableCell({ id, children }: { id: string; children?: React.ReactNode }) {
   const { isOver, setNodeRef } = useDroppable({ id });
@@ -19,19 +19,19 @@ export default function DroppableCell({ id, children }: { id: string; children?:
 }
 
 /**
- * グリッド内のカード。Offering×SlotId を表す。
- * id は `${offeringId}@@${slotId}` とし、別スロットに落とすと移動、pool に落とすと削除。
+ * グリッド内のカード。Offering×SlotLabel を表す。
+ * id は `${offeringId}@@${SlotLabel}` とし、別スロットに落とすと移動、pool に落とすと削除。
  */
 export function SubjectCardInCell({
   subject,
-  slotId,
+  SlotLabel,
   onRemove,
 }: {
   subject: SubjectCardType;
-  slotId: SlotId;
-  onRemove: (offeringId: string, slotId: SlotId) => void;
+  SlotLabel: SlotLabel;
+  onRemove: (offeringId: string, SlotLabel: SlotLabel) => void;
 }) {
-  const dragId = `${subject.offeringId}@@${slotId}`;
+  const dragId = `${subject.offeringId}@@${SlotLabel}`;
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ id: dragId });
   const style: React.CSSProperties | undefined = transform
     ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` }
@@ -50,7 +50,7 @@ export function SubjectCardInCell({
     >
       <button
         type="button"
-        onClick={() => onRemove(subject.offeringId, slotId)}
+        onClick={() => onRemove(subject.offeringId, SlotLabel)}
         className="absolute right-1 top-1 hidden rounded-md border border-slate-200 bg-white/80 px-1 text-[10px] text-slate-600 hover:bg-red-50 hover:text-red-600 group-hover:block"
         aria-label="このコマから外す"
       >
