@@ -7,9 +7,5 @@ import TimetableBoard from "@/components/timetable/TimetableBoard";
 export default function Page() {
   return (<>
     <TimetableBoard initialQuarter="Q1" initialGrade={1} initialYear={2025} />
-    <TimetableBoard initialQuarter="Q2" initialGrade={1} initialYear={2025} />
-    <TimetableBoard initialQuarter="Q3" initialGrade={1} initialYear={2025} />
-    <TimetableBoard initialQuarter="Q4" initialGrade={1} initialYear={2025} />
-
   </>);
 }
