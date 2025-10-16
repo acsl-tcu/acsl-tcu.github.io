@@ -87,7 +87,7 @@ export default function TimetableWeek({
                         <SubjectCardInCell
                           key={`${oid}@@${label}`}
                           subject={subj}
-                          slotId={label as SlotLabel}
+                          SlotLabel={label as SlotLabel}
                           onRemove={onRemoveInCell}
                         />
                       );
