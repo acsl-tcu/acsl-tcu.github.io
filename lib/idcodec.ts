@@ -1,7 +1,7 @@
 // lib/idcodec.ts
 // ※ 変数は1行、関数は3行以内の意図コメント（入出力の説明つき）
 
-import type { Grade, Quarter, DayOfWeek } from "@/components/timetable/TimetableBoard";
+import type { Grade, Quarter, DayOfWeek } from "@/lib/types/timetable";
 
 // ラベル判定用の簡易正規表現
 const LOCAL_RE = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)-\d+$/;      // 1行: 従来のローカルラベル "Wed-3" を判定
