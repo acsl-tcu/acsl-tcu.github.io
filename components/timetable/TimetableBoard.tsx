@@ -14,7 +14,7 @@ import {
   moveTimeslot,
   clearAllTimeslots,
 } from "@/lib/placement";
-
+import TimetableWeek from "@/components/timetable/TimetableWeek";
 
 // 型はこのファイル内にも定義（lib/types と一致させる）
 export type Grade = 1 | 2 | 3 | 4;
@@ -349,55 +349,15 @@ export default function TimetableBoard({
             )}
           </DragOverlay>
           <div className="overflow-x-auto">
-            <div className="min-w-[900px] rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-              <div className="grid grid-cols-[100px_repeat(5,1fr)] gap-2">
-                <div />
-                {DAYS.map((d) => (
-                  <div key={d} className="text-center text-sm font-semibold text-slate-600">
-                    {d}
-                  </div>
-                ))}
-
-                {PERIODS.map((p) => (
-                  <React.Fragment key={p}>
-                    <div className="flex items-center justify-center text-sm font-medium text-slate-600">
-                      {p} 限
-                    </div>
-                    {DAYS.map((d) => {
-                      const label = `${d}-${p}` as SlotLabel;
-                      const offeringIds = byLabelOfferings.get(label) ?? [];
-                      console.log("inTable:", { label, offeringIds });
-                      return (
-                        <DroppableCell key={label} id={label}>
-                          <div className="flex flex-col gap-2">
-                            {offeringIds.map((oid) => {
-                              const subj = subjectMap.get(Number(oid));
-                              // console.log("renderCard:", { oid, subj, subjectMap });
-                              if (!subj) return null;
-                              const hide =
-                                drag &&
-                                drag.mode === "move" &&
-                                drag.fromLabel === label &&        // ここが元セル
-                                drag.offeringId === String(oid);   // これが対象カード
-
-                              if (hide) return null;
-                              return (
-                                <SubjectCardInCell
-                                  key={`${oid}@@${label}`}
-                                  subject={subj}
-                                  slotId={label}
-                                  onRemove={onRemoveInCell}
-                                />
-                              );
-                            })}
-                          </div>
-                        </DroppableCell>
-                      );
-                    })}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
+            <TimetableWeek
+              title={`${year ?? ""} / ${quarter} / ${grade}年`}
+              days={DAYS}
+              periods={PERIODS}
+              // getOfferingIds: 入=SlotLabel／出=そのセルの offeringId 群（親の事前計算をラップ）
+              getOfferingIds={(label) => byLabelOfferings.get(label) ?? []}
+              subjectMap={subjectMap}
+              drag={drag}
+              onRemoveInCell={onRemoveInCell}
           </div>
 
           {/* 未配当（Meeting の無い Offering） */}
