@@ -77,7 +77,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
       }
       return;
     }
-    // console.log(isGlobalLabel(overId));
+    console.log(isGlobalLabel(overId));
     if (!isGlobalLabel(overId)) return;
     const to = byLabel.get(overId); if (to == null) return;
     console.log('[onDragEnd]', {active: e.active.id, over: e.over?.id}, to);
