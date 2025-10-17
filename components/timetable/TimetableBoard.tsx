@@ -373,8 +373,6 @@ export default function TimetableBoard({
           <div className="overflow-x-auto">
             <TimetableWeek
               title={`${year ?? ""} / ${quarter} / ${grade}年`}
-              days={DAYS}
-              periods={PERIODS}
               // getOfferingIds: 入=SlotLabel／出=そのセルの offeringId 群（親の事前計算をラップ）
               // getOfferingIds: globalLabel で引く（将来 4×4 でも同じ）
               getOfferingIds={(label) => byLabelOfferings.get(label) ?? []}
