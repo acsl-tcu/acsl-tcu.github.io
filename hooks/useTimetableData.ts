@@ -23,6 +23,7 @@ export function useTimetableData(initialYear: number) {
     try {
       const panels = await fetchMatrixData(quarters, grades, y);
       const merged = mergeMatrixData(panels);
+      console.log("Merged:",merged);
       setServer(merged);
       setPlacement(merged.placement);
       setHistory([]);
