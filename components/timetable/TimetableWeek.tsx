@@ -25,6 +25,8 @@ type Props = {
 
   // makeLabel: 入=day,period／出=セルID。Step2でglobal化、Step1は省略可（ローカル既定）
   makeLabel?: (day: DayOfWeek, period: number) => string;
+  // classname: 1行：外枠の追加クラス名
+  classname?: string;
 };
 
 export default function TimetableWeek({
@@ -34,11 +36,12 @@ export default function TimetableWeek({
   drag,
   onRemoveInCell,
   makeLabel,
+  classname,
 }: Props) {
   return (
     <div className="min-w-[900px] rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
       {title ? (
-        <div className="mb-3 text-sm font-semibold text-slate-600">{title}</div>
+        <div className={classname + "mb-3 text-sm font-semibold text-slate-600"}>{title}</div>
       ) : null}
 
       <div className="grid grid-cols-[100px_repeat(5,1fr)] gap-2">

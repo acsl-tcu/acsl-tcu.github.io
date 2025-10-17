@@ -32,7 +32,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
     subjectMap, poolOfferings,
     dirty, ops
   } = useTimetableData(initialYear);
-  console.log("server: ",server);
+  console.log("server: ", server);
   // 初回取得
   React.useEffect(() => { fetchAll(QUARTERS, GRADES, year); }, [year, fetchAll]);
 
@@ -80,8 +80,8 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
     }
     // console.log(isGlobalLabel(overId),byLabel);
     if (!isGlobalLabel(overId)) return;
-    const to = byLabel.get(overId); 
-    console.log('[onDragEnd]', {active: e.active.id, over: e.over?.id}, to);
+    const to = byLabel.get(overId);
+    console.log('[onDragEnd]', { active: e.active.id, over: e.over?.id }, to);
     if (to == null) return;
     if (activeId.includes("@@")) {// offeringId@@SlotLabel
       const [offeringId, fromLabel] = activeId.split("@@");
@@ -104,6 +104,20 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
     const map = labelOfferings(placement, byId, q, g);
     return (label: string) => map.get(label) ?? [];
   }, [placement, byId]);
+
+  // レイアウト用
+  const TTW_W = 900;  // TimetableWeek の実寸幅（既存プレースホルダに合わせる）
+  const TTW_H = 520;  // TimetableWeek の実寸高
+  // フォーカス中セルを中央にスクロール
+  React.useEffect(() => {
+    const k = keyFrom(QUARTERS[curQ], GRADES[curG]);
+    const el = panelRefs.current[k];
+    if (el && containerRef.current) {
+      // 両軸とも中央へ
+      el.scrollIntoView({ block: "center", inline: "center", behavior: "instant" });
+    }
+  }, [curQ, curG]); // 既存の curQ, curG を依存に
+
 
   return (
     <div className="mx-auto max-w-[1400px] p-6">
@@ -139,50 +153,93 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
         <div className="text-sm text-slate-500">読み込み中...</div>
       ) : (
         <DndContext sensors={sensors} collisionDetection={rectIntersection} onDragStart={onDragStart} onDragEnd={onDragEnd}>
-          <DragOverlay>{drag && (<div className="rounded-xl border bg-white px-3 py-2 text-sm shadow"><span>Subject #{drag.offeringId}</span><span className="ml-2 text-xs opacity-70">[{drag.mode.toUpperCase()}]</span></div>)}</DragOverlay>
+          <DragOverlay>
+            {drag && (
+              <div className="rounded-xl border bg-white px-3 py-2 text-sm shadow">
+                <span>Subject #{drag.offeringId}</span>
+                <span className="ml-2 text-xs opacity-70">[{drag.mode.toUpperCase()}]</span>
+              </div>
+            )}
+          </DragOverlay>
 
           {/* レイアウト */}
           <div className={poolPos === "right" ? "grid grid-cols-[1fr_360px] gap-4" : "grid grid-rows-[1fr_auto] gap-4"}>
-            {/* 左／上：仮想化された4×4盤面 */}
-            <div ref={containerRef} className="overflow-auto snap-both snap-mandatory scroll-smooth rounded-2xl border border-slate-200 p-3">
-              <div className="grid grid-rows-4 grid-cols-4 gap-4 min-w-[1200px] min-h-[800px]">
-                {QUARTERS.map((q, qi) =>
-                  GRADES.map((g, gi) => {
-                    const k = keyFrom(q, g);
-                    const render = shouldRender(qi, gi, 1); // 半径1だけ実レンダー
-                    return (
-                      <div
-                        key={k}
-                        data-key={k}
-                        ref={(el) => { panelRefs.current[k] = el; }}
-                        className={cn("snap-start transition-colors", qi === curQ && gi === curG ? "outline  outline-blue-400 outline-offset-2 rounded-2xl" : "")}
-                      >
-                        {render ? (
-                          <TimetableWeek
-                            title={`${year} / ${q} / ${g}年`}
-                            getOfferingIds={getOfferingIds(q, g)}
-                            subjectMap={subjectMap}
-                            drag={drag}
-                            onRemoveInCell={(offeringId, label) => {
-                              const id = byLabel.get(label); if (id == null) return;
-                              const next = clonePlacement(placement);
-                              next[offeringId] = (next[offeringId] ?? []).filter((x) => x !== id);
-                              setPlacement(next);
-                            }}
-                            makeLabel={(d, p) => encodeGlobalLabel(q, g, d, p)}
-                          />
-                        ) : (
-                          // プレースホルダ（軽量）
-                          <div className="min-w-[900px] min-h-[520px] rounded-2xl border border-dashed border-slate-200 bg-slate-50/40" />
-                        )}
-                      </div>
-                    );
-                  })
-                )}
+            {/* 左／上：4×4 盤面（領域A） */}
+            <div
+              ref={containerRef}
+              // CSS 変数で基準サイズを配信
+              style={
+                {
+                  ["--ttw-w"]: `${TTW_W}px`,
+                  ["--ttw-h"]: `${TTW_H}px`,
+                  ["--gap"]: "16px",
+                } as React.CSSProperties
+              }
+              className={[
+                // 領域Aビューポート：1.5x × 1.2x
+                "w-[calc(1.5*var(--ttw-w))]",
+                "h-[calc(1.2*var(--ttw-h))]",
+                // 縦横スクロール + スナップ
+                "overflow-auto snap-x snap-mandatory scroll-smooth",
+                // 見た目
+                "rounded-2xl border border-slate-200 bg-white/60 shadow-inner backdrop-blur",
+                // 内側に“クッション”を入れるため外側パディングはゼロ
+                "p-0"
+              ].join(" ")}
+            >
+              {/* クッション：端のセルも snap-center できるように (1.5-1)/2 = 0.25W、(1.2-1)/2 = 0.1H */}
+              <div className="px-[calc(0.25*var(--ttw-w))] py-[calc(0.1*var(--ttw-h))]">
+                {/* 4×4 グリッド本体。内容サイズに合わせるため w-max/h-max */}
+                <div className="grid grid-rows-4 grid-cols-4 gap-[var(--gap)] w-max h-max place-items-center">
+                  {QUARTERS.map((q, qi) =>
+                    GRADES.map((g, gi) => {
+                      const k = keyFrom(q, g);
+                      const render = shouldRender(qi, gi, 1); // 既存の仮想化
+                      const focused = qi === curQ && gi === curG;
+
+                      return (
+                        <div
+                          key={k}
+                          data-key={k}
+                          ref={(el) => { panelRefs.current[k] = el; }}
+                          className={[
+                            "snap-center shrink-0",
+                            // セル自体を TimetableWeek の実寸に固定
+                            "w-[var(--ttw-w)] h-[var(--ttw-h)]",
+                            // 見栄え（フォーカス時アウトライン）
+                            "rounded-2xl transition-colors",
+                            focused ? "outline outline-blue-400 outline-offset-2" : ""
+                          ].join(" ")}
+                        >
+                          {render ? (
+                            <TimetableWeek
+                              title={`${year} / ${q} / ${g}年`}
+                              getOfferingIds={getOfferingIds(q, g)}
+                              subjectMap={subjectMap}
+                              drag={drag}
+                              onRemoveInCell={(offeringId, label) => {
+                                const id = byLabel.get(label); if (id == null) return;
+                                const next = clonePlacement(placement);
+                                next[offeringId] = (next[offeringId] ?? []).filter((x) => x !== id);
+                                setPlacement(next);
+                              }}
+                              makeLabel={(d, p) => encodeGlobalLabel(q, g, d, p)}
+                              // TimetableWeek 側も枠が広がらないように明示
+                              classname="w-[var(--ttw-w)] h-[var(--ttw-h)]"
+                            />
+                          ) : (
+                            // プレースホルダも実寸に合わせる
+                            <div className="w-[var(--ttw-w)] h-[var(--ttw-h)] rounded-2xl border border-dashed border-slate-200 bg-slate-50/40" />
+                          )}
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
               </div>
             </div>
 
-            {/* 右／下：プール（既存Step6のUI流用） */}
+            {/* 右／下：プール（既存のまま） */}
             <div className={poolPos === "right" ? "sticky top-3 h-[calc(100vh-120px)] overflow-auto transition-all duration-300" : "overflow-auto border-t border-slate-200 pt-3 transition-all duration-300"}>
               <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                 <div className="mb-2 flex items-center gap-2">
