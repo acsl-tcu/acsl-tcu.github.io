@@ -32,6 +32,7 @@ export function useMatrixNavigation() {
       });
       let best = "", br = -1;
       ratios.forEach((r, k) => { if (r > br) { br = r; best = k; } });
+      console.log("IntersectionObserver",entries,best);
       if (best) {
         const [q, gStr] = best.split("-");
         const qi = qiOf(q as Quarter), gi = GRADES.indexOf(Number(gStr) as Grade);
