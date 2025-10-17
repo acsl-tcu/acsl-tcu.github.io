@@ -8,10 +8,10 @@ import { encodeGlobalLabel, isGlobalLabel } from "@/lib/idcodec";
 import { useTimetableData } from "@/hooks/useTimetableData";
 import { useMatrixNavigation } from "@/hooks/useMatrixNavigation";
 import { labelOfferings } from "@/lib/selectors/timetable";
-import { DndContext, PointerSensor, useSensor, useSensors, closestCenter, DragStartEvent, DragEndEvent, DragOverlay, rectIntersection } from "@dnd-kit/core";
+import { DndContext, PointerSensor, useSensor, useSensors, DragStartEvent, DragEndEvent, DragOverlay, rectIntersection } from "@dnd-kit/core";
 import { cn } from "@/lib/utils";
 import { clonePlacement } from "@/lib/placement";
-import { off } from "process";
+// import { off } from "process";
 
 type DragMeta = { offeringId: string; fromLabel?: string; mode: "move" | "clone" } | null; // 1行：ドラッグ状態
 
