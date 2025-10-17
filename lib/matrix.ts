@@ -64,6 +64,7 @@ export function mergeMatrixData(panels: PanelData[]): TimetablePayload {
   for (const p of panels) {
     for (const ts of p.payload.timeSlots) {
       const glabel = encodeGlobalLabel(p.quarter, p.grade, ts.day, ts.period);
+      console.log("encodeGlobal:", glabel, p);
       tsMap.set(ts.id, { ...ts, label: glabel });
     }
   }
