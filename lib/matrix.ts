@@ -52,24 +52,24 @@ export async function fetchMatrixData(
 // mergeMatrixData: 入=各面の生データ／出=統合後の subjects/timeSlots/placement
 export function mergeMatrixData(panels: PanelData[]): TimetablePayload {
   // subjects: 1行：offeringId でユニーク化
-  console.log("mergeMatrixData", panels);
+  // console.log("mergeMatrixData", panels);
   const subjMap = new Map<string, SubjectCardT>();
   for (const p of panels) {
     for (const s of p.payload.subjects) subjMap.set(s.offeringId, s);
   }
   const subjects = Array.from(subjMap.values());
-  console.log("merged subjects:", subjects, subjMap);
+  // console.log("merged subjects:", subjects, subjMap);
   // timeSlots: 3行：各面のローカルlabel -> globalLabel に昇格して統合
   const tsMap = new Map<string, TimeSlotInfo>();
   for (const p of panels) {
     for (const ts of p.payload.timeSlots) {
       const glabel = encodeGlobalLabel(p.quarter, p.grade, ts.day, ts.period);
-      console.log("encodeGlobal:", glabel, p);
+      // console.log("encodeGlobal:", glabel, p);
       tsMap.set(glabel, { ...ts, label: glabel });
     }
   }
   const timeSlots = Array.from(tsMap.values());
-  console.log("merged timeSlots:", timeSlots, tsMap);
+  // console.log("merged timeSlots:", timeSlots, tsMap);
   // placement: 1行：offeringId -> id[] を単純にマージ（重複は set で除去）
   const placement: Record<string, number[]> = {};
   for (const p of panels) {
@@ -78,6 +78,6 @@ export function mergeMatrixData(panels: PanelData[]): TimetablePayload {
       placement[offeringId] = Array.from(set);
     }
   }
-  console.log("merged placement:", placement);
+  // console.log("merged placement:", placement);
   return { subjects, timeSlots, placement };
 }
