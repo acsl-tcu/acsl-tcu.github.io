@@ -40,7 +40,9 @@ export function useTimetableData(initialYear: number) {
   const pushHistory = React.useCallback((next: Record<string, number[]>) => {
     if (JSON.stringify(placement) === JSON.stringify(next)) return;
     setHistory(h => [...h, placement]);
+    console.log("pushHistroy:",next,'[before]', placement)
     setPlacement(next);
+    console.log('[after]', placement);    
     setFuture([]);
   }, [placement]);
   const undo = () => {
