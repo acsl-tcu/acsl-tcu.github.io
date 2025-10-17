@@ -10,7 +10,7 @@ import { useTimetableData } from "@/hooks/useTimetableData";
 import { useMatrixNavigation } from "@/hooks/useMatrixNavigation";
 import { labelOfferings } from "@/lib/selectors/timetable";
 import { DndContext, PointerSensor, useSensor, useSensors, DragStartEvent, DragEndEvent, DragOverlay, rectIntersection } from "@dnd-kit/core";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import { clonePlacement } from "@/lib/placement";
 // import { off } from "process";
 
@@ -116,7 +116,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
       // 両軸とも中央へ
       el.scrollIntoView({ block: "center", inline: "center", behavior: "instant" });
     }
-  }, [curQ, curG]); // 既存の curQ, curG を依存に
+  }, [curQ, curG, containerRef, keyFrom, panelRefs]); // 既存の curQ, curG を依存に
 
 
   return (
