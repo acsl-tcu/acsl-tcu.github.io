@@ -63,7 +63,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
 
   const onDragEnd = (e: DragEndEvent) => {
     const { active, over } = e;
-    console.log('[onDragEnd]', {active: e.active.id, over: e.over?.id});
+
     setDrag(null);
     document.body.classList.remove("cursor-copy");
     if (!over) return;
@@ -77,10 +77,10 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
       }
       return;
     }
-    console.log(isGlobalLabel(overId));
+    // console.log(isGlobalLabel(overId));
     if (!isGlobalLabel(overId)) return;
     const to = byLabel.get(overId); if (to == null) return;
-
+    console.log('[onDragEnd]', {active: e.active.id, over: e.over?.id}, to);
     if (activeId.includes("@@")) {// offeringId@@SlotLabel
       const [offeringId, fromLabel] = activeId.split("@@");
       if (!isGlobalLabel(fromLabel)) return;
