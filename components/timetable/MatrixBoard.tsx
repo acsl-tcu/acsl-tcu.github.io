@@ -108,6 +108,11 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
   // レイアウト用
   const TTW_W = 900;  // TimetableWeek の実寸幅（既存プレースホルダに合わせる）
   const TTW_H = 520;  // TimetableWeek の実寸高
+  const [poolPinned, setPoolPinned] = React.useState(false);
+  const [poolHover, setPoolHover] = React.useState(false);
+  const poolOpen = poolPinned || poolHover; // 開いているか
+  const DRAWER_W = 360;   // プール本体の幅
+  const HANDLE_W = 28;    // 右端から見えている “つまみ” 幅
   // フォーカス中セルを中央にスクロール
   React.useEffect(() => {
     const k = keyFrom(QUARTERS[curQ], GRADES[curG]);
@@ -239,20 +244,116 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
               </div>
             </div>
 
-            {/* 右／下：プール（既存のまま） */}
-            <div className={poolPos === "right" ? "sticky top-3 h-[calc(100vh-120px)] overflow-auto transition-all duration-300" : "overflow-auto border-t border-slate-200 pt-3 transition-all duration-300"}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                <div className="mb-2 flex items-center gap-2">
-                  <h2 className="text-lg font-semibold">未配当（全体）</h2>
-                  <p className="text-sm text-slate-500">プールから盤面へドラッグ</p>
+            {/* 右／下：プール（右の場合をドロワー化） */}
+            {poolPos === "right" ? (
+              <>
+                {/* 右端の“ホットゾーン/つまみ”：ここに触れると開く */}
+                <div
+                  // 画面右端に固定。レイアウトに依存しないため扱いやすい
+                  className="fixed right-0 top-3 z-30 h-[calc(100vh-120px)]"
+                  style={
+                    {
+                      ["--handle-w"]: `${HANDLE_W}px`,
+                    } as React.CSSProperties
+                  }
+                  onMouseEnter={() => setPoolHover(true)}
+                  onMouseLeave={() => setPoolHover(false)}
+                >
+                  {/* つまみの見た目 */}
+                  <button
+                    type="button"
+                    aria-label="Open pool"
+                    className="w-[var(--handle-w)] h-full flex items-center justify-center bg-white/70 hover:bg-white border-l border-slate-200 shadow-sm rounded-l-lg backdrop-blur transition"
+                  >
+                    {/* アイコン（縦の点々） */}
+                    <svg width="16" height="16" viewBox="0 0 24 24" className="opacity-60">
+                      <circle cx="12" cy="5" r="1.5" />
+                      <circle cx="12" cy="12" r="1.5" />
+                      <circle cx="12" cy="19" r="1.5" />
+                    </svg>
+                  </button>
                 </div>
-                <DroppableCell id="pool">
-                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    {poolOfferings.map((s) => (<SubjectCard key={s.offeringId} subject={s} />))}
+
+                {/* ドロワー本体（右からスライド） */}
+                <aside
+                  onMouseEnter={() => setPoolHover(true)}
+                  onMouseLeave={() => setPoolHover(false)}
+                  className={[
+                    "fixed right-0 top-3 z-40 h-[calc(100vh-120px)]",
+                    "transition-transform duration-300 will-change-transform",
+                    "pointer-events-auto",
+                  ].join(" ")}
+                  style={
+                    {
+                      width: `${DRAWER_W}px`,
+                      // 閉じる時は “本体幅 - ハンドル幅” だけ右外へ出す
+                      transform: poolOpen
+                        ? "translateX(0)"
+                        : `translateX(${DRAWER_W - HANDLE_W}px)`,
+                    } as React.CSSProperties
+                  }
+                >
+                  <div className="h-full rounded-l-2xl border border-slate-200 bg-white shadow-lg overflow-auto">
+                    {/* ヘッダー（ピン止め） */}
+                    <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white/90 backdrop-blur px-3 py-2">
+                      <div className="flex items-center gap-2">
+                        <h2 className="text-lg font-semibold">未配当（全体）</h2>
+                        <p className="text-sm text-slate-500">プールから盤面へドラッグ</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setPoolPinned((v) => !v)}
+                        className={[
+                          "inline-flex items-center gap-1 rounded-md border px-2 py-1 text-sm transition",
+                          poolPinned
+                            ? "bg-blue-50 border-blue-200 text-blue-700"
+                            : "bg-white hover:bg-slate-50 border-slate-200 text-slate-600",
+                        ].join(" ")}
+                        aria-pressed={poolPinned}
+                        aria-label={poolPinned ? "Unpin drawer" : "Pin drawer"}
+                        title={poolPinned ? "ピンを外す" : "ピン止め"}
+                      >
+                        {/* ピンアイコン（簡易版） */}
+                        <svg viewBox="0 0 24 24" width="16" height="16" className={poolPinned ? "rotate-45" : ""}>
+                          <path
+                            d="M16 3l5 5-2.5 2.5L21 13l-2 2-2.5-2.5L14 16l-1-1 4-4-4-4 1-1zM8 10l6 6-1 1-2-1-3 3-2-2 3-3-1-2 1-1z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        {poolPinned ? "固定中" : "ピン止め"}
+                      </button>
+                    </div>
+
+                    {/* 中身 */}
+                    <div className="p-4">
+                      <DroppableCell id="pool">
+                        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                          {poolOfferings.map((s) => (
+                            <SubjectCard key={s.offeringId} subject={s} />
+                          ))}
+                        </div>
+                      </DroppableCell>
+                    </div>
                   </div>
-                </DroppableCell>
+                </aside>
+              </>
+            ) : (
+              // 下配置は従来どおり
+              <div className="overflow-auto border-t border-slate-200 pt-3 transition-all duration-300">
+                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                  <div className="mb-2 flex items-center gap-2">
+                    <h2 className="text-lg font-semibold">未配当（全体）</h2>
+                    <p className="text-sm text-slate-500">プールから盤面へドラッグ</p>
+                  </div>
+                  <DroppableCell id="pool">
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                      {poolOfferings.map((s) => (<SubjectCard key={s.offeringId} subject={s} />))}
+                    </div>
+                  </DroppableCell>
+                </div>
               </div>
-            </div>
+            )}
+
           </div>
         </DndContext>
       )}
