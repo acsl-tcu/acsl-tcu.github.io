@@ -16,6 +16,7 @@ export function useMatrixNavigation() {
     const q = QUARTERS[Math.max(0, Math.min(QUARTERS.length - 1, qi))];
     const g = GRADES[Math.max(0, Math.min(GRADES.length - 1, gi))];
     const node = panelRefs.current[keyFrom(q, g)];
+        console.log("scrollToPanel:",q,g,node);
     if (node) node.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
   }, []);
 

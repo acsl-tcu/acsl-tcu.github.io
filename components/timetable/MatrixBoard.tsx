@@ -149,7 +149,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
                 {QUARTERS.map((q, qi) =>
                   GRADES.map((g, gi) => {
                     const k = keyFrom(q, g);
-                    const render = shouldRender(qi, gi, 2); // 半径1だけ実レンダー
+                    const render = shouldRender(qi, gi, 1); // 半径1だけ実レンダー
                     return (
                       <div
                         key={k}
