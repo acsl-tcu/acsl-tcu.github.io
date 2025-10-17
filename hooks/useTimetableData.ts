@@ -84,7 +84,7 @@ export function useTimetableData(initialYear: number) {
       const diff = computePlacementDiff(server.placement, placement);
       const SMALL = 40;
       if (diff.total > 0 && diff.total <= SMALL) {
-        const res = await fetch("/api/timetable/patch", {
+        const res = await fetch("https://acsl-hp.vercel.app/api/timetable/patch", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "include",
@@ -92,7 +92,7 @@ export function useTimetableData(initialYear: number) {
         });
         if (!res.ok) throw new Error("patch failed");
       } else {
-        const res = await fetch("/api/timetable/save", {
+        const res = await fetch("https://acsl-hp.vercel.app/api/timetable/save", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "include",
