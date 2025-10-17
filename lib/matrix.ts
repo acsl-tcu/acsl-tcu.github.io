@@ -60,12 +60,12 @@ export function mergeMatrixData(panels: PanelData[]): TimetablePayload {
   const subjects = Array.from(subjMap.values());
   console.log("merged subjects:", subjects, subjMap);
   // timeSlots: 3行：各面のローカルlabel -> globalLabel に昇格して統合
-  const tsMap = new Map<number, TimeSlotInfo>();
+  const tsMap = new Map<string, TimeSlotInfo>();
   for (const p of panels) {
     for (const ts of p.payload.timeSlots) {
       const glabel = encodeGlobalLabel(p.quarter, p.grade, ts.day, ts.period);
       console.log("encodeGlobal:", glabel, p);
-      tsMap.set(ts.id, { ...ts, label: glabel });
+      tsMap.set(glabel, { ...ts, label: glabel });
     }
   }
   const timeSlots = Array.from(tsMap.values());
