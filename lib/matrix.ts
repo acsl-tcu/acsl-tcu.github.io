@@ -5,10 +5,10 @@ import {
   SlotLabel,
   DayOfWeek,
   SubjectCardT,
-  TimeSlotInfo,
-  TimetablePayload,
+  // TimeSlotInfo,
+  // TimetablePayload,
 } from "@/lib/types/timetable";
-import { encodeGlobalLabel } from "@/lib/idcodec";
+// import { encodeGlobalLabel } from "@/lib/idcodec";
 
 // PanelData: 1行：1面ぶんの生データと座標
 export type PanelData = {
@@ -39,14 +39,14 @@ export async function fetchMatrixData(
   for (const q of quarters) {
     for (const g of grades) {
       const params = new URLSearchParams({ grade: String(g), quarter: q, year: String(year) });
-      console.log("fetchAll",params);
+      console.log("fetchAll", params);
       const job = fetch(`https://acsl-hp.vercel.app/api/timetable?${params.toString()}`, {
         method: "GET",
         credentials: "include",
         cache: "no-store",
       })
         .then(async (res) => {
-          console.log(job,res);
+          console.log(job, res);
           if (!res.ok) throw new Error(`fetch failed: ${q}/${g}`);
           const payload = await res.json();
           return { quarter: q, grade: g, payload } as PanelData;
