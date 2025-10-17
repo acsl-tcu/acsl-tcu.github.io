@@ -20,7 +20,15 @@ export type PanelData = {
     placement: Record<string, number[]>;
   };
 };
-
+// export type PanelData = {
+//   quarter: Quarter; // "Q1" | "Q2" | "Q3" | "Q4"
+//   grade: Grade;     // 1 | 2 | 3 | 4
+//   payload: {
+//     subjects: { offeringId: number; code: string; name: string; units: number | null }[];
+//     timeSlots: { id: number; day: string; period: number; label: string }[];
+//     placement: Record<string, number[]>; // offeringId(string) -> slotId[]
+//   };
+// };
 // fetchMatrixData: 入=Q配列,G配列,年／出=各面の生データ配列（16件）
 export async function fetchMatrixData(
   quarters: Quarter[],
@@ -50,32 +58,33 @@ export async function fetchMatrixData(
 }
 
 // mergeMatrixData: 入=各面の生データ／出=統合後の subjects/timeSlots/placement
-export function mergeMatrixData(panels: PanelData[]): TimetablePayload {
-  // subjects: 1行：offeringId でユニーク化
-  const subjMap = new Map<string, SubjectCardT>();
-  for (const p of panels) {
-    for (const s of p.payload.subjects) subjMap.set(s.offeringId, s);
-  }
-  const subjects = Array.from(subjMap.values());
 
-  // timeSlots: 3行：各面のローカルlabel -> globalLabel に昇格して統合
-  const tsMap = new Map<number, TimeSlotInfo>();
+
+type Merged = {
+  // 例: "Q2|G1|Thu-2" -> slot情報（必要なら quarter/grade を付与して保持）
+  byLabel: Record<string, { id: number; day: string; period: number; label: string; quarter: Quarter; grade: Grade }>;
+  // 例: "Q2|G1" -> その面の subjects / placement / timeSlots
+  panels: Record<string, PanelData>;
+};
+
+export function mergeMatrixData(panels: PanelData[]): Merged {
+  const byLabel: Merged["byLabel"] = {};
+  const panelMap: Merged["panels"] = {};
+
   for (const p of panels) {
-    for (const ts of p.payload.timeSlots) {
-      const glabel = encodeGlobalLabel(p.quarter, p.grade, ts.day, ts.period);
-      tsMap.set(ts.id, { ...ts, label: glabel });
+    const q = p.quarter;
+    const g = p.grade;
+    const pgKey = `${q}|G${g}`;
+
+    // 面（パネル）自体を保持（必要ならディープコピー）
+    panelMap[pgKey] = p;
+
+    // ★ ここがポイント：Q/G を必ずキーに含める
+    for (const s of p.payload.timeSlots) {
+      const key = `${q}|G${g}|${s.day}-${s.period}`; // 例: "Q2|G1|Thu-2"
+      byLabel[key] = { ...s, quarter: q, grade: g };
     }
   }
-  const timeSlots = Array.from(tsMap.values());
 
-  // placement: 1行：offeringId -> id[] を単純にマージ（重複は set で除去）
-  const placement: Record<string, number[]> = {};
-  for (const p of panels) {
-    for (const [offeringId, ids] of Object.entries(p.payload.placement)) {
-      const set = new Set([...(placement[offeringId] ?? []), ...ids]);
-      placement[offeringId] = Array.from(set);
-    }
-  }
-
-  return { subjects, timeSlots, placement };
+  return { byLabel, panels: panelMap };
 }
