@@ -38,6 +38,7 @@ export function useTimetableData(initialYear: number) {
 
   // 履歴操作
   const pushHistory = React.useCallback((next: Record<string, number[]>) => {
+    console.log("pushHistroy:",next)
     if (JSON.stringify(placement) === JSON.stringify(next)) return;
     setHistory(h => [...h, placement]);
     console.log("pushHistroy:",next,'[before]', placement)

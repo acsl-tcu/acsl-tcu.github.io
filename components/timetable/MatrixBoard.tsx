@@ -80,7 +80,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
     if (!isGlobalLabel(overId)) return;
     const to = byLabel.get(overId); if (to == null) return;
 
-    if (activeId.includes("@@")) {
+    if (activeId.includes("@@")) {// offeringId@@SlotLabel
       const [offeringId, fromLabel] = activeId.split("@@");
       if (!isGlobalLabel(fromLabel)) return;
       const from = byLabel.get(fromLabel);
