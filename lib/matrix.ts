@@ -31,6 +31,7 @@ export async function fetchMatrixData(
   for (const q of quarters) {
     for (const g of grades) {
       const params = new URLSearchParams({ grade: String(g), quarter: q, year: String(year) });
+      console.log(params);
       const job = fetch(`https://acsl-hp.vercel.app/api/timetable?${params.toString()}`, {
         method: "GET",
         credentials: "include",
