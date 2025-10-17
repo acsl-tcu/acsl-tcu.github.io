@@ -31,7 +31,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
     subjectMap, poolOfferings,
     dirty, ops
   } = useTimetableData(initialYear);
-  console.log(server, QUARTERS,GRADES);
+  console.log(server);
   // 初回取得
   React.useEffect(() => { fetchAll(QUARTERS, GRADES, year); }, [year, fetchAll]);
 
@@ -77,7 +77,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
       }
       return;
     }
-    console.log(isGlobalLabel(overId),byLabel);
+    // console.log(isGlobalLabel(overId),byLabel);
     if (!isGlobalLabel(overId)) return;
     const to = byLabel.get(overId); 
     console.log('[onDragEnd]', {active: e.active.id, over: e.over?.id}, to);
