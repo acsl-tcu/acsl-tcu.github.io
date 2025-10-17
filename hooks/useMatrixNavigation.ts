@@ -13,11 +13,13 @@ export function useMatrixNavigation() {
   const giOf = (g: Grade) => GRADES.indexOf(g);          // 1行：列idx
 
   const scrollToPanel = React.useCallback((qi: number, gi: number) => {
-    const q = QUARTERS[Math.max(0, Math.min(QUARTERS.length - 1, qi))];
-    const g = GRADES[Math.max(0, Math.min(GRADES.length - 1, gi))];
+    const qn = Math.max(0, Math.min(QUARTERS.length - 1, qi));
+    const gn = Math.max(0, Math.min(GRADES.length - 1, gi));
+    const q = QUARTERS[qn];
+    const g = GRADES[gn];
     const node = panelRefs.current[keyFrom(q, g)];
         console.log("scrollToPanel:",q,g,node);
-        setCurQ(Number(q)); setCurG(g);
+        setCurQ(qn); setCurG(gn);
     if (node) node.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
   }, []);
 
