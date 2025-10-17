@@ -31,13 +31,13 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
     subjectMap, poolOfferings,
     dirty, ops
   } = useTimetableData(initialYear);
-  console.log(server);
+  console.log("server: ",server);
   // 初回取得
   React.useEffect(() => { fetchAll(QUARTERS, GRADES, year); }, [year, fetchAll]);
 
   // ナビ・仮想化
   const { containerRef, panelRefs, keyFrom, qiOf, giOf, curQ, curG, scrollToPanel, shouldRender } = useMatrixNavigation();
-  console.log(qiOf, giOf);
+  console.log("qi gi of:", qiOf, giOf);
   // CtrlでClone/Move
   React.useEffect(() => {
     if (!drag) return;

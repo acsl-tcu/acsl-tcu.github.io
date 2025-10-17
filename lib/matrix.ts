@@ -38,7 +38,7 @@ export async function fetchMatrixData(
         cache: "no-store",
       })
         .then(async (res) => {
-          console.log(job, res);
+          // console.log(job, res);
           if (!res.ok) throw new Error(`fetch failed: ${q}/${g}`);
           const payload = await res.json();
           return { quarter: q, grade: g, payload } as PanelData;
