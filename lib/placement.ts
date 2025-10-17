@@ -20,7 +20,7 @@ export function addTimeslot(
   slotId: number
 ) {
   const next = clonePlacement(p);
-  const arr = new Set(next[offeringId] ?? []);
+  const arr = new Set(next[Number(offeringId)] ?? []);
   arr.add(slotId);
   next[offeringId] = [...arr];
   return next;
