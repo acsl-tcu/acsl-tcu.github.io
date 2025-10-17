@@ -8,10 +8,11 @@ export const makeByLabel = (server: TimetablePayload) => {
   return m;
 };
 
-// makeById: 入=payload／出=Map(id->globalLabel)
+// makeById: 入=payload／出=Map(id->globalLabel) : 1->"Q"
 export const makeById = (server: TimetablePayload) => {
   const m = new Map<number, string>();
   for (const ts of server.timeSlots) m.set(ts.id, ts.label);
+  server.timeSlots.map((ts,i)=> m.set(i,ts.label));
   return m;
 };
 

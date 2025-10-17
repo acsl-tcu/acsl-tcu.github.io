@@ -4,7 +4,7 @@ import TimetableWeek from "@/components/timetable/TimetableWeek";
 // import TimetableWeek from "@/components/timetable/LazyTimetableWeek";
 import DroppableCell from "@/components/timetable/DroppableCell";
 import SubjectCard from "@/components/timetable/SubjectCard";
-import { DAYS, PERIODS, QUARTERS, GRADES, Quarter, Grade } from "@/lib/types/timetable";
+import { QUARTERS, GRADES, Quarter, Grade } from "@/lib/types/timetable";
 import { encodeGlobalLabel, isGlobalLabel } from "@/lib/idcodec";
 import { useTimetableData } from "@/hooks/useTimetableData";
 import { useMatrixNavigation } from "@/hooks/useMatrixNavigation";
@@ -160,8 +160,6 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
                         {render ? (
                           <TimetableWeek
                             title={`${year} / ${q} / ${g}年`}
-                            days={DAYS}
-                            periods={PERIODS}
                             getOfferingIds={getOfferingIds(q, g)}
                             subjectMap={subjectMap}
                             drag={drag}

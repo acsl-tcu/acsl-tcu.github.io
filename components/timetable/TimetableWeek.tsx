@@ -3,6 +3,7 @@
 import React from "react";
 import DroppableCell, { SubjectCardInCell } from "@/components/timetable/DroppableCell";
 import type { DayOfWeek, SubjectCardT, SlotLabel } from "@/lib/types/timetable";
+import { DAYS, PERIODS } from "@/lib/types/timetable";
 
 // DragMeta: 1行：親が管理するドラッグ状態の薄い型
 type DragMeta = { offeringId: string; fromLabel?: string; mode: "move" | "clone" } | null;
@@ -10,12 +11,6 @@ type DragMeta = { offeringId: string; fromLabel?: string; mode: "move" | "clone"
 type Props = {
   // title: 1行：盤面タイトル（例：2025 / Q1 / 1年）
   title?: string;
-
-  // days: 1行：横軸の曜日配列（例：["Mon","Tue",...])
-  days: DayOfWeek[];
-
-  // periods: 1行：縦軸の時限配列（例：[1,2,3,4,5,6]）
-  periods: number[];
 
   // getOfferingIds: 入=セルID（local/globalどちらでも可）／出=そのセルの offeringId 群
   getOfferingIds: (label: string) => string[];
@@ -34,8 +29,6 @@ type Props = {
 
 export default function TimetableWeek({
   title,
-  days,
-  periods,
   getOfferingIds,
   subjectMap,
   drag,
@@ -51,22 +44,22 @@ export default function TimetableWeek({
       <div className="grid grid-cols-[100px_repeat(5,1fr)] gap-2">
         {/* 列ヘッダ（曜日） */}
         <div />
-        {days.map((d) => (
+        {DAYS.map((d) => (
           <div key={d} className="text-center text-sm font-semibold text-slate-600">
             {d}
           </div>
         ))}
 
         {/* 本体マス */}
-        {periods.map((p) => (
+        {PERIODS.map((p) => (
           <React.Fragment key={p}>
             <div className="flex items-center justify-center text-sm font-medium text-slate-600">
               {p} 限
             </div>
-            {days.map((d) => {
-              const label = makeLabel ? makeLabel(d, p) : `${d}-${p}`;
+            {DAYS.map((d) => {
+              const label = makeLabel ? makeLabel(d, p) : `Q1|G1|${d}-${p}`;
               const offeringIds = getOfferingIds(label) ?? [];
-
+              console.log("label: ",label, offeringIds);
               return (
                 <DroppableCell key={label} id={label}>
                   <div className="flex flex-col gap-2">
