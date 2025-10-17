@@ -1,5 +1,13 @@
 // lib/placement.ts（抜粋・例：ロジックは変更しない）
 
+export const getSlots = (p: Record<string, number[]>, offeringId: number|string) =>
+  p[String(offeringId)] ?? [];
+
+export const setSlots = (p: Record<string, number[]>, offeringId: number|string, slots: number[]) => ({
+  ...p,
+  [String(offeringId)]: Array.from(new Set(slots.filter(Number.isFinite))),
+});
+
 // clonePlacement: 入=placement／出=ディープコピー（破壊的変更を避けるため）
 export function clonePlacement(p: Record<string, number[]>): Record<string, number[]> {
   return Object.fromEntries(Object.entries(p).map(([k, v]) => [k, [...v]]));

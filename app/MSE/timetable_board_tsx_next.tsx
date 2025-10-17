@@ -1,5 +1,5 @@
 "use client";
-
+// test data版 データベースを使わずUIの確認だけ。
 import React from "react";
 import {
   DndContext,

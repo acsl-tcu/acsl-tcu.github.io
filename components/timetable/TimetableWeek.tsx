@@ -79,7 +79,7 @@ export default function TimetableWeek({
                         drag &&
                         drag.mode === "move" &&
                         drag.fromLabel === label &&
-                        drag.offeringId === String(oid);
+                        Number(drag.offeringId) === Number(oid);
 
                       if (hide) return null;
 

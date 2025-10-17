@@ -8,9 +8,10 @@ import { encodeGlobalLabel, isGlobalLabel } from "@/lib/idcodec";
 import { useTimetableData } from "@/hooks/useTimetableData";
 import { useMatrixNavigation } from "@/hooks/useMatrixNavigation";
 import { labelOfferings } from "@/lib/selectors/timetable";
-import { DndContext, PointerSensor, useSensor, useSensors, closestCenter, DragStartEvent, DragEndEvent, DragOverlay } from "@dnd-kit/core";
+import { DndContext, PointerSensor, useSensor, useSensors, closestCenter, DragStartEvent, DragEndEvent, DragOverlay, rectIntersection } from "@dnd-kit/core";
 import { cn } from "@/lib/utils";
 import { clonePlacement } from "@/lib/placement";
+import { off } from "process";
 
 type DragMeta = { offeringId: string; fromLabel?: string; mode: "move" | "clone" } | null; // 1行：ドラッグ状態
 
@@ -55,12 +56,14 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
     const id = String(e.active.id);
     if (id.includes("@@")) {
       const [offeringId, fromLabel] = id.split("@@");
+      console.log("onDragStart:", offeringId, fromLabel, id);
       setDrag({ offeringId, fromLabel, mode: "move" });
     } else setDrag({ offeringId: id, fromLabel: undefined, mode: "move" });
   };
 
   const onDragEnd = (e: DragEndEvent) => {
     const { active, over } = e;
+    console.log('[onDragEnd]', {active: e.active.id, over: e.over?.id});
     setDrag(null);
     document.body.classList.remove("cursor-copy");
     if (!over) return;
@@ -132,7 +135,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
       {loading ? (
         <div className="text-sm text-slate-500">読み込み中...</div>
       ) : (
-        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragStart={onDragStart} onDragEnd={onDragEnd}>
+        <DndContext sensors={sensors} collisionDetection={rectIntersection} onDragStart={onDragStart} onDragEnd={onDragEnd}>
           <DragOverlay>{drag && (<div className="rounded-xl border bg-white px-3 py-2 text-sm shadow"><span>Subject #{drag.offeringId}</span><span className="ml-2 text-xs opacity-70">[{drag.mode.toUpperCase()}]</span></div>)}</DragOverlay>
 
           {/* レイアウト */}
