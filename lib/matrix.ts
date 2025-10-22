@@ -10,6 +10,52 @@ import {
 } from "@/lib/types/timetable";
 import { encodeGlobalLabel } from "@/lib/idcodec";
 
+// API から返る day ラベル("Mon" | "Tue" ...)を DayOfWeek ("MON" | "TUE" ...) に変換
+function toDayOfWeekEnum(label: string): DayOfWeek {
+  const m = label?.toLowerCase?.();
+  switch (m) {
+    case "mon": return "MON";
+    case "tue": return "TUE";
+    case "wed": return "WED";
+    case "thu": return "THU";
+    case "fri": return "FRI";
+    case "sat": return "SAT";
+    case "sun": return "SUN";
+    default: {
+      // すでに "MON" などの場合はそのまま通す
+      const up = label?.toUpperCase?.();
+      if (["MON","TUE","WED","THU","FRI","SAT","SUN"].includes(up)) return up as DayOfWeek;
+      // 未知は安全側で MON
+      return "MON";
+    }
+  }
+}
+
+// API 返却の timeSlot をローカルの TimeSlotInfo へ正規化
+function normalizeTimeSlots(
+  slots: Array<{ id: number; day: string; slot?: number; period?: number; label?: string; }>
+): TimeSlotInfo[] {
+  return (slots ?? []).map((ts) => {
+    const dayEnum = toDayOfWeekEnum(ts.day);
+    const period = (ts.period ?? ts.slot ?? 0);
+    return {
+      id: ts.id,
+      day: dayEnum,
+      period,
+      label: `${dayEnum}-${period}` as SlotLabel, // ローカル表記に統一
+    };
+  });
+}
+
+// placement のキーを string に統一
+function normalizePlacement(p: Record<string | number, number[]>): Record<string, number[]> {
+  const out: Record<string, number[]> = {};
+  for (const [k, v] of Object.entries(p ?? {})) {
+    out[String(k)] = Array.isArray(v) ? v : [];
+  }
+  return out;
+}
+
 // PanelData: 1行：1面ぶんの生データと座標
 export type PanelData = {
   quarter: Quarter;
@@ -31,17 +77,30 @@ export async function fetchMatrixData(
   for (const q of quarters) {
     for (const g of grades) {
       const params = new URLSearchParams({ grade: String(g), quarter: q, year: String(year) });
-      // console.log("fetchAll", params);
       const job = fetch(`https://acsl-hp.vercel.app/api/timetable?${params.toString()}`, {
         method: "GET",
         credentials: "include",
         cache: "no-store",
       })
         .then(async (res) => {
-          // console.log(job, res);
           if (!res.ok) throw new Error(`fetch failed: ${q}/${g}`);
-          const payload = await res.json();
-          return { quarter: q, grade: g, payload } as PanelData;
+          const raw = await res.json() as {
+            subjects: SubjectCardT[];
+            timeSlots: Array<{ id: number; day: string; slot?: number; period?: number; label?: string; }>;
+            placement: Record<string | number, number[]>;
+          };
+
+          // ★ ここで正規化して内部型に合わせる
+          const normalized: PanelData = {
+            quarter: q,
+            grade: g,
+            payload: {
+              subjects: raw.subjects ?? [],
+              timeSlots: normalizeTimeSlots(raw.timeSlots ?? []),
+              placement: normalizePlacement(raw.placement ?? {}),
+            },
+          };
+          return normalized;
         });
       jobs.push(job);
     }
@@ -51,26 +110,27 @@ export async function fetchMatrixData(
 
 // mergeMatrixData: 入=各面の生データ／出=統合後の subjects/timeSlots/placement
 export function mergeMatrixData(panels: PanelData[]): TimetablePayload {
-  // subjects: 1行：offeringId でユニーク化
-  // console.log("mergeMatrixData", panels);
+  // subjects: offeringId でユニーク化
   const subjMap = new Map<string, SubjectCardT>();
   for (const p of panels) {
-    for (const s of p.payload.subjects) subjMap.set(s.offeringId, s);
+    for (const s of p.payload.subjects) {
+      // offeringId が number のことが多いので、キーは string に統一
+      subjMap.set(String(s.offeringId), s);
+    }
   }
   const subjects = Array.from(subjMap.values());
-  // console.log("merged subjects:", subjects, subjMap);
-  // timeSlots: 3行：各面のローカルlabel -> globalLabel に昇格して統合
+
+  // timeSlots: 各面のローカル label -> グローバル label に昇格して統合
   const tsMap = new Map<string, TimeSlotInfo>();
   for (const p of panels) {
     for (const ts of p.payload.timeSlots) {
       const glabel = encodeGlobalLabel(p.quarter, p.grade, ts.day, ts.period);
-      // console.log("encodeGlobal:", glabel, p);
-      tsMap.set(glabel, { ...ts, label: glabel });
+      tsMap.set(glabel, { ...ts, label: glabel as SlotLabel });
     }
   }
   const timeSlots = Array.from(tsMap.values());
-  // console.log("merged timeSlots:", timeSlots, tsMap);
-  // placement: 1行：offeringId -> id[] を単純にマージ（重複は set で除去）
+
+  // placement: offeringId(string) -> id[] をマージ（重複除去）
   const placement: Record<string, number[]> = {};
   for (const p of panels) {
     for (const [offeringId, ids] of Object.entries(p.payload.placement)) {
@@ -78,6 +138,6 @@ export function mergeMatrixData(panels: PanelData[]): TimetablePayload {
       placement[offeringId] = Array.from(set);
     }
   }
-  // console.log("merged placement:", placement);
+
   return { subjects, timeSlots, placement };
 }
