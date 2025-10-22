@@ -14,21 +14,15 @@ import { encodeGlobalLabel } from "@/lib/idcodec";
 function toDayOfWeekEnum(label: string): DayOfWeek {
   const m = label?.toLowerCase?.();
   switch (m) {
-    case "mon": return "MON";
-    case "tue": return "TUE";
-    case "wed": return "WED";
-    case "thu": return "THU";
-    case "fri": return "FRI";
-    case "sat": return "SAT";
-    case "sun": return "SUN";
-    default: {
-      // すでに "MON" などの場合はそのまま通す
-      const up = label?.toUpperCase?.();
-      if (["MON","TUE","WED","THU","FRI","SAT","SUN"].includes(up)) return up as DayOfWeek;
-      // 未知は安全側で MON
-      return "MON";
-    }
-  }
+  case "mon": return "Mon";
+  case "tue": return "Tue";
+  case "wed": return "Wed";
+  case "thu": return "Thu";
+  case "fri": return "Fri";
+  case "sat": return "Sat";
+  case "sun": return "Sun";
+  default: throw new Error(`Invalid day: ${label}`);
+}
 }
 
 // API 返却の timeSlot をローカルの TimeSlotInfo へ正規化
