@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import TimetableWeek from "@/components/timetable/TimetableWeek";
-// import TimetableWeek from "@/components/timetable/LazyTimetableWeek";
+// import TimetableWeek from "@/components/timetable/TimetableWeek";
+import TimetableWeek from "@/components/timetable/LazyTimetableWeek";
 import DroppableCell from "@/components/timetable/DroppableCell";
 import SubjectCard from "@/components/timetable/SubjectCard";
 import { QUARTERS, GRADES, Quarter, Grade } from "@/lib/types/timetable";
