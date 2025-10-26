@@ -21,7 +21,8 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
   const [poolPos, setPoolPos] = React.useState<"right" | "bottom">("right");
   const [drag, setDrag] = React.useState<DragMeta>(null);
   const dragging = !!drag;
-
+  const headerRef = React.useRef<HTMLDivElement | null>(null);
+  const [headerH, setHeaderH] = React.useState<number>(120); // フォールバック
   // データ（取得・保存・Undo/Redoなど）
   const {
     year, setYear, server, placement, setPlacement,
@@ -35,10 +36,19 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
   console.log("server: ", server);
   // 初回取得
   React.useEffect(() => { fetchAll(QUARTERS, GRADES, year); }, [year, fetchAll]);
-
+  // 初回＆リサイズで header 高さを測定
+  React.useLayoutEffect(() => {
+    const measure = () => {
+      if (headerRef.current) setHeaderH(headerRef.current.getBoundingClientRect().height);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
   // ナビ・仮想化
-  const { containerRef, panelRefs, keyFrom, qiOf, giOf, curQ, curG, shouldRender } = useMatrixNavigation();//scrollToPanel,
+  const { containerRef, panelRefs, keyFrom, qiOf, giOf, curQ, curG, onGridKeyDown } = useMatrixNavigation();//scrollToPanel,
   console.log("qi gi of:", qiOf, giOf);
+
   // CtrlでClone/Move
   React.useEffect(() => {
     if (!drag) return;
@@ -106,8 +116,8 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
   }, [placement, byId]);
 
   // レイアウト用
-  const TTW_W = 1200;  // TimetableWeek の実寸幅（既存プレースホルダに合わせる）
-  const TTW_H = 520;  // TimetableWeek の実寸高
+  // const TTW_W = 1200;  // TimetableWeek の実寸幅（既存プレースホルダに合わせる）
+  // const TTW_H = 520;  // TimetableWeek の実寸高
   const [poolPinned, setPoolPinned] = React.useState(false);
   const [poolHover, setPoolHover] = React.useState(false);
   const poolOpen = poolPinned || poolHover; // 開いているか
@@ -127,18 +137,20 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
   return (
     <div className="mx-auto max-w-[1400px] p-6">
       {/* ヘッダ */}
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold tracking-tight">時間割（4×4 マトリクス）</h1>
-        <div className="flex items-center gap-2">
-          <input type="number" placeholder="年度 (例: 2025)" className="w-36 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm hover:bg-slate-50" value={year} onChange={(e) => setYear(Number(e.target.value))} />
-          <div className="ml-2 flex items-center gap-2">
-            <button onClick={undo} disabled={!canUndo} className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm disabled:opacity-40">Undo</button>
-            <button onClick={redo} disabled={!canRedo} className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm disabled:opacity-40">Redo</button>
-            <button onClick={resetToServer} disabled={!dirty} className="rounded-xl border border-rose-200 bg-white px-3 py-2 text-sm shadow-sm text-rose-600 disabled:opacity-40">Reset</button>
-            <button onClick={save} disabled={dragging || !dirty || saving} className="rounded-xl bg-blue-600 px-3 py-2 text-sm font-medium text-white shadow-sm disabled:opacity-40">{saving ? "保存中..." : "保存"}</button>
-            <button type="button" onClick={() => setPoolPos(poolPos === "right" ? "bottom" : "right")} className="flex items-center gap-1 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm hover:bg-slate-50">
-              {poolPos === "right" ? (<><span>📥</span><span>右固定</span></>) : (<><span>📤</span><span>下固定</span></>)}
-            </button>
+      <div ref={headerRef} className="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-slate-200">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <h1 className="text-2xl font-bold tracking-tight">時間割（4×4 マトリクス）</h1>
+          <div className="flex items-center gap-2">
+            <input type="number" placeholder="年度 (例: 2025)" className="w-36 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm hover:bg-slate-50" value={year} onChange={(e) => setYear(Number(e.target.value))} />
+            <div className="ml-2 flex items-center gap-2">
+              <button onClick={undo} disabled={!canUndo} className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm disabled:opacity-40">Undo</button>
+              <button onClick={redo} disabled={!canRedo} className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm disabled:opacity-40">Redo</button>
+              <button onClick={resetToServer} disabled={!dirty} className="rounded-xl border border-rose-200 bg-white px-3 py-2 text-sm shadow-sm text-rose-600 disabled:opacity-40">Reset</button>
+              <button onClick={save} disabled={dragging || !dirty || saving} className="rounded-xl bg-blue-600 px-3 py-2 text-sm font-medium text-white shadow-sm disabled:opacity-40">{saving ? "保存中..." : "保存"}</button>
+              <button type="button" onClick={() => setPoolPos(poolPos === "right" ? "bottom" : "right")} className="flex items-center gap-1 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm hover:bg-slate-50">
+                {poolPos === "right" ? (<><span>📥</span><span>右固定</span></>) : (<><span>📤</span><span>下固定</span></>)}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -174,17 +186,28 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
             <div
               ref={containerRef}
               // CSS 変数で基準サイズを配信
+              // style={
+              //   {
+              //     ["--ttw-w"]: `${TTW_W}px`,
+              //     ["--ttw-h"]: `${TTW_H}px`,
+              //     ["--gap"]: "16px",
+              //   } as React.CSSProperties
+              // }
+              tabIndex={0}
+              onKeyDown={onGridKeyDown}
               style={
                 {
-                  ["--ttw-w"]: `${TTW_W}px`,
-                  ["--ttw-h"]: `${TTW_H}px`,
+                  ["--header-h"]: `${headerH}px`,
+                  ["--ttw-w"]: "900px", // 既存値に合わせる
+                  ["--ttw-h"]: "520px",
                   ["--gap"]: "16px",
                 } as React.CSSProperties
               }
               className={[
                 // 領域Aビューポート：1.5x × 1.2x
                 "w-[calc(1.5*var(--ttw-w))]",
-                "h-[calc(1.2*var(--ttw-h))]",
+                // "h-[calc(1.2*var(--ttw-h))]",
+                "h-[calc(100vh-var(--header-h)-16px)]",
                 // 縦横スクロール + スナップ
                 "overflow-auto snap-x snap-mandatory scroll-smooth",
                 // 見た目
@@ -200,7 +223,8 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
                   {QUARTERS.map((q, qi) =>
                     GRADES.map((g, gi) => {
                       const k = keyFrom(q, g);
-                      const render = shouldRender(qi, gi, 1); // 既存の仮想化
+                      // const render = shouldRender(qi, gi, 1); // 既存の仮想化
+                      const render = true; // とりあえず全部レンダー
                       const focused = qi === curQ && gi === curG;
 
                       return (

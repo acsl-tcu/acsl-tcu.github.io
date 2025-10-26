@@ -12,16 +12,16 @@ export function useMatrixNavigation() {
   const qiOf = (q: Quarter) => QUARTERS.indexOf(q);      // 1行：行idx
   const giOf = (g: Grade) => GRADES.indexOf(g);          // 1行：列idx
 
-  const scrollToPanel = React.useCallback((qi: number, gi: number) => {
-    const qn = Math.max(0, Math.min(QUARTERS.length - 1, qi));
-    const gn = Math.max(0, Math.min(GRADES.length - 1, gi));
-    const q = QUARTERS[qn];
-    const g = GRADES[gn];
-    const node = panelRefs.current[keyFrom(q, g)];
-        console.log("scrollToPanel:",q,g,node);
-        setCurQ(qn); setCurG(gn);
-    if (node) node.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
-  }, []);
+  // const scrollToPanel = React.useCallback((qi: number, gi: number) => {
+  //   const qn = Math.max(0, Math.min(QUARTERS.length - 1, qi));
+  //   const gn = Math.max(0, Math.min(GRADES.length - 1, gi));
+  //   const q = QUARTERS[qn];
+  //   const g = GRADES[gn];
+  //   const node = panelRefs.current[keyFrom(q, g)];
+  //   console.log("scrollToPanel:", q, g, node);
+  //   setCurQ(qn); setCurG(gn);
+  //   if (node) node.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+  // }, []);
 
   // IO で現在位置トラッキング
   // React.useEffect(() => {
@@ -50,24 +50,53 @@ export function useMatrixNavigation() {
 
   //   return () => io.disconnect();
   // }, []);
+  // 方向移動ヘルパ
+  function moveFocus(dRow: number, dCol: number) {
+    // curQ: 0..3（行=クォーター）, curG: 0..3（列=学年）想定
+    const nq = Math.max(0, Math.min(3, curQ + dRow));
+    const ng = Math.max(0, Math.min(3, curG + dCol));
+    if (nq !== curQ || ng !== curG) {
+      setCurQ(nq);
+      setCurG(ng);
+    }
+  }
+  // const gridWrapperRef = React.useRef<HTMLDivElement | null>(null);
 
-  // Shift+矢印でジャンプ
+  // A領域にキーボードハンドラ
+  function onGridKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+    if (!e.shiftKey) return;
+    if (e.key === "ArrowUp") { e.preventDefault(); moveFocus(-1, 0); }
+    if (e.key === "ArrowDown") { e.preventDefault(); moveFocus(+1, 0); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); moveFocus(0, -1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); moveFocus(0, +1); }
+  }
+  // フォーカス変更時に中央へ
   React.useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (!e.shiftKey) return;
-      if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) e.preventDefault();
-      if (e.key === "ArrowLeft") scrollToPanel(curQ, Math.max(0, curG - 1));
-      if (e.key === "ArrowRight") scrollToPanel(curQ, Math.min(GRADES.length - 1, curG + 1));
-      if (e.key === "ArrowUp") scrollToPanel(Math.max(0, curQ - 1), curG);
-      if (e.key === "ArrowDown") scrollToPanel(Math.min(QUARTERS.length - 1, curQ + 1), curG);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [curQ, curG, scrollToPanel]);
+    const k = keyFrom(QUARTERS[curQ], GRADES[curG]);
+    const el = panelRefs.current[k];
+    if (el && containerRef.current) {
+      el.scrollIntoView({ block: "center", inline: "center", behavior: "instant" });
+      // 任意：フォーカス枠のためフォーカス移譲
+      el.focus?.();
+    }
+  }, [curQ, curG]);
+  // Shift+矢印でジャンプ
+  // React.useEffect(() => {
+  //   const onKey = (e: KeyboardEvent) => {
+  //     if (!e.shiftKey) return;
+  //     if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) e.preventDefault();
+  //     if (e.key === "ArrowLeft") scrollToPanel(curQ, Math.max(0, curG - 1));
+  //     if (e.key === "ArrowRight") scrollToPanel(curQ, Math.min(GRADES.length - 1, curG + 1));
+  //     if (e.key === "ArrowUp") scrollToPanel(Math.max(0, curQ - 1), curG);
+  //     if (e.key === "ArrowDown") scrollToPanel(Math.min(QUARTERS.length - 1, curQ + 1), curG);
+  //   };
+  //   window.addEventListener("keydown", onKey);
+  //   return () => window.removeEventListener("keydown", onKey);
+  // }, [curQ, curG, scrollToPanel]);
 
   // 仮想化：近傍の可視範囲（マンハッタン距離）でレンダー許可
-  const shouldRender = (qi: number, gi: number, radius = 1) =>
-    Math.abs(qi - curQ) + Math.abs(gi - curG) <= radius;
+  // const shouldRender = (qi: number, gi: number, radius = 1) =>
+  //   Math.abs(qi - curQ) + Math.abs(gi - curG) <= radius;
 
-  return { containerRef, panelRefs, keyFrom, qiOf, giOf, curQ, curG, scrollToPanel, shouldRender };
+  return { containerRef, panelRefs, keyFrom, qiOf, giOf, curQ, curG, onGridKeyDown };//scrollToPanel, shouldRender, 
 }
