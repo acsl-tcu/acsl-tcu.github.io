@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-// import TimetableWeek from "@/components/timetable/TimetableWeek";
-import TimetableWeek from "@/components/timetable/LazyTimetableWeek";
+import TimetableWeek from "@/components/timetable/TimetableWeek";
+// import TimetableWeek from "@/components/timetable/LazyTimetableWeek";
 import DroppableCell from "@/components/timetable/DroppableCell";
 import SubjectCard from "@/components/timetable/SubjectCard";
 import { QUARTERS, GRADES, Quarter, Grade } from "@/lib/types/timetable";
@@ -226,7 +226,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
                       // const render = shouldRender(qi, gi, 1); // 既存の仮想化
                       const render = true; // とりあえず全部レンダー
                       const focused = qi === curQ && gi === curG;
-
+                      console.log("[getOfferingIds]", { q, g, ids: getOfferingIds(q, g) });
                       return (
                         <div
                           key={k}
