@@ -30,6 +30,7 @@ export const labelOfferings = (
   q: Quarter, g: Grade
 ) => {
   const map = emptyGlobalGrid(q, g);
+  console.log("[labelOfferings] placement:", placement);
   for (const [offeringId, ids] of Object.entries(placement)) {
     for (const id of ids) {
       const gl = byId.get(id);
