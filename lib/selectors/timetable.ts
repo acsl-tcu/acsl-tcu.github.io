@@ -25,7 +25,7 @@ export const emptyGlobalGrid = (q: Quarter, g: Grade) => {
       map.set(encodeGlobalLabel(q, g, d, p), []);
     }
   }
-  console.log("[emptyGlobalGrid]", map);
+  // console.log("[emptyGlobalGrid]", map);
   return map;
 };
 
@@ -36,7 +36,7 @@ export const labelOfferings = (
   q: Quarter, g: Grade
 ) => {
   const map = emptyGlobalGrid(q, g);
-  console.log("[labelOfferings] placement:", placement, byId, q, g, map);
+  console.log("[labelOfferings] ", byId, q, g, map);
   for (const [offeringId, ids] of Object.entries(placement)) {
     for (const id of ids) {
       const gl = byId.get(id);
