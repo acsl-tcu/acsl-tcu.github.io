@@ -20,6 +20,7 @@ export const makeById = (server: TimetablePayload) => {
 export const emptyGlobalGrid = (q: Quarter, g: Grade) => {
   const map = new Map<string, string[]>();
   for (const d of DAYS) for (const p of PERIODS) map.set(encodeGlobalLabel(q, g, d, p), []);
+  console.log("[emptyGlobalGrid]", map);
   return map;
 };
 
