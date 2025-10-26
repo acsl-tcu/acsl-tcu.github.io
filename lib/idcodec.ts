@@ -1,7 +1,7 @@
 // lib/idcodec.ts
 // ※ 変数は1行、関数は3行以内の意図コメント（入出力の説明つき）
 
-import type { Grade, Quarter, DayOfWeek } from "@/lib/types/timetable";
+import type { Grade, Quarter, DayOfWeek, SlotLabel, GlobalSlotLabel } from "@/lib/types/timetable";
 
 // ラベル判定用の簡易正規表現
 const LOCAL_RE = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)-\d+$/;      // 1行: 従来のローカルラベル "Wed-3" を判定
@@ -17,9 +17,10 @@ export const isLocalLabel = (label: string): boolean => LOCAL_RE.test(label);
 export const isGlobalLabel = (label: string): boolean => GLOBAL_RE.test(label);
 
 // encodeGlobalLabel: 入=Q,G,day,period／出="Q2|G3|Wed-3" のグローバルラベル
-export const encodeGlobalLabel = (q: Quarter, g: Grade, day: DayOfWeek, period: number): string =>
+export const encodeGlobalLabel = (q: Quarter, g: Grade, day: DayOfWeek, period: number): GlobalSlotLabel =>
   `${q}|G${g}|${day}-${period}`;
 
+export const encodeLocalLabel = (d: DayOfWeek, p: number): SlotLabel => `${d}-${p}`;
 // parseGlobalLabel: 入=グローバルラベル／出={quarter,grade,day,period}（不正は null）
 export const parseGlobalLabel = (label: string):
   | { quarter: Quarter; grade: Grade; day: DayOfWeek; period: number }

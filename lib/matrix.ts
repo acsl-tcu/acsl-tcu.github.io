@@ -3,12 +3,14 @@ import {
   Grade,
   Quarter,
   SlotLabel,
+  GlobalSlotLabel,
   DayOfWeek,
   SubjectCardT,
   TimeSlotInfo,
   TimetablePayload,
 } from "@/lib/types/timetable";
-import { encodeGlobalLabel } from "@/lib/idcodec";
+import { encodeGlobalLabel, encodeLocalLabel } from "@/lib/idcodec";
+
 
 // API から返る day ラベル("Mon" | "Tue" ...)を DayOfWeek ("MON" | "TUE" ...) に変換
 function toDayOfWeekEnum(label: string): DayOfWeek {
@@ -26,18 +28,18 @@ function toDayOfWeekEnum(label: string): DayOfWeek {
 }
 
 // API 返却の timeSlot をローカルの TimeSlotInfo へ正規化
+// API返却: [{ id, day, period/slot, ... }]
 function normalizeTimeSlots(
-  slots: Array<{ id: number; day: string; slot?: number; period?: number; label?: string; }>
+  slots: Array<{ id: number; day: string; slot?: number; period?: number; label?: string; }>,
+  ctx: { quarter: Quarter; grade: Grade }
 ): TimeSlotInfo[] {
+  const { quarter, grade } = ctx;
   return (slots ?? []).map((ts) => {
-    const dayEnum = toDayOfWeekEnum(ts.day);
+    const dayEnum = toDayOfWeekEnum(ts.day);          // "Mon" 等に正規化
     const period = (ts.period ?? ts.slot ?? 0);
-    return {
-      id: ts.id,
-      day: dayEnum,
-      period,
-      label: `${dayEnum}-${period}` as SlotLabel, // ローカル表記に統一
-    };
+    const label = `${dayEnum}-${period}` as const;
+    const globalLabel = `${quarter}|G${grade}|${label}` as const;
+    return { id: ts.id, day: dayEnum, period, quarter, grade, label, globalLabel };
   });
 }
 
@@ -56,7 +58,7 @@ export type PanelData = {
   grade: Grade;
   payload: {
     subjects: SubjectCardT[];
-    timeSlots: { id: number; day: DayOfWeek; period: number; label: SlotLabel }[];
+    timeSlots: { id: number; day: DayOfWeek; period: number; label: SlotLabel, globalLabel: GlobalSlotLabel }[];
     placement: Record<string, number[]>;
   };
 };
@@ -90,7 +92,7 @@ export async function fetchMatrixData(
             grade: g,
             payload: {
               subjects: raw.subjects ?? [],
-              timeSlots: normalizeTimeSlots(raw.timeSlots ?? []),
+              timeSlots: normalizeTimeSlots(raw.timeSlots ?? [], { quarter: q, grade: g }),
               placement: normalizePlacement(raw.placement ?? {}),
             },
           };
@@ -104,7 +106,7 @@ export async function fetchMatrixData(
             grade: g,
             payload: {
               subjects: [],
-              timeSlots: normalizeTimeSlots([]),
+              timeSlots: normalizeTimeSlots([], { quarter: q, grade: g }),
               placement: normalizePlacement({}),
             },
           };
@@ -132,8 +134,9 @@ export function mergeMatrixData(panels: PanelData[]): TimetablePayload {
   const tsMap = new Map<string, TimeSlotInfo>();
   for (const p of panels) {
     for (const ts of p.payload.timeSlots) {
-      const glabel = encodeGlobalLabel(p.quarter, p.grade, ts.day, ts.period);
-      tsMap.set(glabel, { ...ts, label: glabel as SlotLabel });
+      const globalLabel = encodeGlobalLabel(p.quarter, p.grade, ts.day, ts.period);
+      const localLabel = encodeLocalLabel(ts.day, ts.period);
+      tsMap.set(globalLabel, { ...ts, label: localLabel, globalLabel: globalLabel, quarter: p.quarter, grade: p.grade });
     }
   }
   const timeSlots = Array.from(tsMap.values());
