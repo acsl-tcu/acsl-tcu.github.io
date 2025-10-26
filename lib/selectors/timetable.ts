@@ -13,7 +13,7 @@ export const makeById = (server: TimetablePayload) => {
   const m = new Map<number, string>();
   for (const ts of server.timeSlots) m.set(ts.id, ts.label);
   server.timeSlots.map((ts, i) => m.set(i, ts.label));
-  console.log("[makeById]", m);
+  // console.log("[makeById]", m);
   return m;
 };
 

@@ -62,7 +62,7 @@ export default function TimetableWeek({
             {DAYS.map((d) => {
               const label = makeLabel ? makeLabel(d, p) : `Q1|G1|${d}-${p}`;
               const offeringIds = getOfferingIds(label) ?? [];
-              console.log("label: ", label, offeringIds);
+              // console.log("label: ", label, offeringIds);
               return (
                 <DroppableCell key={label} id={label}>
                   <div className="flex flex-col gap-2">

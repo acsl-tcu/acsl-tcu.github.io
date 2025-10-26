@@ -22,9 +22,9 @@ export function useTimetableData(initialYear: number) {
     setLoading(true);
     try {
       const panels = await fetchMatrixData(quarters, grades, y);
-      console.log("Panels: ",panels)
+      console.log("Panels: ", panels)
       const merged = mergeMatrixData(panels);
-      console.log("Merged:",merged);
+      console.log("Merged:", merged);
       setServer(merged);
       setPlacement(merged.placement);
       setHistory([]);
@@ -43,7 +43,7 @@ export function useTimetableData(initialYear: number) {
     // console.log("pushHistroy:",next)
     if (JSON.stringify(placement) === JSON.stringify(next)) return;
     setHistory(h => [...h, placement]);
-    console.log("pushHistroy[after]:",next,'[before]', placement)
+    console.log("pushHistroy[after]:", next, '[before]', placement)
     setPlacement(next);
     setFuture([]);
   }, [placement]);
