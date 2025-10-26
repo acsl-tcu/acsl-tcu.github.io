@@ -12,7 +12,7 @@ export const makeByLabel = (server: TimetablePayload) => {
 export const makeById = (server: TimetablePayload) => {
   const m = new Map<number, string>();
   for (const ts of server.timeSlots) m.set(ts.id, ts.label);
-  server.timeSlots.map((ts,i)=> m.set(i,ts.label));
+  server.timeSlots.map((ts, i) => m.set(i, ts.label));
   return m;
 };
 
@@ -36,5 +36,6 @@ export const labelOfferings = (
       if (gl && map.has(gl)) map.get(gl)!.push(offeringId);
     }
   }
+  console.log("[labelOfferings]", map);
   return map;
 };
