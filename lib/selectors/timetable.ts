@@ -13,13 +13,18 @@ export const makeById = (server: TimetablePayload) => {
   const m = new Map<number, string>();
   for (const ts of server.timeSlots) m.set(ts.id, ts.label);
   server.timeSlots.map((ts, i) => m.set(i, ts.label));
+  console.log("[makeById]", m);
   return m;
 };
 
 // emptyGlobalGrid: 入=q,g／出=Map(globalLabel->[])
 export const emptyGlobalGrid = (q: Quarter, g: Grade) => {
   const map = new Map<string, string[]>();
-  for (const d of DAYS) for (const p of PERIODS) map.set(encodeGlobalLabel(q, g, d, p), []);
+  for (const d of DAYS) {
+    for (const p of PERIODS) {
+      map.set(encodeGlobalLabel(q, g, d, p), []);
+    }
+  }
   console.log("[emptyGlobalGrid]", map);
   return map;
 };
@@ -31,7 +36,7 @@ export const labelOfferings = (
   q: Quarter, g: Grade
 ) => {
   const map = emptyGlobalGrid(q, g);
-  console.log("[labelOfferings] placement:", placement, byId);
+  console.log("[labelOfferings] placement:", placement, byId, q, g, map);
   for (const [offeringId, ids] of Object.entries(placement)) {
     for (const id of ids) {
       const gl = byId.get(id);
