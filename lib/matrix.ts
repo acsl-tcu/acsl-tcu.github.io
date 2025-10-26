@@ -123,7 +123,7 @@ export async function fetchMatrixData(
             timeSlots: Array<{ id: number; day: string; slot?: number; period?: number; label?: string; }>;
             placement: Record<string | number, number[]>;
           };
-
+          console.log(`[fetchMatrixData] raw data for Q${q}/G${g}:`, raw);
           // ★ ここで正規化して内部型に合わせる
           // 1) 各 panel(q,g) の timeSlots を正規化
           const timeSlots = normalizeTimeSlots(raw.timeSlots ?? [], { quarter: q, grade: g });
@@ -134,7 +134,7 @@ export async function fetchMatrixData(
 
           // 3) placement を（id配列に）正規化
           const placementNormalized = normalizePlacement(raw.placement ?? {}, { quarter: q, grade: g }, labelToId);
-
+          console.log("[fetchMatrixData] normalized placement:", placementNormalized, timeSlots);
           const normalized: PanelData = {
             quarter: q,
             grade: g,
