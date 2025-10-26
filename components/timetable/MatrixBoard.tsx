@@ -37,7 +37,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
   React.useEffect(() => { fetchAll(QUARTERS, GRADES, year); }, [year, fetchAll]);
 
   // ナビ・仮想化
-  const { containerRef, panelRefs, keyFrom, qiOf, giOf, curQ, curG, scrollToPanel, shouldRender } = useMatrixNavigation();
+  const { containerRef, panelRefs, keyFrom, qiOf, giOf, curQ, curG, shouldRender } = useMatrixNavigation();//scrollToPanel,
   console.log("qi gi of:", qiOf, giOf);
   // CtrlでClone/Move
   React.useEffect(() => {
@@ -106,7 +106,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
   }, [placement, byId]);
 
   // レイアウト用
-  const TTW_W = 900;  // TimetableWeek の実寸幅（既存プレースホルダに合わせる）
+  const TTW_W = 1200;  // TimetableWeek の実寸幅（既存プレースホルダに合わせる）
   const TTW_H = 520;  // TimetableWeek の実寸高
   const [poolPinned, setPoolPinned] = React.useState(false);
   const [poolHover, setPoolHover] = React.useState(false);
@@ -144,7 +144,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
       </div>
 
       {/* ミニマップ */}
-      <div className="mb-3 flex items-center gap-3">
+      {/*<div className="mb-3 flex items-center gap-3">
         <div className="text-sm font-medium">ナビ</div>
         <div className="grid grid-rows-4 grid-cols-4 gap-1">
           {QUARTERS.map((q, qi) => GRADES.map((g, gi) => (
@@ -153,6 +153,7 @@ export default function MatrixBoard({ initialYear = 2025 }: { initialYear?: numb
         </div>
         <div className="text-xs text-slate-500">Shift+矢印で移動</div>
       </div>
+      */}
 
       {loading ? (
         <div className="text-sm text-slate-500">読み込み中...</div>

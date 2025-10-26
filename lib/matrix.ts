@@ -14,15 +14,15 @@ import { encodeGlobalLabel } from "@/lib/idcodec";
 function toDayOfWeekEnum(label: string): DayOfWeek {
   const m = label?.toLowerCase?.();
   switch (m) {
-  case "mon": return "Mon";
-  case "tue": return "Tue";
-  case "wed": return "Wed";
-  case "thu": return "Thu";
-  case "fri": return "Fri";
-  case "sat": return "Sat";
-  case "sun": return "Sun";
-  default: throw new Error(`Invalid day: ${label}`);
-}
+    case "mon": return "Mon";
+    case "tue": return "Tue";
+    case "wed": return "Wed";
+    case "thu": return "Thu";
+    case "fri": return "Fri";
+    case "sat": return "Sat";
+    case "sun": return "Sun";
+    default: throw new Error(`Invalid day: ${label}`);
+  }
 }
 
 // API 返却の timeSlot をローカルの TimeSlotInfo へ正規化
@@ -92,6 +92,20 @@ export async function fetchMatrixData(
               subjects: raw.subjects ?? [],
               timeSlots: normalizeTimeSlots(raw.timeSlots ?? []),
               placement: normalizePlacement(raw.placement ?? {}),
+            },
+          };
+          return normalized;
+        })
+        .catch((err) => {
+          console.log(err)
+          window.location.href = '/Login?redirect=/MSE/TimetableMatrix';
+          const normalized: PanelData = {
+            quarter: q,
+            grade: g,
+            payload: {
+              subjects: [],
+              timeSlots: normalizeTimeSlots([]),
+              placement: normalizePlacement({}),
             },
           };
           return normalized;
