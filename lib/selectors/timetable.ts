@@ -40,6 +40,8 @@ export const labelOfferings = (
   for (const [offeringId, ids] of Object.entries(placement)) {
     for (const id of ids) {
       const gl = byId.get(id);
+      if (!gl?.startsWith(`${q}|G${g}|`)) continue;
+      console.log("[labelOfferings] found ", { offeringId, id, gl });
       if (gl && map.has(gl)) map.get(gl)!.push(offeringId);
     }
   }
