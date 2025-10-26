@@ -44,11 +44,49 @@ function normalizeTimeSlots(
 }
 
 // placement のキーを string に統一
-function normalizePlacement(p: Record<string | number, number[]>): Record<string, number[]> {
+// function normalizePlacement(p: Record<string | number, number[]>,
+//   ctx: { quarter: Quarter; grade: Grade }
+// ): Record<string, number[]> {
+//   const out: Record<string, number[]> = {};
+//   const { quarter, grade } = ctx;
+//   for (const [k, v] of Object.entries(p ?? {})) {
+//     out[String(k)] = Array.isArray(v) ? v : [];
+//   }
+//   return out;
+// }
+/**
+ * placement を ctx(Q,G) に適合させつつ、最終的に id 配列へ統一する
+ * - value が number[] の場合はそのまま（数値以外は除去）
+ * - value が string[] の場合は ctx に合わせて globalLabel 化し、labelToId で id へ変換
+ */
+function normalizePlacement(
+  p: Record<string | number, Array<number | string>>,
+  ctx: { quarter: Quarter; grade: Grade },
+  labelToId: Map<string, number> // ← timeSlots から生成して渡す
+): Record<string, number[]> {
   const out: Record<string, number[]> = {};
-  for (const [k, v] of Object.entries(p ?? {})) {
-    out[String(k)] = Array.isArray(v) ? v : [];
+
+  for (const [k, arr] of Object.entries(p ?? {})) {
+    const set = new Set<number>();
+
+    if (Array.isArray(arr)) {
+      for (const v of arr) {
+        if (typeof v === "number" && Number.isFinite(v)) {
+          // すでに id の場合：そのまま
+          set.add(v);
+        } else if (typeof v === "string") {
+          // ラベルの場合：ctx に合わせて globalLabel 化 → id へ変換
+          const glabel = v;
+          const id = labelToId.get(glabel);
+          if (typeof id === "number") set.add(id);
+          // 見つからない場合はスキップ（必要なら console.warn など）
+        }
+      }
+    }
+
+    out[String(k)] = Array.from(set);
   }
+
   return out;
 }
 
@@ -87,13 +125,23 @@ export async function fetchMatrixData(
           };
 
           // ★ ここで正規化して内部型に合わせる
+          // 1) 各 panel(q,g) の timeSlots を正規化
+          const timeSlots = normalizeTimeSlots(raw.timeSlots ?? [], { quarter: q, grade: g });
+          // 2) labelToId を作成（globalLabel -> id）
+          const labelToId = new Map<string, number>(
+            timeSlots.map(s => [s.globalLabel, s.id])
+          );
+
+          // 3) placement を（id配列に）正規化
+          const placementNormalized = normalizePlacement(raw.placement ?? {}, { quarter: q, grade: g }, labelToId);
+
           const normalized: PanelData = {
             quarter: q,
             grade: g,
             payload: {
               subjects: raw.subjects ?? [],
-              timeSlots: normalizeTimeSlots(raw.timeSlots ?? [], { quarter: q, grade: g }),
-              placement: normalizePlacement(raw.placement ?? {}),
+              timeSlots: timeSlots,
+              placement: placementNormalized,
             },
           };
           return normalized;
@@ -107,7 +155,7 @@ export async function fetchMatrixData(
             payload: {
               subjects: [],
               timeSlots: normalizeTimeSlots([], { quarter: q, grade: g }),
-              placement: normalizePlacement({}),
+              placement: normalizePlacement({}, { quarter: q, grade: g }, new Map<string, number>()),
             },
           };
           return normalized;
