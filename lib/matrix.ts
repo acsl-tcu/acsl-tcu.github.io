@@ -108,6 +108,7 @@ export async function fetchMatrixData(
   year: number
 ): Promise<PanelData[]> {
   const jobs: Promise<PanelData>[] = [];
+  //q, g毎にfetchしているが無駄
   for (const q of quarters) {
     for (const g of grades) {
       const params = new URLSearchParams({ grade: String(g), quarter: q, year: String(year) });
