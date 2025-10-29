@@ -23,6 +23,7 @@
     "next-auth": "^4.24.11",
     "next-i18next": "^15.4.2",
     "papaparse": "^5.5.3",
+    "qrcode": "^1.5.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.8",
