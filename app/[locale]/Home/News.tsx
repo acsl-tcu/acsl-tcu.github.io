@@ -1,28 +1,33 @@
 'use client';
 import useDB from '@/hooks/useDB';
-interface Article {
-    author: string;
-    title: string;
-    magazine: string;
-    page: string;
-    date: string;
-  }
+import { Article } from '@/types/lab_db';
+import Link from 'next/link';
 
 const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
   if (!articles) return null;
-    console.log(articles);
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full table-auto border border-gray-300">
         <tbody>
           {articles.map((article, index) => {
+            const magazine = article.magazine ? article.magazine : article.meeting;
+            const identifier = article.identifier;
+            let title = <>{article.title}</>;
+
+            if (/http/.test(identifier)) {
+              title = <Link href={identifier} className="text-blue-500 underline hover:text-blue-700">{article.title}</Link>;
+            } else if (identifier) {
+              title = <Link href={`http://doi.org/${identifier}`} className="text-blue-500 underline hover:text-blue-700">{article.title}</Link>;
+            }
+
             return (
               <tr key={index} className="border-b border-gray-200 even:bg-gray-100 even:dark:bg-gray-800 dark:bg-neutral-900 dark:text-gray-100">
                   <td className="p-2 text-sm font-mono w-8 text-right">
                      {index + 1}
                   </td>
                   <td className="p-2 text-sm">
-                  {article.author}, <span className="italic">{"{article.title}"}</span>, {article.magazine}, {article.page}, {article.date}
+                  {article.author}, <span className="italic">{title}</span>, {magazine}, {article.page}, {article.date}
                 </td>
               </tr>
             );
