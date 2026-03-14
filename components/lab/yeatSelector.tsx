@@ -5,11 +5,14 @@ interface TextProps {
   dispYear: number
   setDispYear: React.Dispatch<React.SetStateAction<number>>
   hrefs?: string[]
+  years?: number[]
 }
 
-const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs = [] }) => {
+const YearSelector: React.FC<TextProps> = ({ texts, dispYear, setDispYear, hrefs = [], years }) => {
   const thisYear = new Date().getFullYear()
-  const year_list = Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index)
+  const year_list = years && years.length > 0
+    ? years
+    : Array.from({ length: thisYear - 2012 }, (_, index) => thisYear - index)
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setDispYear(Number(event.target.value))

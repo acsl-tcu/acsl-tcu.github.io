@@ -2,9 +2,40 @@
 import { useI18nContext } from '@/contexts/i18nContext';
 // import { Locale } from '@/types/i18n';
 import useDB from '@/hooks/useDB';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import YearSelector from '@/components/lab/yeatSelector';
 import Image from "next/image";
+
+const START_YEAR = 2013;
+
+function getCandidateYears() {
+  const thisYear = new Date().getFullYear();
+  return Array.from({ length: thisYear - START_YEAR + 1 }, (_, index) => thisYear - index);
+}
+
+async function hasMemberData(year: number) {
+  const query = new URLSearchParams({
+    year: String(year),
+    tables: 'member',
+  });
+
+  const [dataResponse, imageResponse] = await Promise.all([
+    fetch(`https://acsl-hp.vercel.app/api/read-database-psql?${query.toString()}`, {
+      method: 'GET',
+    }),
+    fetch(`/images/member/${year}.png`, {
+      method: 'HEAD',
+    }),
+  ]);
+
+  if (!dataResponse.ok || !imageResponse.ok) {
+    return false;
+  }
+
+  const result = await dataResponse.json();
+  const rows = Array.isArray(result?.message) ? result.message : [];
+  return Array.isArray(rows[0]) && rows[0].length > 0;
+}
 
 interface Member {
   // localed member data
@@ -103,8 +134,50 @@ const MemberPhoto: React.FC<{ year: number }> = ({ year }) => {
 };
 
 const MemberPAGE: React.FC = () => {
-  const thisYear = new Date().getFullYear();
-  const [dispYear, setDispYear] = useState<number>(thisYear);
+  const [availableYears, setAvailableYears] = useState<number[]>([]);
+  const [dispYear, setDispYear] = useState<number>(new Date().getFullYear());
+  const [isLoadingYears, setIsLoadingYears] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadAvailableYears() {
+      try {
+        const candidateYears = getCandidateYears();
+        const results = await Promise.all(
+          candidateYears.map(async (year) => ({
+            year,
+            visible: await hasMemberData(year),
+          }))
+        );
+
+        if (cancelled) return;
+
+        const years = results.filter((result) => result.visible).map((result) => result.year);
+        setAvailableYears(years);
+        if (years.length > 0) {
+          setDispYear((currentYear) => (years.includes(currentYear) ? currentYear : years[0]));
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoadingYears(false);
+        }
+      }
+    }
+
+    void loadAvailableYears();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (isLoadingYears) {
+    return <div className="p-4 text-gray-500">Loading...</div>;
+  }
+
+  if (availableYears.length === 0) {
+    return <div className="p-4 text-gray-500">No member data available.</div>;
+  }
 
   return (
     <div className="p-4">
@@ -114,6 +187,7 @@ const MemberPAGE: React.FC = () => {
         hrefs={["Staff", "Doctoral course", "M2", "M1", "B4"]}
         dispYear={dispYear}
         setDispYear={setDispYear}
+        years={availableYears}
       />
       <MemberTable year={dispYear} />
     </div>
