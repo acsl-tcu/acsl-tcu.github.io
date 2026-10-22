@@ -1,0 +1,15 @@
+order: 280
+type: application
+area: electric_wheelchair
+role: "3: estimation"
+title: Comparative Experiments of Moving Horizon Estimation based SLAM in Indoor Environment
+jtitle: 屋内環境におけるMoving Horizon Estimationに基づくSLAMの比較実験
+abst: To realize autonomous locomotion of robots in an unknown environment, they need to create an environment map while estimating self-pose with measured data. When the robot works in an area where many people exist, however, the measured data is frequently occluded by them and become insufficient to achieve the SLAM. Applying moving horizon estimation to SLAM, when the measured data is insufficient, the evaluation of the motion model becomes more dominant than that of the matching error of the measured data. To verify the effectiveness of SLAM based on MHE, we conduct experiments in the crowded area to compare the result with that of SLAM based on extended Kalman filter. Also, we applied sequential quadratic programming to the optimization  to reduce the computational complexity of the proposed method. It was confirmed that the computational complexity was reduced by about 88 % compared to the trust region method.
+jabst: 未知の環境でロボットの自律移動を実現するためには，測定値を用いて自己姿勢を推定しながら環境地図を作成する必要がある．しかし，ロボットが多くの人々が存在する環境で作業するとき，測定値が十分に得られず，SLAMを達成するには不十分になる．Moving Horizon Estimationに基づくSLAMでは，計測値が不十分であるときに動作モデルの評価は計測値のマッチング誤差の評価より支配的になる．本研究ではMHEに基づくSLAMの有効性を検証するために，混雑環境にて拡張カルマンフィルタに基づくSLAMと比較実験を行った． また，提案手法の計算量を削減するために逐次二次計画法を最適化に適用し，信頼領域法と比較して計算量が約88 ％削減されていることを確認した．
+keywords:
+  - Estimation
+  - MHE
+figures:
+  - path: /images/electric_wheelchair_kasahara.jpg
+    caption: Left figure and right figure depict the estimated trajectory with EKF and MHE, respectively. The red lines are the trajectory with each SLAM, the green lines are the trajectory with odometry, and the blue lines are the reference value measured by the motion capture system. The yellow area represents the section where the robot is surrounded by crowd and the part of measurement is occluded. As shown in right figure, MHE results in the estimation error smaller than EKF in the crowded environment.
+    jcaption: 左図と右図は，それぞれEKFとMHEによる推定経路を示しています． 赤い線はSLAMによる推定経路，緑の線はオドメトリによる経路，青い線はモーションキャプチャで測定した参照経路を示している．黄色の領域は，ロボットが混雑環境において測定値が不足しているエリアを示している． 右図に示すように，混雑環境ではMHEの方がEKFより推定誤差が小さくなる．

@@ -1,0 +1,23 @@
+order: 200
+type: application
+area: leg-wheel_mobile_robot
+role: "2: control"
+title: |
+  Whole-Body Motion Generation Using Model Predictive Control for Mobile Manipulators
+jtitle: モデル予測制御を用いたモバイルマニピュレータのための全身運動生成
+abst: |-
+  In recent years, robots have been expected to perform housework in developed countries. Moreover, much research has been conducted on motion generation and task planning for housework using mobile manipulators. In many cases, mobile robots and manipulators are controlled independently.
+  In this reserch, to deal with works in the living room environment by mobile manipulators, a whole-body motion generation for a mobile manipulator is proposed in this paper by employing model predictive control. The whole-body model predictive controller combines the high mobility of the mobile robot with the high accuracy motion of the manipulator to achieve efficient motion. In this paper, we describe a method based on the kinematic model of the mobile manipulator for generating motions considering the characteristics of motions of
+  the mobile robot and manipulator using variable velocity constraints.
+jabst: |-
+  近年，先進国ではモバイルマニピュレータによる家事代行が期待されており，そのための動作生成や作業計画に関する研究が多く行われている．多くの場合、移動ロボットとマニピュレータは独立して制御される．
+  本研究ではモデル予測制御（MPC）を採用した移動マニピュレータの全身動作生成を提案する．MPCを用いた全身運動生成により，移動ロボットの運動性能とマニピュレータの高精度な運動を組み合わせた効率的な運動を可変性速度制約を導入することにより実現する．
+keywords:
+  - MPC
+figures:
+  - path: /images/grasp_cup.mp4
+    caption: MPC-based whole-body motion generation for mobile manipulators. Realization of grasping motion generation while avoiding obstacles.
+    jcaption: モバイルマニピュレータのためのMPCを利用した全身運動生成．障害物を回避しながらの把持動作生成を実現
+  - path: /images/open_door.mp4
+    caption: MPC-based whole-body motion generation for mobile manipulators. Realization of door-opening motion generation.
+    jcaption: モバイルマニピュレータのためのMPCを利用した全身運動生成．扉開け動作生成を実現

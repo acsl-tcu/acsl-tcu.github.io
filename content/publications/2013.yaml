@@ -1,0 +1,28 @@
+year: 2013
+journal: []
+international: []
+domestic:
+  - author: 小山 健太郎, 野中 謙一郎, 関口 和真
+    title: 自車の走行経路を時間軸とする時間軸状態制御形による経路追従制御
+    etitle: Path-Following Control for Non-Holonomic Vehicles based on Time-State Control Form using Travel Length as Time-Axis
+    meeting: 第56回自動制御連合講演会予稿集
+    page: 230-235
+    date: "201311"
+  - author: 吉田 三喜也, 野中 謙一郎, 関口 和真
+    title: タイヤ横すべり角制約を伴うモデル予測車両制御 -横力のモデル化誤差についての検証-
+    etitle: Model Predictive Vehicle Control with Restriction of Tire Side Slip Angle - Verification of Modeling Error on Side Force Model -
+    meeting: 第56回自動制御連合講演会予稿集
+    page: 853-858
+    date: "201311"
+  - author: 米澤 裕太, 野中 謙一郎, 関口 和真
+    title: キャスタ型オドメータを用いた積分型非線形オブザーバによる速度推定
+    etitle: Velocity Estimation by Servo-type Nonlinear Observer for Caster Odometers
+    meeting: 第56回自動制御連合講演会予稿集
+    page: 1271-1276
+    date: "201311"
+  - author: 小田 貴嗣, 野中 謙一郎
+    title: モデル予測制御とスライディングモード制御による小型電気自動車の最適ロバスト制御
+    etitle: Optimal and Robust Control for Small Electric Vehicles using Model Predictive Control and Sliding Mode Control
+    meeting: 2013年自動車技術会春季学術講演会予稿集
+    page: 1-4
+    date: "201305"

@@ -1,0 +1,142 @@
+year: 2021
+journal:
+  - author: Kazuma Sekiguchi, Wataru Eikyu, and Kenichiro Nonaka
+    language: 2
+    title: Feedback Control for a Drone with a Suspended Load via Hierarchical Linearization
+    etitle: Feedback Control for a Drone with a Suspended Load via Hierarchical Linearization
+    magazine: Journal of Robotics and Mechatronics
+    identifier: 10.20965/jrm.2021.p0274
+    page: 274-282
+    date: "202104"
+  - author: Isao Okawa, Kenichiro Nonaka
+    language: 2
+    title: Linear complementarity model predictive control with limited iterations for box-constrained problems
+    etitle: Linear complementarity model predictive control with limited iterations for box-constrained problems
+    magazine: Automatica
+    identifier: 10.1016/j.automatica.2020.109429
+    page: 1-8
+    date: "202101"
+international:
+  - author: Wataru Eikyu,Kazuma Sekiguchi,Kenichiro Nonaka
+    date: "202109"
+    title: Nonlinear control for the extended model of the load-suspended UAV based on the experiments
+    meeting: MICNON 2021
+    page: 106-111
+  - author: Ryuichi Maki, Iaso Okawa, Kenichiro Nonaka
+    date: "202109"
+    title: Stochastic Model Predictive Control for Vehicles utilizing Chance Constraints adapted to Crowded Environment
+    meeting: FAST-zero'21
+  - author: Masato Matsuyama,Kenichiro Nonaka,Kazuma Sekiguchi
+    date: "202109"
+    title: Estimation of pedestrian pose and velocity considering arm swing using point-cloud data
+    meeting: SICE Annual Conference 2021
+    page: 99-104
+  - author: Ryosuke Kotaka,Kenichiro Nonaka,Kazuma Sekiguchi
+    date: "202109"
+    title: Verification of model predictive control for leg/wheel mobile robots with rigid body dynamics on curved surface
+    meeting: SICE Annual Conference 2021
+    page: 748-750
+domestic:
+  - author: 安井隆裕，関口和真，野中謙一郎
+    title: 前方の状況把握のための視野角を導入した歩行者の群衆動流の模擬
+    etitle: Simulating crowd flow of pedestrians by introducing a viewing angle for understanding the situation in front.
+    meeting: 第22回　計測自動制御学会 システムインテグレーション部門講演会
+    page: 3E4-05
+    date: "202112"
+  - author: 和田聡太,関口和真,野中謙一郎
+    title: 車両モデルのSLAM精度向上を伴う経路追従モデル予測制御
+    etitle: Path tracking model predictive control with improving SLAM accuracyfor a nonholonomic vehicle
+    meeting: 第64回　自動制御連合講演会
+    page: 1E2-2
+    date: "202111"
+  - author: 牧野統真,野中謙一郎,関口和真
+    title: 電動車いすの時間軸状態制御形による曲線経路上の制御
+    etitle: Control of an electric wheelchair on a curved path using the time-state control form
+    meeting: 第64回　自動制御連合講演会
+    page: 1E2-3
+    date: "202111"
+  - author: 永久航,関口和真,野中謙一郎
+    title: 物体を牽引するUAVモデルにおける階層型線形化を用いたパラメータ推定
+    etitle: Parameter estimation by hierarchical linearization in the suspended-load UAVmodel
+    meeting: 第64回　自動制御連合講演会
+    page: 1I1-2
+    date: "202111"
+  - author: 関口和真
+    title: ドローンによる森林火災消火活動における燃えやすさを考慮した消火点選択手法について
+    etitle: Weighted extinct point selection for wildfire extinction by multi drones
+    meeting: 第64回　自動制御連合講演会
+    page: 2I1-1
+    date: "202111"
+  - author: 中原 涼太,関口 和真,野中 謙一郎,髙杉 昌宏,北村 毅史,長谷部 裕樹,松原 健一
+    title: モデル予測制御に基づくセミトレーラーの車両安定性および車線追従性向上
+    etitle: Semi-Trailer Stability and Lane Following Improvement Based on Model Predictive Control
+    meeting: 2021年自動車技術会秋季学術講演会(JSAE-Autumn'21)
+    date: "202110"
+  - author: 安井隆裕,関口 和真,野中 謙一郎
+    title: モンテカルロシミュレーションによる複数機のドローンを用いた畑からの害鳥の排除動作の有効性検証
+    etitle: Validation of the Effectiveness of Push-away Motion of Pest Birds from a Farm Area by Multiple Drones by Monte Carlo Simulation Techniques
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2022)
+    page: 2B1-2
+    date: "202103"
+  - author: 中原 涼太,関口 和真,野中 謙一郎,髙杉昌宏,長谷部 裕樹,松原 健一
+    title: 大型商業車両のエアブレーキシステムのための確率的モデル予測制御
+    etitle: Stochastic Model Predictive Control for Air Brake System of Heavy Duty Commercial Vehicle
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: 3H1-2
+    date: "202103"
+  - author: 石川 恭匡,野中 謙一郎,関口 和真
+    title: 自己位置と任意長の動的な線分の同時推定の実点群による検証
+    etitle: Simultaneous localization and mapping for dynamic line segment with unknown length using experimental point clouds
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: 2F2-5
+    date: "202103"
+  - author: 西川 亮,野中 謙一郎,関口 和真
+    title: 探査ローバーのための影を考慮したモンテカルロモデル予測軌道追従制御
+    etitle: Monte Carlo Model Predictive Tracking Control Considering Shadow for Exploration Rovers
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: 1B1-3
+    date: "202103"
+  - author: 和田聡太,関口和真,野中謙一郎
+    title: 測域センサにおける特異環境のSLAM精度を向上させる車両モデルの運動制御
+    etitle: Motion control of vehicle models for improving SLAM accuracy in singular environments of laser range sensor
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: 2F1-5
+    date: "202103"
+  - author: 松浦 響,宮田 和己,野中 謙一郎,関口 和真
+    title: 電動車いすのための屋内未知環境における自己推定位置を使用したモデル予測制御の検証
+    etitle: Verification of Model Predictive Control for Electric Wheelchair using Estimated Position in Indoor Unknown Environment
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: PS2-4
+    date: "202103"
+  - author: 山口祐剛,野中 謙一郎,関口 和真
+    title: ファジィポテンシャル法による形状を考慮したモンテカルロモデル予測障害物回避制御
+    etitle: Monte Calro Model Predictive Obstacle Avoidance Control Considering Shape.
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: 1F2-2
+    date: "202103"
+  - author: 藤間隆生,野中 謙一郎,関口 和真
+    title: 地図上のノード位置を制約とするMoving Horizon Estimationによる自動車位置の補正
+    etitle: Improved Vehicle Localization on Moving Horizon Estimation Considering Constraint with Node Position on a Map.
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: 2F2-4
+    date: "202103"
+  - author: 橋本賢太郎,大川功,野中 謙一郎
+    title: 相対速度の期待値を用いたモンテカルロ非線形モデル予測制御による自動車の速度制御
+    etitle: Monte Carlo Nonlinear Model Predictive Velocity Control for Automobiles using Expectation of Relative Velocity
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: 1F1-5
+    date: "202103"
+  - author: 高橋宏太,安部凌矢,野中謙一郎,関口和真
+    title: |-
+      Moving Horizon Estimation を用いた
+      回避行動を伴う歩行者の追跡
+    etitle: Pedestrian tracking with avoidance behavior using Moving Horizon Estimation
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2021)
+    page: 2F2-3
+    date: "202103"
+  - author: 金井大樹,野中 謙一郎,関口 和真
+    title: 組み込み CPUに実装された平面型脚車輪型移動ロボットのための分散モデル予測障害物回避制御
+    etitle: Distributed Model Predictive Obstacle Avoidance Control implemented in Embedded CPUs for Planar Leg/Wheel Mobile Robots
+    meeting: 第8回計測自動制御学会制御部門マルチシンポジウム(MSCS2022)
+    page: 1F2-3
+    date: "202103"

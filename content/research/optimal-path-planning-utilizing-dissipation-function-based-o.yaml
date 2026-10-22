@@ -1,0 +1,17 @@
+order: 150
+type: application
+area: leg-wheel_mobile_robot
+role: "2: control"
+title: Optimal Path Planning utilizing Dissipation Function based on Terrain Elevation Map for Lunar Rovers
+jtitle: 探査ローバーのための地形標高マップに基づく消散関数を活用した最適経路計画手法
+abst: "For planetary rovers, a path planning with reduced risk is critical to realize safety and efficient locomotion on uneven terrain. To realize such locomotion, it is important to combine the local information observed by on-board sensors and global geometry obtained from, for example, satellites. In this research, we focus on a motion planning integrating these geometric information with two different levels of resolutions. In this research, we interpolate DEM data using low-order function and generate the cost map which indicates the error between interpolation function and grid data. The rover is navigated to avoid the area with large error where the elevation changes drastically. We present an avoidance method based on the dissipation function related to the map error. The rover can avoid the hazardous areas and move economically using the optimal calculation and the cost map. "
+jabst: 探査ローバーにとって，過酷な惑星環境から受けるリスクを削減し目標点まで高効率で移動する制御は非常に重要となる．この移動を達成するために，オンボードセンサなどによって観測されるローバー周辺の地形情報と衛星画像などから得られる広い範囲の情報を組み合わせた運動計画を行う必要がある．そこで，本研究ではこれらの精度の異なる地形情報を活用した運動計画手法を提案する．我々は精度の異なる情報を活用するために全てのグリッドデータを低次元の曲面へと近似し，補間曲面と実際の地形データの差を示すコストマップを作成する．このコストマップでは低次元の曲面で補間できない急激に地形が変化する危険領域を精度によらずに表すことが出来る．また，散逸関数を用いてマップを反映することで，最適化計算によって目標地点までの危険領域を回避しながら高効率となる経路を生成できる．
+keywords:
+  - Leg-Wheel
+  - ATHLETE
+  - MPC
+  - Trajectory Tracking
+figures:
+  - path: /images/omni-directional_vehicle_saito.mp4
+    caption: Lunar topographic grid data provided by RISE Project Office, NAOJ (upper left fig.), cost map which reflects risk with undulating terrain area and optimal efficient path (lower left fig.) and optimal path and tracking result on real terrain surface (right fig.), respectively.
+    jcaption: 国立天文台より提供される月面データに基づくローバーが取得した地形情報(左上図)と起伏によるリスクを現したマップ及び目標地点までの省エネルギーとなる経路の算出結果(左下図)，実際の地形上に投影された参照軌道と追従結果(右図)。

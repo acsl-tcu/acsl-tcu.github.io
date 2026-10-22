@@ -1,0 +1,20 @@
+order: 320
+type: application
+area: drone
+role: "2: control"
+title: Model Predictive Formation Control for multi UAVs Using prior Information that are shared each other
+jtitle: UAVの外乱情報共有による事前情報を用いたモデル予測隊列制御
+abst: "This study proposes a model predictive formation control for multi agent system(MAS) considering the disturbance by sharing disturbance information for unmanned aerial vehicles(UAVs). In this method, each UAV estimates the influence of disturbance by the disturbance observer respectively. This information and a state of UAV are shared to other UAVs by the network of MAS. The input of each UAV is calculated by the model predictive control(MPC) using these shared information. MPC predicts the future motion of each UAV. The informations are also shared by the network of MAS. MPC calculates the inputs using these information. As the result, the proposed method achieves to suppress the influence of disturbance maintaining the formation. "
+jabst: 本研究では、マルチエージェントシステム（MAS）で表現される無人航空機（UAV）間で外乱情報を共有し，その情報をモデル予測制御で用いることで、外乱情報を考慮したモデル予測隊列制御を提案する。 本手法では、各UAVは外乱オブザーバによって外乱情報を推定する。 この外乱情報とUAVの状態は、MASのネットワークを用いて他のUAVと共有する。 各UAVは、これらの情報をモデル予測制御（MPC）で用いることで入力値を算出する。 MPCでは、自身のUAVの未来の動きを予測する。その情報も他のUAVに共有されます。 MPCはこれらの情報を使用して入力値を計算します。その結果、提案手法では隊列を維持しながら外乱影響の抑制を行う。
+keywords:
+  - Drone
+  - Multi Agent
+  - MPC
+  - Disturbance Suppression
+figures:
+  - path: /images/drone_Akiyama1.mp4
+    caption: Formation control not sharing disturbance information
+    jcaption: 外乱情報を共有しない際の隊列制御
+  - path: /images/drone_Akiyama2.mp4
+    caption: Formation control sharing disturbance information
+    jcaption: 外乱情報を共有した際の隊列制御

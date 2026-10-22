@@ -1,0 +1,218 @@
+year: 2017
+journal:
+  - author: 米澤 裕太,関口 和真, 野中 謙一郎
+    language: 1
+    title: キャスタ型オドメータに対する積分型拡張 Luenberger オブザーバ
+    etitle: Integral Extended Luenberger Observer for Caster Odometers
+    magazine: 計測自動制御学会論文集
+    identifier: 10.9746/sicetr.53.633
+    page: 633-643
+    date: "201712"
+  - author: Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    language: 2
+    title: Robust Path Following Control for Small Electric Vehicles Equipped with In-Wheel Motors - Application to the JSAE-SICE Benchmark Problem No. 3 -
+    etitle: Robust Path Following Control for Small Electric Vehicles Equipped with In-Wheel Motors - Application to the JSAE-SICE Benchmark Problem No. 3 -
+    magazine: International Journal of Automotive Engineering
+    identifier: 10.20485/jsaeijae.8.3_120
+    page: 120-129
+    date: "201708"
+  - author: Tomohiro Fukaishi, Kazuma Sekiguchi, Kenichiro Nonaka
+    language: 2
+    title: Attitude Control of Two-Wheel Spacecraft Based on Dynamics Model via Hierarchical Linearization
+    etitle: Attitude Control of Two-Wheel Spacecraft Based on Dynamics Model via Hierarchical Linearization
+    magazine: SICE Journal of Control, Measurement, and System Integration
+    identifier: 10.9746/jcmsi.10.310
+    page: 310-316
+    date: "201707"
+  - author: 栄田 国志, 木村 一輝, 野中 謙一郎, 関口 和真
+    language: 1
+    title: 特異環境を考慮したLRFマップマッチングとオドメトリのMHE融合に基づく移動ロボットの自己位置推定
+    etitle: Mobile Robot Localization Integrating LRF Map-matching and Odometry Based on Moving Horizon Estimation Considering Singular Environments
+    magazine: 計測自動制御学会論文集
+    identifier: 10.9746/sicetr.53.355
+    page: 355-365
+    date: "201706"
+international:
+  - author: Masaki Koizumi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201712"
+    title: Avoidance of Singular Environment on Localization using Model Predictive Control for Mobile Robots
+    meeting: The 2017 Asian Control Conference
+    identifier: 10.1109/ASCC.2017.8287632
+    page: 2866-2871
+  - author: Masafumi Saito, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201712"
+    title: Optimal Path Planning utilizing Dissipation Function \\ based on Terrain Elevation Map for Lunar Rovers
+    meeting: The 2017 Asian Control Conference
+    identifier: 10.1109/ASCC.2017.8287202
+    page: 394-399
+  - author: Kenta Yamamoto, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201712"
+    title: Experimental Verification of Formation Control by Model Predictive Control Considering Collision Avoidance in Three Dimensional Space with Quadcopters
+    meeting: The 2017 Asian Control Conference
+    identifier: " 10.1109/ASCC.2017.8287413"
+    page: 1602-1607
+  - author: Kazuma Sekiguchi
+    date: "201712"
+    title: Novel Control Method for Quadcopter –Hierarchical Linearization Approach–
+    meeting: The 2017 Asian Control Conference
+    identifier: " 10.1109/ASCC.2017.8287456"
+    page: 1853-1858
+  - author: Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201712"
+    title: Energy conserving vehicle motion control for electric vehicle equipped with multiple drive motors
+    meeting: The 2017 Asian Control Conference
+    identifier: 10.1109/ASCC.2017.8287206
+    page: 418-423
+  - author: Naoto Ogawa, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201712"
+    title: Moving Horizon Velocity Estimation for Caster Odometer on Uneven Ground
+    meeting: The 2017 Asian Control Conference
+    identifier: 10.1109/ASCC.2017.8287591
+    page: 2630-2635
+  - author: Yuuki Nishio, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201712"
+    title: Moving Obstacle Avoidance Control by Fuzzy Potential Method and Model Predictive Control
+    meeting: The 2017 Asian Control Conference
+    identifier: 10.1109/ASCC.2017.8287358
+    page: 1298-1303
+  - author: Yuji Morihiro, Masafumi Saito, Naoki Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201709"
+    title: Model Predictive Posture Control considering Zero Moment Point for Three-Dimensional Motion of Leg/ Wheel Mobile Robot
+    meeting: SICE Annual Conference 2017
+    identifier: 10.23919/SICE.2017.8105771
+    page: 435-439
+  - author: Masataka Naruse ，Kenta Yamamoto，Kazuma Sekiguchi and Kenichiro Nonaka
+    date: "201709"
+    title: Verification of Coverage Control for Multi-Copter with Local Optimal Solution Avoidance and Collision Avoidance Using Random-walk and Artificial Potential Method
+    meeting: SICE Annual Conference 2017
+    identifier: 10.23919/SICE.2017.8105676
+    page: 440-445
+  - author: Koushi Tsuno, Masaki Koizumi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201709"
+    title: Localization with LRF using both Environment Map and Feature of Supplemented Objects
+    meeting: SICE Annual Conference 2017
+    identifier: 10.23919/SICE.2017.8105768
+    page: 1433-1438
+  - author: Naoki Shibata, Yuki Hagimori, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201709"
+    title: A Numerical Verification of Model Predictive Control using Partitioned Model for Leg/Wheel Mobile Robots
+    meeting: SICE Annual Conference 2017
+    identifier: " 10.23919/SICE.2017.8105765"
+    page: 634-639
+  - author: Takahiro Suyama, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201708"
+    title: Interference Suppression Control for Interaction of Two Quad Copters by Model Predictive Control Using the Disturbance Map
+    meeting: 1nd IEEE Conference on Control Technology and Applications
+    identifier: 10.1109/CCTA.2017.8062484
+    page: 331-336
+  - author: Hiroaki Endo, Ryo Aramaki, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201708"
+    title: Application of Model Error Compensator based on FRIT to Quadcopter
+    meeting: 1st IEEE Conference on Control Technology and Applications
+    identifier: 10.1109/CCTA.2017.8062761
+    page: 2088-2093
+  - author: Hiroaki Endo, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201706"
+    title: Model Error Compensator for Attitude Control of 2-Wheel Spacecraft with On-line FRIT based Tuning
+    meeting: ISTS2017
+  - author: Hiroki Yoshikawa, Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201705"
+    title: Modeling and Simulation of Wheel Driving Systems based on Terramechanics for Planetary Explanation Rover using Modelica
+    meeting: 12th International Modelica Conference 2017
+    identifier: 10.3384/ecp17132901
+    page: 901-907
+domestic:
+  - author: 日浦隆徳，西尾祐紀，野中謙一郎，関口和真
+    title: 四輪独立操舵駆動ロボットにおけるファジィポテンシャルモデル予測制御の性能検証
+    etitle: Performance Verification of Fuzzy Potential Model Predictive Control for Four Wheel Independent Steering and Driving Vehicle
+    meeting: 第18回産業応用部門大会
+    date: "201711"
+  - author: 森廣祐士，斉藤雅史，高橋直樹，野中謙一郎，関口和真
+    title: 車輪の接地を考慮した脚車輪型移動ロボットのモデル予測姿勢制御
+    etitle: Model Predictive Posture Control for Leg/Wheel Mobile Robots considering Contact with Wheel and Ground
+    meeting: 第60回自動制御連合講演会
+    page: FrC1-2
+    date: "201711"
+  - author: 津野晃士，小泉柾貴，野中謙一郎，関口和真
+    title: 部分的既知環境下における測域センサを用いたMoving Horizon Estimationによる自己位置と環境地図の同時推定
+    etitle: Simultaneous Localization and Mapping using Laser Range Sensor Based on Moving Horizon Estimation in Partially Known Environment
+    meeting: 第60回自動制御連合講演会
+    page: SuC2-2
+    date: "201711"
+  - author: 相馬淳志，関口和真，野中謙一郎
+    title: 無香料カルマンフィルタを用いたクアッドコプターの非線形モデル同定
+    etitle: Nonlinear Model Identification of a quadcopter using Unscented Kalman Filter
+    meeting: 第60回自動制御連合講演会
+    page: SuC1-4
+    date: "201711"
+  - author: 柴田尚輝，野中謙一郎，関口和真
+    title: 脚車輪型移動ロボットのボディ制約の誤差を抑制した分散モデル予測制御
+    etitle: Distributed Model Predictive Control Suppressing Error of Constraints of Body for Leg/Wheel Mobile Robots
+    meeting: 第60回自動制御連合講演会
+    page: SuJ2-4
+    date: "201711"
+  - author: 山本健太，関口和真，野中謙一郎
+    title: 階層型線形化を用いたクアッドコプタの合意制御
+    etitle: Consensus based control of quadcodopters using hierarchical linearization
+    meeting: 第60回自動制御連合講演会
+    page: SuC1-6
+    date: "201711"
+  - author: 小泉柾貴，野中謙一郎，関口和真
+    title: 自己位置推定のフィッシャー情報量を考慮した移動ロボットによる特異環境回避実験
+    etitle: Experiment of Avoiding Singular Environment for Mobile Robots by Considering Fisher Information on Localization
+    meeting: 第60回自動制御連合講演会
+    page: SaH1-5
+    date: "201711"
+  - author: 小田貴嗣，野中謙一郎，関口和真
+    title: オフライン速度最適化を用いた走行時間とエネルギー消費を両立する電気自動車の運動制御
+    etitle: Energy conserving motion control for Electric vehicles using offline velocity optimization balancing travel time and energy consumption
+    meeting: 第60回自動制御連合講演会
+    page: SuC2-1
+    date: "201711"
+  - author: 吉川大樹，小田貴嗣，野中謙一郎，関口和真
+    title: テラメカニクスに基づく車輪同定モデルを用いた移動ロボットのための縦力配分制御
+    etitle: Longitudinal Force Distribution Control for Mobile Robot using Identified Wheel Model based on Terramechanics
+    meeting: 第60回自動制御連合講演会
+    page: SuB3-5
+    date: "201711"
+  - author: 斉藤雅史，野中謙一郎，関口和真
+    title: 惑星探索ローバーのためのモデル予測追従制御における月面の地形データを用いた検証
+    etitle: Veri cation of Model Predictive Tracking Control for Planetary Exploration Rovers using Lunar Grid Data
+    meeting: 第60回自動制御連合講演会
+    page: SuB2-4
+    date: "201711"
+  - author: 小田貴嗣，野中謙一郎，関口和真
+    title: 消費エネルギーを抑制する4輪操舵駆動車両の最適運動制御 -実高速道路データを用いたシミュレーションによる検証-
+    etitle: Optimal motion control conserving energy consumption for four wheel driving and steering vehicle -Evaluation using numerical simulation with actual highway road data-
+    meeting: 自動車技術会2017年秋季大会
+    date: "201710"
+  - author: 斉藤雅史，野中謙一郎，関口和真
+    title: 探査ローバーのための地面拘束力を考慮したモデル予測追従制御
+    etitle: Model Predictive Tracking Control considering Constraint Force of Planetary Terrain for Exploration Rovers
+    meeting: 第4回計測自動制御学会制御部門マルチシンポジウム
+    page: 1G1-2
+    date: "201703"
+  - author: 相馬淳志，関口和真，野中謙一郎
+    title: クアッドコプターにおける回転ダイナミクスのグレーボックスモデリング
+    etitle: Grey Box Modeling for Rotation Dynamics of Quadcopter
+    meeting: 第4回計測自動制御学会制御部門マルチシンポジウム
+    page: 2G2-2
+    date: "201703"
+  - author: 小田貴嗣，野中謙一郎，関口和真
+    title: オフライン・オンライン最適化を組み合わせた省エネルギー走行を実現するモデル予測自律運転制御
+    etitle: Model predictive autonomous control for energy conserving car motion combining online and offline optimization problem
+    meeting: 第4回計測自動制御学会制御部門マルチシンポジウム
+    page: 1G2-5
+    date: "201703"
+  - author: 鈴木騎士，野中謙一郎，関口和真
+    title: 経路幅制約を考慮したモデル予測制御による脚車輪型移動ロボットのための障害物回避の実機検証
+    etitle: Experimental verification of obstacle avoidance for leg/wheel robots by model predictive control considering passage width constraints
+    meeting: 第4回計測自動制御学会制御部門マルチシンポジウム
+    page: 1G1-3
+    date: "201703"
+  - author: 栄田国志，野中謙一郎，関口和真，大貝晴俊
+    title: LRFを用いたMHEによるSLAMの実験値を用いた検証
+    etitle: Verification using experimental measurements of MHE based SLAM using LRF
+    meeting: 第4回計測自動制御学会制御部門マルチシンポジウム
+    page: 1D1-4
+    date: "201703"

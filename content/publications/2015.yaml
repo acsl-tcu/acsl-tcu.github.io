@@ -1,0 +1,215 @@
+year: 2015
+journal:
+  - author: 糟谷 修史, 杉村 健, 野中 謙一郎, 鈴木 勝正
+    language: 1
+    title: アキュムレータを用いたアイドリングストップ方式による油圧源の省エネルギー (第3報 ガソリンエンジン駆動油圧源における油圧アシストを用いた間欠運転)
+    etitle: Energy Saving of Oil Hydraulic Pump Unit by Idling Stop Using Accumulator （3rd Report：Intermittent Operation Using Hydraulic Assist in an Oil Hydraulic Pump Unit Driven by a Gasoline Engine）
+    magazine: 日本フルードパワーシステム学会論文集
+    identifier: 10.5739/jfps.46.41
+    page: 41-47
+    date: "201511"
+  - author: 小田 貴嗣, 野中 謙一郎, 関口 和真
+    language: 1
+    title: モデル予測制御とスライディングモード制御による四輪操舵駆動車両のロバスト経路追従制御
+    etitle: Robust Path Tracking Control for Four-wheel Driving and Steering Vehicles using Model Predictive Control and Sliding Mode Control
+    magazine: 計測自動制御学会論文集
+    identifier: 10.9746/sicetr.51.484
+    page: 484-493
+    date: "201507"
+  - author: Kazuki Kimura, Kenichiro Nonaka, Kazuma Sekiguchi
+    language: 2
+    title: Real-time model predictive obstacle avoidance control for vehicles with reduced computational effort using constraints of prohibited region
+    etitle: Real-time model predictive obstacle avoidance control for vehicles with reduced computational effort using constraints of prohibited region
+    magazine: Mechanical Engineering Journal
+    identifier: 10.1299/mej.14-00568
+    page: 14-00568
+    date: "201506"
+  - author: 萩森 夕紀, 高橋 直樹, 野中 謙一郎
+    language: 1
+    title: 操舵角度の可動範囲と連続性を陽に考慮した車輪型移動ロボットのモデル予測軌道追従制御
+    etitle: Model predictive tracking control for wheeled mobile robots considering limitation and continuity of steering angles
+    magazine: 日本機械学会論文集
+    identifier: 10.1299/transjsme.14-00484
+    page: 14-00484
+    date: "201505"
+international:
+  - author: Yuji Yanagii, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201512"
+    title: Optimization of Wheel Position for the Leg/Wheel Robots using Model Predictive Control considering Supporting Area and Center of Gravity
+    meeting: The 6th International Conference on Advanced Mechatronics (ICAM2016)
+    identifier: 10.1299/jsmeicam.2015.6.76
+    page: 76-77
+  - author: Kazuki Ito, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201512"
+    title: Vehicle side-slip angle estimation based on MHE suppressing the outlier of inertial sensors
+    meeting: The 6th International Conference on Advanced Mechatronics (ICAM2015)
+    identifier: 10.1299/jsmeicam.2015.6.150
+    page: 150-151
+  - author: Kentaro Akiyama, Zhenwei Wang, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201511"
+    title: Experimental Validation of Repetitive Disturbance Estimation and Model Predictive Control for Multi UAVs
+    meeting: 3rd RED-UAS 2015 Workshop on Research, Education and Development of Unmanned Aerial Systems
+    identifier: 10.1109/RED-UAS.2015.7440986
+    page: 15-24
+  - author: Yuki Hagimori, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201511"
+    title: Sequential Model Predictive Control for Leg/Wheel Mobile Robot using Single Leg Model
+    meeting: 2015 CACS International Automatic Control Conference
+    page: 522-527
+  - author: Takumi Tomatsu, Kenichiro Nonaka, Kazuma Sekiguchi,Katsumasa Suzuki
+    date: "201509"
+    title: Model Predictive Trajectory Tracking Control for Hydraulic Excavator on Digging Operation
+    meeting: 2015 IEEE Multi-Conference on Systems and Control
+    identifier: 10.1109/CCA.2015.7320765
+    page: 1136-1141
+  - author: Naito Suzuki, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201509"
+    title: Model Predictive Obstacle Avoidance Control with Passage Width Constraints for Leg/Wheel Robots
+    meeting: 2015 IEEE Multi-Conference on Systems and Control
+    identifier: 10.1109/CCA.2015.7320650
+    page: 330-335
+  - author: Manami Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201509"
+    title: Vehicle State Estimation by Moving Horizon Estimation Considering Occlusion and Outlier on 3D Static Cameras
+    meeting: 2015 IEEE Multi-Conference on Systems and Control
+    identifier: 10.1109/CCA.2015.7320777
+    page: 1211-1216
+  - author: Kuniyuki Sakaeta, Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201509"
+    title: Model Predictive Parking Control with On-line Path Generations and Multiple Switching Motions
+    meeting: 2015 IEEE Multi-Conference on Systems and Control
+    identifier: 10.1109/CCA.2015.7320716
+    page: 804-809
+  - author: Kento Watabe, Tomohiro Fukaishi, Kazuma Sekiguchi and Kenichiro Nonaka
+    date: "201507"
+    title: Suppression of Effects on Model Error in Attitude Control of Spacecraft Using Two Reaction Wheels Considering Initial Angular Momentum
+    meeting: SICE Annual Conference 2015
+    identifier: 10.1109/SICE.2015.7285367
+    page: 724-729
+  - author: Zhenwei Wang, Kentaro Akiyama, Kenichiro Nonaka and Kazuma Sekiguchi
+    date: "201507"
+    title: Experimental verification of the model predictive control with disturbance rejection for quadrotors
+    meeting: SICE Annual Conference 2015
+    identifier: 10.1109/SICE.2015.7285529
+    page: 778 - 783
+  - author: Masato Itoh, Yuki Hagimori, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201507"
+    title: Model Predictive Steering Control for Independent Driving and Steering Vehicle equipped with Coaxial Steering Mechanism - Verifying tracking performance of velocities of vehicle body -
+    meeting: SICE Annual Conference 2015
+    page: 1289-1294
+  - author: Kazuki Ito, Mikiya Yoshida, Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201507"
+    title: Experimental verification of vehicle state estimation based on EKF using acceleration sensor and front wheel velocity
+    meeting: SICE Annual Conference 2015
+    page: 1637-1642
+  - author: Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201507"
+    title: Robust Path Tracking Control using Model Predictive Control and Sliding Mode Control - Application to the JSAE-SICE Benchmark Problem -
+    meeting: SICE Annual Conference 2015
+    identifier: 10.1109/SICE.2015.7285448
+    page: 1632-1636
+  - author: Tomohiro Fukaishi, Kento Watabe, Kazuma Sekiguchi and Kenichiro Nonaka
+    date: "201507"
+    title: Attitude Control of Spacecraft Using Two Wheels via Hierarchical Input-Output Linearization
+    meeting: SICE Annual Conference 2015
+    identifier: 10.1109/SICE.2015.7285451
+    page: 620-625
+  - author: Yuki Hagimori, Masato Ito, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201506"
+    title: Model Predictive Steering Control for Independent Driving and Steering Vehicles considering Coaxial Steering Mechanism–Implementation to an Embedded CPU–
+    meeting: 10th Asian Control Conference 2015
+    identifier: 10.1109/ASCC.2015.7244549
+    page: 1904-1909
+domestic:
+  - author: 萩森夕紀，野中謙一郎，関口和真
+    title: 脚車輪型移動ロボットのモデル予測車輪位置追従制御における車体中心を考慮した場合の走行性能の検証
+    etitle: Verification of Travel Performance of Leg/Wheel Mobile Robot using Model Predictive Path Tracking Control with respect to Wheel and Body Position
+    meeting: 第16回計測自動制御学会システムインテグレーション部門講演会
+    page: 1G3-5
+    date: "201512"
+  - author: 秋山賢太朗，王振イ，関口和真，野中謙一郎
+    title: UAVの繰り返し推定による外乱情報を用いたモデル予測経路追従制御の実験的検証
+    etitle: Experimental Verification of the Model Predictive Path Tracking Control Using Repetitive Disturbance Estimation for UAV
+    meeting: 第58回　自動制御連合講演会
+    page: 2I1-6
+    date: "201511"
+  - author: 戸松匠，野中謙一郎，関口和真，鈴木勝正
+    title: パワーショベルの可動範囲の制約を考慮したモデル予測追従制御の実験的検証
+    etitle: " Experimental Verification of Model Predictive Tracking Control Considering Constraints of Movable Range for Hydraulic Excavators"
+    meeting: 平成27年秋季フルードパワーシステム講演会
+    page: 41-43
+    date: "201511"
+  - author: 深石智大，渡部建人，関口和真，野中謙一郎
+    title: MPCを用いて階層型線形化における特異点を考慮した2ホイールスペースクラフトの姿勢制御
+    etitle: Attitude Control of Spacecraft Using Two Wheels Considering Singular Point by Combination of Hierarchical Input-Output linearization and MPC
+    meeting: 第58回　自動制御連合講演会
+    page: 2F4-2
+    date: "201511"
+  - author: 高橋愛実，野中謙一郎，関口和真
+    title: |-
+      Moving Horizon Estimation による視覚フィードバックを用いた
+      車両ロボットの目標経路追従制御
+    etitle: Path Tracking Control of a Vehicle by Visual Feedback Using Moving Horizon Estimation
+    meeting: 第14回「運動と振動の制御」シンポジウム(MoViC2015)
+    page: B310
+    date: "201506"
+  - author: 秋山賢太朗，王振イ，関口和真，野中謙一郎
+    title: 繰り返し推定とモデル予測制御によるUAVの経路追従性能向上
+    etitle: Improvement of path tracking performance for UAVs using model predictive control with repetitive estimation.
+    meeting: 第14回「運動と振動の制御」シンポジウム(MoViC2015)
+    page: A208
+    date: "201506"
+  - author: 篠原学，野中謙一郎，関口和真
+    title: 小型前輪操舵車両を用いた加速度の制約を考慮したモデル予測経路追従制御
+    etitle: Model Predictive Path Following Control with Acceleration Constraint for a Small Front Steering Vehicle
+    meeting: 第14回「運動と振動の制御」シンポジウム(MoViC2015)
+    page: A306
+    date: "201506"
+  - author: 戸松匠，野中謙一郎，関口和真
+    title: パワーショベルによるモデル予測軌道追従制御
+    etitle: Model Predictive Tracking Control with Digging Range Constraints for Excavators
+    meeting: 第14回「運動と振動の制御」シンポジウム(MoViC2015)
+    page: B209
+    date: "201506"
+  - author: 伊藤雅人，萩森夕紀，野中謙一郎，関口和真
+    title: モデル予測操舵制御による同軸操舵機構ロボットの軌道追従性の検証
+    etitle: Verification of Tracking Performance of Coaxial Steering Vehicle using Model Predictive Steering Control
+    meeting: 第14回「運動と振動の制御」シンポジウム(MoViC2015)
+    page: C308
+    date: "201506"
+  - author: 浦山和宣，野中謙一郎，関口和真
+    title: 経路追従誤差を考慮した車間距離制御
+    etitle: Inter-vehicular distance control considering a path tracking error
+    meeting: 第14回「運動と振動の制御」シンポジウム(MoViC2015)
+    page: A302
+    date: "201506"
+  - author: 鈴木騎士，野中謙一郎，関口和真
+    title: 3軸水平多関節の脚機構を有した車両型ロボットの関節角度最適化
+    etitle: Optimization of joint angles of wheel robots equipped with leg mechanism of 3 axes SCARA
+    meeting: 第14回「運動と振動の制御」シンポジウム(MoViC2015)
+    page: C307
+    date: "201506"
+  - author: 栄田国志，小田貴嗣，野中謙一郎，関口和真
+    title: 複数回の切り返し動作を含むモデル予測車庫入れ制御
+    etitle: Model Predictive Parking Control with Multiple Switching Motions
+    meeting: 第14回「運動と振動の制御」シンポジウム(MoViC2015)
+    page: A214
+    date: "201506"
+  - author: 木村 一輝, 野中 謙一郎, 関口 和真
+    title: LRF計測値と非線形車両モデルによるMHEを用いた自己位置推定
+    etitle: MHE Localization Using LRF Measurement and Nonlinear Vehicle Dynamics
+    meeting: 第2回制御部門マルチシンポジウム予稿集
+    page: 662-4
+    date: "201503"
+  - author: 永田 篤史, 野中 謙一郎, 関口 和真
+    title: 全方向移動ロボットのためのファジィポテンシャルモデル予測障害物回避制御
+    etitle: Fuzzy Potential Model Predictive Obstacle Avoidance Control for Omni-directional Mobile Robots
+    meeting: 第2回制御部門マルチシンポジウム予稿集
+    page: 753-2
+    date: "201503"
+  - author: 吉田 三喜也, 野中 謙一郎, 関口 和真
+    title: タイヤ横滑り角制約を可変とした車両のモデル予測制御
+    etitle: Model Predict Vehicle Control with Variable Wheel Side Slip Angle Restriction
+    meeting: 第2回制御部門マルチシンポジウム予稿集
+    page: 753-3
+    date: "201503"

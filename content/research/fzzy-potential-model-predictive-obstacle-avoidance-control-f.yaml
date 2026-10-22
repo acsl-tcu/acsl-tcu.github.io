@@ -1,0 +1,21 @@
+order: 110
+type: application
+area: omni-directional_vehicle
+role: "2: control"
+title: Fzzy Potential Model Predictive Obstacle Avoidance Control for Omni-directional Robot
+jtitle: 全方向移動ロボットのためのファジィポテンシャルモデル予測障害物回避
+abst: In this study, we propose Fuzzy Potential Model Predictive Obstacle Avoidance Control for omni-directional robot to utilize robots in crowded environments. This method is combined with Fuzzy Potential Method (FPM) and Model Predictive Control (MPC. FPM is an obstacle avoidance method considering the robot shape and attitude. MPC suppresses an excessively rapid motion by predicting a motion of the robot until finite-time future. In addition, we guarantee certain obstacle avoidance to consider a range where obstacles exist explicitly. In FPM, we control translational and rotational motion simultaneously. In MPC, we optimize them independently. Therefore, we realize optimal obstacle avoidance which considers the robot shape and attitude and suppresses rapid change of control input.
+jabst: この研究では人混みなどの混雑した環境においても自律移動ロボットを利用できることを目指して、全方向移動ロボットのためのファジィポテンシャルモデル予測障害物手法を提案している．この手法はファジィポテンシャル法(FPM)とモデル予測制御(MPC)を組み合わせたものである．FPMはロボット自身の形状や姿勢を考慮可能な手法である．MPCは制御対象の挙動を有限時間未来まで予測することで急激な動作を抑制する．また，この際に障害物が存在する範囲を陽に考慮することで，確実な障害物回避を保証する．FPMではロボットの回転運動と並進運動を同時に制御する．MPCではこれらを別々に最適化する．これにより，ロボットの形状や姿勢を考慮し急激な制御入力を抑制した最適な障害物回避を実現する．
+keywords:
+  - 4W
+  - Fuzzy
+  - MPC
+  - Obstacle Avoidance
+figures:
+  - path: /images/omni-directional_vehicle_nishio1.gif
+    caption: |-
+      Results of obstacles voidance.
+      Robot achieves obstacle avoidance changing it's attitude by reacting to obstacles.
+    jcaption: |-
+      障害物回避の結果．
+      ロボットは障害物に対応して姿勢を変化させて障害物回避を達成している．

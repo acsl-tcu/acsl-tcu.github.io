@@ -1,0 +1,15 @@
+order: 290
+type: application
+area: drone
+role: "2: control"
+title: Disturbance Suppression for Interaction of Two Quad Copters Using the Disturbance Map
+jtitle: 外乱マップを用いた2機のクアッドコプターの相互作用による外乱抑制制御
+abst: This study realize the disturbance control that two quad copters fly crossing each other in the condition which the aircrafts can recognize the other. In order to put it into practice, we make the disturbance map. The disturbance map is the map of wind influence corresponding to a relative position. A quad copter is flied as to cross another one in advance, the disturbance is estimated the behavior of aircraft. However, the estimated disturbance includes the influence of noises and, to estimate all relative position is difference and the estimated disturbance has unmeasured points. Therefore, we calculate to use a Gaussian filter as such an image processing scheme. The filter reduces noise influences and yields a complement effect of unmeasured points. The aircraft uses the disturbance map, then, the disturbance suppression control is practiced when aircraft crosses.
+jabst: 本研究では，他の機体を認識可能な条件における2機のクアッドコプターを交差飛行させたときの外乱抑制制御を行う．これらを実現するために，外乱マップを作製する．外乱マップとは機体の発生させている風の影響を相対位置に応じてマップ化したものである．予めクアッドコプターを他の機体に交差するように飛行させ，その時の機体の挙動から風の影響を推定する．しかし，推定値は雑音の影響により振動的であり，風の影響を全ての位置で推定することは困難である．そこで画像処理方式の一つであるガウシアンフィルタを用いる．このフィルタは推定値の平滑化，未測定点の補間ができる．外乱値をフィルタリングすることで外乱マップを作製し，外乱マップの情報を用いて飛行することで，交差した際の外乱抑制制御を実現する.
+keywords:
+  - Drone
+  - Disturbance Estimation
+figures:
+  - path: /images/drone_suyama1.jpg
+    caption: This is conception of the disturbance map. The disturbance value is defined by the relative position of aircraft.
+    jcaption: 外乱マップのイメージ図．機体の相対位置により外乱値が決まる．

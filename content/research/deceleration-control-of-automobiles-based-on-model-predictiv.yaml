@@ -1,0 +1,15 @@
+order: 80
+type: application
+area: autonomous_vehicle
+role: "2: control"
+title: Deceleration Control of Automobiles based on Model Predictive Control suppressing Excessive Deceleration
+jtitle: モデル予測制御を用いた過大な減速を抑制する自動車の減速制御
+abst: In order to prevent traffic accidents, automatic driving is actively researched. In general, excessive accelera- tion makes passengers uncomfortable.However, it is sometimes necessary to decelerate greatly for preventing rear-end collision with other vehicles. In this study, we propose a model predictive control with a penalty function that suppresses excessive deceleration and avoids collision with preceding vehicles without computational iteration. The effectiveness of the proposed method is verified through the numerical simulation supposing that other vehicle cuts off the ego vehicle.
+jabst: 近年，交通事故の防止や搭乗者の負担軽減のために，自動運転が盛んに研究されている．自動運転において，過大な加速度変化は搭乗者に不快感を与える．しかし，他車両に割り込まれる状況では，衝突防止のために大きく減速する必要がある．本研究では，モデル予測制御の評価関数で加速度の逸脱を抑制する事によって，衝突防止と加速度の抑制を両立する．そして，割込みを想定した数値シミュレーションによって提案手法の有効性を検証している．
+keywords:
+  - Vehicle
+  - MPC
+figures:
+  - path: /images/autonomous_vehicle_mizushima1.jpg
+    caption: The controled vehicle is cut off by the other vehicle.
+    jcaption: 制御対象の車両が他車両に割り込まれる様子．

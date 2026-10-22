@@ -1,0 +1,17 @@
+order: 230
+type: application
+area: leg-wheel_mobile_robot
+role: "1: system"
+title: Model Predicitve Allocation Control for Leg-Wheel Mobile Robots on Loose Soil considering Wheel Dynamics
+jtitle: 車輪ダイナミクスを考慮した軟弱地盤上における脚車輪型移動ロボットのモデル予測配分制御
+abst: Surface of the moon is covered with heterogeneous superficial deposits called "regolith". It is important for exploration rovers to control wheels while considering interaction with the loose soil, because energy loss with sinkage of the wheels is a critical issue in a space environment. In this research, we introduced motion of the wheels on the loose soil into our simulator as equation-based model. Moreover, we identified the wheel model on the loose soil as a linear system. The identified wheel model was introduced into model predictive control scheme in order to propose a method that explicitly considers the wheel dynamics on the moon. As a result of these contributions, the traction controller with high energy efficiency was proposed and it was verified with numerical simulation.
+jabst: 月の表面はレゴリスと呼ばれる非常に細やかな堆積物に覆われている．地面への沈み込みによるエネルギーロスは探査ローバーにとって致命的であるため，地面との相互干渉を考慮した車輪の運動制御が惑星探査ローバーにおいては重要になる．本研究では，スリップを伴った沈み込みや踏みしめによる走行抵抗の変化を数式モデルとしてシミュレータに導入した．また，軟弱地盤上の車輪の動作を線形モデルとして同定して，モデル予測制御に導入することで，月面上における車輪ダイナミクスを陽に考慮した制御手法を提案した．これにより，月面上においても高い効率を発揮できる車輪制御則を提案，検証した．
+keywords:
+  - Leg-Wheel
+  - ATHLETE
+  - Modeling
+  - MPC
+figures:
+  - path: /images/leg-wheel_mobile_robot_yoshikawa2.jpg
+    caption: RMS value of slip ratio for each limbs. Our proposed method achieved high energy efficiency due to consideration of interaction with loose soil.
+    jcaption: 各車輪のスリップ率．軟弱地盤との相互干渉を考慮することで余分なスリップを抑制して高いエネルギー効率を達成している．

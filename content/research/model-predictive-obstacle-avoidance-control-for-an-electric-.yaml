@@ -1,0 +1,20 @@
+order: 260
+type: application
+area: electric_wheelchair
+role: "1: system"
+title: Model Predictive Obstacle Avoidance Control for an Electric Wheelchair in Indoor Environments Using Artificial Potential Field Method
+jtitle: 電動車椅子のための屋内環境での人工ポテンシャル場を使用したモデル予測障害物回避制御
+abst: Since the mobile area is limited, indoor vehicles need to take a path with minimum avoidance while estimating states of obstacles and vehicles sequentially. With the combination of the artificial potential field method, an MPC-based control scheme is introduced to deal with the above problem. To estimate the self-position and obstacle position, a 3D point cloud is clustered, and the Normal Distribution Transform-Simultaneous Localization And Mapping (NDT-SLAM) and the Kalman filter are employed. A Gazebo simulation is conducted to evaluate and compute path and velocity considering obstacles in an environment with multiple unknown stationary obstacles. As a result, the avoidance of many obstacles occluded by other objects can be realized. In addition, an experiment in an actual indoor environment is conducted to verify the motion of the experimental vehicle. It is confirmed that it is possible to drive with MPC using the estimated position even in a narrow environment.
+jabst: 屋内で走行する車両は移動エリアが限られるため，車両自身の位置と障害物の位置を逐次推定しながら，最小限の回避で走行する必要がある．この問題に対して，人工ポテンシャル場を組み合わせたモデル予測障害物回避制御を提案する．まず自己位置と障害物位置を推定するために，3次元点群のクラスタリング，NDT-SLAM，カルマンフィルタを使用する．Gazeboシミュレーションは、複数の未知静止障害物がある環境で障害物を考慮してモデル予測障害物回避制御における経路と速度を評価および計算を行った．結果として，遮られていた物も含む複数の障害物を実時間で推定し，回避する事が出来た．また実屋内環境での実験を行い，障害物が無い状態での動きを確認した．これらにより，狭隘な環境下でも推定を行いながらMPCによる自律制御が可能である事を確認した．
+keywords:
+  - Obstacle Avoidance
+  - MPC
+  - TSCF
+  - Vehicle
+figures:
+  - path: /images/実環境実験(15倍速).mp4
+    caption: Experiment in real indoor environment.(22x speed)
+    jcaption: 実屋内環境での実験(22倍速)
+  - path: /images/Gazebo(20倍速).mp4
+    caption: Obstacle avoidance in Gazebo (20x speed)
+    jcaption: Gazeboでの障害物回避(20倍速)

@@ -1,0 +1,15 @@
+order: 310
+type: application
+area: drone
+role: "3: estimation"
+title: Nonlinear System Identification of UAV Using the Grey Box Modeling
+jtitle: グレーボックスモデリングを用いたUAVの非線形システム同定
+abst: This study realize nonlinear system identification for UAV which is nonlinear system using the grey box modeling. In generally, model identification method for UAVs is black box modeling. Black box modeling use only real flight input-output data of UAVs and make model by simple equation. However, model become low accuracy because it is made by approximating whole system of UAV by a linear. Grey box modeling make the dynamics model based on physical principle to coinsider nonlinearlity of UAV and parameters of model are identified by real input-output data. In order to use this method, we assume that UAV is group of subsystems and use grey box modeling.
+jabst: 本研究では，非線形システムであるUAVに対して，グレーボックスモデリングを用いて非線形モデル同定を行う．一般的にUAVのモデルを作成する際には，ブラックボックスモデリングを用いる．この手法では，UAVの入出力データのみで，モデルを簡易的な式で作成できる．しかし，モデルが線形となるため精度が低くなってしまう．グレーボックスモデリングでは，UAVの特徴である非線形性を考慮するため，物理法則に基づいて動力学モデルを立式し，そのパラメータを実験の入出力データより同定する方法を行っている．これを用いるために，UAV全体のシステムを各サブシステムの集合であると仮定し，それぞれグレーボックスモデリングを用いて，モデル同定を行う．
+keywords:
+  - Drone
+  - Modeling
+figures:
+  - path: /images/drone_souma1.jpg
+    caption: This is the assumed system of UAV.　Applying grey box modeling to each subsytems.
+    jcaption: 仮定したUAVのシステム．それぞれに対してグレーボックスモデリングを用いる．

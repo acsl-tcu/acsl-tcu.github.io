@@ -1,0 +1,207 @@
+year: 2019
+journal:
+  - author: 石川恭匡, 高橋直樹, 高浜琢, 野中謙一郎
+    language: 1
+    title: Moving Horizon Estimationによる操舵制御用の車両横偏差と角度偏差の推定
+    etitle: Moving Horizon Estimation of Lateral and Angular Displacement for Steering Control
+    magazine: 自動車技術会論文集
+    identifier: 10.11351/jsaeronbun.50.1487
+    page: "1487-1493 "
+    date: "201909"
+  - author: 遠藤 弘彬, 関口 和真, 野中 謙一郎
+    language: 1
+    title: モデル誤差補償器のオンライン調整法
+    etitle: Online Adjustment Method of Model Error Compensator
+    magazine: 計測自動制御学会論文集
+    identifier: 10.9746/sicetr.55.156
+    page: 156-163
+    date: "201903"
+international:
+  - author: Ryoma Yamagchi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201909"
+    title: State estimation for quadcopter using hierarchical linearization
+    meeting: SICEAnnual Conference 2019
+    page: 1261-1264
+  - author: Ryoya Abe, Tomoya Kikuchi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201909"
+    title: Acceleration of Artificial Potential Field Calculation by GPU and its application to Data Association
+    meeting: SICEAnnual Conference 2019
+    page: 289-291
+  - author: Yugo Yamaguchi, Koji Shibata, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201909"
+    title: Experimental Verification of Fuzzy Potential Model Predictive Avoidance Control
+    meeting: SICEAnnual Conference 2019
+    page: 292-295
+  - author: Nagomu Takeuchi, Masataka Naruse, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201909"
+    title: Coverage Control for Autonmous Patrol and Invader Detection using Quadcopters with Hierarchical Linearization
+    meeting: SICEAnnual Conference 2019
+    page: 1249-1254
+  - author: Ryo Nishikawa, Shotaro Nakahara, Naoki Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201909"
+    title: Economic Model Predictive Control Considering Electric Energy Balance for Exploration Rovers
+    meeting: SICE Annual Conference 2019
+    page: 59-64
+  - author: Koji Shibata, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201908"
+    title: Model Predictive Obstacle Avoidance Control Suppressing Expectation of Relative Velocity against Obstacles
+    meeting: 2019 IEEE Conference on Control Technology and Applications (CCTA)
+    page: 59-64
+  - author: Nagomu Takeuchi,Masataka Naruse,Kazuma Sekiguchi,Kenichiro Nonaka
+    date: "201907"
+    title: Autonomous Patrol and Invader Detection by Coverage Controlled Quadcopters
+    meeting: The 2019 ASian Control Conference
+    page: 1119-1124
+  - author: Yoshihide Mizushima, Isao Okawa, Kenichiro Nonaka
+    date: "201907"
+    title: Model Predictive Control for Autonomous Vehicles with Speed Profile Shaping
+    meeting: 10th IFAC Symposium on Intelligent Autonomous Vehicles
+    page: 31-36
+  - author: Yusuke Eguchi,Kenichiro Nonaka,Kazuma Sekiguchi,Katsumasa Suzuki
+    date: "201906"
+    title: Optimal Excavation considering Operation Progress using Model Predictive Control for Hydraulic Excavators
+    meeting: The 2019 Asian Control Conference
+    page: 1107-1112
+  - author: Takahiro Kasahara, Koushi Tsuno, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201906"
+    title: Comparative Experiments of  Moving Horizon Estimation  based SLAM in Indoor Environment
+    meeting: The 2019 Asian Control Conference
+    page: 1131-1136
+  - author: Tomoya Kikuchi, Koshi Tsuno, Kenichiro Nonaka, Kazuma sekiguchi
+    date: "201901"
+    title: Continuous Marker Association utilizing Potential Function for Motion Capture Systems
+    meeting: 2019 IEEE/SICE International Symposium on System Integration
+    page: 578-583
+domestic:
+  - author: 水島嘉秀,野中謙一郎,大川功
+    title: 確率モデル予測制御による自動車の追突防止と加速度軌道整形
+    etitle: Shaping acceleration profile and preventing collision for automobile using stochastic model predictive control
+    meeting: 第62回自動制御連合講演会
+    page: 1I3-04
+    date: "201911"
+  - author: 竹内和,関口和真,野中謙一郎
+    title: 複数クアッドコプタによる自律巡回と不審者追跡の実機検証
+    etitle: Experimental verification for autonomous patrol and invader chasing by multiple quadcopters
+    meeting: 第62回自動制御連合講演会
+    page: 1M4-04
+    date: "201911"
+  - author: 柴田浩志,野中謙一郎,関口和真_x000D_
+    title: 経路と速度の繰り返し最適化によるモデル予測障害物回避制御
+    etitle: Model Predictive Obstacle Avoidance Control by Iterative Optimization of Path Planning and Velocity Control
+    meeting: 第62回自動制御連合講演会
+    page: 1E2-03
+    date: "201911"
+  - author: 菊池智哉,野中謙一郎,関口和真
+    title: ビジョンセンサを用いた電動車椅子のProbabilistic Data Association Filter による軌道追跡
+    etitle: Probabilistic Data Association Filter for Trajectory Tracking of an Electric Wheelchair using Vision Sensor
+    meeting: 第62回自動制御連合講演会
+    page: 1H2-01
+    date: "201911"
+  - author: 山口祐剛,柴田浩志,野中謙一郎,関口和真
+    title: 小型自律移動車両のためのモンテカルロモデル予測制御を用いた障害物回避制御
+    etitle: Monte Calro Model Predictive Obstacle Avoidance Control for Autonomous Vehicle
+    meeting: 第62回自動制御連合講演会
+    page: 2E1-03
+    date: "201911"
+  - author: 菅野遼太郎,竹内和,関口和真,野中謙一郎
+    title: リーダ・フォロワ被覆制御システムの実機検証
+    etitle: Experiment veri_x000C_cation of Leader-Follower Control System with Coverage Control
+    meeting: 第62回自動制御連合講演会
+    page: 2D1-01
+    date: "201911"
+  - author: 安部凌矢,菊池智哉,野中謙一郎,関口和真
+    title: 人工ポテンシャル場法を用いたデータ対応付けの実時間推定
+    etitle: Real-time Estimation with Data Association utilizing Arti_x000C_cial Potential Field
+    meeting: 第62回自動制御連合講演会
+    page: 1M1-01
+    date: "201911"
+  - author: 石川恭匡,高橋直樹,高浜琢,野中謙一郎
+    title: Moving Horizon Estimationによる操舵制御用の車両横偏差と角度偏差の推定
+    etitle: Moving Horizon Estimation of Lateral and Angular Displacement for Steering Control
+    meeting: 2019年自動車技術会春季学術講演会(JSAE-Spring'19)
+    page: "037"
+    date: "201905"
+  - author: 江口裕介,野中謙一郎,関口和真,鈴木勝正
+    title: 掘削予測軌道を考慮するサーボ型モデル予測制御を用いた油圧ショベルの最適掘削
+    etitle: Model Predictive Control with Servo Mechanism considering Predicted Digging Path for Hydraulic Excavator
+    meeting: 2019年春季フルードパワーシステム講演会
+    page: 38-40
+    date: "201905"
+  - author: 津野晃士，野中謙一郎，関口和真
+    title: Moving Horizon Estimationによる点群地図ベースの自己位置と環境地図の同時推定
+    etitle: Simultaneous Localization and Mapping based on Moving Horizon Estimation utlizing Point Cloud Data
+    meeting: 第6回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 3H2-1
+    date: "201903"
+  - author: 小田島将真，柴田尚輝，野中謙一郎，関口和真
+    title: Autoware上でのモデル予測制御を用いた自動運転車両の障害物回避制御
+    etitle: Obstacle avoidance control of automatic driving vehicle using model predictive control on Autoware
+    meeting: 第6回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 3A2-4
+    date: "201903"
+  - author: 柴田尚輝，高橋直樹，野中謙一郎，関口和真
+    title: 脚車輪型移動ロボットの分散モデル予測制御におけるダンピングによる脚の相互干渉抑制
+    etitle: Suppressing Interaction of Legs due to Damping in Distributed Model Predictive Control for Leg/Wheel Mobile Robots
+    meeting: 第6回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 3G1-3
+    date: "201903"
+  - author: 成勢昌隆，関口和真，野中謙一郎
+    title: 領域調査における局所最適解と衝突回避を考慮した複数無人航空機に対する被覆制御
+    etitle: Coverage Control for Multi-copter with Avoidance of Local Optimum and Collision in Surveillance Using Change of the Distribution Density Map
+    meeting: 第6回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 1A1-4
+    date: "201903"
+  - author: 日浦隆徳，野中謙一郎，関口和真
+    title: 複数組込みCPUによる脚車輪型移動ロボットの分散モデル予測制御
+    etitle: Distributed Model Predictive Control for Leg/Wheel Mobile Robot using Multiple Embedded CPUs
+    meeting: 第6回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 1B2-5
+    date: "201903"
+  - author: 森廣祐士，高橋直樹，野中謙一郎，関口和真
+    title: 路面形状に適応した荷重配分による脚車輪型移動ロボットのモデル予測制御
+    etitle: Model Predictive Control for Leg/Wheel Mobile Robots with Load Distribution adapting to Terrain
+    meeting: 第6回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 3G1-4
+    date: "201903"
+  - author: 高橋直樹，野中謙一郎，関口和真
+    title: 脚車輪型移動ロボットの段差乗り上げを伴うモデル予測脚配置制御
+    etitle: Model Predictive Leg Configuration Control for Leg/Wheel Mobile Robots with Getting Over Steps
+    meeting: 第6回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 3H2-2
+    date: "201903"
+  - author: 西川亮，野中謙一郎，関口和真
+    title: 惑星探査ローバのための充電量を考慮したモデル予測軌道追従制御
+    etitle: Model Predictive Tracking Control considering Amount of Charging for Exploration Rovers
+    meeting: 関東学生会第58回学生員卒業研究発表講演会
+    page: "205"
+    date: "201903"
+  - author: 橋本賢太郎，野中謙一郎，関口和真
+    title: 車両が混在する環境におけるモデル予測障害物回避制御の検証
+    etitle: Verification of Model Predictive Obstacle Avoidance Control in Mixed Vehicle Environment
+    meeting: 関東学生会第58回学生員卒業研究発表講演会
+    page: "120"
+    date: "201903"
+  - author: 菅野遼太郎，関口和真，野中謙一郎
+    title: リーダ・フォロワ被覆制御システムの提案
+    etitle: Proposal of Leader-Follower Control System with Coverage Control
+    meeting: 関東学生会第58回学生員卒業研究発表講演会
+    page: "108"
+    date: "201903"
+  - author: 高成岬，関口和真，野中謙一郎
+    title: 外乱マップによる確率モデル予測制御を用いた無人航空機のための外乱抑制制御
+    etitle: Disturbance Suppression for Unmanned Aerial Vehicle using Stochastic Model Predictive Control with Disturbance Map
+    meeting: 関東学生会第58回学生員卒業研究発表講演会
+    page: "112"
+    date: "201903"
+  - author: 松本健作，関口和真，野中謙一郎
+    title: 物体形状の点群データ分布を用いたUAV群の被覆制御による形状再現
+    etitle: Shape Imitation by Multiple UAVs using Coverage Control　based on Object Shaped Point Cloud Data
+    meeting: 関東学生会第58回学生員卒業研究発表講演会
+    page: "209"
+    date: "201903"
+  - author: 大石健司，関口和真，野中謙一郎
+    title: Droneにおけるモデル誤差補償器と階層型線形化を用いた制御性能の数値的検証
+    etitle: Numerical Verification of Control Performance of Hierarchical Linearization and Model Error Compensator for Quadcopter
+    meeting: 関東学生会第58回学生員卒業研究発表講演会
+    page: "103"
+    date: "201903"

@@ -1,0 +1,22 @@
+order: 180
+type: application
+area: leg-wheel_mobile_robot
+role: "2: control"
+title: Driving Over Steps for Leg / Wheel Mobile Robots based on Model Predictive Control
+jtitle: モデル予測制御を用いた立体型脚車輪移動ロボットの段差乗り越え
+abst: |
+   In this paper, we present a control method of locomotion to drive over steps to expand the range of activity for Leg / wheel mobile robots. Model predictive control incorporates the magnitude of the vertical load for each wheel to suppress overturn. 
+jabst: 本研究では脚車輪移動ロボットを対象とし，モデル予測制御による段差の乗り越えを目的とした，姿勢制御手法を提案する．提案手法ではモデル予測制御に各脚の荷重の評価を組み込むことで転倒を抑制する
+keywords:
+  - Leg-Wheel
+  - ATHLETE
+  - MPC
+  - Trajectory Tracking
+figures:
+  - path: /images/leg-wheel_mobile_robot_nakahara.png
+    caption: |
+      Comparison of the proposed method evaluating the load (left fig.) and the comparative method not evaluating (right fig.) when getting over the step.
+      In the proposed method, the load of the leg above the step is suppressed.
+    jcaption: |-
+      段差乗り越え時、荷重を評価した提案手法(左図)と評価を行っていない比較手法(右図)の比較。
+      提案手法では段差上の脚にかかる荷重が抑えている。

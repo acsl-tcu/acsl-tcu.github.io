@@ -1,0 +1,12 @@
+order: 120
+type: application
+area: omni-directional_vehicle
+role: "2: control"
+title: Reduction of Computation Time of Steering Control for Coaxial Steering Mechanisms by Explicit MPC
+jtitle: Explicit MPCによる同軸操舵制御
+abst: This study propose a steering control method for coaxial steering mechanisms. Model predictive control (MPC) achieves effective control considering features of each steering structure. MPC needs high-computational cost for real-time optimization. Actuators such of steering mechanisms requires fast real-time control. Thus we apply explicit MPC which does not need real-time optimization. In explicit MPC, the control law of MPC is determined off-line and stored as look-up table. Fast MPC is achieved by explicit MPC. We verify the effectiveness of proposed method by experiments using the vehicle equipped with a low embedded CPU.
+jabst: この研究では同軸操舵機構に対する制御についての提案を行っている．モデル予測制御(MPC)により同軸操舵機構の各機構の特性を考慮した制御を実現する．MPCは実時間最適化が必要なため計算量が大きいこと，操舵機構のようなアクチュエータには高速なリアルタイム制御が必要なことから，Explicit MPCを用いる．Explicit MPCではMPCの最適化計算を予め行っておき，得られた入力データをルックアップテーブルとして実装する．これにより，入力データを引き出すことのみで制御が可能となり，短いサンプリングでの制御を実現できる．この有効性について組込みCPUを搭載した実機での実験により検証している．
+keywords:
+  - 4W
+  - EMPC
+figures: []

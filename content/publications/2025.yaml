@@ -1,0 +1,130 @@
+year: 2025
+journal:
+  - author: Y. Fukumoto, S. Hamada, A. Miyazaki, F. Xu, K. Sekiguchi and K. Nonaka
+    language: 2
+    title: A study on driver’s deceleration prediction accuracy of ELM model depending on the amount of learning data
+    etitle: A study on driver’s deceleration prediction accuracy of ELM model depending on the amount of learning data
+    magazine: Special Issue on Vehicle and Mobile Robot Technology (Part 2) (JRM)
+    identifier: https://doi.org/10.20965/jrm.2025.p1461
+    page: 1461-1469
+    date: "202512"
+  - author: Kesavan Panjavarnam, Zool Hilmi Ismail, Collin Howe Hing Tang, Kazuma Sekiguchi, Gianmarco Goycochea Casas
+    language: 2
+    title: "Model Predictive Control for Autonomous UAV Landings: A Comprehensive Review of Strategies, Applications and Challenges"
+    etitle: "Model Predictive Control for Autonomous UAV Landings: A Comprehensive Review of Strategies, Applications and Challenges"
+    magazine: The Journal of Engineering
+    identifier: 10.1049/tje2.70085
+    date: "202505"
+  - author: Haziq Muhammad, Zool Hilmi Ismail, Kazuma Sekiguchi, Kenichiro Nonaka
+    language: 2
+    title: Elliptical Model-based Robust Pedestrian Pose Tracking by LiDAR via Bi-level Moving Horizon Random Sample Consensus
+    etitle: Elliptical Model-based Robust Pedestrian Pose Tracking by LiDAR via Bi-level Moving Horizon Random Sample Consensus
+    magazine: IEEE Access
+    identifier: 10.1109/ACCESS.2025.3563030
+    page: 72829 - 72840
+    date: "202504"
+international:
+  - author: Takahiro Onizawa, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202511"
+    title: Obstacle avoidance by Monte Carlo Model Predictive Control with sample generation based on the C/GMRES method
+    meeting: The 2025 SICE Festival with Annual Conference
+    identifier: " 10.23919/SICEFES67750.2025.11236616."
+    page: pp.1-6
+  - author: Buzhou Xu, Yoshiki Komatsu, Kazuma Sekiguchi, Kenichiro Nonaka, Zool Hilmi Ismail
+    date: "202510"
+    title: Quadcopter Landing on a Ship Surface Using Monte Carlo Koopman Model Predictive Control under Signal Temporal Logic Constraints
+    meeting: NOLTA 2025
+  - author: Oinuma Hiiro, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202508"
+    title: A self-driving wheelchair navigating narrow and winding paths accepting potential soft collisions with pedestrians
+    meeting: 2025 American Control Conference (ACC)
+    identifier: 10.23919/ACC63710.2025.11108046
+    page: 2681-2688
+  - author: Go Nakamura, Kazuma Sekiguchi , Kenichiro Nonaka and Hideaki Takayanagi
+    date: "202501"
+    title: Pedestrian Modeling Using the Koopman Approach and Investigation into the Effects of Autonomous Mobile Robot Intervention
+    meeting: The Thirtieth International Symposium on Artificial Life and Robotics 2025 (AROB 30th 2025)
+    page: 1307-1312
+  - author: M. Imoto, H. Muhammad, K. Sekiguchi, Z. H. Ismail and K. Nonaka
+    date: "202501"
+    title: LiDAR-based Pedestrian Tracking Adapting to Sparse Point Cloud Utilizing Interacting Multiple Model
+    meeting: 2025 IEEE/SICE International Symposium on System Integration (SII)
+    identifier: 10.1109/SII59315.2025.10871087.
+    page: 1266-1273
+domestic:
+  - author: 前原拓実，関口和真，野中謙一郎
+    title: 周辺歩行者の姿勢を考慮したパーソナルモビリティの衝突回避
+    etitle: Collision avoidance control for personal mobility considering the postures of surrounding pedestrians
+    meeting: 第26回システムインテグレーション部門講演会 (SI2025)
+    page: 907-910
+    date: "202512"
+  - author: 鬼澤貴裕，関口和真， 野中謙一郎
+    title: 移動ロボットの障害物回避におけるサンプルベースMPCの比較
+    etitle: Comparison of sample-based MPCs in obstacle avoidance for mobile robot
+    meeting: 第68回 自動制御連合講演会
+    identifier: https://doi.org/10.11511/jacc.68.0_826
+    page: 826-829
+    date: "202511"
+  - author: 生沼陽色，関口和真，野中謙一郎
+    title: 人流追従により周囲の交通状況に順応した自律走行
+    etitle: Autonomous Navigation Adapted to Surrounding Traffic by Following Pedestrian Flow
+    meeting: 第68回 自動制御連合講演会
+    identifier: https://doi.org/10.11511/jacc.68.0_1708
+    page: 1708-1711
+    date: "202511"
+  - author: 岡田拓己，井本匡紀，関口和真， 野中謙一郎
+    title: LiDAR照射面によるオフセットを考慮した歩行者の速度推定
+    etitle: Pedestrian Velocity Estimation Considering Offset Due to LiDAR Scanning Plane
+    meeting: 第68回 自動制御連合講演会
+    identifier: https://doi.org/10.11511/jacc.68.0_1712
+    page: 1712-1714
+    date: "202511"
+  - author: 石川侑真，関口和真，野中謙一郎
+    title: CCCPを用いた制御器設計におけるGKYP補題による初期値設計法
+    etitle: An Initialization Method Using the GKYP Lemma for Controller Design via CCCP
+    meeting: 第68回 自動制御連合講演会
+    identifier: https://doi.org/10.11511/jacc.68.0_1848
+    page: 1848-1851
+    date: "202511"
+  - author: 井本 匡紀，関口和真，野中謙一郎
+    title: ROS2 の電動車いすシステムと歩行者追跡への応用
+    etitle: ROS2-based Control System of an Electric Wheelchair and its Application to Pedestrian Tracking
+    meeting: 第68回 自動制御連合講演会
+    identifier: https://doi.org/10.11511/jacc.68.0_191
+    page: 191-192
+    date: "202511"
+  - author: 今井 瑞人，関口和真，野中謙一郎，渡邊 暢浩，反町 一博，林田 宣浩
+    title: 実機実装を想定したトラックシミュレーション環境の構築
+    etitle: Development of a Truck Simulation Environment for Real-World Implementation
+    meeting: 第68回 自動制御連合講演会
+    identifier: https://doi.org/10.11511/jacc.68.0_183
+    page: 183-186
+    date: "202511"
+  - author: 永井翔大，岡田拓己，井本匡紀，関口和真， 野中謙一郎
+    title: 画像認識と色相を用いた電動車椅子による歩行者追跡
+    etitle: Pedestrian Tracking Using Image Recognition and Hue in Electric Wheelchairs
+    meeting: 第43回日本ロボット学会学術講演会
+    page: 1H3-03
+    date: "202509"
+  - author: 矢田直輝，百瀬雄真，三宅慶旺，関口和真， 野中謙一郎
+    title: 牽引物仮想モデル分割を用いた複数クワッドコプタによる牽引飛行の実験検証
+    etitle: Experimental verification of a suspended load flight using multi quadcopters by a suspended load virtual split model
+    meeting: ロボティクス・メカトロニクス講演会2025
+    identifier: https://doi.org/10.1299/jsmermd.2025.2A1-E01
+    page: 2A1-E01(1)-2A1-E01(3)
+    date: "202506"
+  - author: 田中智士，百瀬雄真，関口 和真，野中 謙一郎
+    title: "クワッドコプタの機体間衝突回避を考慮した牽引物仮想モデル分割による協調搬送制御 "
+    etitle: |-
+      A suspended load flight using multi-quadcopters by a suspended
+       load virtual split model with collision avoidance as a constraint
+    meeting: 第69回システム制御情報学会
+    identifier: https://doi.org/10.11509/sci.SCI25.0_598
+    page: 598-604
+    date: "202505"
+  - author: 福本 泰己，望月 勇希，関口 和真，野中 謙一郎
+    title: 個人の運転特性を反映させた自動運転車椅子の速度制御の研究
+    etitle: Velocity control for autonomous electric wheelchairs reflecting personal driving style
+    meeting: 第12回計測自動制御学会制御部門マルチシンポジウム　（MSCS2025）
+    page: 1159-1161
+    date: "202502"

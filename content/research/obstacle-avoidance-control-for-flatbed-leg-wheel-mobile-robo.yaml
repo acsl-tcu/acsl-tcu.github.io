@@ -1,0 +1,17 @@
+order: 190
+type: application
+area: leg-wheel_mobile_robot
+role: "2: control"
+title: Obstacle avoidance control for flatbed leg/wheel mobile robots
+jtitle: 平面型脚車輪型移動ロボットの障害物回避制御
+abst:  In this paper, we present a obstacle avoidance control method for flatbed leg/wheel mobile robots. In oreder to achieve efficient obstacle avoidanc, we combined model predictive control with the oval potential field method. The proposed method is realized with real-time control by using C/GMRES which is a fast computational solution method.
+jabst: 本研究では，平面型脚車輪移動ロボットのための障害物回避制御を提案する．効率的な障害物回避を行うために，モデル予測制御に楕円形の人工ポテンシャル場法を組み合わせた．高速な計算解法であるC/GMRESを利用することで，提案手法をリアルタイム制御で実現している．
+keywords:
+  - Leg-Wheel
+  - ATHLETE
+  - MPC
+  - Trajectory Tracking
+figures:
+  - path: /images/leg-wheel_mobile_robot_nakahara.png
+    caption: Obstacle avoidance control for leg/wheel mobile robots. We demonstrated the effectiveness of the proposed method for obstacle avoidance by actual experiments.
+    jcaption: 平面型脚車輪移動ロボットの障害物回避制御．実機実験により提案手法を用いた障害物回避の有効性を実証した．

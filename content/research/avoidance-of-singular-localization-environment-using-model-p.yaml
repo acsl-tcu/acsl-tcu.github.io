@@ -1,0 +1,31 @@
+order: 130
+type: application
+area: omni-directional_vehicle
+role: "3: estimation"
+title: Avoidance of Singular Localization Environment using Model Predictive Control for Mobile Robots
+jtitle: 移動ロボットのモデル予測制御を用いた自己位置推定の特異環境回避
+abst: |
+  Localization is important to achieve safety motion of autonomous mobile robots.
+  In this paper, we propose a model predictive control which prevents vehicles from falling into a singular localization environment with less features.
+  We assume to use a laser range finder (LRF) as a sensor to obtain two dimensional point-cloud data of the surrounding environment and apply map-matching method for localization.
+  We can calculate a covariance matrix of localization error using Fisher information matrix.
+  The maximum eigenvalue of this covariance matrix is used as an index of uncertainty of localization.
+  Then, we extract regions having large uncertainty for localization to construct prohibited regions.
+  The robot avoids singular environments and regions with significantly low estimation accuracy by considering the prohibited regions represented as inequality constraints for model predictive control (MPC).
+  We show the effectiveness of the proposed method through numerical simulations which simulate singular environments indicating a corridor or a large floor where only degenerated information is available.
+jabst: |
+  自律移動ロボットが安全に動作するためには自己位置推定が重要となる．
+  本稿ではロボットが自己位置推定に用いる特徴量が減少する特異環境に陥いるのを回避するモデル予測制御を用いた手法を提案します.
+  本研究では，二次元の点群データが得られるセンサであるLaser range finder (LRF)を用いた線分ベースのマップマッチングによって自己位置推定を行なう．
+  フィッシャー情報量行列を元に自己位置推定誤差の共分散行列を算出する．
+  この共分散行列の最大固有値は自己位置推定の不確かさの指標として扱う．
+  その最大固有値が大きくなる領域を抽出し，進入禁止領域として不等式制約を設けモデル予測制御によって考慮することで特異環境及び推定精度が著しく低下する環境の回避を行なう．
+  そして，提案手法の有効性を特異となる領域を含む環境である大きな室内空間や廊下での数値シミュレーションを通じて確認する．
+keywords:
+  - 4W
+  - LRF
+  - Estimation
+figures:
+  - path: /images/omni-directional_vehicle_koizumi2.jpg
+    caption: Constraints and trajectory on x-y-θ space.
+    jcaption: 特異環境回避軌道及び制約条件

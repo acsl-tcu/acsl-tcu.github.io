@@ -1,0 +1,16 @@
+order: 270
+type: application
+area: electric_wheelchair
+role: "3: estimation"
+title: Continuous Marker Association utilizing Potential Function for Motion Capture Systems
+jtitle: モーションキャプチャシステムのためのポテンシャル関数を利用した連続的なマーカ対応付け
+abst: Optical motion capture system can measure the position and the orientation of an object equipped with retroreflective markers. When some markers are not observed due to occlusion, the system often fails to localize the object. In our past study, moving horizon estimation (MHE) is applied to improve the estimation robustness, where states are determined so that the sum of error magnitude of dynamics and observation is minimized under constraints. In general, marker association is crucial for high accuracy estimation. In this paper, we propose a marker association method for MHE where the proposed association method exploits a potential function and optimization so that the association is robust against marker occlusion and fake images similar to the marker. In the simulation, for the environment where the previous method fails due to missing markers and misrecognition, we confirm that the proposed method can successfully realize the estimation.
+jabst: 光学式モーションキャプチャシステムは再起反射性のマーカーを備えた物体の位置と姿勢を測定できる．いくつかのマーカーがオクルージョンによって測定ができない場合，システムはしばしば対象の位置を特定することに失敗する．私たちの過去の研究では，moving horizon estimationをが推定のロバスト性を改善するために適用され，状態はダイナミクスの誤差の大きさと観測値の誤差の大きさの和が制約条件かで最小化されるように決定される．一般的に，マーカー対応付けは高精度の推定には不可欠である．本論文では，MHEのためのマーカー対応付け手法を提案する．この提案された対応付け手法はポテンシャル関数と最適化計算を利用して対応付けがマーカーのオクルージョンとマーカーに類似した偽の画像に対してロバストな手法である．シミュレーションでは，従来手法がマーカーの欠落や誤認識によって失敗する環境に対して，提案手法が推定をうまく実現できることを確認した．
+keywords:
+  - Estimation
+  - MHE
+  - Prime
+figures:
+  - path: /images/electric_wheelchair_kikuchi.jpg
+    caption: Marker association with optimization utilizing artificial potential field. Red points show true value and green points show estimated value. The predicted value converges on the nearest observation along the slope of the artificial potential field by optimization. Also, The occluded marker stay on the initial position.
+    jcaption: 人工ポテンシャル場を用いた最適化計算によるマーカー対応付け．赤い丸が真値，緑の点が推定値を示す．最適化計算において，初期推定解は人工ポテンシャル場の傾きにより測定値付近に収束をする．また，オクルージョンが起きたマーカーは勾配が0に近いため初期値に停留する．

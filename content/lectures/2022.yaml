@@ -1,0 +1,162 @@
+year: 2022
+lectures:
+  - id: sba121206
+    title: 制御理論
+    etitle: Theory of System Control 
+    term: 後期前半　月曜日　２時限
+    teacher: 関口和真
+  - id: sba121206
+    title: 制御理論
+    etitle: Theory of System Control 
+    term: 後期前半　木曜日　２時限
+    teacher: 関口和真
+  - id: sbz122304
+    title: 事例研究
+    etitle: Case Study Seminar 
+    term: 後期　火曜日　３時限
+    teacher: 関口和真
+  - id: sbz122304
+    title: 事例研究
+    etitle: Case Study Seminar 
+    term: 後期　火曜日　４時限
+    teacher: 関口和真
+  - id: saa123101
+    title: プログラミング及び演習(a)
+    etitle: Programming and Practice 
+    term: 前期　水曜日　１時限
+    teacher: 関口和真
+  - id: saa123101
+    title: プログラミング及び演習(a)
+    etitle: Programming and Practice 
+    term: 前期　水曜日　２時限
+    teacher: 関口和真
+  - id: sbz121302
+    title: 電気基礎実験
+    etitle: Fundamental Experiments on Electric Circuits 
+    term: 後期　月曜日　３時限
+    teacher: 関口和真
+  - id: sbz121302
+    title: 電気基礎実験
+    etitle: Fundamental Experiments on Electric Circuits 
+    term: 後期　月曜日　４時限
+    teacher: 関口和真
+  - id: sbb123104
+    title: 再・工業力学(2)
+    etitle: Engineering Mechanics (2) 
+    term: 後期後半　水曜日　１時限
+    teacher: 関口和真
+  - id: sbb123104
+    title: 再・工業力学(2)
+    etitle: Engineering Mechanics (2) 
+    term: 後期後半　水曜日　２時限
+    teacher: 関口和真
+  - id: sbb121114
+    title: 物理学及び演習(2)AB
+    etitle: Physics and ..... (2) [assumed] 
+    term: 後期後半　月曜日　２時限
+    teacher: 関口和真
+  - id: sbb121114
+    title: 物理学及び演習(2)AB
+    etitle: Physics and ..... (2) [assumed] 
+    term: 後期後半　木曜日　２時限
+    teacher: 関口和真
+  - id: smab020021
+    title: ディジタルシステム制御特論
+    etitle: Digital System Control,Adv. 
+    term: 前期後半　火曜日　２時限
+    teacher: 関口和真
+  - id: smab020021
+    title: ディジタルシステム制御特論
+    etitle: Digital System Control,Adv. 
+    term: 前期後半　金曜日　２時限
+    teacher: 関口和真
+  - id: szb007
+    title: 卒業研究：高機能機械制御研究室
+    etitle: Graduation Thesis 
+    term: 通年（卒研）　その他
+    teacher: 関口和真
+  - id: smaz020131
+    title: 機械システム工学事例研究
+    etitle: Case Study Seminar for Graduate Course
+    term: 集中（前期）　その他
+    teacher: 関口和真
+  - id: smba020031
+    title: システム制御特論
+    etitle: System Control,Adv. 
+    term: 後期前半　月曜日　１時限
+    teacher: 野中謙一郎
+  - id: smba020031
+    title: システム制御特論
+    etitle: System Control,Adv. 
+    term: 後期前半　木曜日　１時限
+    teacher: 野中謙一郎
+  - id: szb007
+    title: 卒業研究：高機能機械制御研究室
+    etitle: Graduation Thesis 
+    term: 通年（卒研）　その他
+    teacher: 野中謙一郎
+  - id: saa122301
+    title: ロボット制御プログラミング
+    etitle: Programming for Robotics and Control 
+    term: 前期前半　火曜日　３時限
+    teacher: 野中謙一郎
+  - id: saa122301
+    title: ロボット制御プログラミング
+    etitle: Programming for Robotics and Control 
+    term: 前期前半　金曜日　３時限
+    teacher: 野中謙一郎
+  - id: sab122303
+    title: 制御システム設計
+    etitle: Design of Control System 
+    term: 前期後半　火曜日　３時限
+    teacher: 野中謙一郎
+  - id: sab122303
+    title: 制御システム設計
+    etitle: Design of Control System 
+    term: 前期後半　金曜日　３時限
+    teacher: 野中謙一郎
+  - id: saz127608
+    title: 機械システム応用実験
+    etitle: Experiments on Mechanical System Application 
+    term: 前期集中
+    teacher: 野中謙一郎
+  - id: sbz122304
+    title: 事例研究
+    etitle: Case Study Seminar 
+    term: 後期　火曜日　３時限
+    teacher: 野中謙一郎
+  - id: sbz122304
+    title: 事例研究
+    etitle: Case Study Seminar 
+    term: 後期　火曜日　４時限
+    teacher: 野中謙一郎
+  - id: sba122203
+    title: システムダイナミックス及び演習(a)
+    etitle: Introduction to System Dynamics and Exercise 
+    term: 後期　火曜日　２時限
+    teacher: 野中謙一郎
+  - id: sba122203
+    title: システムダイナミックス及び演習(a)
+    etitle: Introduction to System Dynamics and Exercise 
+    term: 後期　金曜日　２時限
+    teacher: 野中謙一郎
+  - id: smaz020131
+    title: 機械システム工学事例研究
+    etitle: Case Study Seminar for Graduate Course
+    term: 集中（前期）　その他
+    teacher: 野中謙一郎
+  - id: saz123103
+    title: 再・Ｃプログラミング及び演習
+    etitle: C-programming and Practice 
+    term: 前期　水曜日１，２時限
+    teacher: 関口和真
+  - id: sbz122205
+    title: 再・システムダイナミックス及び演習
+    etitle: Introduction to System Dynamics and Exercise 
+    term: 後期　火曜日　２時限
+    teacher: 野中謙一郎
+  - id: sbz122205
+    title: 再・システムダイナミックス及び演習
+    etitle: Introduction to System Dynamics and Exercise 
+    term: 後期　金曜日　２時限
+    teacher: 野中謙一郎

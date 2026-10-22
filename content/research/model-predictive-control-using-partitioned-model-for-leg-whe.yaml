@@ -1,0 +1,17 @@
+order: 160
+type: application
+area: leg-wheel_mobile_robot
+role: "2: control"
+title: Model Predictive Control using Partitioned Model for Leg/Wheel Mobile Robots
+jtitle: 分割モデルを用いた脚車輪型移動ロボットのモデル予測制御
+abst: We propose a model predictive control method that controls a leg/wheel mobile robot with a few computational complexity. Roughly, we consider the robot as a swarm of manipulators constrained by a body, so that we introduce distributed MPC theory. A model of the robot is partitioned into each leg. Moreover, in order to consider the body of the model on the controller, relative position of the subsystems is strained so as to maintain shape of the body. Each subsystem share predicted state each other so as to acheive cooperative motion considering the future motion.
+jabst: 脚車輪型移動ロボットを少ない計算量で制御できる手法を提案する．本研究では，脚車輪型移動ロボットをボディで拘束された脚群として扱うことで，分散制御のアイデアを用いる．計算コストを分散させるために，ロボットのモデルを脚ごとに分割して，各脚を独立に制御する．このとき，分割されたサブシステム間の相対位置を拘束することで，コントローラ上のモデルにおけるボディを考慮する．また，各脚は他脚の予測動作を共有することで，系全体として整合性のとれた協調動作を達成する．
+keywords:
+  - Leg-Wheel
+  - ATHLETE
+  - MPC
+  - Cooperation
+figures:
+  - path: /images/leg-wheel_mobile_robot_shibata1.jpg
+    caption: Comparison of computational time for full model and partitioned model. The time of partitioned model is reduced, and computational time for whole system is reduced by 50 %.
+    jcaption: 6脚を統合的に最適化した場合と1脚を個別に最適化した場合の計算時間．1脚の最適化は統合的なものに比べて大幅に計算量が削減されており，各脚の合計も半分の計算時間になっている．

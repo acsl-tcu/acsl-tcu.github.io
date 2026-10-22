@@ -1,0 +1,19 @@
+order: 50
+type: application
+area: spacecraft
+role: "2: control"
+title: Attitude Control of Spacecraft with Two Reaction Wheels in Consideration of Model Error
+jtitle: ２基のリアクション・ホイールによる衛星のモデル誤差を考慮した姿勢制御
+abst: "Generally, PID control that has little influence of model error is used to realize the attitude control of the spacecraft when three reaction wheels are available.However, the attitude control using this controller is difficult when a reaction wheel is broken down. In constant, we enabled the attitude control by changing the control method that is the model based control that considers the characteristic of the model.  However, the model based control is known to be affected by the model error. The model error is difference between the actual system and the model. The model error of spacecraft includes parameter variations and inertial force.  When there is such the model error, the control performance deteriorates for applying Model Error Compensator. "
+jabst: |
+  一般的にリアクションホイールを3基用いて制御を行う際には設計が容易でモデル誤差の影響も少ないPID制御が用いられる．これに対してリアクションホイールが故障し2 基のみで姿勢制御を行うときにこの手法ではモデルの特性を考慮したモデルベース制御に制御手法を切り替えることで姿勢制御を可能としている．しかし，モデルベース制御はモデル誤差の影響を受けることが知られている．モデル誤差とはモデルと実際のシステムとの差のことを言い，スペースクラフトではパラメータ変動やねじれ力などがモデル誤差となる．こういった，モデル誤差が存在するときに制御性能が劣化してしまう．
+  　そこで本研究ではスペースクラフトに対してモデル誤差補償器により，モデル誤差の影響を抑制し2基のリアクションホイールを用いて高精度な姿勢制御を実現することを目的とする．
+keywords:
+  - Spacecraft
+  - Spacecraft
+  - MEC
+  - MEC
+figures:
+  - path: /images/spacecraft_endo.jpg
+    caption: "System of MEC.First, model based controller input the same signal into the spacecraft model and actual spacecraft. Next, this system feedback differences in output between actual spacecraft and spacecraft model. This system can compensate the excessive input and the lack input that occurred by the model error by using this feedback. "
+    jcaption: モデル誤差補償器の構造．実際の衛星とモデルに同一信号を入力し，その出力の差をフィードバックする．これによって，実際の衛星の動きをモデルの動きに寄せることができる

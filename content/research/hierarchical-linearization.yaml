@@ -1,0 +1,17 @@
+order: 10
+type: method
+area: method
+role: main
+title: Hierarchical linearization
+jtitle: 階層型線形化
+abst: |-
+  This method is one of the natural extension of "input-output linearization". The key idea of the extension is that a designed input can be canceled by another "independent" input. Based on this independence, a hierarchical structure can be defined as shown in Fig. 1. In each layer, subsystems are linearized using ordinary input-output linearization.
+  The advantages of this method are following two. Firstly, a degree of linearizable subsystem increases comparing to ordinary input-output linearization. Secondly,  a controller designed via this method is static feedback form as distinct from dynamic feedback.
+jabst: |-
+  階層型線形化は，設計済みの入力はそれとは独立な入力によって打ち消すことができるというアイデアを使って，入出力線形化という従来の手法を自然な形で拡張した手法になっている．この入力の独立性によって図１に示すような階層構造が定義でき，各階層は入出力線形化手法を用いて線形化される．
+  この手法の利点は主に２つ挙げられる．第一に，線形化可能な次数が増加する点．第二に設計される入力が動的なものではなく静的な状態フィードバックになっている点である．
+keywords: []
+figures:
+  - path: /images/HL2DF.jpg
+    caption: A conceptional sketch of hierarchical linearization. Each row represents a layer of hierarchy, and arrows among layers are the flow of information. The block HLi  consists of directional decoupling and autonomization. After the virtual input vi has been designed at the block, the subsystem controlled by vi becomes uncontrollable subspace for lower layer subsystems. At the end, actual inputs are calculated gathering the information of vi.
+    jcaption: 階層型線形化の概念図．各行で表されるものが階層を表し，階層間の矢印が情報の流れを表している．各階層のHLi は方向性分離と自律化をおこなうブロックを表す．ここでvi の設計まで完了することでviで制御されるサブシステムは下の階層には不可制御な部分空間になる．最終的な実入力は各階層で設計されたviの情報を吸い上げることで算出される．

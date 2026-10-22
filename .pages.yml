@@ -1,11 +1,17 @@
 # Pages CMS 設定 (https://pagescms.org/docs/)
 # 学生は content ブランチで編集する。main への反映は PR の承認で行う。
+# 編集画面: https://app.pagescms.org/acsl-tcu/acsl-tcu.github.io/content
 media:
   - name: member-photos
     label: 集合写真
     input: public/images/member
     output: /images/member
     extensions: [png, jpg, jpeg, webp]
+  - name: research-media
+    label: 研究の図・動画
+    input: public/images
+    output: /images
+    extensions: [png, jpg, jpeg, gif, webp, mp4]
 
 content:
   - name: members
@@ -25,7 +31,7 @@ content:
         required: true
       - name: photo
         label: 集合写真
-        description: 写真が空の年度はサイトに表示されません
+        description: 未設定の場合はメンバー表だけ表示されます
         type: image
         options:
           media: member-photos
@@ -74,3 +80,165 @@ content:
           - name: url
             label: URL
             type: string
+
+  - name: publications
+    label: 業績
+    type: collection
+    path: content/publications
+    format: yaml
+    filename: "{primary}.yaml"
+    view:
+      primary: year
+      sort: year
+      order: desc
+    fields:
+      - name: year
+        label: 年
+        description: 発表年（年月の先頭 4 桁と一致させる）
+        type: number
+        required: true
+      - name: journal
+        label: 論文誌
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{date} {title}"
+        fields:
+          - { name: author, label: 著者, type: string, required: true, description: "例: K. Sekiguchi and K. Nonaka" }
+          - { name: title, label: タイトル, type: string, required: true }
+          - { name: etitle, label: タイトル（英語）, type: string }
+          - { name: magazine, label: 論文誌名, type: string, required: true }
+          - { name: volume, label: 巻, type: string }
+          - { name: number, label: 号, type: string }
+          - { name: page, label: ページ, type: string, description: "例: 1461-1469" }
+          - { name: date, label: 年月, type: string, required: true, description: "YYYYMM（例: 202512）" }
+          - { name: identifier, label: DOI または URL, type: string }
+          - name: language
+            label: 言語
+            type: select
+            options:
+              values:
+                - { name: 1, label: 日本語 }
+                - { name: 2, label: 英語 }
+          - { name: abstract, label: 概要, type: text }
+          - { name: memo, label: メモ, type: text }
+      - name: international
+        label: 国際会議
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{date} {title}"
+        fields:
+          - { name: author, label: 著者, type: string, required: true }
+          - { name: title, label: タイトル, type: string, required: true }
+          - { name: meeting, label: 会議名, type: string, required: true }
+          - { name: place, label: 開催地, type: string }
+          - { name: volume, label: 巻・回, type: string }
+          - { name: page, label: ページ, type: string }
+          - { name: date, label: 年月, type: string, required: true, description: "YYYYMM（例: 202510）" }
+          - { name: term, label: 会期, type: string }
+          - { name: identifier, label: DOI または URL, type: string }
+          - { name: abstract, label: 概要, type: text }
+          - { name: memo, label: メモ, type: text }
+      - name: domestic
+        label: 国内発表
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{date} {title}"
+        fields:
+          - { name: author, label: 著者, type: string, required: true, description: "例: 関口和真，野中謙一郎" }
+          - { name: title, label: タイトル, type: string, required: true }
+          - { name: etitle, label: タイトル（英語）, type: string }
+          - { name: author_e, label: 著者（英語）, type: string }
+          - { name: meeting, label: 学会・講演会名, type: string, required: true }
+          - { name: meeting_e, label: 学会・講演会名（英語）, type: string }
+          - { name: place, label: 開催地, type: string }
+          - { name: volume, label: 巻・回, type: string }
+          - { name: page, label: ページ, type: string }
+          - { name: date, label: 年月, type: string, required: true, description: "YYYYMM（例: 202603）" }
+          - { name: term, label: 会期, type: string }
+          - { name: identifier, label: DOI または URL, type: string }
+          - { name: abstract, label: 概要, type: text }
+
+  - name: research
+    label: 研究テーマ
+    type: collection
+    path: content/research
+    format: yaml
+    filename: "{primary}.yaml"
+    view:
+      primary: title
+      sort: order
+      order: asc
+      fields: [title, type, area]
+    fields:
+      - { name: title, label: タイトル（英語）, type: string, required: true }
+      - { name: jtitle, label: タイトル（日本語）, type: string, required: true }
+      - name: type
+        label: 種類
+        type: select
+        required: true
+        options:
+          values:
+            - { name: method, label: 手法 (Methods) }
+            - { name: application, label: 応用 (Applications) }
+      - name: area
+        label: 応用分野
+        description: "手法は method。応用は分野名（例: drone, electric_wheelchair）。カード画像は /images/{分野名}.jpg"
+        type: string
+        required: true
+      - name: role
+        label: 役割
+        type: select
+        options:
+          values:
+            - { name: main, label: main（手法） }
+            - { name: "1: system", label: "1: system" }
+            - { name: "2: control", label: "2: control" }
+            - { name: "3: estimation", label: "3: estimation" }
+      - { name: order, label: 表示順, type: number, description: 小さい順に表示（10 刻み推奨） }
+      - { name: abst, label: 概要（英語）, type: text }
+      - { name: jabst, label: 概要（日本語）, type: text }
+      - { name: keywords, label: キーワード, type: string, list: true }
+      - name: figures
+        label: 図・動画（最大 4 件表示）
+        type: object
+        list: true
+        fields:
+          - name: path
+            label: ファイル
+            type: file
+            options:
+              media: research-media
+          - { name: caption, label: キャプション（英語）, type: text }
+          - { name: jcaption, label: キャプション（日本語）, type: text }
+
+  - name: lectures
+    label: 講義
+    type: collection
+    path: content/lectures
+    format: yaml
+    filename: "{primary}.yaml"
+    view:
+      primary: year
+      sort: year
+      order: desc
+    fields:
+      - { name: year, label: 年度, type: number, required: true }
+      - name: lectures
+        label: 講義
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: id, label: 講義コード, type: string, required: true, description: "例: szb007（大学院は sm / sd を含む）" }
+          - { name: title, label: 科目名（日本語）, type: string, required: true }
+          - { name: etitle, label: 科目名（英語）, type: string }
+          - { name: term, label: 開講期・時限, type: string }
+          - { name: teacher, label: 担当教員, type: string }

@@ -1,0 +1,18 @@
+order: 300
+type: application
+area: drone
+role: "2: control"
+title: Formation control of quad-copters considering collision avoidance using model predictive control in three dimensional space
+jtitle: モデル予測制御による衝突回避を考慮したクアッドコプターの3次元フォーメーション制御
+abst: This paper proposes a formation control for multi quad-copters considering collision avoidance using model predictive control (MPC) in three dimensional space. To achieve the formation control, decentralized multi-agent control (MAC) is utilized. Collision avoidance between control objects is considered by adding the term of repulsive force to index function of MPC. Thus this paper achieves formation control by combining MAC with MPC. In general, the repulsive force is described as a nonlinear function, but it's not appropriate to implement to practical system. Thus the term of repulsive force is approximated as a second order polynomial function in consideration of the extension to the experiment. Finally, the validity of proposed method is verified via numerical simulation using the linear model of quad-copter in three dimensional space.
+jabst: 本研究では，モデル予測制御（MPC）により，衝突回避を考慮したクアッドコプターのフォーメーション制御を3次元空間で実現する．フォーメーション制御を達成するため，分散型のマルチエージェント制御（MAC）を用いる．制御対象間の衝突回避は，MPCの評価関数に斥力項を追加することにより考慮する．よって本研究では，MPCとMACを組み合わせることによってフォーメーション制御を達成する．一般に，斥力項は非線形関数として表されるが，実際のシステムに実装するには適さない．そのため，実機実験に拡張することを考慮し，斥力項を2次多項式に近似する．最後に，提案手法をクアッドコプターの線形3次元モデルに適用し，数値シミュレーションにより有効性を検証する．
+keywords:
+  - Drone
+  - Multi Agent
+figures:
+  - path: /images/drone_yamamoto1.jpg
+    caption: One of the example of collision avoidance. Predicting collision and accelerating or decelerating previously to avoid collision.
+    jcaption: エージェント間の衝突を回避する動作の例．衝突を予測し，予め加減速を行い衝突を回避する．
+  - path: /images/drone_yamamoto2.mp4
+    caption: The animation of the three dimentional formation control considering collision avoidance by proposed method. Three drones are put on the x direction, nine drones are put on the y direction at the altitude five meters as the initial position. Three drones are put on the x direction, three drones are put on the y direction, five drones are put on the z direction as the target formation.
+    jcaption: 提案手法による衝突回避を考慮したドローンの3次元フォーメーション制御のアニメーション．高度5メートルの位置でx方向に5台，y方向に9台の計45台を長方形に配置した状態を初期配置とし，x方向に3台，y方向に3台，z方向に5台の直方体を目標フォーメーション形状とする．

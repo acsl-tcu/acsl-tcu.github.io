@@ -1,0 +1,19 @@
+order: 240
+type: application
+area: electric_wheelchair
+role: "2: control"
+title: Model Predictive Obstacle Avoidance Control for Vehicles with Automatic Velocity Suppression using Artificial Potential Field
+jtitle: 混雑かつ狭隘な環境における自律移動車両に対する相対速度の期待値を利用した確率モデル予測障害物回避制御
+abst: "Recently, electric wheelchairs are widely used, which has independent driving wheels modeled as a two-wheeled nonholonomic vehicle model. One of the challenges on obstacle avoidance in real environment is that the obstacle position observed by sensors is usually fluctuated due to noise; it is difficult to pass through the obstacles safely. To overcome this difficulty, we apply time-state control form to divide the system into two subsystems: path dynamics and velocity dynamics so that we can separate the path planning from velocity control, which enables us to transform each subsystem into linear ones. The path tracking is achieved by linear control systems is design, while running velocity can be tuned depending on the distance to the obstacles. Then we apply model predictive control (MPC) for each subsystem in order to realize obstacle avoidance and optimal velocity control."
+jabst: 近年，電動車椅子をはじめとする自律移動車両に対する研究や開発が盛んに行われている．このような自律移動車両の走行が想定される環境を考えたとき，廊下のような狭隘な環境を走行することが考えられる．また，周辺には人が存在する混雑した環境も想定される．このような環境で目的地点までの走破を考えるとき，障害物回避の課題として，この環境に含まれる「不確かさ」を考慮した上で適切な走行経路及び速度を逐次的に決定することが挙げられる．この不確かさにはセンサの計測値に含まれるノイズなどの「静的な不確かさ」と突然の方向転換やふらついた歩行などの人の動きに対する「動的な不確かさ」がある．そのため本研究では，これらの不確かさを考慮した制御器を設計することを目的とする．本研究では．経路と速度のダイナミクスとして別々に制御器を設計する．また，それぞれにモデル予測制御（MPC）を適用して先に述べた不確かさをMPCで考慮することで安全な障害物からの回避走行とその時の速度を決定することができる．
+keywords:
+  - Vehicle
+  - TSCF
+  - MPC
+figures:
+  - path: /images/electricWheelchair_kshibataCCTA2019Narrow.mp4
+    caption: ""
+    jcaption: 通路が狭い場合の数値シミュレーション結果．赤い円は自律移動車両であり，黒い円は障害物を示す． また，青い円は障害物の不確かさに基づく予報円である． 予測された経路が青い破線で示され，障害物回避達成及び接近時に不確かさに基づいて自律移動車両の減速が行われていることが確認できる．
+  - path: /images/electricWheelchair_kshibataCCTA2019Wide.mp4
+    caption: ""
+    jcaption: 通路が広い場合の数値シミュレーション結果．赤い円は自律移動車両であり，黒い円は障害物を示す． また，青い円は障害物の不確かさに基づく予報円である． 予測された経路が青い破線で示され，障害物回避達成が確認できる．この場合では通路が広いため，減速するよりも大きく回避した方が良いことから障害物から離れて回避していることが確認できる．

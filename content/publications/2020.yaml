@@ -1,0 +1,164 @@
+year: 2020
+journal:
+  - author: Ryota Nakahara,Kazuma Sekiguchi,Kenichiro Nonaka,Masahiro Takasugi,Hiroki Hasebe,Kenichi Matsubara
+    language: 2
+    title: Model Predictive Braking Control for Heavy-Duty Commercial Vehicles Considering Response Delay of Air-Brake
+    etitle: Model Predictive Braking Control for Heavy-Duty Commercial Vehicles Considering Response Delay of Air-Brake
+    magazine: International Journal of Automotive Engineering
+    identifier: 10.20485/jsaeijae.11.4_177
+    page: 177-184
+    date: "202011"
+  - author: Ryuichi Maki Isao Okawa, Kenichiro Nonaka
+    language: 2
+    title: Model Predictive Steering Control with Flexible Lane Crossing Considering Nearby Vehicles
+    etitle: Model Predictive Steering Control with Flexible Lane Crossing Considering Nearby Vehicles
+    magazine: International Journal of Automotive Engineering
+    identifier: 10.20485/jsaeijae.11.3_136
+    page: 136-142
+    date: "202009"
+  - author: 藤間 隆生, 石川 恭匡, 高橋 直樹, 高浜 琢, 野中 謙一郎
+    language: 1
+    title: 外界センサとGNSSを融合したMoving Horizon Estimationによる地図上の車両位置補正
+    etitle: Improved Vehicle Localization on a Map based on Moving Horizon Estimation Integrating External Sensors and GNSS
+    magazine: 自動車技術会論文集
+    identifier: 10.11351/jsaeronbun.51.727
+    page: 727-732
+    date: "202007"
+  - author: Isao OKAWA, Yoshihide MIZUSHIMA, Kenichiro NONAKA
+    language: 2
+    title: Optimal trajectory generation with direct acceleration reshaping for autonomous vehicles
+    etitle: Optimal trajectory generation with direct acceleration reshaping for autonomous vehicles
+    magazine: Mechanical Engineering Journal
+    identifier: 10.1299/mej.19-00632
+    page: 19-00632
+    date: "202007"
+  - author: Naoki Takahashi, Naoki Shibata, Kenichiro Nonaka
+    language: 2
+    title: Optimal configuration control of planar leg/wheel mobile robots for flexible obstacle avoidance
+    etitle: Optimal configuration control of planar leg/wheel mobile robots for flexible obstacle avoidance
+    magazine: Control Engineering Practice
+    identifier: 10.1016/j.conengprac.2020.104503
+    page: 1-10
+    date: "202006"
+  - author: Tomoya Kikuchi, Kenichiro Nonaka, and Kazuma Sekiguchi
+    language: 2
+    title: Moving Horizon Estimation with Probabilistic Data Association for Object Tracking Considering System Noise Constraint
+    etitle: Moving Horizon Estimation with Probabilistic Data Association for Object Tracking Considering System Noise Constraint
+    magazine: Journal of Robotics and Mechatronics
+    identifier: 10.20965/jrm.2020.p0537
+    page: 537-547
+    date: "202006"
+international:
+  - author: Sota Wada,Kazuma Sekiguchi,Kenichiro Nonaka
+    date: "202009"
+    title: Model predictive formation control for quadcopters with towing cables
+    meeting: SICE Annual Conference 2020
+    page: 1275-1281
+  - author: Ryoya Abe,Tomoya Kikuchi,Kenichiro Nonaka,Kazuma Sekiguchi
+    date: "202007"
+    title: Robust Object Tracking with Continuous Data Association based on Artificial Potential Moving Horizon Estimation
+    meeting: IFAC 2020 WORLD CONGRESS
+    identifier: 10.1016/j.ifacol.2020.12.2434 
+    page: 9683-9688
+  - author: Kentaro Hashimoto,Yoshihide Mizushima,Koji Shibata,Isao Okawa,Kenichiro Nonaka
+    date: "202007"
+    title: Stochastic Model Predictive Velocity Control for Automobiles Considering Uncertainty of Nearby Vehicles
+    meeting: IFAC 2020 WORLD CONGRESS
+    identifier: 10.1016/j.ifacol.2020.12.2493
+    page: 15805-15810
+  - author: Nagomu Takeuchi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202001"
+    title: Autonomous Patrol and Invader Chasing with Multiple Quadcopters by Coverage Cotrol in Complex Environments
+    meeting: 2020 IEEE/SICE International Symposium on System Integration
+    page: 921-926
+  - author: Tomoya Kikuchi, Kenichiro Nonaka, Kazuma sekiguchi
+    date: "202001"
+    title: Visual Object Tracking by Moving Horizon Estimation with Probabilistic Data Association
+    meeting: 2020 IEEE/SICE International Symposium on System Integration
+    page: 115-120
+  - author: Ryotaro Sugano, Nagomu Takeuchi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202001"
+    title: Layer Structured Multiple-UAV System　Mixing Centralized and Distributed Agents
+    meeting: 2020 IEEE/SICE International Symposium on System Integration
+    page: 915-920
+domestic:
+  - author: 菅野遼太郎,関口和真,野中謙一郎
+    title: "Alt-PageRank によるSIR 火災モデルでの最適消火点選択 "
+    etitle: Optimal _x000C_re extinction point selection in SIR _x000C_re model via Alt-PageRank
+    meeting: 自動制御連合講演会
+    page: 2E1-5
+    date: "202012"
+  - author: 安井隆裕,菅野遼太郎,関口 和真,野中 謙一郎
+    title: ドローンを用いた畑からの害鳥の排除動作
+    etitle: The Push-away Motion of Pest Birds from a Farm Area by a Drone
+    meeting: 自動制御連合講演会
+    page: 2E1-3
+    date: "202011"
+  - author: 金井大樹,野中 謙一郎,関口 和真
+    title: 平面脚車輪型移動ロボットの分散モデル予測制御による任意軌道の走行
+    etitle: Arbitrary Trajectory Driving for Planar Leg/Wheel mobile robots using Distributed Model Predictive Control
+    meeting: 日本機械学会2020年度年次大会
+    page: J18104
+    date: "202009"
+  - author: 石川 恭匡,野中 謙一郎,関口 和真
+    title: Moving Horizon Estimationによる任意長の動的な線分地図に対する自己位置と環境地図の同時推定
+    etitle: Simultaneous Localization and Mapping with Unknown Length of Dynamic Line Segment based on Moving Horizon Estimation
+    meeting: 日本機械学会2020年度年次大会
+    page: J18124
+    date: "202009"
+  - author: 牧龍一,大川功,野中謙一郎
+    title: 周辺車両回避時の車線跨ぎを柔軟に実現するモデル予測制御
+    etitle: Model Predictive Steering Control with Flexible Lane Crossing Considering Nearby Vehicles
+    meeting: 2020年自動車技術会春季学術講演会(JSAE-Spring'20)
+    date: "202005"
+  - author: 藤間隆生,石川恭匡,高橋直樹,高浜琢,野中謙一郎
+    title: 外界センサとGNSSを融合したMoving Horizon Estimationによる地図上の車両位置補正
+    meeting: 2020年自動車技術会春季学術講演会(JSAE-Spring'20)
+    date: "202005"
+  - author: 中原 涼太,関口 和真,野中 謙一郎,髙杉 昌宏,長谷部 裕樹,松原 健一
+    title: エアブレーキの応答遅れを考慮した大型商業車両のためのモデル予測制御
+    etitle: Model Predictive Control for Heavy-Duty Commercial Vehicles Considering Response Delay of Air-Brake
+    meeting: 2020年自動車技術会春季学術講演会(JSAE-Spring'20)
+    date: "202005"
+  - author: 柴田浩志,野中謙一郎,関口和真
+    title: 粒子フィルタを用いた確率密度推定に基づく相対速度の期待値を抑制するモデル予測障害物回避制御
+    etitle: Model Predictive Obstacle Avoidance Control Suppressing Expectation of Relative Velocity based on Probability Density Estimation using Particle Filter
+    meeting: 第７回制御部門マルチシンポジウム
+    page: 3C1-1
+    date: "202003"
+  - author: 菊池智哉,野中謙一郎,関口和真
+    title: モーションキャプチャにおける確率的対応付けを有するMHEによる移動物体追跡
+    etitle: Mobile Object Tracking by Moving Horizon Estimation with Probabilistic Data Association for Motion Capture Systems
+    meeting: 第７回制御部門マルチシンポジウム
+    page: 2H2-2
+    date: "202003"
+  - author: 笠原隆宏,野中謙一郎,関口和真
+    title: 複数のビジョンセンサとSLAM手法の統合による精度改善
+    etitle: Accuracy improvement via integrating multiple vision sensors and SLAM methods
+    meeting: 第７回制御部門マルチシンポジウム
+    page: 1B2-3
+    date: "202003"
+  - author: 関戸雄也,関口和真,野中謙一郎
+    title: 牽引しているケーブルの揺れを考慮したドローンの張力補償制御
+    etitle: Cable tension compensator for wired drones considering cable swings
+    meeting: 第７回制御部門マルチシンポジウム
+    page: 2D1-6
+    date: "202003"
+  - author: 橋本賢太郎,大川功,野中謙一郎
+    title: 確率モデル予測制御による自動車の複数車両とのすれ違いにおける自動減速
+    etitle: Stochastic Model Predictive Velocity Control for Automobiles Passing by Multiple Vehicles
+    meeting: 第７回制御部門マルチシンポジウム
+    page: 2F1-1
+    date: "202003"
+  - author: 伊藤通子・皆川勝・岩尾徹・京相雅樹・関口和真・門多顕司・濱田努・小池慶一・高橋博・畠山祥吾
+    title: PBL必修科目の全学部1～3年生への導入に伴う カリキュラムデザインと教育評価
+    etitle: PBL必修科目の全学部1～3年生への導入に伴う カリキュラムデザインと教育評価
+    meeting: 第26回大学教育研究フォーラム
+    page: "1"
+    date: "202003"
+  - author: 水島嘉秀,大川功,野中謙一郎
+    title: 確率モデル予測制御を用いた自動車の加速度軌道整形の実機検証
+    etitle: Experimental Verification of Speed Profile Shaping for Automobiles using Stochastic Model Predictive Control
+    meeting: 第７回制御部門マルチシンポジウム
+    page: 2F1-2
+    date: "202003"

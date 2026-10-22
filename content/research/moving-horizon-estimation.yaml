@@ -1,0 +1,13 @@
+order: 20
+type: method
+area: method
+role: main
+title: Moving horizon estimation
+jtitle: 移動ホライゾン推定
+abst: "This mehod is an estimation method based on optimization and estimates state from the finite past time to the current time. This method has two advantages: (1) this method can be applied to nonlinear systems and (2) this method can consider a priori knowledge as constraints in the estimation."
+jabst: 移動ホライゾン推定とは，有限時間過去から現在時刻の計測値を用いた最適計算によって状態を推定するモデルベース推定手法である．この推定手法は，非線形システムに対しても適用可能である点と，推定前に得られる先験的な情報を制約条件として考慮可能であるという点の2つの利点を持っている．
+keywords: []
+figures:
+  - path: /images/Outline_of_MHE.png
+    caption: A scheme of moving horizon estimation. This method estimates state included within a range called "horizon". Results of the state estimation in the horizon affect each other via a motion model and an observation model.
+    jcaption: 移動ホライゾン推定の概念図．この手法はホライゾンと呼ばれる範囲内の状態を推定する．ホライゾン内の推定状態は動作モデルや観測モデルを介して互いの推定結果に影響を与える．

@@ -1,0 +1,24 @@
+order: 170
+type: application
+area: leg-wheel_mobile_robot
+role: "2: control"
+title: Leg configuration control and load distribution control based on model predictive control for Leg/wheeled mobile robots
+jtitle: 脚車輪型移動ロボットのモデル予測制御に基づいた荷重配分と脚配置制御
+abst: In this study, we propose locomotion control for leg/wheel mobile robot based on model predictive control in the extraterrestrial environment. This robot has legs with redundant degrees of freedom. Using model predictive control, we control these legs based on the prediction of future behavior.
+jabst: 本研究では，月面環境下におけるモデル予測制御を用いた脚車輪型移動ロボットの制御を提案する．このロボットは冗長な自由度の脚関節を持っている．モデル予測制御により，対象の挙動予測に基づいた最適な制御を行う．
+keywords:
+  - Leg-Wheel
+  - ATHLETE
+  - MPC
+  - Trajectory Tracking
+figures:
+  - path: /images/leg-wheel_mobile_robot_morihiro1.mp4
+    caption: |-
+      Leg configuration control on rough terrain using the proposed method.
+      This robot performs leg configuration adapting to rough terrain.　Those blue arrows are wheel velocity.
+    jcaption: 不整地における脚配置制御．地形に合わせながら脚配置制御を行う．青い矢印は車輪の速度を示す．
+  - path: /images/leg-wheel_mobile_robot_morihiro2.gif
+    caption: |-
+      Changing posture considering load distribution using the proposed method.
+      Using the proposed method, this robot achieves leg configuration and load distribution simultaneously.
+    jcaption: 提案手法を用いた負荷分散を考慮した姿勢の変更． 提案手法を用いて、脚の配置と荷重配分を同時に実現している．

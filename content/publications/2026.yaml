@@ -1,0 +1,27 @@
+year: 2026
+journal: []
+international:
+  - author: Arif Fahimey, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202601"
+    title: Dual-IMU Relative State Estimation for Tethered UAV Payloads using Kinematic Constraints
+    meeting: AROB-ISBC
+    identifier: "-"
+domestic:
+  - author: 石川侑真，関口和真，野中謙一郎
+    title: ループ整形法に基づくGKYP補題とCCCPを用いた2段階最適化によるフィルタ設計手法
+    etitle: Filter Design Method via Two-Stage Optimization Based on Loop Shaping with GKYP Lemma and CCCP
+    meeting: 第13回計測自動制御学会制御部門マルチシンポジウム　（MSCS2026）
+    page: 246-253
+    date: "202602"
+  - author: 福本泰己,成田遼太,関口和真,野中謙一郎
+    title: 横断者発見時の運転者の減速特性を反映させた モデル予測制御による電動車椅子の速度制御
+    etitle: Velocity Control of Electric Wheelchairs via Model Predictive Control Considering Driver Deceleration at Pedestrian Detection
+    meeting: 第13回計測自動制御学会制御部門マルチシンポジウム　（MSCS2026）
+    page: 76-80
+    date: "202602"
+  - author: 成田遼太，関口和真，野中謙一郎
+    title: 電動車椅子におけるDiffTune-MPCに基づく障害物回避を含む重みの自動最適化
+    etitle: Automatic Weight Optimization Based on DiffTune-MPC with Obstacle Avoidance for Electric Wheelchair
+    meeting: 第13回計測自動制御学会制御部門マルチシンポジウム　（MSCS2026）
+    page: 1306-1311
+    date: "202602"

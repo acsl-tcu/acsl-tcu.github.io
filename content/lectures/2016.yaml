@@ -1,0 +1,262 @@
+year: 2016
+lectures:
+  - id: szb007
+    title: 卒業研究：高機能機械制御研究室
+    etitle: ""
+    term: 通年（卒研）　その他
+    teacher: 関口和真
+  - id: saz127601
+    title: 再・工学基礎セミナー
+    etitle: Seminar of Basic Engineering 
+    term: 集中（前期）　その他
+    teacher: 関口和真
+  - id: sbb121205
+    title: 制御理論
+    etitle: Theory of System Control 
+    term: 後期後半　月曜日　２時限
+    teacher: 関口和真
+  - id: sbb121205
+    title: 制御理論
+    etitle: Theory of System Control 
+    term: 後期後半　木曜日　１時限
+    teacher: 関口和真
+  - id: sbz122302
+    title: 事例研究
+    etitle: Case Study Seminar 
+    term: 後期　火曜日　３時限
+    teacher: 関口和真
+  - id: sbz122302
+    title: 事例研究
+    etitle: ""
+    term: 後期　火曜日　４時限
+    teacher: 関口和真
+  - id: saz124304
+    title: Ｃプログラミング及び演習
+    etitle: C-programming and Practice 
+    term: 前期　木曜日　３時限
+    teacher: 関口和真
+  - id: saz124304
+    title: Ｃプログラミング及び演習
+    etitle: C-programming and Practice 
+    term: 前期　木曜日　４時限
+    teacher: 関口和真
+  - id: sbz121301
+    title: 電気基礎実験
+    etitle: Fundamental Experiments on Electric Circuits 
+    term: 後期　月曜日　３時限
+    teacher: 関口和真
+  - id: sbz121301
+    title: 電気基礎実験
+    etitle: Fundamental Experiments on Electric Circuits 
+    term: 後期　月曜日　４時限
+    teacher: 関口和真
+  - id: sbz127603
+    title: 電気基礎実験
+    etitle: Fundamental Experiments on Electric Circuits 
+    term: 集中（後期）　その他
+    teacher: 関口和真
+  - id: sbb122204
+    title: 工業力学(2)
+    etitle: Engineering Mechanics (2) 
+    term: 後期後半　火曜日　２時限
+    teacher: 関口和真
+  - id: sbb122204
+    title: 工業力学(2)
+    etitle: Engineering Mechanics (2) 
+    term: 後期後半　金曜日　１時限
+    teacher: 関口和真
+  - id: sma0300011
+    title: ディジタルシステム制御特論
+    etitle: Digital System Control,Adv. 
+    term: 前期後半　火曜日　１時限
+    teacher: 関口和真
+  - id: sma0300011
+    title: ディジタルシステム制御特論
+    etitle: Digital System Control,Adv. 
+    term: 前期後半　金曜日　１時限
+    teacher: 関口和真
+  - id: smb0300021
+    title: システム制御特論
+    etitle: System Control,Adv. 
+    term: 後期前半　月曜日　１時限
+    teacher: 関口和真
+  - id: smb0300021
+    title: システム制御特論
+    etitle: System Control,Adv. 
+    term: 後期前半　木曜日　１時限
+    teacher: 関口和真
+  - id: sma0300191
+    title: 機械システム工学専攻事例研究
+    etitle: Case Study Seminar for Graduate Course
+    term: 集中（前期）　その他
+    teacher: 関口和真
+  - id: szb007
+    title: 卒業研究：高機能機械制御研究室
+    etitle: Graduation Thesis 
+    term: 通年（卒研）　その他
+    teacher: 野中謙一郎
+  - id: saa121205
+    title: ロボット制御プログラミング
+    etitle: Programming for Robotics and Control 
+    term: 前期前半　月曜日　２時限
+    teacher: 野中謙一郎
+  - id: saa121205
+    title: ロボット制御プログラミング
+    etitle: Programming for Robotics and Control 
+    term: 前期前半　木曜日　２時限
+    teacher: 野中謙一郎
+  - id: sab121209
+    title: 制御システム設計
+    etitle: Design of Control System 
+    term: 前期後半　月曜日　２時限
+    teacher: 野中謙一郎
+  - id: sab121209
+    title: 制御システム設計
+    etitle: Design of Control System 
+    term: 前期後半　木曜日　２時限
+    teacher: 野中謙一郎
+  - id: saz121302
+    title: 機械システム応用実験
+    etitle: Experiments on Mechanical System Application 
+    term: 前期　月曜日　３時限
+    teacher: 野中謙一郎
+  - id: saz121302
+    title: 機械システム応用実験
+    etitle: ""
+    term: 前期　月曜日　４時限
+    teacher: 野中謙一郎
+  - id: sbz122302
+    title: 事例研究
+    etitle: Case Study Seminar 
+    term: 後期　火曜日　３時限
+    teacher: 野中謙一郎
+  - id: sbz122302
+    title: 事例研究
+    etitle: ""
+    term: 後期　火曜日　４時限
+    teacher: 野中謙一郎
+  - id: saz125303
+    title: Ｃプログラミング及び演習
+    etitle: C-programming and Practice 
+    term: 前期　金曜日　３時限
+    teacher: 野中謙一郎
+  - id: saz125303
+    title: Ｃプログラミング及び演習
+    etitle: C-programming and Practice 
+    term: 前期　金曜日　４時限
+    teacher: 野中謙一郎
+  - id: sbz122104
+    title: システムダイナミックス及び演習
+    etitle: Introduction to System Dynamics and Exercise 
+    term: 後期　火曜日　１時限
+    teacher: 野中謙一郎
+  - id: sbz122104
+    title: システムダイナミックス及び演習
+    etitle: Introduction to System Dynamics and Exercise 
+    term: 後期　金曜日　２時限
+    teacher: 野中謙一郎
+  - id: sbz127602
+    title: システムダイナミックス及び演習
+    etitle: Introduction to System Dynamics and Exercise 
+    term: 集中（後期）　その他
+    teacher: 野中謙一郎
+  - id: saz005501
+    title: PBLによる産学協働演習
+    etitle: Industry-University Collaborative Practice on Project BasedLearning 
+    term: 前期　金曜日　５時限
+    teacher: 野中謙一郎
+  - id: sab122207
+    title: 技術日本語表現技法
+    etitle: Technical Writing and Presentation Skill 
+    term: 前期後半　火曜日　２時限
+    teacher: 野中謙一郎
+  - id: sab122207
+    title: 技術日本語表現技法
+    etitle: Technical Writing and Presentation Skill 
+    term: 前期後半　金曜日　１時限
+    teacher: 野中謙一郎
+  - id: sdz0210011
+    title: 機械システム工学講究Ⅰ
+    etitle: Lecture and Investigation for Doctoral Thesis Ⅰ 
+    term: 通年（大学院）　その他
+    teacher: 野中謙一郎
+  - id: sdz0210021
+    title: 機械システム工学講究Ⅱ
+    etitle: Lecture and Investigation for Doctoral Thesis Ⅱ 
+    term: 通年（大学院）　その他
+    teacher: 野中謙一郎
+  - id: sdz0220011
+    title: 機械システム工学特殊研究Ⅰ
+    etitle: Instruction for Doctoral Thesis Ⅰ 
+    term: 通年（大学院）　その他
+    teacher: 野中謙一郎
+  - id: sdz0220021
+    title: 機械システム工学特殊研究Ⅱ
+    etitle: Instruction for Doctoral Thesis Ⅱ 
+    term: 通年（大学院）　その他
+    teacher: 野中謙一郎
+  - id: sdz0220031
+    title: 機械システム工学特殊研究Ⅲ
+    etitle: Instruction for Doctoral Thesis Ⅲ 
+    term: 通年（大学院）　その他
+    teacher: 野中謙一郎
+  - id: smz0390022
+    title: 制御情報システム・実験2年次(野中)
+    etitle: Experiments in 2nd year 
+    term: 通年（大学院）　その他
+    teacher: 野中謙一郎
+  - id: smz0390032
+    title: 制御情報システム・特別研究(野中)
+    etitle: Experiments in 2nd year 
+    term: 通年（大学院）　その他
+    teacher: 野中謙一郎
+  - id: sma0300161
+    title: 機械情報システム特論
+    etitle: Mechanical Information System,Adv. 
+    term: 前期前半　火曜日　１時限
+    teacher: 野中謙一郎
+  - id: sma0300161
+    title: 機械情報システム特論
+    etitle: Mechanical Information System,Adv. 
+    term: 前期前半　金曜日　１時限
+    teacher: 野中謙一郎
+  - id: smb0300021
+    title: システム制御特論
+    etitle: System Control,Adv. 
+    term: 後期前半　月曜日　１時限
+    teacher: 野中謙一郎
+  - id: smb0300021
+    title: システム制御特論
+    etitle: System Control,Adv. 
+    term: 後期前半　木曜日　１時限
+    teacher: 野中謙一郎
+  - id: smz0390012
+    title: 制御情報システム・実験1年次(野中)
+    etitle: Experiments in 1st year 
+    term: 通年（大学院）　その他
+    teacher: 野中謙一郎
+  - id: sma0300191
+    title: 機械システム工学専攻事例研究
+    etitle: Case Study Seminar for Graduate Course
+    term: 集中（前期）　その他
+    teacher: 野中謙一郎
+  - id: sab121208
+    title: フーリエ解析学
+    etitle: ""
+    term: 前期後半　月曜日　２時限
+    teacher: 鈴木　勝正
+  - id: sab121208
+    title: フーリエ解析学
+    etitle: ""
+    term: 前期後半　木曜日　２時限
+    teacher: 鈴木　勝正
+  - id: sbz122103
+    title: システムダイナミックス及び演習
+    etitle: ""
+    term: 後期　火曜日　１時限
+    teacher: 鈴木　勝正
+  - id: sbz122103
+    title: システムダイナミックス及び演習
+    etitle: ""
+    term: 後期　金曜日　２時限
+    teacher: 鈴木　勝正

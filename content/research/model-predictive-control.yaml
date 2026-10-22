@@ -1,0 +1,13 @@
+order: 30
+type: method
+area: method
+role: main
+title: Model predictive control
+jtitle: モデル予測制御
+abst: Model predictive control is a method which is calculated control input by solving a finite-horizon optimization problem. The behavior of a controlled object can be optimized based on a prediction of future behavior considering constraint condition. Using this method, the object can be expected high performance.
+jabst: モデル予測制御とは有限時間未来までを評価区間とする最適化問題を解くことで制御入力を算出する手法である．制御対象の挙動は制約条件を考慮しながら挙動予測に基づき最適化される．この手法を用いることで制御対象が高いパフォーマンスを発揮することが期待できる．
+keywords: []
+figures:
+  - path: /images/MPC.gif
+    caption: A conceptional sketch of model predictive control. The green area represents a horizon of evaluation, and points are the current state and input. The control input is calculated by minimizing the evaluation function which is finite-horizon.
+    jcaption: モデル予測制御の概念図．有限時間未来までを評価区間(緑色の範囲)とし，評価関数を最小化することで各時刻の制御入力(青丸)を算出する．

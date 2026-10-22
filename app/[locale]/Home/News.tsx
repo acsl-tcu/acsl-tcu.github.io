@@ -1,5 +1,4 @@
 'use client';
-import useDB from '@/hooks/useDB';
 import { Article } from '@/types/lab_db';
 import Link from 'next/link';
 
@@ -38,17 +37,11 @@ const ArticleTable: React.FC<{ articles: Article[] }> = ({ articles }) => {
   );
 };
 
-const News: React.FC = () => {
-    const year = new Date().getFullYear();
-    const { rows, error } = useDB(["news"], year);
-  
-    if (error) return <div className="text-red-500">Error: {error}</div>;
-    if (!rows || rows.length === 0) return <div>Loading...</div>;
-  
+const News: React.FC<{ articles: Article[] }> = ({ articles }) => {
     return (
       <div className="space-y-6">
         <h2 id="latest-news" className="scroll-mt-30 mb-0 mt-3">Latest Publications</h2>
-        <ArticleTable articles={rows[0]} />
+        <ArticleTable articles={articles} />
       </div>
     );
 };
