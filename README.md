@@ -47,7 +47,6 @@ npm install next-auth
    ├── not-found.tsx       # 404
    ├── globals.css         # Tailwind などのスタイル
    ├── Login/              # ログイン画面
-   ├── Dashboard/          # 認証後表示
    ├── lab/                # 旧ホームページ対策
    ├── components/         # 自作コンポーネント
    ├── BOS/                # BuildingOS用WebSocket + 認証システム 
