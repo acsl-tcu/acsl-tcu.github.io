@@ -1,0 +1,176 @@
+year: 2015
+photo: /images/member/2015.png
+members:
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Dr.
+    subject: Nonlinear systems control via geometric approach
+    jsubject: 非線形システム制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Katsumasa Suzuki
+    jname: 鈴木 勝正
+    grade: Dr.
+    subject: Study of hydraulic control; construction machinery, parallel link structure, instantaneous boost of pressure, and so on
+    jsubject: 油圧制御に関して、建設機械、パラレルリンク機構、油擊による瞬間増圧装置などの研究
+    url: http://www.comm.tcu.ac.jp/~ksuzuki/
+  - name: Takatsugu Oda
+    jname: 小田 貴嗣
+    grade: D3
+    subject: ""
+    jsubject: 小型四輪操舵駆動電気自動車のロバスト最適制御
+  - name: Kazuki Ito
+    jname: 伊藤 一樹
+    grade: M2
+    subject: ""
+    jsubject: RoboCarの横力モデル同定実験
+  - name: Zhenwei Wang
+    jname: 王 振イ
+    grade: M2
+    subject: ""
+    jsubject: 下降気流の影響を考慮したUAVの経路制御
+  - name: Yuki Hagimori
+    jname: 萩森 夕紀
+    grade: M2
+    subject: ""
+    jsubject: 操舵角度の可動範囲と連続性を陽に考慮した全方向移動 ロボットのモデル予測制御
+  - name: Tomohiro Fukaishi
+    jname: 深石 智大
+    grade: M2
+    subject: ""
+    jsubject: 2ホイールスペースクラフトを用いた姿勢制御のシステム構築 -シミュレーションを用いた実験システムの検証-
+  - name: Yuuji Yanagii
+    jname: 柳井 悠爾
+    grade: M2
+    subject: ""
+    jsubject: 関節角度を制御量とした脚車輪型移動ロボットによる モデル予測経路追従
+  - name: Kento Watabe
+    jname: 渡部 建人
+    grade: M2
+    subject: ""
+    jsubject: ホイールスペースクラフトを用いた姿勢制御のシステム構築 -ハードウェアの構築-
+  - name: Kentaro Akiyama
+    jname: 秋山 賢太朗
+    grade: M1
+    subject: ""
+    jsubject: 外乱を考慮したモデル予測制御によるAR.Droneの隊列制御 ～複数のAR.Droneの同時制御～
+  - name: Masato Ito
+    jname: 伊藤 雅人
+    grade: M1
+    subject: ""
+    jsubject: モータの制約条件を考慮したモデル予測同軸操舵制御
+  - name: Kazunori Urayama
+    jname: 浦山 和宣
+    grade: M1
+    subject: ""
+    jsubject: MPCによる車群安定性を考慮した車間距離制御
+  - name: Kuniyuki Sakaeta
+    jname: 栄田 国志
+    grade: M1
+    subject: ""
+    jsubject: 複数回の切り返し動作を有するモデル予測車庫入れ制御
+  - name: Manabu Shinohara
+    jname: 篠原 学
+    grade: M1
+    subject: ""
+    jsubject: 高速移動車両へのモデル予測制御の適用
+  - name: Naito Suzuki
+    jname: 鈴木 騎士
+    grade: M1
+    subject: ""
+    jsubject: CVXGENを用いた2つのLRFによる自己位置推定システムの改善
+  - name: Manami Takahashi
+    jname: 高橋 愛実
+    grade: M1
+    subject: ""
+    jsubject: ３次元位置計測カメラによる複数剛体の計測精度向上
+  - name: Takumi Tomatsu
+    jname: 戸松 匠
+    grade: M1
+    subject: ""
+    jsubject: パワーショベルの作業時に生じる振動の抑制
+  - name: Minato Abe
+    jname: 阿部 港
+    grade: B4
+    subject: ""
+    jsubject: 未知な外乱およびパラメータ誤差を考慮した 2基のリアクションホイールを用いた姿勢制御
+  - name: Hiroki Ito
+    jname: 伊藤 大樹
+    grade: B4
+    subject: ""
+    jsubject: Explicit MPCを用いたConfiguration空間による障害物回避
+  - name: Hiroaki Endo
+    jname: 遠藤 弘彬
+    grade: B4
+    subject: ""
+    jsubject: Acrobotを用いた時間軸変換による厳密な線形化及び モデル誤差補償器に関する研究
+  - name: Naoto Ogawa
+    jname: 小川 直人
+    grade: B4
+    subject: ""
+    jsubject: キャスタ型オドメータに対するMHEによる 脚車輪型移動ロボットの速度推定
+  - name: Yuki Oshikiri
+    jname: 押切 勇貴
+    grade: B4
+    subject: ""
+    jsubject: 前輪操舵車両を用いた厳密な線形化及び モデル誤差補償器に関する研究
+  - name: Yamato Kunimatsu
+    jname: 國松 倭人
+    grade: B4
+    subject: ""
+    jsubject: 3時源一計測カメラによる 小型模型車両のビジュアルフィードバック制御
+  - name: Masaki Koizumi
+    jname: 小泉 柾貴
+    grade: B4
+    subject: ""
+    jsubject: LRF計測データに対するK-means法を用いた クラスタリング手法の歩行者への適応
+  - name: Masafumi Saito
+    jname: 斎藤 雅史
+    grade: B4
+    subject: ""
+    jsubject: MHEによる状態推定及び状態フィードバックを用いた 脚車輪型移動ロボットのモデル予測障害物回避
+  - name: Yuki Sampei
+    jname: 三瓶 裕貴
+    grade: B4
+    subject: ""
+    jsubject: スペースクラフト姿勢制御の実験機による検証
+  - name: Akira Shimotai
+    jname: 下平 昌
+    grade: B4
+    subject: ""
+    jsubject: 車間距離制御時に用いる車両の周波数特性の検証
+  - name: Takahiro Suyama
+    jname: 須山 敬洋
+    grade: B4
+    subject: ""
+    jsubject: 高低差のある交差経路飛行時の相互干渉抑制制御
+  - name: Atsushi Souma
+    jname: 相馬 淳志
+    grade: B4
+    subject: ""
+    jsubject: 他入出力システムとしてのDroneのモデル同定
+  - name: Yuki Nishio
+    jname: 西尾 裕紀
+    grade: B4
+    subject: ""
+    jsubject: 全方向移動ロボットによる障害物検知及び ファジィポテンシャルモデル予測障害物回避制御
+  - name: Kyohei Yamashita
+    jname: 山下 恭平
+    grade: B4
+    subject: ""
+    jsubject: 画像情報を用いた自己位置推定・制御
+  - name: Kenta Yamamoto
+    jname: 山本 健太
+    grade: B4
+    subject: ""
+    jsubject: MPCを用いたAR.Droneのマルチエージェント同期制御
+  - name: Hiroki Yoshikawa
+    jname: 吉川 大樹
+    grade: B4
+    subject: ""
+    jsubject: DymolaによるATHLETEの物理モデル作成と基本制御

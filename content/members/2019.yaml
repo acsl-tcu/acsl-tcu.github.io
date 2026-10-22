@@ -1,0 +1,166 @@
+year: 2019
+photo: /images/member/2019.png
+members:
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Dr.
+    subject: Nonlinear systems control via geometric approach
+    jsubject: 非線形システム制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Katsumasa Suzuki
+    jname: 鈴木 勝正
+    grade: Dr.
+    subject: Study of hydraulic control; construction machinery, parallel link structure, instantaneous boost of pressure, and so on
+    jsubject: 油圧制御に関して、建設機械、パラレルリンク機構、油擊による瞬間増圧装置などの研究
+    url: http://www.comm.tcu.ac.jp/~ksuzuki/
+  - name: Naoki Takahashi
+    jname: 高橋 直樹
+    grade: D6
+    subject: Model Predictive Control for Leg Configuration Control of Leg/Wheel Mobile Robots
+    jsubject: モデル予測制御による脚車輪型移動ロボットの脚位置制御
+  - name: Isao Okawa
+    jname: 大川 功
+    grade: D5
+    subject: Model Predictive Control for Wheel Position of Leg/Wheel Robots considering Passage Width
+    jsubject: 経路の道幅を考慮した脚車輪型ロボット車輪位置のモデル予測制御
+  - name: Yusuke Eguchi
+    jname: 江口 裕介
+    grade: M2
+    subject: Model Predictive Avoidance Control for Hydraulics Excavators considering Reaction Force from Underground Obstacles
+    jsubject: 油圧ショベルにおける地中障害物反力を考慮したモデル予測回避制御
+  - name: Shoma Odashima
+    jname: 小田島 将真
+    grade: M2
+    subject: Implementation and control of obstacle avoidance path plan against Autoware
+    jsubject: Autowareに対する障害物回避経路計画の実装と制御
+  - name: Takahiro Kasahara
+    jname: 笠原 隆宏
+    grade: M2
+    subject: Object Recognition Considering Occlusion using LiDAR
+    jsubject: LiDARを用いたオクルージョンを考慮した物体認識
+  - name: Tomoya Kikuchi
+    jname: 菊池 智哉
+    grade: M2
+    subject: Moving Horizon Estimation Integrating Marker Association for Motion Capture
+    jsubject: モーションキャプチャシステムのためのマーカー対応付けを統合したMoving Horizon Estimation
+  - name: Koji Shibata
+    jname: 柴田 浩志
+    grade: M2
+    subject: Stochastic model predictive obstacle avoidance control in narrow environments for autonomous vehicles
+    jsubject: 自律移動車両のための隘路における確率モデル予測障害物回避制御
+  - name: Nagomu Takeuchi
+    jname: 竹内 和
+    grade: M2
+    subject: Coverage Control dor Autonomous Patrol and Invader Detection using Quadcopters with Hierarchical linearization
+    jsubject: 階層型線形化を適用したクアッドコプタを用いた自律巡回と不審者検出のための被覆制御
+  - name: Shotaro Nakahara
+    jname: 中原 祥太郎
+    grade: M2
+    subject: Driving Over Steps for Leg / Wheel Mobile Robots based on Model Predictive Control
+    jsubject: モデル予測制御を用いた立体型脚車輪移動ロボットの段差乗り越え
+  - name: Ryoma Yamaguchi
+    jname: 山口 諒真
+    grade: M2
+    subject: Autonomous control of quad copter using open source software
+    jsubject: オープンソースソフトウェアを利用したクアッドコプタの自律制御
+  - name: Ryouya Abe
+    jname: 安部 凌矢
+    grade: M1
+    subject: Validation with Electric Wheelchair using Three-Dimensional Position Measurement Camera assuming lack of markers under actual environments
+    jsubject: 実環境でのマーカー欠落を想定した3次元位置計測カメラによる電動車椅子の実機検証
+  - name: Yasumasa Ishikawa
+    jname: 石川 恭匡
+    grade: M1
+    subject: Moving Horizon Estimation for Autonomous Vehicles using LiDAR Consdering Moving Objects
+    jsubject: 移動物体を考慮したMovingHorizonEstimationによるLiDARを用いたSLAM
+  - name: Ryotaro Sugano
+    jname: 菅野 遼太郎
+    grade: M1
+    subject: Two-Layered UAV Group Countrol System Combination of Distributed Control and Centralized Control
+    jsubject: 2層構造のUAV群制御システム 分散制御と集中制御の組み合わせ
+  - name: Ryo Nishikawa
+    jname: 西川 亮
+    grade: M1
+    subject: Model Predictive Tracking Control Considering Electric Energy Balance for Exploration Rovers
+    jsubject: 探査ローバーのためのエネルギー収支を考慮したモデル予測軌道追従制御
+  - name: Kentaro Hashimoto
+    jname: 橋本 賢太郎
+    grade: M1
+    subject: Verification of Model Predictive Obstacle Avoidance Control in a Complex Environment where People and Vehicle Coexist
+    jsubject: 人と車両が混在する複雑な環境における自動運転車の障害物回避
+  - name: Yugo Yamaguchi
+    jname: 山口 祐剛
+    grade: M1
+    subject: Experimental Verification of Fuzzy Potential Model Predictive Obstacle Avoidance Control
+    jsubject: 動的環境における電動車椅子のための_x000B_リアクティブな障害物回避制御
+  - name: Kota Iijima
+    jname: 飯島 宏太
+    grade: B4
+    subject: ""
+    jsubject: 油圧ショベルにおけるRealsenseを用いた実機環境の構築
+  - name: Kouhei Okada
+    jname: 岡田 滉平
+    grade: B4
+    subject: ""
+    jsubject: クアッドコプタの有線接続による長時間飛行の検証
+  - name: Daiki Kanai
+    jname: 金井 大樹
+    grade: B4
+    subject: ""
+    jsubject: Visual SLAMを用いた脚車輪型移動ロボットによる軌道追従制御の実装と検証
+  - name: Yuya Sekido
+    jname: 関戸 雄也
+    grade: B4
+    subject: ""
+    jsubject: 電源ケーブルを牽引するUAVの隊列飛行における外乱抑制制御
+  - name: Ryusei Toma
+    jname: 藤間 隆生
+    grade: B4
+    subject: ""
+    jsubject: Moving Horizon Estimationによる車両の自己位置推定
+  - name: Kenichiro Toya
+    jname: 戸谷 賢一朗
+    grade: B4
+    subject: ""
+    jsubject: 動的環境におけるMHE-SLAM の実機的検証
+  - name: Ryota Nakahara
+    jname: 中原 涼太
+    grade: B4
+    subject: ""
+    jsubject: 環境情報や積載状態を考慮した大型商業車両の走行制御
+  - name: Ryuichi Maki
+    jname: 牧 龍一
+    grade: B4
+    subject: ""
+    jsubject: 周辺車両を考慮した最適軌道生成による自動運転車の操舵制御
+  - name: Kazumi Miura
+    jname: 三浦 一巳
+    grade: B4
+    subject: ""
+    jsubject: 複雑環境下を想定した走行システムの構築と実機的検証
+  - name: Takahiro Yasui
+    jname: 安井 隆裕
+    grade: B4
+    subject: ""
+    jsubject: 電源ケーブルを牽引するUAVの編隊飛行制御
+  - name: Sota Wada
+    jname: 和田 聡太
+    grade: B4
+    subject: ""
+    jsubject: 全領域検査を保証した障害物回避の実機的検証
+  - name: Hibiki Matsuura
+    jname: 松浦 響
+    grade: B4
+    subject: ""
+    jsubject: 小型自律移動車両のためのLiDARを用いたICPによる周辺物体の位置推定
+  - name: Yoshihide Mizushima
+    jname: 水島 嘉秀
+    grade: M2
+    subject: Model predictive control for autonomous vehicle with speed profile shaping
+    jsubject: モデル予測制御を用いた自動運転車の速度軌道整形

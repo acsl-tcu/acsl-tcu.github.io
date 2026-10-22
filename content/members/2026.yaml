@@ -1,0 +1,220 @@
+year: 2026
+photo: ""
+members:
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Prof.
+    subject: Nonlinear systems control and its application to drones
+    jsubject: 非線形システム制御，ドローンの制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Rie Okajima
+    jname: 岡嶋理絵
+    grade: SEC
+    subject: ""
+    jsubject: ""
+  - name: Eriko Hayasaka
+    jname: 早坂衣里子
+    grade: SEC
+    subject: ""
+    jsubject: ""
+  - name: Yasuki Fukumoto
+    jname: 福本 泰己
+    grade: D3
+    subject: ""
+    jsubject: ""
+  - name: Ryota Narita
+    jname: 成田 遼太
+    grade: D2
+    subject: Collision Avoidance Control based on sample-based existence probability of pedestrians
+    jsubject: サンプルベースの歩行者の存在確率を基にした衝突回避制御
+  - name: Yasunari Watanabe
+    jname: 渡邉　泰成
+    grade: D1
+    subject: ""
+    jsubject: ""
+  - name: akito tanaka
+    jname: 田中　智士
+    grade: M2
+    subject: Tracking Performance Improvement  in Suspended load flight using multi-drones
+    jsubject: 複数クワッドコプタを用いた協調搬送の追従性能向上
+  - name: shouta nagai
+    jname: 永井　翔大
+    grade: M2
+    subject: Pedestrian Following by Electric Wheelchair using LiDAR and Camera
+    jsubject: LiDARとカメラを用いた電動車椅子による歩行者の追従走行
+  - name: sota fujimaki
+    jname: 藤巻　颯太
+    grade: M2
+    subject: Model Predictive Control Considering Pedestrian Avoidance Behavior with Electric Wheelchair
+    jsubject: 歩行者の回避挙動を考慮したモデル予測制御
+  - name: takumi maehara
+    jname: 前原　拓実
+    grade: M2
+    subject: Autonomous driving between hierarchies in linkage with Building OS by electric wheelchair
+    jsubject: 電動車椅子による Building OS と連携した階層間自律走行
+  - name: yudai miyachi
+    jname: 宮地　雄大
+    grade: M2
+    subject: ""
+    jsubject: X-mobilityを用いた汎用ナビゲーションシステムの構築
+  - name: naoki yata
+    jname: 矢田　直輝
+    grade: M2
+    subject: Application of control law transfer and obstacle avoidance to fully autonomous cargo towing flight by multiple drones
+    jsubject: ドローン複数機による物資牽引飛行の完全自律化に伴う制御則移植と障害物回避の適用
+  - name: fushu kyo
+    jname: 許　不周
+    grade: M2
+    subject: Quadcopter Landing on a Ship Surface Using Monte Carlo Koopman Model Predictive Control under Signal Temporal Logic Constraints
+    jsubject: ""
+  - name: Arif Fahimey
+    jname: Muhammad Arif Farhan Bin Mohd Fahimey
+    grade: M2
+    subject: Dual-IMU Relative State Estimation for Tethered UAV Payloads using Kinematic Constraints
+    jsubject: ""
+  - name: Shisei Okabe
+    jname: 岡部 志彗
+    grade: M1
+    subject: Development of ceiling adhesive drone for curved ceilings and verification of flight time extension with ceiling effects
+    jsubject: 曲面天井に対応した天井吸着ドローンの開発と天井効果を利用した飛行時間延長の検証
+  - name: Yamato Orii
+    jname: 織井 大和
+    grade: M1
+    subject: ""
+    jsubject: 平面天井吸着ドローンへのRPM固定制御の導入およびダクト機構の有効性に関する実機検証
+  - name: Chika Kozuma
+    jname: 上妻　千華
+    grade: M1
+    subject: Path Planning and Path Following Control for a Four-Legged Robot Adapting to Environmental Changes
+    jsubject: 環境変化に対応した4脚ロボットのための経路計画と経路追従制御
+  - name: Yosuke Koseki
+    jname: 小関 陽輔
+    grade: M1
+    subject: Design of Model Error Compensator Using Neural Networks and its Application to Quadcopters
+    jsubject: ニューラルネットワークを用いたモデル誤差補償器の設計とクアッドコプタへの適用
+  - name: Gakushi Suzuki
+    jname: 鈴木　楽士
+    grade: M1
+    subject: ROS2 Mass Estimation by EKF for Autonomous Cooperative Transport Drones
+    jsubject: 協調搬送ドローンの自律化に向けたEKFによる質量推定のROS2化
+  - name: Yuki Tanaka
+    jname: 田中祐樹
+    grade: M1
+    subject: Obstacle Avoidance Using Model Predictive Control and Control Barrier Functions
+    jsubject: モデル予測制御と制御バリア関数を用いた障害物回避
+  - name: Teichin Ryuu
+    jname: 劉 庭禎
+    grade: M1
+    subject: Autonomous Driving Electric Wheelchair System Using Multiple 3D LiDARs
+    jsubject: 複数3DLiDARによる全周囲認識を用いた電動車椅子の自律走行システム
+  - name: Takuto Kato
+    jname: 加藤 巧人
+    grade: M1
+    subject: Smooth Indoor Navigation using Model Predictive Control for Practical Applications
+    jsubject: モデル予測制御による実運用を想定した滑らかな建物内走行
+  - name: Shin Akanuma
+    jname: 赤沼 新
+    grade: B4
+    subject: ROS2 Integration of a Motion Capture Environment for controller testing
+    jsubject: コントローラの検証に向けたモーションキャプチャ環境のROS2化
+  - name: Koji Azuma
+    jname: 東　光志
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Ryou Yukawa
+    jname: 湯川　諒
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Izumizaki Yuto
+    jname: 泉崎 優斗
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Endo Kakeru
+    jname: 遠藤 翔
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Ogiwara Komei
+    jname: 荻原 滉明
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Okemoto Umi
+    jname: 桶本 海夢
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Kakutani Kou
+    jname: 角谷　航
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Kuriyama Yuki
+    jname: 栗山 優生
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Sato Risa
+    jname: 佐藤 里咲
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Shimano Takashi
+    jname: 島野 嵩士
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Suzuki Sota
+    jname: 鈴木　颯太
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Suzuki Ryota
+    jname: 鈴木 亮大
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Sekino Ryoga
+    jname: 関野 凌雅
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Takayama Kota
+    jname: 髙山　幸汰
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Takeuchi Yuto
+    jname: 竹内 優音
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Hirakodama Yuto
+    jname: 平児玉 裕翔
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Matsuzaka Hikaru
+    jname: 松坂 光
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Yamada Haruto
+    jname: 山田 遥斗
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Miyazaki Yuri
+    jname: 宮崎 優怜
+    grade: B4
+    subject: ""
+    jsubject: ""

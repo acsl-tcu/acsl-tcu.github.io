@@ -1,0 +1,181 @@
+year: 2021
+photo: /images/member/2021.png
+members:
+  - name: Taiki nozaki
+    jname: 野崎 太貴
+    grade: B4
+    subject: Impovment of wall estimation  accracy  using drone in a indoor enviroment
+    jsubject: ドローンによる屋内環境での壁面推定精度の向上
+  - name: Qiong PAN
+    jname: 潘 瓊
+    grade: B4
+    subject: Real-time Estimation of  Self-Position and Surrounding Environment Using Moving Horizon Estimation
+    jsubject: Moving Horizion Estimationを用いた自己位置と周辺環境の実時間推定
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Dr.
+    subject: Nonlinear systems control via geometric approach
+    jsubject: 非線形システム制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Fuguo Xu
+    jname: 徐　福国
+    grade: Dr.
+    subject: Optimal control and its application to automotive powertrain system
+    jsubject: 最適制御及び自動車動力システムにおける応用
+    url: https://researchmap.jp/7000029879
+  - name: Daiki Kanai
+    jname: 金井 大樹
+    grade: M2
+    subject: ""
+    jsubject: 立体型脚車輪型移動ロボットのための分散モデル予測制御
+  - name: Ryusei Toma
+    jname: 藤間 隆生
+    grade: M2
+    subject: ""
+    jsubject: 地図上のノード位置を制約とする複数仮説を用いたMoing Horizon Estimationによる自動車位置の補正
+  - name: Ryota Nakahara
+    jname: 中原 涼太
+    grade: M2
+    subject: ""
+    jsubject: モデル予測制御に基づくセミトレーラーの車両安定性および車線追従性向上
+  - name: Ryuichi Maki
+    jname: 牧 龍一
+    grade: M2
+    subject: ""
+    jsubject: 非線形モデル予測制御のための計算量と精度を保証した最適化ソルバの開発
+  - name: Takahiro Yasui
+    jname: 安井 隆裕
+    grade: M2
+    subject: Robotic Guidance and Control for Alleviating Human Congestion
+    jsubject: ロボットによる人の混雑状況緩和のための誘導制御
+  - name: Sota Wada
+    jname: 和田 聡太
+    grade: M2
+    subject: Motion control of Robot for improving estimation accuracyin singular environments of laser range sensor
+    jsubject: 測域センサにおける特異環境の推定精度を向上させるためのロボットの運動制御
+  - name: Hibiki Matsuura
+    jname: 松浦 響
+    grade: M2
+    subject: ""
+    jsubject: 電動車いすを使用した屋内環境における人工ポテンシャルを用いたモデル予測制御の実環境での走行検証
+  - name: Muhammad Haziq
+    jname: Muhammad Haziq
+    grade: M1
+    subject: Online Simultaneous Localization and Mapping based on Moving Horizon Estimation for Dynamic Line Segment
+    jsubject: Online Simultaneous Localization and Mapping based on Moving Horizon Estimation for Dynamic Line Segment
+  - name: Wataru Eikyu
+    jname: 永久 航
+    grade: M1
+    subject: Parameter estimation by Hierarchical linearization in the Suspended-load UAV model
+    jsubject: 物体を牽引するUAVモデルにおける階層型線形化を用いたパラメータ推定
+  - name: Takahiro Ochiai
+    jname: 落合 貴広
+    grade: M1
+    subject: ""
+    jsubject: 屋外環境におけるNDTを用いたMHE-SLAMによる周辺車両の推定
+  - name: Ryosuke Kotaka
+    jname: 小髙 良輔
+    grade: M1
+    subject: Model predictive control with Monte Carlo optimization for leg/wheel mobile robots
+    jsubject: 脚車輪型移動ロボットのための_x000B_モンテカルロモデル予測制御を用いた_x000B_自律走行制御
+  - name: Touma Makino
+    jname: 牧野 統真
+    grade: M1
+    subject: Model prediction control considering thecollision probability with obstacles due toopportunity constraints
+    jsubject: 機会制約による障害物との衝突確率を考慮したモデル予測制御
+  - name: Masato Matsuyama
+    jname: 松山 優人
+    grade: M1
+    subject: Estimation of Pedestrian Pose and Velocity considering the Shape using LiDAR
+    jsubject: LiDARによる人の形状を考慮した位置速度推定
+  - name: Masahiro Uda
+    jname: 宇田 昌弘
+    grade: B4
+    subject: Construction of real time control system for Leg/Wheel Mobile Robots
+    jsubject: 脚車輪型移動ロボットのための実時間制御システムの構築
+  - name: Hiroshi Ebina
+    jname: 蛯名 浩志
+    grade: B4
+    subject: Tracking control for light trucks is considered changing feature by hierarchical cooperation
+    jsubject: 特性変動を考慮した階層間連携による小型トラックの軌道追従制御
+  - name: Souta Okada
+    jname: 岡田 颯太
+    grade: B4
+    subject: Realtime tracking of multiple pedestrains by Moving Horizon Estimation considering mapping
+    jsubject: 対応付けを考慮したMoving Horizon Estimationによる複数歩行者の実時間追跡
+  - name: Kota Okamoto
+    jname: 岡本 幸大
+    grade: B4
+    subject: Proposal of wall surface observation algorithm by multiple drones
+    jsubject: 複数機ドローンによる壁面観測アルゴリズムの設計
+  - name: Matsuri Kasai
+    jname: 笠井 茉莉
+    grade: B4
+    subject: Suggestion of the way ejective harmful birds by using drone
+    jsubject: ドローンを用いた害鳥放逐手法の提案
+  - name: Eisuke Kawaguchi
+    jname: 川口 瑛介
+    grade: B4
+    subject: Fuzzy Potential Monte Carlo Model Predictive Control for Small Autonomous Mobile Vehicles in Real Environment
+    jsubject: 小型自律移動車両のためのファジィポテンシャルモンテカルロモデル予測制御の実環境への適応
+  - name: Naoto Kawaguchi
+    jname: 川口 直人
+    grade: B4
+    subject: Speed Control based on Relative Velocity Expectation using Monte Carlo Model Predictive Control
+    jsubject: モンテカルロモデル予測制御による相対速度期待値に基づいた速度制御
+  - name: Kei Kawashima
+    jname: 川島 慧
+    grade: B4
+    subject: Actual implementation of wall observation and obstacle avoidance by drone
+    jsubject: ドローンによる壁面観測と障害物回避の実機実装
+  - name: Yasuaki Kawarada
+    jname: 川原田 康朗
+    grade: B4
+    subject: Extension to Autonomous Quadcopter 3D Space
+    jsubject: 自律型クアッドコプタの3次元空間への拡張
+  - name: Kudo Koshi
+    jname: 工藤 巧士
+    grade: B4
+    subject: Verification of SLAM by Sensor fusion using Moving Horizon Estimation in Outdoor Environment
+    jsubject: Moving Horizon Estimationを用いた_x000B_センサフュージョンによる_x000B_自己位置推定の屋外検証
+  - name: Tomotada Kobayashi
+    jname: 小林 知真
+    grade: B4
+    subject: Learning Dynamic Model via Neural Network in Exact Linearization Method
+    jsubject: 厳密な線形化手法におけるニューラルネットワークによる動的モデルの学習
+  - name: Haruka Sawada
+    jname: 澤田 翔
+    grade: B4
+    subject: ""
+    jsubject: UAVを用いた都市部火災消火に用いるハザードマップの作成
+  - name: Motoyoshi Shibata
+    jname: 柴田 雅楽
+    grade: B4
+    subject: Real-Time Estimation of Moving Horizon Estimation with Built-in Correspondence
+    jsubject: 対応付けを組み込んだMoving Horizon Estimation の実時間推定
+  - name: Takuto Fujii
+    jname: 藤井 拓斗
+    grade: B4
+    subject: Construct wired powered system and disturbance control with UAV
+    jsubject: UAVによる有線給電システムの構築と振動抑制制御
+  - name: Daisuke Masui
+    jname: 増井 大輔
+    grade: B4
+    subject: ""
+    jsubject: 同次性に基づく有限時間安定制御のドローンへの適用とロバスト性の検証
+  - name: Ryu Morioka
+    jname: 森岡 竜
+    grade: B4
+    subject: Rollover prevention for large commercial vehicles  Stochastic Model Predictive Control and Dual Kalman Filter
+    jsubject: 確率的モデル予測制御とデュアルカルマンフィルタ統合システムに基づく大型商業車両の横転防止
+  - name: Koki Yamaguchi
+    jname: 山口 航輝
+    grade: B4
+    subject: Construction of Stable Flight System for an Autonomous Quadcopter Using Multiple Sensors
+    jsubject: 複数センサによる自律型クアッドコプタの安定飛行システムの構築
