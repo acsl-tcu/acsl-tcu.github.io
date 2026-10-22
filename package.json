@@ -31,11 +31,12 @@
     "react-icons": "^5.5.0",
     "react-papaparse": "^4.4.0",
     "tailwind-merge": "^3.3.0",
+    "yaml": "^2.9.1",
     "zustand": "^5.0.5"
   },
   "overrides": {
-      "postcss": "8.5.31",
-      "uuid": "11.1.1"
+    "postcss": "8.5.31",
+    "uuid": "11.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

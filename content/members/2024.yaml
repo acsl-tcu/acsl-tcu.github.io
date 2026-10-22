@@ -1,0 +1,210 @@
+year: 2024
+photo: /images/member/2024.png
+members:
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Prof.
+    subject: Nonlinear systems control and its application to drones
+    jsubject: 非線形システム制御，ドローンの制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Rie Okajima
+    jname: 岡嶋理絵
+    grade: SEC
+    subject: ""
+    jsubject: ""
+  - name: Eriko Hayasaka
+    jname: 早坂衣里子
+    grade: SEC
+    subject: ""
+    jsubject: ""
+  - name: Tomoki Ashiwa
+    jname: 足羽 智貴
+    grade: M2
+    subject: Worker tracking by JPDAF for automation of construction vehicles
+    jsubject: 工事車両の自動化のためのJPDAFによる作業員追跡
+  - name: Manami Adachi
+    jname: 足立 愛実
+    grade: M2
+    subject: Tracking of surrounding objects by JPDAF using the k-means method for point cloud data
+    jsubject: 点群データに対するk-means法を用いたJPDAFによる周辺物体の追跡
+  - name: Shunsuke Irisawa
+    jname: 入澤 俊輔
+    grade: M2
+    subject: Distributed model predictive control considering wheel load ratio for a leg/wheel mobile robot
+    jsubject: 脚車輪型移動ロボットのための荷重比を考慮した分散モデル予測制御
+  - name: Yoshiki Komatsu
+    jname: 小松 祥己
+    grade: M2
+    subject: Automatic drone landing on an oscillating slope using Monte Carlo model predictive control
+    jsubject: モンテカルロモデル予測制御を用いた揺動斜面へのドローンの自動着陸
+  - name: Kouta Takano
+    jname: 髙野 航汰
+    grade: M2
+    subject: Construction of control model by PINN based on topological structure
+    jsubject: 位相構造を踏まえたPINNによる制御モデル構築
+  - name: Go Nakamura
+    jname: 中村 剛
+    grade: M2
+    subject: Construction of a human flow prediction system using Koopman operators
+    jsubject: クープマン作用素による人流予測システムの構築
+  - name: Ryota Narita
+    jname: 成田 遼太
+    grade: M2
+    subject: Improved robustness on angular displacement in NDT-SLAM utilizing MCMC
+    jsubject: MCMCを活用したNDT-SLAMでの姿勢角のロバスト性の向上
+  - name: Yuma Momose
+    jname: 百瀬 雄真
+    grade: M2
+    subject: |-
+      Finite time settling controller for a
+      hierarchically linearized quadcopter model
+    jsubject: 同次性に基づく有限整定制御のドローンへの適用とロバスト性の検証
+  - name: yuma ishikawa
+    jname: 石川　侑真
+    grade: M1
+    subject: Construction of Category in Transfer Function Representations and Verification of Universal Property
+    jsubject: 伝達関数表現における圏の構築と普遍性の検証
+  - name: mizuto imai
+    jname: 今井　瑞人
+    grade: M1
+    subject: |-
+      Automatic truck driving with map
+      information
+    jsubject: マップ情報を用いたトラックへの自動運転の導入
+  - name: masanori imoto
+    jname: 井本　匡紀
+    grade: M1
+    subject: Tracking of pedestrians in real environments with Extended Kalman Filter-Random Sample Consensus considering their movements
+    jsubject: 実環境における Extended Kalman Filter-Random Sample Consensus による歩行者の動作を考慮した追跡
+  - name: hiiro oinuma
+    jname: 生沼　陽色
+    grade: M1
+    subject: |-
+      Environment Recognition using LiDAR
+      for Stochastic Model Predictive Control
+    jsubject: 確率モデル予測制御のためのLiDARを用いた環境認識
+  - name: takumi okada
+    jname: 岡田　拓己
+    grade: M1
+    subject: |-
+      Continuous pedestrian tracking with
+      multiple LiDAR in complex environments
+    jsubject: |-
+      複雑環境における複数LiDAR を用いた
+      継続的な歩行者追跡
+  - name: takahiro onizawa
+    jname: 鬼澤　貴裕
+    grade: M1
+    subject: |-
+      Monte Carlo model predictive control for
+      a planar leg/wheeled mobile robot
+      considering surrounding environment
+    jsubject: 平面脚車輪型移動ロボットのための周辺環境を考慮したモンテカルロモデル予測制御
+  - name: tokiya kaji
+    jname: 梶　凱哉
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: yuri kato
+    jname: 加藤　悠里
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: issa jingu
+    jname: 神宮　一颯
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: go sugiyama
+    jname: 杉山　豪
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: yuto suzuki
+    jname: 鈴木　悠斗
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: satoshi tanaka
+    jname: 田中　智士
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: shouta nagai
+    jname: 永井　翔大
+    grade: B4
+    subject: Occlusion-aware pedestrian tracking by LiDAR and Camera
+    jsubject: 画像認識および色相ヒストグラムに基づいたハンガリアン法による歩行者追跡
+  - name: ayane nitta
+    jname: 新田　文音
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: souta fujimaki
+    jname: 藤巻　颯太
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: takumi maehara
+    jname: 前原　拓実
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: keiou miyake
+    jname: 三宅　慶旺
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: yudai miyachi
+    jname: 宮地　雄大
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: yuki mochizuki
+    jname: 望月　勇希
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: naoki yata
+    jname: 矢田　直輝
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: keita yano
+    jname: 矢野　恵大
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: sousuke yamaguhi
+    jname: 山口　颯介
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Muhammad Haziq
+    jname: Muhammad Haziq
+    grade: D2
+    subject: ""
+    jsubject: ""
+  - name: Yasuki Fukumoto
+    jname: 福本 泰己
+    grade: D1
+    subject: ""
+    jsubject: ""
+  - name: Shuri Isida
+    jname: 石田 朱里
+    grade: M2
+    subject: ""
+    jsubject: ""
+  - name: Atsuhiko Miyazaki
+    jname: 宮嵜 篤彦
+    grade: M2
+    subject: |-
+      model predict controll
+      ELM
+    jsubject: 機械学習とモデル予測制御を用いた実機検証

@@ -1,0 +1,146 @@
+year: 2014
+photo: /images/member/2014.png
+members:
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Dr.
+    subject: Nonlinear systems control via geometric approach
+    jsubject: 非線形システム制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Katsumasa Suzuki
+    jname: 鈴木 勝正
+    grade: Dr.
+    subject: Study of hydraulic control; construction machinery, parallel link structure, instantaneous boost of pressure, and so on
+    jsubject: 油圧制御に関して、建設機械、パラレルリンク機構、油擊による瞬間増圧装置などの研究
+    url: http://www.comm.tcu.ac.jp/~ksuzuki/
+  - name: Takatsugu Oda
+    jname: 小田 貴嗣
+    grade: M2
+    subject: ""
+    jsubject: ""
+  - name: Shuji Kasuya
+    jname: 糟谷 修史
+    grade: M2
+    subject: ""
+    jsubject: ""
+  - name: Kazuki Kimura
+    jname: 木村 一輝
+    grade: M2
+    subject: ""
+    jsubject: ""
+  - name: Atsushi Nagata
+    jname: 永田 篤史
+    grade: M2
+    subject: ""
+    jsubject: ""
+  - name: Mikiya Yoshida
+    jname: 吉田 三喜也
+    grade: M2
+    subject: ""
+    jsubject: ""
+  - name: Yuta Yonezawa
+    jname: 米澤 裕太
+    grade: M2
+    subject: ""
+    jsubject: ""
+  - name: Kazuki Ito
+    jname: 伊藤 一樹
+    grade: M1
+    subject: ""
+    jsubject: ""
+  - name: Zhenwei Wang
+    jname: 王 振イ
+    grade: M1
+    subject: ""
+    jsubject: ""
+  - name: Yuki Hagimori
+    jname: 萩森 夕紀
+    grade: M1
+    subject: ""
+    jsubject: ""
+  - name: Tomohiro Fukaishi
+    jname: 深石 智大
+    grade: M1
+    subject: ""
+    jsubject: ""
+  - name: Yuuji Yanagii
+    jname: 柳井 悠爾
+    grade: M1
+    subject: ""
+    jsubject: ""
+  - name: Kento Watabe
+    jname: 渡部 建人
+    grade: M1
+    subject: ""
+    jsubject: ""
+  - name: Toshio Aoyama
+    jname: 青山 登士夫
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Kentaro Akiyama
+    jname: 秋山 賢太朗
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Masato Ito
+    jname: 伊藤 雅人
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Kei Utsunomiya
+    jname: 宇都宮 啓
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Kazunori Urayama
+    jname: 浦山 和宣
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Masayuki Kurata
+    jname: 倉田 雅之
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Takehiro Gonta
+    jname: 権田 雄大
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Kuniyuki Sakaeta
+    jname: 栄田 国志
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Manabu Shinohara
+    jname: 篠原 学
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Naito Suzuki
+    jname: 鈴木 騎士
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Manami Takahashi
+    jname: 高橋 愛実
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Takumi Tomatsu
+    jname: 戸松 匠
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: Takuma Nakazawa
+    jname: 中沢 拓磨
+    grade: B4
+    subject: ""
+    jsubject: ""

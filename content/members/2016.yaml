@@ -1,0 +1,202 @@
+year: 2016
+photo: /images/member/2016.png
+members:
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Dr.
+    subject: Nonlinear systems control via geometric approach
+    jsubject: 非線形システム制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Katsumasa Suzuki
+    jname: 鈴木 勝正
+    grade: Dr.
+    subject: Study of hydraulic control; construction machinery, parallel link structure, instantaneous boost of pressure, and so on
+    jsubject: 油圧制御に関して、建設機械、パラレルリンク機構、油擊による瞬間増圧装置などの研究
+    url: http://www.comm.tcu.ac.jp/~ksuzuki/
+  - name: Takatsugu Oda
+    jname: 小田 貴嗣
+    grade: D4
+    subject: Robust path tracking control for four-wheel driving and steering vehicles using model predictive control and sliding mode control
+    jsubject: モデル予測制御とスライディングモード制御による四輪操舵駆動車両のロバスト経路追従制御
+    url: http://www.cl.mse.tcu.ac.jp/~oda/
+  - name: Naoki Takahashi
+    jname: 高橋 直樹
+    grade: D3
+    subject: Model Predictive Control for Leg Configuration Control of Leg/Wheel Mobile Robots
+    jsubject: モデル予測制御による脚車輪型移動ロボットの脚位置制御
+  - name: Isao Okawa
+    jname: 大川 功
+    grade: D3
+    subject: Model Predictive Control for Wheel Position of Leg/Wheel Robots considering Passage Width
+    jsubject: 経路の道幅を考慮した脚車輪型ロボット車輪位置のモデル予測制御
+  - name: Kentaro Akiyama
+    jname: 秋山 賢太朗
+    grade: M2
+    subject: Robust Formation Control Applying Model Predictive Control to Multi Agent System by Sharing Disturbance Information With UAVs
+    jsubject: 外乱情報共有およびモデル予測制御によるUAVのマルチエージェントシステムを用いたフォーメーション制御
+  - name: Masato Itoh
+    jname: 伊藤 雅人
+    grade: M2
+    subject: A Hierarchical Model Predictive Tracking Control for Independent Four-Wheel Driving/Steering Vehicle with Coaxial Steering Mechanism
+    jsubject: 同軸操舵機構を搭載した四輪独立操舵駆動ロボットの階層型モデル予測軌道追従制御
+  - name: Kazunori Urayama
+    jname: 浦山 和宣
+    grade: M2
+    subject: Inter-vehicular distance control considering path tracking error
+    jsubject: 経路追従誤差を考慮した車間距離制御
+  - name: Kuniyuki Sakaeta
+    jname: 栄田 国志
+    grade: M2
+    subject: MHE based SLAM using LRF for Mobile robots
+    jsubject: LRF計測データを用いたMHEによる移動ロボットの自己位置と環境地図の同時推定
+  - name: Manabu Shinohara
+    jname: 篠原 学
+    grade: M2
+    subject: Model Predictive Path Following Control with Acceleration Constraints for Front Steering Vehicles
+    jsubject: 前輪操舵車両の加速度制約を可変としたモデル予測ロバスト経路追従制御
+  - name: Naito Suzuki
+    jname: 鈴木 騎士
+    grade: M2
+    subject: Model Predictive Obstacle Avoidance Control using passage width constraints by Leg/Wheel Mobile Robot
+    jsubject: 脚車輪型移動ロボットのための経路幅制約を用いたモデル予測障害物回避制御
+  - name: Manami Takahashi
+    jname: 高橋 愛実
+    grade: M2
+    subject: Moving Horizon Estimation for Vehicle Robots using Partial Marker Information of Motion Capture System
+    jsubject: 複数のマーカー点情報を用いた Moving Horizon Estimationによる 車両型ロボットの状態推定
+  - name: Takumi Tomatsu
+    jname: 戸松 匠
+    grade: M2
+    subject: Model Predictive Tracking Control of Hydraulic Excavator in Consideration of Disturbance that Occurs during Digging Operations.
+    jsubject: 掘削動作時に生じる外乱を考慮したパワーショベルのモデル予測軌道追従制御
+  - name: Hiroki Ito
+    jname: 伊藤 大樹
+    grade: M1
+    subject: Reduction of Computation Time of Steering Control for Coaxial Steering Mechanisms by Explicit MPC
+    jsubject: Explicit MPCによる同軸操舵制御の計算量削減
+  - name: Hiroaki Endo
+    jname: 遠藤 弘彬
+    grade: M1
+    subject: Attitude control based on hierarchical linearization of two wheel that applied model error  compensator
+    jsubject: モデル誤差補償器を適用した2ホイールスペースクラフトの階層型線形化に基づいた姿勢制御
+  - name: Naoto Ogawa
+    jname: 小川 直人
+    grade: M1
+    subject: Moving Horizon Velocity Estimation for Mobile Robots with Caster Odometer
+    jsubject: キャスタ型オドメータを有した移動ロボットのMHEによる速度推定
+  - name: Masaki Koizumi
+    jname: 小泉 柾貴
+    grade: M1
+    subject: Localization considering blind area of LRF by active rotation of omni-directional mobile robot
+    jsubject: 全方向移動ロボットの姿勢角変化によりLRFの死角を考慮した自己位置推定
+  - name: Masafumi Saito
+    jname: 斎藤 雅史
+    grade: M1
+    subject: Model Predictive Tracking Control Considering Energy Consumption for Exploration Rovers
+    jsubject: 探査ローバーのためのエネルギー消費を考慮したモデル予測追従制御
+  - name: Takahiro Suyama
+    jname: 須山 敬洋
+    grade: M1
+    subject: Disturbance Suppression Control for Interaction of Two Quad Copters Using the Disturbance Map
+    jsubject: 外乱マップを用いた2機のクアッドコプターの相互関係による外乱抑制制御
+  - name: Atsushi Souma
+    jname: 相馬 淳志
+    grade: M1
+    subject: Nonlinear System Identification of AR.Drone Considering the Motors Dynamics
+    jsubject: モータダイナミクスを考慮したAR.Droneの非線形モデル同定
+  - name: Yuuki Nishio
+    jname: 西尾 祐紀
+    grade: M1
+    subject: Obstacle Avoidance Control for Omni-directional Mobile Robots using Obstacle Detection and FPMPC
+    jsubject: 全方向移動ロボットによる障害物検知及び ファジィポテンシャルモデル予測障害物回避制御
+  - name: Kenta Yamamoto
+    jname: 山本 健太
+    grade: M1
+    subject: Experimental Verification of Multi-Agent Formation Control by Model Predictive Control Considering Collision Avoidance with UAVs
+    jsubject: モデル予測制御による衝突回避を考慮したUAVのマルチエージェントフォーメーション制御の実機検証
+  - name: Hiroki Yoshikawa
+    jname: 吉川 大樹
+    grade: M1
+    subject: Modeling and control for ATHLETE with Dymola on the weak ground
+    jsubject: Dymolaを用いたATHLETEの軟弱地盤上でのモデリングと制御
+  - name: Yuki Oshikiri
+    jname: 押切 勇貴
+    grade: B4
+    subject: A study on exact linearization and model error compensator for front wheel steering vehicles
+    jsubject: 前輪操舵車両を用いた厳密な線形化及び モデル誤差補償器に関する研究
+  - name: Keiji Matsushima
+    jname: 松島 桂嗣
+    grade: B4
+    subject: Position and orientation estimation, using a position information of the marker In Order To Avoid The Turnover Of The Measurement Data When Measuring A Plurality Of The Measurement Target
+    jsubject: 複数の計測対象を計測する際の計測データの入れ替わりを回避するマーカーの位置情報を用いた位置姿勢推定
+  - name: Narutoshi Yamada
+    jname: 山田 成俊
+    grade: B4
+    subject: Self position estimation of multiple markers with the vehicle type robot that uses an external camera
+    jsubject: 外部カメラを用いた車両型ロボットが有する複数マーカーの自己位置推定
+  - name: Yuki Yokoyama
+    jname: 横山 祐樹
+    grade: B4
+    subject: Communication environment creation and behavior verification of Blender and ATHLETE
+    jsubject: BlenderとATHLETEの通信環境作成と挙動検証
+  - name: Naoki Shibata
+    jname: 柴田 尚輝
+    grade: B4
+    subject: Verification of Model Predictive Control using partitioned model by embedded CPU
+    jsubject: 組み込みCPUによる分割モデルを用いたモデル予測制御の検証
+  - name: Yuya Okano
+    jname: 岡野 祐也
+    grade: B4
+    subject: Motion Control for Four-wheel Driving and Steering Vehicles Using Model Reference Control and Sliding Mode Control
+    jsubject: モデル規範制御とSMCによる四輪操舵駆動車両の運動制御
+  - name: Ryo Aramaki
+    jname: 荒牧 遼
+    grade: B4
+    subject: Applying the Model Error Compensator to the UAV in consideration of the model error of the Model Based Control
+    jsubject: モデルベース制御におけるモデル誤差を考慮したUAVへのモデル誤差補償器の適用
+  - name: Masahiro Ito
+    jname: 伊藤 雅弘
+    grade: B4
+    subject: Establishment of UAV simulation environment with ROS
+    jsubject: ROSを用いたUAVシミュレータの環境構築
+  - name: Masaki Kogure
+    jname: 木榑 将己
+    grade: B4
+    subject: Highly precise reproduction and Model Predictive Control of the hydraulic system by MATLAB
+    jsubject: MATLABを用いた油圧システムの高精度再現とMPC
+  - name: Tsukasa Tomizawa
+    jname: 冨澤 司
+    grade: B4
+    subject: Relative position estimation and following control of the UAVs by processing image considering the outliers of the markers
+    jsubject: マーカーの外れ値を考慮した画像処理によるUAV の相対位置推定及び追従制御
+  - name: Naruse Masataka
+    jname: 成勢 昌隆
+    grade: B4
+    subject: Distribution control for UAV using coverage control of MAC
+    jsubject: MACの被覆制御を用いたUAVの分布制御
+  - name: Takanori Hiura
+    jname: 日浦 隆徳
+    grade: B4
+    subject: Construction of embedded system for the purpose of using the optimization calculation
+    jsubject: 最適化計算の適用を目的とした組み込みシステムの構築
+  - name: Nozomu Yoshimura
+    jname: 吉村 望
+    grade: B4
+    subject: Time-State control form and Obstacle avoidance with path generation
+    jsubject: 時間軸状態制御形と経路生成による障害物回避制御
+  - name: Koushi Tsuno
+    jname: 津野 晃士
+    grade: B4
+    subject: Localization and tracking control using Map-matching and Scan-matching from LRF data
+    jsubject: Map-matchingとScan-matchingを用いたLRFによる自己位置推定と軌道追従制御
+  - name: Yuji Morihiro
+    jname: 森廣 祐士
+    grade: B4
+    subject: Overturn prevention control of Leg/Wheel Mobile Robots using Model Predictive Control considering vehicle height
+    jsubject: MPC を用いた脚車輪型移動ロボットの車体の高さを考慮した転倒防止制御

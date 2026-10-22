@@ -1,0 +1,76 @@
+# Pages CMS 設定 (https://pagescms.org/docs/)
+# 学生は content ブランチで編集する。main への反映は PR の承認で行う。
+media:
+  - name: member-photos
+    label: 集合写真
+    input: public/images/member
+    output: /images/member
+    extensions: [png, jpg, jpeg, webp]
+
+content:
+  - name: members
+    label: メンバー
+    type: collection
+    path: content/members
+    format: yaml
+    filename: "{primary}.yaml"
+    view:
+      primary: year
+      sort: year
+      order: desc
+    fields:
+      - name: year
+        label: 年度
+        type: number
+        required: true
+      - name: photo
+        label: 集合写真
+        description: 写真が空の年度はサイトに表示されません
+        type: image
+        options:
+          media: member-photos
+      - name: members
+        label: メンバー
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{grade} {jname}"
+        fields:
+          - name: jname
+            label: 氏名（日本語）
+            type: string
+            required: true
+          - name: name
+            label: 氏名（英語）
+            description: "例: Taro Tokyo"
+            type: string
+            required: true
+          - name: grade
+            label: 学年・職位
+            type: select
+            required: true
+            options:
+              values:
+                - { name: B4, label: B4 }
+                - { name: M1, label: M1 }
+                - { name: M2, label: M2 }
+                - { name: D1, label: D1 }
+                - { name: D2, label: D2 }
+                - { name: D3, label: D3 }
+                - { name: D4, label: D4 }
+                - { name: D5, label: D5 }
+                - { name: D6, label: D6 }
+                - { name: D7, label: D7 }
+                - { name: Prof., label: 教員 (Prof.) }
+                - { name: Dr., label: 研究員 (Dr.) }
+                - { name: SEC, label: 秘書 (SEC) }
+          - name: jsubject
+            label: 研究テーマ（日本語）
+            type: string
+          - name: subject
+            label: 研究テーマ（英語）
+            type: string
+          - name: url
+            label: URL
+            type: string

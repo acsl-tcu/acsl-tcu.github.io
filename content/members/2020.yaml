@@ -1,0 +1,188 @@
+year: 2020
+photo: /images/member/2020.png
+members:
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Dr.
+    subject: Nonlinear systems control via geometric approach
+    jsubject: 非線形システム制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Naoki Takahashi
+    jname: 高橋 直樹
+    grade: D6
+    subject: Model Predictive Control for Leg Configuration Control of Leg/Wheel Mobile Robots
+    jsubject: モデル予測制御による脚車輪型移動ロボットの脚位置制御
+  - name: Isao Okawa
+    jname: 大川 功
+    grade: D5
+    subject: Model Predictive Control for Wheel Position of Leg/Wheel Robots considering Passage Width
+    jsubject: 経路の道幅を考慮した脚車輪型ロボット車輪位置のモデル予測制御
+  - name: Ryouya Abe
+    jname: 安部 凌矢
+    grade: M2
+    subject: Simultaneous State Estimation of Autonomous Vehicle and Multiple Objects by Moving Horizon Estimation Utilizing Probabilistic Matching
+    jsubject: 確率的な対応付けを用いた Moving Horizon Estimation による自律移動ロボットと複数物体の同時位置推定
+  - name: Yasumasa Ishikawa
+    jname: 石川 恭匡
+    grade: M2
+    subject: Moving Horizon Estimation for Autonomous Vehicles using LiDAR Consdering Moving Objects
+    jsubject: 移動物体を考慮した3次元環境に対するMovingHorizonEstimationを用いた自己位置と環境地図の同時推定
+  - name: Ryotaro Sugano
+    jname: 菅野 遼太郎
+    grade: M2
+    subject: Two-Layered UAV Group Countrol System Combination of Distributed Control and Centralized Control
+    jsubject: 2層構造のUAV群制御システム 分散制御と集中制御の組み合わせ
+  - name: Ryo Nishikawa
+    jname: 西川 亮
+    grade: M2
+    subject: Model Predictive Guidance Control Considering Energy Balance for Planetary Exploration Rovers
+    jsubject: 惑星探査ローバーのためのエネルギー収支を考慮したモデル予測制御による誘導制御
+  - name: Kentaro Hashimoto
+    jname: 橋本 賢太郎
+    grade: M2
+    subject: Verification of Model Predictive Obstacle Avoidance Control in a Complex Environment where People and Vehicle Coexist
+    jsubject: 人と車両が混在する複雑な環境における自動運転車の障害物回避
+  - name: Yugo Yamaguchi
+    jname: 山口 祐剛
+    grade: M2
+    subject: Experimental Verification of Fuzzy Potential Model Predictive Obstacle Avoidance Control
+    jsubject: 動的環境における電動車椅子のための_x000B_リアクティブな障害物回避制御
+  - name: Daiki Kanai
+    jname: 金井 大樹
+    grade: M1
+    subject: ""
+    jsubject: Visual SLAMを用いた脚車輪型移動ロボットによる軌道追従制御の実装と検証
+  - name: Ryusei Toma
+    jname: 藤間 隆生
+    grade: M1
+    subject: ""
+    jsubject: Moving Horizon Estimationによる車両の自己位置推定
+  - name: Ryota Nakahara
+    jname: 中原 涼太
+    grade: M1
+    subject: ""
+    jsubject: 環境情報や積載状態を考慮した大型商業車両の走行制御
+  - name: Ryuichi Maki
+    jname: 牧 龍一
+    grade: M1
+    subject: ""
+    jsubject: 周辺車両を考慮した最適軌道生成による自動運転車の操舵制御
+  - name: Takahiro Yasui
+    jname: 安井 隆裕
+    grade: M1
+    subject: ""
+    jsubject: 電源ケーブルを牽引するUAVの編隊飛行制御
+  - name: Sota Wada
+    jname: 和田 聡太
+    grade: M1
+    subject: ""
+    jsubject: 全領域検査を保証した障害物回避の実機的検証
+  - name: Hibiki Matsuura
+    jname: 松浦 響
+    grade: M1
+    subject: Real-Time Autonomous Control Considering Uncertainty of Surrounding Objects
+    jsubject: 小型自律移動車両による障害物の位置の不確かさを考慮した実時間自律制御の検証
+  - name: Yuki Isobe
+    jname: 磯部 勇吉
+    grade: B4
+    subject: |-
+      Application of model error compensator_x000D_
+      to tension compensation of towing cable_x000D_
+      by UAV.
+    jsubject: ＵＡＶの牽引するケーブルの張力補償に対するモデル誤差補償器の適用
+  - name: hiroto ohtsubo
+    jname: 大坪 洋人
+    grade: B4
+    subject: ""
+    jsubject: シングルボードコンピュータを搭載したクアッドコプタによるビジュアルSLAMを用いた自律飛行
+  - name: Keisuke Abe
+    jname: 阿部 圭佑
+    grade: B4
+    subject: Implementation of Disturbance Suppression Control of UAV Flying to Traction Power Cable
+    jsubject: 電源ケーブルを牽引するUAV隊列飛行の外乱抑制制御の実装
+  - name: Wataru Eikyu
+    jname: 永久 航
+    grade: B4
+    subject: Vibration suppression control of towed object by trajectory planning of UAV
+    jsubject: UAVの軌道計画による牽引物体の振動抑制制御
+  - name: Takahiro Ochiai
+    jname: 落合 貴広
+    grade: B4
+    subject: ""
+    jsubject: 屋外環境におけるNDTを用いたMHE-SLAMによる周辺車両の推定
+  - name: Junya Katagiri
+    jname: 片桐 潤哉
+    grade: B4
+    subject: Wall observation of UAV pulling power cable
+    jsubject: 電源ケーブルを牽引する_x000B_UAVの壁面観測
+  - name: Kento Kawabata
+    jname: 川端 健人
+    grade: B4
+    subject: ""
+    jsubject: UAVのための複数のセンサ情報を活用したVisual SLAMの実装
+  - name: shouta kanno
+    jname: 菅野 翔太
+    grade: B4
+    subject: ""
+    jsubject: 自動車の走行制御におけるセンサ性能の不確定性の定量化
+  - name: Ryosuke Kotaka
+    jname: 小髙 良輔
+    grade: B4
+    subject: Physical verification of Model Predictive Control considering complex terrain for Leg/Wheel Mobile Robot
+    jsubject: 脚車輪型移動ロボットのための複雑な地形を考慮したモデル予測制御の物理的検証
+  - name: miki takashiba
+    jname: 高柴 美希
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: kouta takahashi
+    jname: 高橋 宏太
+    grade: B4
+    subject: ""
+    jsubject: 人混み環境における対応付けを考慮した複数物体追跡の実機的検証
+  - name: yuta takahashi
+    jname: 高橋 優太
+    grade: B4
+    subject: ""
+    jsubject: ""
+  - name: ryouta nakai
+    jname: 中井 遼太
+    grade: B4
+    subject: ""
+    jsubject: 集中センサ配置をしたUAVの複数機制御
+  - name: Sotaro Nakano
+    jname: 中野 颯太郎
+    grade: B4
+    subject: Simultaneous Estimation of Self-Position and Surrounding Environment Using Moving Horizon Estimation Considering Moving Obstacles
+    jsubject: 移動障害物を考慮したMoving Horizon Estimation を用いた自己位置と周辺環境の同時推定
+  - name: Touma Makino
+    jname: 牧野 統真
+    grade: B4
+    subject: Model prediction control considering thecollision probability with obstacles due toopportunity constraints
+    jsubject: 機会制約による障害物との衝突確率を考慮したモデル予測制御
+  - name: Kazuki Miyata
+    jname: 宮田 和己
+    grade: B4
+    subject: Autonomous movement verification based on real environment by physical arithmetic simulator using small autonomous moving vehicle
+    jsubject: 小型自律移動車両を用いた物理演算シミュレータによる実環境を想定した自律移動の検証
+  - name: Shundai Miyawaki
+    jname: 宮脇 俊大
+    grade: B4
+    subject: Applying The Less & Less Vector Control For Brush-less DC Motor Mounted On Quadcopter
+    jsubject: クアッドコプターのブラシレスDCモータに対するレス＆レス・ベクトル制御の適用
+  - name: takushi murai
+    jname: 村井 拓士
+    grade: B4
+    subject: ""
+    jsubject: 電源ケーブルを牽引するクアッドコプタ群の外乱を考慮した編隊飛行制御
+  - name: Masato Matsuyama
+    jname: 松山 優人
+    grade: B4
+    subject: Estimation of Obstacle Shape, Position, and Velocity using Laser Range Sensor
+    jsubject: レーザ測域センサを使用した障害物の形状および位置速度の推定
