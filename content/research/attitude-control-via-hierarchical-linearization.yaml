@@ -1,0 +1,17 @@
+order: 40
+type: application
+area: spacecraft
+role: "2: control"
+title: Attitude control via hierarchical linearization
+jtitle: 階層型線形化を用いた姿勢制御
+abst: In this research, we have proposed an attitude control law for underactuated two-wheel spacecraft under non-zero total angular momentum.  We propose to apply the hierarchical linearization which separates a system into two subsystems and linearizes the subsystems in step by step. Using this method, the partial linearization becomes possible because geometric nature of the system is changed. Moreover, the dimension of linearizable state increases relative to ordinary input-output linearization. The animation shows that the proposed controller achieves the desired attitude.
+jabst: 本研究ではシステムを我々が開発した階層的に分解しながら線形化していく階層型線形化という新しい手法を２ホイールの衛星システムへ適用することで，目標姿勢への収束を実現した．
+keywords:
+  - Spacecraft
+  - Hierarchical linearization
+figures:
+  - path: /images/spacecraft_fukaishi.mp4
+    caption: |-
+      Stabilization of two-wheel spacecraft, with 
+      nonzero total angular momentum. At the desired attitude, the antenna points at -Z direction. 
+    jcaption: 角運動量が非零の状態での２ホイールで人工衛星の姿勢制御．目標姿勢はアンテナを真上（-Z軸方向）へ向けた状態．

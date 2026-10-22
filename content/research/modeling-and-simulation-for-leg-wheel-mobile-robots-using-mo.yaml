@@ -1,0 +1,20 @@
+order: 220
+type: application
+area: leg-wheel_mobile_robot
+role: "1: system"
+title: Modeling and simulation for leg-wheel mobile robots using Modelica
+jtitle: Modelica言語を用いた脚車輪型移動ロボットのモデリングとシミュレーション
+abst: Leg-wheel mobile robots achive high stability utilizing leg mechanism and high mobility using wheel mechanism. Since, these robots can move uneven terrain, it is expected to work in planetary exploration. In this study, we give attention to one of planetary exploration rovers “ATHLETE” and model it. Therefore, we realize a simulation of the rover under low gravitational acceleration.
+jabst: 脚車輪型移動ロボットは脚機構による高い安定性と車輪機構による高い移動能力を有している．このロボットは不整地で活動ができるため，地球外探査において活躍が期待されている．本研究では，ATHLETEという惑星探査機に注目し，ロボットのモデルを作成する．これにより，重力加速度の異なる環境における探査機のシミュレーションを実現する．
+keywords:
+  - Leg-Wheel
+  - ATHLETE
+  - Modeling
+figures:
+  - path: /images/leg-wheel_mobile_robot_yoshikawa1.jpg
+    caption: |-
+      Model of leg-wheel mobile robot.
+      The model consists of two componets : body part and limb part .
+    jcaption: |-
+      脚車輪型移動ロボットのモデル．
+      モデルはボディ部分と脚部分の2つの要素で構成される．

@@ -1,0 +1,139 @@
+year: 2022
+journal:
+  - author: Kazuma Sekiguchi, Sota Wada, Kenichiro Nonaka
+    language: 2
+    title: Active sensing control improving SLAM accuracy for a vehicle robot
+    etitle: Active sensing control improving SLAM accuracy for a vehicle robot
+    magazine: Artificial Life and Robotics
+    identifier: 10.1007/s10015-022-00822-2
+    page: 208-216
+    date: "202211"
+  - author: Kento Misawa, Fuguo Xu, Kazuma Sekiguchi, Kenichiro Nonaka
+    language: 2
+    title: Model predictive control for mobile manipulators considering the mobility range and accuracy of each mechanism
+    etitle: Model predictive control for mobile manipulators considering the mobility range and accuracy of each mechanism
+    magazine: Artificial Life and Robotics
+    identifier: 10.1007/s10015-022-00799-y
+    page: 855–866
+    date: "202210"
+  - author: Ryota Nakahara, Kazuma Sekiguchi, Kenichiro Nonaka, Masahiro Takasugi, Hiroki Hasebe, Kenichi Matsubara
+    language: 2
+    title: Stochastic model predictive braking control for heavy-duty commercial vehicles during uncertain brake pressure and road profile conditions
+    etitle: Stochastic model predictive braking control for heavy-duty commercial vehicles during uncertain brake pressure and road profile conditions
+    magazine: Control Theory and Technology
+    identifier: 10.1007/s11768-022-00090-2
+    page: 1-15
+    date: "202205"
+  - author: Ryuichi Maki, Isao Okawa, Kenichiro Nonaka
+    language: 2
+    title: Stochastic Model Predictive Obstacle Avoidance with Velocity Reduction in Accordance with Chance Constraints in Crowded Environments
+    etitle: Stochastic Model Predictive Obstacle Avoidance with Velocity Reduction in Accordance with Chance Constraints in Crowded Environments
+    magazine: International Journal of Automotive Engineering
+    identifier: 10.20485/jsaeijae.13.3_114
+    page: 114-121
+    date: "202203"
+international:
+  - author: Koshi Kudo, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202209"
+    title: |-
+      A Self-Driving System for Electric Wheelchairs Based on LiDAR Point Clouds and Model Predictive Control
+      LiDAR Point Clouds and Model Predictive Control
+    meeting: SICE Annual Conference 2022
+    page: 417-419
+  - author: Naoto Kawaguchi, Isao Okawa, Kenichiro Nonaka
+    date: "202209"
+    title: Linear Complementarity Model Predictive Control Applied to Vehicle Steering Experiment
+    meeting: SICE Annual Conference 2022
+    page: 1299-1300
+  - author: Masahiro Uda, Ryosuke Kotaka, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202209"
+    title: On-board 2D LiDAR and obstacle avoidance for a planar leg/wheel mobile robot
+    meeting: SICE Annual Conference 2022
+    page: 1335-1336
+  - author: Eisuke Kawaguchi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202209"
+    title: MPC-Based Self-Driving Electric Wheelchair in a Narrow Indoor Environment
+    meeting: SICE Annual Conference 2022
+    page: 1107-1110
+  - author: Masato Matsuyama, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202209"
+    title: Pedestrian Tracking by Ellipse Approximation of Point Cloud Utilizing Random Sample Consensus
+    meeting: SICE Annual Conference 2022
+    page: 1111-1112
+  - author: Toma Makino, Fuguo Xu, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202209"
+    title: Obstacle Avoidance Experiment on Curved Path for Electric Wheelchairs Using Stochastic Model Predictive Control
+    meeting: SICE Annual Conference 2022
+    page: 1104-1106
+  - author: Qiong Pan, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202208"
+    title: A Plane-Based EKF-SLAM with Reduced Computation Cost
+    meeting: SICE Annual Conference 2022
+    page: 637-638
+  - author: Haziq Muhammad, Yasumasa Ishikawa, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202208"
+    title: 2D SLAM for Dynamic Environments with Dynamic Line Segment
+    meeting: SICE Annual Conference 2022
+    page: 639-641
+  - author: Takahiro Ochiai, Fuguo Xu, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202208"
+    title: Robust Localization in Both Urban and Rural Environments for Fusion of LiDAR-SLAM, GNSS, and Odometry
+    meeting: The 2022 Conference on Control Technology and Applications
+    page: 259-264
+  - author: Daiki Kanai, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202203"
+    title: LMI-based Control Synthesis for a Leg/Wheel Mobile Robot
+    meeting: SICE International Symposium on Control Systems 2022
+    page: 0221-0226
+  - author: Hibiki Matsuura, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202201"
+    title: Model Predictive Obstacle Avoidance Control for an Electric Wheelchair in Indoor Environments Using Artificial Potential Field Method
+    meeting: 2022 IEEE/SICE International Symposium on System Integration (SII)
+    page: 19-24
+  - author: Kento Misawa, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202201"
+    title: Whole-Body Motion Generation using Model Predictive Control for Mobile Manipulators in Living Room Environment
+    meeting: AROB-ISBC-SWARM2022
+    page: 1013-1018
+  - author: Sota Wada, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202201"
+    title: Trajectory tracking model predictive control with SLAM accuracy improvement by velocity information evaluation
+    meeting: AROB-ISBC-SWARM2022
+    page: 1013-1018
+  - author: Ryusei Toma, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "202201"
+    title: Improved Vehicle Localization Based on Moving Horizon Estimation with Node Constraints
+    meeting: 2022 IEEE/SICE International Symposium on System Integration (SII)
+    page: 699-704
+domestic:
+  - author: 百瀬雄真，関口和真，野中謙一郎
+    title: 階層型線形化したクワッドコプタモデルの水平方向への有限整定制御の適用
+    etitle: |-
+      Applying finite settling control to the horizontal direction of a hierarchically
+      linearized quadcopter model
+    meeting: 第65回自動制御連合講演会
+    page: 1J2-3
+    date: "202211"
+  - author: 蛯名浩志，牧野統真，藪井将太，鈴木元哉，深沢慎一郎，野中謙一郎
+    title: 階層構造により計算コスト削減を実現する自動運転トラックの非線形モデル予測制御
+    etitle: A nonlinear model predictive control for self-driving trucks achieving a reduced computational cost by hierarchical structure
+    meeting: 2022年自動車技術会秋季学術講演会(JSAE-Autumn'22)
+    date: "202210"
+  - author: 中原 涼太,関口 和真,野中 謙一郎,髙杉 昌宏,北村 毅史,長谷部 裕樹,松原 健一
+    title: Conditional Value at Risk に基づくセミトレーラ型連結車両の確率モデル予測制動制御
+    etitle: Conditional Value at Risk Based on Stochastic Model Predictive Braking Control of Tractor Semi-Trailer
+    meeting: 第9回計測自動制御学会制御部門マルチシンポジウム
+    page: 1G1-4
+    date: "202203"
+  - author: 永久航,関口和真,野中謙一郎
+    title: 物体を牽引するドローンにおけるSavitzky-Golayフィルタを用いたパラメータ推定
+    etitle: Parameter estimation using the Savitzky-Golay filter in the Suspended-load drone model
+    meeting: 第9回計測自動制御学会制御部門マルチシンポジウム
+    page: 2B1-5
+    date: "202203"
+  - author: 牧 龍一, 大川 功, 野中 謙一郎
+    title: 非線形モデル予測速度制御のための焼き鈍し法による最適化の研究
+    etitle: A study on Optimization for Nonlinear Model Predictive Velocity Control utilizing Simulated Annealing
+    meeting: 第9回計測自動制御学会制御部門マルチシンポジウム
+    page: 3A1-5
+    date: "202203"

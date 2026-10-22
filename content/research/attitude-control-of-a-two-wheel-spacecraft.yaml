@@ -1,0 +1,14 @@
+order: 60
+type: application
+area: spacecraft
+role: "1: system"
+title: Attitude control of a two-wheel spacecraft
+jtitle: ２基のリアクション・ホイールによる衛星の姿勢制御
+abst: Target application is underactuated two-wheel spacecraft under non-zero total angular momentum. Attitude control of a spacecraft using two reaction wheels is difficult under the non-zero total angular momentum because the degree of freedom  with respect to attitude is three. Hence, all spacecrafts contain three or more reaction wheels to control their attitude. However, during the long term operation, actuators will be broken as reported Hayabusa (MUSES-C) and space telescope Kepler. To cope with such an accident, we develop attitude control low for two reaction wheels.
+jabst: 人口衛星の姿勢制御は姿勢の自由度が３であることから，３基またはそれ以上のリアクションホイールと呼ばれるアクチュエータでおこなわれるのが一般的である．しかし長期運用の中で小惑星探査機「はやぶさ」や宇宙望遠鏡「Kepler」で報告されているように姿勢制御のためのアクチュエータが故障してしまうことがある．我々はこのような場合に対しても姿勢制御を継続できるよう姿勢制御則の開発をおこなっている．
+keywords:
+  - Spacecraft
+figures:
+  - path: /images/spacecraft_system.jpg
+    caption: Appearance of target spacecraft. In this figure, the reaction wheel attached on YB axis is broken. H0 represents non-zero total angular momentum. Due to this momentum, attitude control becomes too complicated to operate heulistically.
+    jcaption: 対象とする人工衛星の外観図．YB軸のリアクションホイールが故障した場合を表している．H0はシステム全体の角運動量を表しており，この項が存在することによって姿勢制御はとても複雑な問題となってしまう．そのため人間の直感的な方法によってこのような状況の人工衛星を制御することは難しい．

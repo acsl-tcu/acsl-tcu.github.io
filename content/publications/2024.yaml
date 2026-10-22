@@ -1,0 +1,139 @@
+year: 2024
+journal:
+  - author: Takeshi Hatanaka, Yuki Nishimura, Masaaki Nagahara, Satoshi Satoh, Kazuma Sekiguchi, Hyo Sung Ahn, Jose M. Maestre, Srikant Sukumar, Gennaro Notomista
+    language: 2
+    title: "Special issue on recent advances in nonlinear robot control technology (part I) "
+    etitle: "Special issue on recent advances in nonlinear robot control technology (part I) "
+    magazine: "Advanced Robotics "
+    identifier: 10.1080/01691864.2024.2331996
+    page: "367"
+    date: "202404"
+  - author: Haziq Muhammad, Yasumasa Ishikawa, Kazuma Sekiguchi, Kenichiro Nonaka
+    language: 2
+    title: Online simultaneous localization and mapping with parallelization for dynamic line segments based on moving horizon estimation
+    etitle: Online simultaneous localization and mapping with parallelization for dynamic line segments based on moving horizon estimation
+    magazine: Artificial Life and Robotics
+    identifier: 10.1007/s10015-024-00937-8
+    page: 311-325
+    date: "202403"
+  - author: Koichi Nishibe, Yusuke Koizumi, Kazuma Sekiguchi
+    language: 2
+    title: Experimental Study on Airflow Upwash and Control of Thrust Increase Induced by Ceiling Effect on Microrotor
+    etitle: Experimental Study on Airflow Upwash and Control of Thrust Increase Induced by Ceiling Effect on Microrotor
+    magazine: Journal of Fluids Engineering
+    identifier: 10.1115/1.4063331
+    page: FE-23-1249
+    date: "202401"
+international:
+  - author: Ryota Narita, Tatsuya Nakano, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202411"
+    title: Particle Filter Based Pedestrian Tracking Using Point Cloud toward Obstacle Avoidance Control
+    meeting: IECON 2024 - 50th Annual Conference of the IEEE Industrial Electronics Society
+    identifier: 10.1109/IECON55916.2024.10905470
+    page: 1-4
+  - author: Takahiro Onizawa, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202411"
+    title: Model predictive obstacle avoidance for a leg/wheel mobile robot utilizing sample-based optimization
+    meeting: 2024 IEEE/IECON Industrial Electronics Society
+    identifier: 10.1109/IECON55916.2024.10905179
+    page: 1-8
+  - author: Takumi Okada, Tomoki Ashiwa, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202411"
+    title: |-
+      JPDAF-based Pedestrian Trajectory Estimation and Combination Leveraged by the Hungarian Method
+      in Crowded Environments
+    meeting: IECON 2024 - 50th Annual Conference of the IEEE Industrial Electronics Society
+    identifier: 10.1109/IECON55916.2024.10905569.
+    page: 1-8
+  - author: Yoshiki Komatsu, Kohei Kiyama, Yuuki Isobe, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202408"
+    title: Quadcopter Modeling by Koopman Linearization and Application of Model Predictive Control to Actual Machine
+    meeting: 2024 63rd Annual Conference of the Society of Instrument and Control Engineers of Japan (SICE)
+    page: 375-378
+  - author: Koshi Kudo, Naoto Kawaguchi, Manami Adachi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202407"
+    title: LiDAR-Based Pedestrian Flow Estimation and its Application to a Self-driving Electric Wheelchair
+    meeting: 2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)
+    page: 1061-1067
+  - author: H. Muhammad, M. Imoto, K. Sekiguchi, K. Nonaka
+    date: "202407"
+    title: Pedestrian LiDAR Tracking Utilizing Elliptical Model-Based MHE Through MLESAC
+    meeting: 2024 ECC/22nd European Control Conference
+    identifier: 10.23919/ECC64448.2024.10590921
+    page: 148-153
+  - author: Taiki Nozaki, Kazuma Sekiguchi and Kenichiro Nonaka
+    date: "202402"
+    title: EKF estimation of sensor installation parameters for sensor fusion in drones and its observability analysis
+    meeting: "IEEE 18th International Conference on Advanced Motion Control "
+    page: AMC24-000082
+  - author: Ryota Narita, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202401"
+    title: Simultaneous Object Tracking and Shape Reproduction Using LiDAR Point Cloud Data
+    meeting: IEEE/SICE International Symposium on System Integration 2024
+    page: 490-495
+  - author: Haruka Sawada, Kazuma Sekiguchi and Kenichiro Nonaka
+    date: "202401"
+    title: Urban fire model reflecting detailed real-time weather information
+    meeting: IEEE/SICE International Symposium on System Integration 2025
+    identifier: 10.1109/SII58957.2024
+    page: 1411-1416
+  - author: Tomoki Ashiwa, Shogo Yamada, Ryota Narita, Manami Adachi, Kazuma Sekiguchi and Kenichiro Nonaka
+    date: "202401"
+    title: Pedestrian Tracking Accommodating Point-Cloud Displacement between Multiple LiDARs Based on Joint Probabilistic Data Association Filter
+    meeting: IEEE/SICE International Symposium on System Integration 2024
+    page:  881-887
+domestic:
+  - author: 百瀬雄真，関口 和真，野中 謙一郎
+    title: 単機牽引モデルによる牽引物の質量推定
+    etitle: Estimation of suspended load mass using a quadcopter
+    meeting: 第67回自動制御連合講演会
+    page: 1441-1445
+    date: "202411"
+  - author: 堀下 優衣, 高柳 英明, 加賀屋 りさ, 岩田 史絵, 津島 葉子, 関口 和真
+    title: 災害復旧時を想定したターミナル駅構内における歩行者誘導サイネージの設置効果に関する研究
+    etitle: A Study on the Effect of Pedestrian Guidance Signage Installation in Terminal Stations for Disaster Recovery
+    meeting: 2024年度日本建築学会大会（関東）
+    page: 753-754
+    date: "202407"
+  - author: 須之内裕人、岩田史絵、関口和真、高柳英明
+    title: 歩行者・電動キックボードの共存空間を想定した歩行空間のサービス水準の再検討に関する研究
+    etitle: A study on reexamination of the level of service of pedestrian space for the coexistence of pedestrian and electric kickboard space
+    meeting: 2024年度日本建築学会大会（関東）
+    page: 749-750
+    date: "202407"
+  - author: 岩田史絵、加賀屋りさ、山本遼佳、関口和真、高柳英明
+    title: 群衆密度と交差角度に着目した群衆とPV の交差実験に関する研究
+    etitle: A study on crowd and PV intersection experiments focusing on crowd density and intersection angle
+    meeting: 2024年度日本建築学会大会（関東）
+    page: 767-768
+    date: "202407"
+  - author: 関口和真，野崎太貴，野中謙一郎
+    title: 可観測度に基づくアクティブ状態推定手法の提案
+    etitle: Active state estimation based on the observability analysis
+    meeting: 第 68 回 システム制御情報学会研究発表講演会
+    page: 686-692
+    date: "202405"
+  - author: 山口 航輝，関口 和真，野中 謙一郎
+    title: 分散制御を用いたUAVsの領域探索における領域分割と飛行経路の検討
+    etitle: Study on Area Segmentation and Flight Path in UAVs’ Area Search Using Distributed Control
+    meeting: 第11回計測自動制御学会制御部門マルチシンポジウム
+    page: 3A3-4
+    date: "202403"
+  - author: 足立 愛実，関口 和真，野中 謙一郎
+    title: k-meansとJPDAFを用いた歩行者追跡と電動車椅子を用いたモデル予測制御による障害物回避の検証
+    etitle: Validation of Model Predictive Control with Electric Wheelchairs for Obstacle Avoidance Using Pedestrian Tracking Based on k-means and JPDAF
+    meeting: 第11回計測自動制御学会制御部門マルチシンポジウム
+    page: 2A7-4
+    date: "202403"
+  - author: 笠井 茉莉，関口 和真，野中 謙一郎
+    title: 能動的な歩行者群集制御のための移動誘導体の合流動作手法の提案
+    etitle: Proposal of a method for merging moving guides into pedestrian flow for active pedestrian crowd control
+    meeting: 第11回計測自動制御学会制御部門マルチシンポジウム
+    page: 1M8-5
+    date: "202403"
+  - author: H. Muhammad, 井本 匡紀 , 関口 和真, 野中 謙一郎
+    title: 楕円モデルによるLiDAR歩行者追跡のためのMSACと MLESACアルゴリズムの比較分析
+    etitle: Comparative Analysis of MSAC and MLESAC Algorithms for LiDAR Pedestrian Tracking via Ellipse Model
+    meeting: 第11回計測自動制御学会制御部門マルチシンポジウム
+    page: 3A4-7
+    date: "202403"

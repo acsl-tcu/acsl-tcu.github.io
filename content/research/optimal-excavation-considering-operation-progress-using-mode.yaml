@@ -1,0 +1,16 @@
+order: 350
+type: application
+area: excavator
+role: "2: control"
+title: Optimal Excavation considering Operation Progress using Model Predictive Control for Hydraulic Excavators
+jtitle: 油圧ショベルのためのモデル予測制御による掘削状況を考慮した最適掘削
+abst: This study realizes an optimal digging path planning corresponding to operation progress with model predictive control (MPC). Considering a decrease in the amount of remaining soil is required because hydraulic excavator gradually achieves a target shape. Therefore, the design of digging path that gradually achieves the target shape is realized by using the evaluation reflecting a decrease of the remaining soil. Also, to accurate control for achieving the digging path, we use model predictive control with servo mechanism (MPCS). MPCS suppresses steady error and achieves accuracy digging by suppressing the digging resistance. Finally, the proposed method is verified by an experiment using a micro hydraulic excavator.
+jabst: 本研究では油圧ショベルの掘削作業の進捗に応じた最適な掘削軌道計画をモデル予測制御(MPC)により達成する．掘削作業では段階的に目標形状を達成するため，残留土砂量の減少を考慮することが必要である．そこで，掘削軌道における目標形状への追従性能の評価に残留土砂の減少を反映することで，段階的に目標形状を達成する掘削軌道の設計を実現する．また計画した掘削軌道を正確に実現する制御を行うためにサーボ型モデル予測制御(MPCS)を用いる．MPCSは定常外乱を抑制することが可能な制御であり，土砂による掘削抵抗を抑制した正確な掘削を実現する．また本研究の有効性を，小型油圧ショベルを用いた実機実験により検証する．
+keywords:
+  - Shovel
+  - MPC
+  - Path Tracking
+figures:
+  - path: /images/excavator_eguchi1.jpg
+    caption: This is the digging paths with the proposed method. The paths gradually approach the target shape.
+    jcaption: 提案手法により計画された掘削軌道．段階的に目標形状へ近づいていく．

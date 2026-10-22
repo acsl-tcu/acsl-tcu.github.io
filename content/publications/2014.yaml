@@ -1,0 +1,152 @@
+year: 2014
+journal:
+  - author: 小山 健太郎, 関口 和真, 野中 謙一郎
+    language: 1
+    title: 走行距離を時間軸とする時間軸状態制御形による車両の経路追従制御 —モデル予測車庫入れ制御への適用—
+    etitle: Path-following Control for Front-steering Vehicles based on Time-State Control Form using Travel Distance as a Virtual Time-Axis —Applying to Model Predictive Parking Control—
+    magazine: 計測自動制御学会論文集
+    identifier: 10.9746/sicetr.50.746
+    page: 746-754
+    date: "201410"
+international:
+  - author: Mikiya Yoshida, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201410"
+    title: Model Predictive Vehicle Control with Side Slip Angle Restriction with Suppression of Modeling Error by Sliding Mode Control
+    meeting: Proceedings of 2014 IEEE Multi-conference on Systems and Control
+    identifier: 10.1109/CCA.2014.6981367
+    page: 328-333
+  - author: Kazuki Kimura, Yutaro Hiromachi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201410"
+    title: Vehicle Localization by Sensor Fusion of LRS Measurement and Odometry Information based on Moving Horizon Estimation
+    meeting: Proceedings of 2014 IEEE Multi-conference on Systems and Control
+    identifier: 10.1109/CCA.2014.6981509
+    page: 1306-1311
+  - author: Tomohiro Fukaishi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201409"
+    title: Attitude Control of Spacecraft with Two Reaction Wheels Considering their Dynamics and Singular Points by Model Predictive Control
+    meeting: Proceedings of SICE Annual Conference 2014
+    page: 2053-2056
+  - author: Yuki Hagimori, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201409"
+    title: Model Predictive Steering Control for Coaxial Steering Mechanisms under Constraints
+    meeting: Proceedings of SICE Annual Conference 2014
+    page: 646-649
+  - author: Kazuki Itoh, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201409"
+    title: State Estimation of Small Vehicle by the Extended Luenberger Observer with Nonlinear Output Equation for Front Wheel Velocity Sensor
+    meeting: Proceedings of SICE Annual Conference 2014
+    page: 1164-1167
+  - author: Wang Zhenwei, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201409"
+    title: Model predictive control with disturbance rejection for AR.Drone
+    meeting: Proceedings of SICE Annual Conference 2014
+    page: 1725-1728
+  - author: Yuji Yanagii, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201409"
+    title: Model Predictive Control for the Leg/Wheel Mobile Robots considering Body Balance
+    meeting: Proceedings of SICE Annual Conference 2014
+    page: 1059-1062
+  - author: Atsushi Nagata, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201406"
+    title: Model Predictive Obstacle Avoidance Control for Omni-directional Mobile Robots based on Fuzzy Potential Method
+    meeting: Proceedings of European Control Conference 2014
+    identifier: 10.1109/ECC.2014.6862356
+    page: 352-357
+domestic:
+  - author: 渡部 建人, 深石 智大, 関口 和真, 野中 謙一郎
+    title: 2基のリアクションホイールによるスペースクラフトの姿勢制御におけるモデル化誤差の影響抑制
+    etitle: Suppression of Effects on Model Error in Attitude Control of Spacecraft Using Two Reaction Wheels
+    meeting: 第15回計測自動制御学会システムインテグレーション部門講演会予稿集
+    page: 2J2-5 1594-1598
+    date: "201412"
+  - author: 木村 一輝, 野中 謙一郎, 関口 和真
+    title: 間欠的観測を考慮したMHEに基づく車両の自己位置推定の実機実験による検証
+    etitle: Experimental Verification of Localization for Vehicles based on MHE Considering Intermittent Observation
+    meeting: 第15回計測自動制御学会システムインテグレーション部門講演会予稿集
+    page: 1M3_1, 989-993
+    date: "201412"
+  - author: 深石 智大, 渡部 建人, 関口 和真, 野中 謙一郎
+    title: 時間軸状態制御形とMPCを組み合わせた2ホイールスペースクラフトの姿勢制御
+    etitle: Attitude Control of Spacecraft via Combination of Time-State Control Form and Model Predictive Control
+    meeting: 第15回計測自動制御学会システムインテグレーション部門講演会予稿集
+    page: 2J3-6 1616-1619
+    date: "201412"
+  - author: 吉田 三喜也, 伊藤 一樹, 野中 謙一郎, 関口 和真
+    title: 小型車両による加速度センサを用いた横滑り角推定および経路追従実験
+    etitle: Estimation of Side Slip Angle with Acceleration Sensor for a Small Model Vehicle
+    meeting: 第15回計測自動制御学会システムインテグレーション部門講演会予稿集
+    page: 3F1_7, 2154-2157
+    date: "201412"
+  - author: 小田 貴嗣, 野中 謙一郎, 関口 和真
+    title: タイヤ力飽和を考慮したキャンバ制御機構を有する小型電気自動車のモデル予測スライディングモード制御
+    etitle: Model Predictive Sliding Mode Control considering Saturation of the Tire Forces for Small Electric Car with Camber Control Mechanism
+    meeting: 2014年自動車技術会秋季学術講演会予稿集
+    page: 1月6日
+    date: "201410"
+  - author: 伊藤 一樹, 野中 謙一郎, 関口 和真
+    title: サーボ型オブザーバによる小型車両の横滑り角及びヨーレートの推定実験
+    etitle: Side Slip Angle and Yaw Rate Estimation Experiment of a Small Vehicle by the Servo Observer
+    meeting: 第58回システム制御情報学会研究発表講演会予稿集
+    page: 343-3
+    date: "201405"
+  - author: 柳井 悠爾, 野中 謙一郎, 関口 和真
+    title: モデル予測制御を用いた脚車輪型移動ロボットの車輪位置最適化
+    etitle: Optimization of Wheel Position using Model Predictive Control for Leg/Wheel Mobile Robots
+    meeting: 第58回システム制御情報学会研究発表講演会予稿集
+    page: 213-7
+    date: "201405"
+  - author: 萩森 夕紀, 野中 謙一郎, 関口 和真
+    title: 操舵角速度に可変重みを用いたモデル予測車両制御
+    etitle: Model Predictive Control for Vehicles with Variable Weight on Steering Velocity
+    meeting: 第58回システム制御情報学会研究発表講演会予稿集
+    page: 343-4
+    date: "201405"
+  - author: 小田 貴嗣, 野中 謙一郎, 関口 和真
+    title: タイヤ力の飽和を考慮した小型電気自動車のモデル予測スライディングモード制御
+    etitle: Model Predictive Sliding Mode Control for Small Electric Car considering Saturation of the Tire Forces
+    meeting: 2014年自動車技術会春季学術講演会予稿集
+    page: 1月4日
+    date: "201405"
+  - author: 深石 智大, 渡部 建人, 関口 和真, 野中 謙一郎
+    title: MPCでリアクションホイールの動特性を考慮した2ホイールスペースクラフトの姿勢制御
+    etitle: Attitude Control of Spacecraft Utilizing Two Reaction Wheels Considering their Dynamics
+    meeting: 第58回システム制御情報学会研究発表講演会予稿集
+    page: 311b-1
+    date: "201405"
+  - author: 永田 篤史, 野中 謙一郎, 関口 和真
+    title: 組み込みCPUによる全方向移動ロボットのためのモデル予測障害物回避制御実験
+    etitle: Experiments of Model Predictive Obstacle Avoidance Control for Omni-directional Robots using Embedded CPU
+    meeting: 第1回制御部門マルチシンポジウム予稿集
+    page: 6G3-6
+    date: "201403"
+  - author: 米澤 裕太, 関口 和真, 野中 謙一郎
+    title: キャスタ型オドメータに対する積分型拡張Luenbegerオブザーバの実機実験による性能検証
+    etitle: Experimental verification of an integral extended Luenberger observer for caster odometers
+    meeting: 第1回制御部門マルチシンポジウム予稿集
+    page: 6F1-3
+    date: "201403"
+  - author: 小山 健太郎, 野中 謙一郎, 関口 和真
+    title: 走行距離を時間軸とする時間軸状態制御形による車両のモデル予測経路追従制御
+    etitle: Model Predictive Path-Following Control for Non-holonomic Vehicles based on Time-State Control Form using Travel Length as Virtual Time-Axis
+    meeting: 第1回制御部門マルチシンポジウム予稿集
+    identifier: 10.9746/sicetr.50.746
+    page: 6G3-1
+    date: "201403"
+  - author: 吉田 三喜也, 野中 謙一郎, 関口 和真
+    title: タイヤ横滑り角制約を伴うモデル予測車両運動制御−タイヤスリップ率の考慮−
+    etitle: Model Predictive Vehicle Control with Restriction of Wheel Side Slip Angle - Consideration of Wheel Slip Ratio -
+    meeting: 第1回制御部門マルチシンポジウム予稿集
+    page: 6G3-2
+    date: "201403"
+  - author: 小田 貴嗣, 野中 謙一郎, 関口 和真
+    title: 最大タイヤ力を考慮した小型四輪操舵駆動EVのモデル予測誘導制御
+    etitle: Model Predictive Guidance Control for Electric Vehicle considering Maximum Tire Forces
+    meeting: 第1回制御部門マルチシンポジウム予稿集
+    page: 6G3-3
+    date: "201403"
+  - author: 木村 一輝, 小山 健太郎, 野中 謙一郎, 関口 和真
+    title: 車両の走行距離を時間軸としたモデル予測障害物回避制御
+    etitle: Model Predictive Obstacle Avoidance Control based on Time-State Control Form using Travel Distance as Virtual Time-Axis
+    meeting: 第1回制御部門マルチシンポジウム予稿集
+    page: 5E2-4
+    date: "201403"

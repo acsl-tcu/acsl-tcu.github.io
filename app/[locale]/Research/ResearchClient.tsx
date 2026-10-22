@@ -1,0 +1,148 @@
+'use client';
+import React from 'react';
+import { useI18nContext } from '@/contexts/i18nContext';
+import MediaDisplay from '@/components/lab/MediaDisplay';
+import { useState } from 'react';
+import Image from "next/image";
+import { MediaData } from "./ResearchInterface";
+import Card from "./ApplicationCard";
+import type { ResearchTopic } from '@/lib/content/research';
+
+function useLocaledTopics(topics: ResearchTopic[]): MediaData[] {
+  const { locale } = useI18nContext();
+  const isEn = locale === 'en';
+  return topics.map((t) => ({
+    name: t.area,
+    type: t.type,
+    role: t.role,
+    title: isEn ? t.title : t.jtitle,
+    abstract: isEn ? t.abst : t.jabst,
+    figures: t.figures
+      .map((f) => ({ src: f.path, caption: (isEn ? f.caption : f.jcaption) || "" }))
+      .filter((f) => f.src),
+  }));
+}
+
+const Topic: React.FC<{ item: MediaData }> = ({ item }) => {
+  const [showContent, setShowContent] = useState(false);
+  return (
+    <div key={item.title} className="border border-gray-200 rounded-md shadow-sm"><button className="w-full flex justify-between items-center px-4 py-3 text-left bg-white hover:bg-gray-50 transition-colors duration-300"
+      onClick={() => setShowContent((prev) => !prev)}><span className="text-lg font-semibold text-gray-800">{item.title}</span>
+      <svg
+        className={`w-5 h-5 text-gray-500 transform transition-transform duration-300 ${showContent ? 'rotate-180' : ''}`}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+      <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${showContent ? 'max-h-screen mb-2' : 'max-h-0'
+        }`}>
+        {
+          showContent &&
+          (<div className={`mt-0 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="px-4 py-3 bg-gray-200 text-gray-700">{item.abstract}</p>
+            <MediaDisplay figures={item.figures} />
+          </div>)
+        }
+      </div>
+    </div>
+  );
+}
+
+const MethodList: React.FC<{ topics: ResearchTopic[] }> = ({ topics }) => {
+  const data = useLocaledTopics(topics);
+
+  return (
+    <>
+      {data.map((item: MediaData) => <Topic key={item.title} item={item} />)}
+    </>
+  );
+}
+
+const ApplicationContents: React.FC<{ items: MediaData[] }> = ({ items }) => {
+
+  if (!items || items.length === 0) return <div className="text-gray-500"></div>;
+
+  return (
+    <div
+      id="app_content"
+      key={items[0].name}
+      className="scroll-mt-30 mx-auto p-6"
+    >
+      <table className="w-full table-auto border-collapse rounded-2xl overflow-hidden shadow-md bg-white">
+        <thead className="bg-gray-100 dark:bg-neutral-900 dark:text-gray-100 ">
+          <tr>
+            <th className="relative w-1/5 p-0 border-b border-gray-200">
+              <div className="relative w-full h-full">
+                <Image
+                  className="object-cover w-full aspect-square rounded-tl-2xl"
+                  fill
+                  src={`/images/${items[0].name}.jpg`}
+                  alt={items[0].name}
+                />
+              </div>
+            </th>
+            <th className="p-4 border-b border-gray-200 text-xl font-semibold text-gray-800">
+              <h3 >{items[0].name.split('_')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ')}</h3>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item, index) => (
+            <tr key={index} className="hover:bg-gray-50 transition-colors duration-200">
+              <td colSpan={2} className="p-4 border-b border-gray-100">
+                <Topic key={item.title} item={item} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+const ApplicationList: React.FC<{ topics: ResearchTopic[] }> = ({ topics }) => {
+  const data = useLocaledTopics(topics);
+  const [contents, setContents] = useState<MediaData[]>([]);
+
+  const groupedData: { [key: string]: MediaData[] } = data.reduce((acc, item) => {
+    if (!acc[item.name]) {
+      acc[item.name] = [];
+    }
+    acc[item.name].push(item);
+    return acc;
+  }, {} as { [key: string]: MediaData[] });
+
+  return (
+    <>
+      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+        {Object.entries(groupedData).map(([name, items]) => (
+          <div key={name}>
+            <Card items={items} set={setContents} />
+          </div>
+        ))}
+      </ul>
+      <ApplicationContents items={contents} />
+    </>
+  );
+}
+
+
+const ResearchClient: React.FC<{ topics: ResearchTopic[] }> = ({ topics }) => {
+
+  return (
+    <div>
+      <h2 id="Method">Methods</h2>
+      <MethodList topics={topics.filter((t) => t.type === 'method')} />
+      <h2 id="Application">Applications</h2>
+      <ApplicationList topics={topics.filter((t) => t.type === 'application')} />
+    </div>
+  );
+};
+
+export default ResearchClient;
+

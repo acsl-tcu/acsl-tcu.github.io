@@ -1,0 +1,23 @@
+order: 250
+type: application
+area: electric_wheelchair
+role: "2: control"
+title: Trajectory tracking model predictive control with SLAM accuracy improvement by velocity information evaluation
+jtitle: 速度情報評価によるSLAM精度向上を伴う軌道追従型モデル予測制御
+abst: |
+  In this study, we consider autonomous mobile robot using SLAM technology in an unknown environment.The problem is the decrease of trajectory following accuracy due to the decrease of SLAM accuracy in the environment with low information. 
+  To solve this problem, we propose to improve the accuracy by controlling the robot's motion. The motion control is implemented by model predictive control which describes the evaluation of the estimation accuracy improvement.
+  This evaluation is based on the terms of the velocity information of the robot as analyzed by the Fisher information matrix.The effectiveness of this method is verified by numerical simulation as compared with a trajectory tracking controller in the same environment.
+jabst: |-
+  本研究では、未知環境においてSLAM技術を用いた自律型移動ロボットを考える。情報量の少ない環境では，SLAMの精度が低下し，軌道追従精度が低下することが問題となる．
+  この問題を解決するために，ロボットの運動を制御することにより精度を向上させることを提案する．運動制御は，推定精度向上の評価を記述したモデル予測制御により実現する．
+  この評価は，Fisher情報行列によって解析されたロボットの速度情報の項に基づいている．本手法の有効性は，数値シミュレーションにより，同一環境下における軌道追従制御と比較して検証される．
+keywords:
+  - MPC
+figures:
+  - path: /images/MapAndTrajectry_proposed_revision.pdf
+    caption: ""
+    jcaption: 提案手法の数値シミュレーション結果．青は推定位置であり，灰色は真値を表す．ジグザグに走行しており，推定位置と真値が大きくずれていないことが確認できる．
+  - path: /images/MapAndTrajectry_compared.pdf
+    caption: ""
+    jcaption: 比較手法の数値シミュレーション結果．青は推定位置であり，灰色は真値を表す．まっすぐに走行しており，推定位置と真値が大きくずれていることが確認できる．

@@ -1,0 +1,15 @@
+order: 90
+type: application
+area: autonomous_vehicle
+role: "2: control"
+title: Model Predictive Control for Autonomous Vehicles with Speed Profile Shaping
+jtitle: モデル予測制御による自動運転車の速度軌道整形
+abst: In recent years, automatic driving has been widely studied which is expected to promote reduction of traffic accidents. Focusing on velocity control, it is sometimes required to decelerate greatly to prevent collision with other vehicles. On the other hand, excessive acceleration or deceleration is undesirable to provide comfortable ride for passengers. This paper presents a novel method to reshape the profile of vehicle velocity based on model predictive control. Introducing combined hard and soft constraints, excessive and sudden acceleration is suppressed while a collision with other vehicles is prevented. The advantage of the proposed method is verified through a numerical simulation supposing a practical situation where an another vehicle cuts in the front space of the controlled vehicle. It is shown that the proposed method properly shapes the acceleration profile so that it adapts to such situations.
+jabst: 近年，交通事故の防止のために自動運転が盛んに研究開発されている．速度制御では，他車両との衝突防止のために大きく減速する必要がある場合もある．一方で，過大な加減速は搭乗者を不快にする．本論文では，モデル予測制御を用いて速度軌道を整形する手法を提案する．ソフトとハードな制約条件を設けることで，他車両との衝突を防止しながら過大な加速度や急激な加速度変化を抑制する．提案手法の優位性は，他車両に割り込まれる状況を想定した数値シミュレーションを通じて検証される．シミュレーションでは，提案手法がそのような状況において加速度軌道を整形することを示した．
+keywords:
+  - Vehicle
+  - MPC
+figures:
+  - path: /images/autonomous_vehicle_mizushima2.jpg
+    caption: The simulation result of an acceleration trajectory. The red line is the proposed method. The green line is the conventional method. The orange line is soft constraints. The pink line is hard constraints. The conventional method decelerates asymptotically whereas the proposed method decelerates linearly.
+    jcaption: 提案手法による加速度軌道の整形．赤線が提案手法で緑線が比較手法，オレンジ点線はソフト制約，桃点線はハード制約．比較手法が漸近的に減速しているのに対し，提案手法は直線的に整形されている．

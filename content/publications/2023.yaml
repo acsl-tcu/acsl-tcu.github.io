@@ -1,0 +1,169 @@
+year: 2023
+journal:
+  - author: Naoto Kawaguchi, Isao Okawa, Kenichiro Nonaka
+    language: 2
+    title: Bounded iteration for multiple box constraints on linear complementarity model predictive control and its application to vehicle steering control
+    etitle: Bounded iteration for multiple box constraints on linear complementarity model predictive control and its application to vehicle steering control
+    magazine: SICE Journal of Control, Measurement, and System Integration
+    identifier: 10.1080/18824889.2023.2225922
+    page: 237-246
+    date: "202306"
+  - author: 蛯名 浩志，牧野 統真，藪井 将太，鈴木 元哉，深沢 慎一郎， 野中 謙一郎
+    language: 1
+    title: 階層構造により計算コストの削減を実現する自動運転トラックの非線形モデル予測制御
+    etitle: A Nonlinear Model Predictive Control for Self-driving Trucks Achieving a Reduced Computational Cost by Hierarchical Structure
+    magazine: 自動車技術会論文集
+    identifier:  https://doi.org/10.11351/jsaeronbun.54.485
+    page: 485-491
+    date: "202304"
+  - author: Wataru Eikyu, Kazuma Sekiguchi, and Kenichiro Nonaka
+    language: 2
+    title: Differential Flatness-Based Parameter Estimation for Suspended Load Drones
+    etitle: Differential Flatness-Based Parameter Estimation for Suspended Load Drones
+    magazine: Journal of Robotics and Mechatronics
+    identifier: 10.20965/jrm.2023.p0408
+    page: 408-416
+    date: "202304"
+international:
+  - author: Hiroshi Ebina, Toma Makino, Shota Yabui, Motoya Suzuki, Yuta Ito, Shinichiro Fukazawa, Kenichiro Nonaka
+    date: "202311"
+    title: Nonlinear Model Predictive Control for Trucks with Steering Dynamics Uncertainty
+    meeting: FAST-zero'23
+    page: 1-2
+  - author: Yoshiki Komatsu, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202309"
+    title: Automatic Landing of a Quadcopter on a Slope Using Monte Carlo Model Predictive Control
+    meeting: SICE Annual Conference 2023
+    page: 1521-1524
+  - author: Kota Takano, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202309"
+    title: "Physics-Informed Neural Networks : Discrete-time prediction for the double pendulum"
+    meeting: SICE Annual Conference 2023
+    page: 1404-1407
+  - author: Ryota Narita, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202309"
+    title: Improving rotational robustness of NDT-SLAM utilizing MCMC
+    meeting: SICE Annual Conference 2023
+    page: 991-994
+  - author: Shunsuke Irisawa, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202309"
+    title: Distributed Model Predictive Control Considering Wheel Load Ratio for a Leg/Wheel Mobile Robot
+    meeting: SICE Annual Conference 2023
+    page: 705-709
+  - author: Manami Adachi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202309"
+    title: Tracking of multiple pedestrians in close proximity based on JPDAF and k-means method for point cloud data
+    meeting: SICE Annual Conference 2023
+    page: 710-713
+  - author: Yuma Momose, Wataru Eikyu, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202307"
+    title: Finite time settling controller for a hierarchically linearized quadcopter model
+    meeting: IFAC World Congress 2023
+    page: "1776"
+  - author: Naoto Kawaguchi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202307"
+    title: Stochastic Model Predictive Control for Relative-Velocity Based Multimodal Risk Avoidance under a Vehicle Coming Scenarios
+    meeting: IFAC World Congress 2023
+    page: 5441-5448
+  - author: Eisuke Kawaguchi, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202307"
+    title: Self-Driving Electric Wheelchair in Crowded Environments Using a Fuzzy Potential Model Predictive Control
+    meeting: IFAC World Congress 2023
+    page: 12689-12695
+  - author: Haziq Muhammad, Yasumasa Ishikawa, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "202301"
+    title: Online Simultaneous Localization and Mapping with Parallelization for Dynamic Line Segments based on Moving Horizon Estimation
+    meeting: AROB-ISBC-SWARM Annual Conference 2023
+    page: 575-580
+domestic:
+  - author: 川口 瑛介，関口 和真，野中 謙一郎
+    title: 障害物の確率分布を考慮したモンテカルロモデル予測制御における速度抑制の検証
+    etitle: Verification of speed suppression in Monte Carlo model predictive control considering probability distribution of obstacles
+    meeting: 第66回自動制御連合講演会
+    page: 613-616
+    date: "202310"
+  - author: 中村 剛，関口 和真，西部 光一，羽田芳朗
+    title: 天井効果を利用した屋内用小型マルチコプタの開発―第３報：天井効果による消費電力低減の効果検証―
+    etitle: "Development of a Multi-copter Using the Ceiling Effect―Report 3: Verification of Reducing Power Consumption by the Ceiling Effect―"
+    meeting: 第66回自動制御連合講演会
+    page: 385-390
+    date: "202310"
+  - author: 足立 愛実，関口 和真，野中 謙一郎
+    title: 車載LiDARを用いた複数歩行者の混雑環境における追跡
+    etitle: Tracking multiple pedestrians in crowded environments using in-vehicle LiDAR
+    meeting: 第66回自動制御連合講演会
+    page: 581-584
+    date: "202310"
+  - author: 川口 直人，関口 和真，野中 謙一郎
+    title: 障害物に応じた目標軌道再計画と時間軸状態制御形によるモデル予測制御
+    etitle: Reference Path Replanning in response to Obstacle Positions and Model Predictive Control using Time-State Control Form
+    meeting: 第66回自動制御連合講演会
+    page: 496-499
+    date: "202310"
+  - author: 工藤 巧士，関口 和真，野中 謙一郎
+    title: LiDARを用いた人流推定とモデル予測制御による障害物回避
+    etitle: LiDAR-Based Pedestrian Traffic Estimation and Obstacle Avoidance with Model Predictive Control
+    meeting: 第66回自動制御連合講演会
+    page: 617-620
+    date: "202310"
+  - author: 山口 航輝，関口 和真，野中 謙一郎
+    title: 移動体の群制御—IV—群制御のための実験システムの構築：異なるビークルを対象とした被覆制御
+    etitle: "Swarm Control—IV Experimental System Constitution for Swarm Control : Coverage Control via Heterogeneous Vehicles"
+    meeting: システム／制御／情報
+    identifier: 10.11509/isciesci.67.8_349
+    page: 349-355
+    date: "202308"
+  - author: 関口 和真，磯部 勇吉，野中 謙一郎
+    title: クアッドコプタシステムに対する非線形状態方程式を観測量としたクープマン線形化の適用
+    etitle: Applying Koopman Linearization to Quadcopter System with Nonlinear Equations as Observable Functions
+    meeting: 第67回システム制御情報学会研究発表講演会
+    page: 332-2
+    date: "202305"
+  - author: 関口 和真，山口 航輝，野中 謙一郎
+    title: スケーラブルな分散協調制御を可能にするシステム構築
+    etitle: System constitution for scalable heterogenous autonomous  multi-agent control
+    meeting: 第67回システム制御情報学会研究発表講演会
+    page: 211-2
+    date: "202305"
+  - author: 松山優人，関口和真，野中謙一郎
+    title: LiDARによる形状を考慮した歩行者追跡
+    etitle: Pedestrian tracking considering its shape by LiDAR
+    meeting: 第10回計測自動制御学会制御部門マルチシンポジウム
+    page: 1M7-3
+    date: "202303"
+  - author: 笠井茉莉，関口和真，野中謙一郎
+    title: 重み付き空間分割を用いた３次元被覆制御による害鳥の侵入対策
+    etitle: Pest Bird Infestation Control by 3D Coverage Control Using Weighted Spatial Partitioning
+    meeting: 第10回計測自動制御学会制御部門マルチシンポジウム
+    page: 2A7-6
+    date: "202303"
+  - author: 宮嵜篤彦，関口和真，野中謙一郎
+    title: 適用型モデル予測制御による旋回時の横転条件を考慮した大型商業車両の走行安定化
+    etitle: " Stabilization of large commercial vehicles by adaptive model predictive control of rollover during circular driving"
+    meeting: 第10回計測自動制御学会制御部門マルチシンポジウム
+    page: 3M5-3
+    date: "202303"
+  - author: 小髙良輔，関口和真，野中謙一郎
+    title: 平面脚車輪型移動ロボットのモンテカルロモデル予測軌道追従制御
+    etitle: Monte Carlo model predictive tracking control for planar leg/wheel mobile robots
+    meeting: 第10回計測自動制御学会制御部門マルチシンポジウム
+    page: 2A7-5
+    date: "202303"
+  - author: 牧野統真，関口和真，野中謙一郎
+    title: 電動車椅子の曲線経路上におけるモデル予測障害物回避制御
+    etitle: Model predictive obstacle avoidance control for electric wheelchairs on curved paths
+    meeting: 第10回計測自動制御学会制御部門マルチシンポジウム
+    page: 1A5-6
+    date: "202303"
+  - author: 澤田翔，関口和真，野中謙一郎
+    title: GISデータによる都市部火災推移モデルの自動生成
+    etitle: Automatic generation of urban fire transition model using GIS data
+    meeting: 第10回計測自動制御学会制御部門マルチシンポジウム
+    page: 1A7-1
+    date: "202303"
+  - author: 入澤俊輔，関口和真，野中謙一郎
+    title: モバイルマニピュレータによる建設動作生成のための可変制約を用いたモデル予測制御
+    etitle: Model predictive control using variable constraints for generating construction movements with mobile manipulators.
+    meeting: 第10回計測自動制御学会制御部門マルチシンポジウム
+    page: 1A5-5
+    date: "202303"

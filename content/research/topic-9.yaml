@@ -1,0 +1,14 @@
+order: 100
+type: application
+area: autonomous_vehicle
+role: "1: system"
+title: ""
+jtitle: ""
+abst: This study propose a robust path tracking control method for four-wheel driving and steering vehicles. The proposed integrated control system aims at high maneuverability and robustness. The proposed controller is applied to the path tracking problem which is formulated utilizing time state control form. The inputs for path tracking are calculated by model predictive control considering the friction circle to realize the path-following. In addition, using sliding mode control, the proposed control system is robust against external disturbance or uncertainties which satisfy the matching condition.  The approximated tire force usage rate is introduced in order to balance path-following performance and the robustness. The efficiency of the proposed control system is demonstrated through numerical simulations.
+jabst: この研究では高い操安性とロバスト性を目指して四輪操舵駆動車両のロバスト経路追従制御を提案している． この手法ではTSCF(Time State Control Form)を用いる事で経路追従問題としての定式化を行い， 経路追従のための入力はモデル予測制御(MPC)によって計算を行う． また，この際にタイヤ発生力の限界である摩擦円を陽に考慮することで，車両の限界性能を実現している． さらに，風の影響などの外乱や路面状況の変化による影響を打ち消すためにスライディングモード制御(SMC)を実装している． ここで，MPCとSMCの入力をどう協調させるかといった問題が生じるが， 近似的なタイヤ利用率を導入することで，この問題を解決している． この手法の有用性は，自動車技術会(JSAE)と計測自動制御学会(SICE)が共同で作成したベンチマーク問題を通じて検証が行なっている．
+keywords:
+  - Vehicle
+figures:
+  - path: /images/vehicle.jpg
+    caption: Appearance of four-wheel driving and steering vehicles
+    jcaption: 四輪操舵駆動車両の外観図

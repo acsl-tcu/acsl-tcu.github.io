@@ -18,8 +18,8 @@
 - `contexts/i18nContext.tsx` and `constants/i18n.ts`: locale/message source of truth.
 - `app/BOS/*`: WebSocket-based Building OS pages.
 - Timetable (MSE) and equipment/books (Dashboard) tools were moved out to the separate `curriculum_mse` and `stock_manager` repositories.
-- `hooks/useDB.tsx`: fetches remote database content from `https://acsl-hp.vercel.app/api/read-database-psql`.
-- `components/lab/BoxImageUploader.tsx`: uploads to a remote API on `acsl-hp.vercel.app`.
+- `content/`: site data (members, publications, research, lectures) as YAML, edited via Pages CMS (`.pages.yml`) on the `content` branch and loaded at build time by `lib/content/*`.
+- `scripts/validate-content.mjs`: content checks run by `.github/workflows/content.yml`.
 
 ## Static Export Constraints
 - Keep GitHub Pages compatibility in mind. The workflow uses `actions/configure-pages` with Next static generation and uploads `./out`.
@@ -46,7 +46,6 @@
 - `README.md` contains some stale setup notes; trust the actual code and workflow over the README when they differ.
 - This repo includes legacy and partially inconsistent areas. Do not "clean up" unrelated naming/import issues as incidental work.
 - External dependencies are hard-coded in places:
-  - Box/DB API: `https://acsl-hp.vercel.app`
   - BOS WebSocket: `wss://bos-wgh5.onrender.com`
 - Large media files live under `public/images`; avoid unnecessary churn there.
 

@@ -1,0 +1,197 @@
+year: 2016
+journal:
+  - author: 萩森 夕紀, 野中 謙一郎, 関口 和真
+    language: 1
+    title: 分割モデルを用いた脚車輪型移動ロボットのモデル予測制御
+    etitle: Model predictive control for leg/wheel mobile robots using partitioned model
+    magazine: 日本機械学会
+    identifier: 10.1299/transjsme.16-00144
+    page: 16-00144
+    date: "201609"
+international:
+  - author: Kazunori Urayama, Kenichiro Nonaka and Kazuma Sekiguchi
+    date: "201612"
+    title: An inter-vehicle distance control considering path tracking and attitude angular error for obstacle avoidance
+    meeting: 2016 IEEE/SICE International Symposium on System Integration
+    identifier: 978-1-5090-3328-7
+    page: 774-779
+  - author: Manami Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201612"
+    title: Visual Feedback Control of a Vehicle based on MHE directly using Partial Marker Information
+    meeting: 2016 IEEE/SICE International Symposium on System Integration
+    identifier: 978-1-5090-3328-7/16/
+    page: 574-579
+  - author: Masato Itoh, Kenichiro Nonaka and Kazuma Sekiguchi
+    date: "201612"
+    title: Experimental Verification of Model Predictive Tracking and Steering Control for the Vehicle equipped with Coaxial Steering Mechanisms
+    meeting: 2016 IEEE/SICE International Symposium on System Integration
+    identifier: 10.1109/SII.2016.7844092
+    page: 768-773
+  - author: Kuniyuki Sakaeta, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201609"
+    title: MHE Based Vehicle Localization Integrating Scan-Matching and Odometry in Unknown Structured Environment
+    meeting: SICE annual conference 2016
+    identifier: 978-4-907764-50-0 PR0001/16
+    page: 306-311
+  - author: Naoto Ogawa, Manami Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201609"
+    title: Moving Horizon Velocity Estimation for Mobile Robots with Caster Odometer
+    meeting: SICE annual conference 2016
+    identifier: 978-4-907764-50-0 PR0001/16
+    page: 1447-1451
+  - author: Hiroki Ito, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201609"
+    title: Reduction of Computation Time of Steering Control for Coaxial Steering Mechanisms by Explicit MPC
+    meeting: SICE annual conference 2016
+    identifier: 978-4-907764-50-0 PR0001/16
+    page: 706-710
+  - author: Kenta Yamamoto, Kentaro Akiyama, Kazuma Sekiguchi and Kenichiro Nonaka
+    date: "201609"
+    title: Experimental Verification of Multi-Agent Formation Control by Model Predictive Control Considering Collision Avoidance with UAVs
+    meeting: SICE Annual Conference 2016
+    identifier: 978-4-907764-50-0 PR0001/16
+    page: 1207-1211
+  - author: Kentaro Akiyama, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201609"
+    title: Robust Formation Control Applying Model Predictive Control to Multi Agent System by Sharing Disturbance Information with UAVs
+    meeting: SICE annual conference 2016
+    identifier: 978-4-907764-50-0 PR0001/16
+    page: 627-632
+  - author: Takahiro Suyama, Kentaro Akiyama, Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201609"
+    title: Disturbance Suppression Control for Interaction of Two Quad Copters Using the Disturbance Map
+    meeting: SICE annual conference 2016
+    identifier: 978-4-907764-50-0 PR0001/16
+    page: 1246-1251
+  - author: Masafumi Saito, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201609"
+    title: Model Predictive Tracking Control Considering Planetary Terrain for Exploration Rovers
+    meeting: SICE annual conference 2016
+    identifier: 978-4-907764-50-0 PR0001/16
+    page: 649-653
+  - author: Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201609"
+    title: Model predictive control for small electric vehicle equipped with IWM considering energy consumption
+    meeting: SICE annual conference 2016
+    identifier: 978-4-907764-50-0 PR0001/16
+    page: 1-5
+  - author: Manami Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201607"
+    title: Moving Horizon Estimation for Vehicle Robots using Partial Marker Information of Motion Capture System
+    meeting: 14th International Conference on Motion and Vibration Control
+    identifier: 10.1088/1742-6596/744/1/012049
+    page: "#2576"
+  - author: Naito Suzuki, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201607"
+    title: Model Predictive Control considering Reachable Range of Wheels for Leg / Wheel Mobile Robots
+    meeting: 14th International Conference on Motion and Vibration Control
+    identifier: 10.1088/1742-6596/744/1/012220
+    page: "#2564"
+  - author: Masato Itoh, Yuki Hagimori, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201607"
+    title: A Hierarchical Model Predictive Tracking Control for Independent Four-Wheel Driving/Steering Vehicles with Coaxial Steering Mechanism
+    meeting: 13th International Conference on Motion and Vibration Control
+    identifier: 10.1088/1742-6596/744/1/012222
+    page: "#2582"
+  - author: Takumi Tomatsu, Kenichiro Nonaka, Kazuma Sekiguchi,Katsumasa Suzuki
+    date: "201607"
+    title: Digging Soil Experiments for Micro Hydraulic Excavators based on Model Predictive Tracking Control
+    meeting: 13th International Conference on Motion and Vibration Control
+    identifier: 10.1088/1742-6596/744/1/012067
+    page: "2580"
+  - author: Kuniyuki Sakaeta, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201607"
+    title: Experimental Verification of a Vehicle Localization based on Moving Horizon Estimation Integrating LRS and Odometry
+    meeting: 13th International Conference on Motion and Vibration Control
+    identifier: 10.1088/1742-6596/744/1/012048
+    page: "#2522"
+  - author: Hiroki Yoshikawa, Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201605"
+    title: Modeling and simulation for leg-wheel mobile robots using Modelica
+    meeting: The first Japanese Modelica Conference
+    identifier: 10.3384/ecp1612455
+    page: 55-60
+  - author: Manabu Shinohara, Takatsugu Oda, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201604"
+    title: Model Predictive Path Following Control with Acceleration Constraints for Front Steering Vehicles
+    meeting: IEEE Advanced Motion Control 2016
+    identifier: 10.1109/AMC.2016.7496330
+    page: 79-86
+domestic:
+  - author: 山本健太，関口和真，野中謙一郎
+    title: モデル予測制御による衝突回避を考慮したクアッドコプターの3次元フォーメーション制御
+    etitle: Formation control of quad-copters considering collision avoidance using model predictive control in three dimensional space
+    meeting: 第59回自動制御連合講演会
+    page: ThB6-5, 298-303
+    date: "201611"
+  - author: 小川直人，高橋愛実，野中謙一郎，関口和真
+    title: キャスタ型オドメータの路面走行時の測定値を用いた移動ロボットのMHEによるオフライン速度推定
+    etitle: Offline Velocity Estimation for MHE of Mobile Robots Using Measurement of Caster Odometer Running over Road Surface
+    meeting: 第59回自動制御連合講演会
+    page: ThB6-6, 304-309
+    date: "201611"
+  - author: 秋山賢太朗，関口和真，野中謙一郎
+    title: UAVの通信遅れを考慮した外乱情報共有によるモデル予測隊列制御
+    etitle: Model Predictive Formation Control for UAV by Sharing Disturbance Information Considering Communication Delay among UAVs
+    meeting: 第59回自動制御連合講演会
+    page: ThB6-6, 304-309
+    date: "201611"
+  - author: 栄田国志，野中謙一郎，関口和真
+    title: 2-D LRF計測値を用いた線分ベースSLAMへのMHEの適用
+    etitle: MHE for Segment Based SLAM using 2-D LRF Measurements
+    meeting: 第59回自動制御連合講演会
+    page: ThD7-4, 645-649
+    date: "201611"
+  - author: 戸松匠，野中謙一郎，関口和真, 鈴木勝正
+    title: モデル予測制御による油圧ショベルの掘削時における地中障害物回避
+    etitle: Underground Obstacle Avoidance during Digging of Hydraulic Excavator by Model Predictive Control
+    meeting: 平成28年秋季フルードパワーシステム講演会
+    page: 87-89
+    date: "201610"
+  - author: 遠藤弘彬，関口和真，野中謙一郎
+    title: 階層型線形化とモデル誤差を考慮した制御系による2ホイールスペースクラフトの姿勢制御
+    etitle: Attitude control based on hierarchical linearization of two wheel in consideration of a model error
+    meeting: 第60回宇宙科学技術連合講演会
+    date: "201609"
+  - author: 小田貴嗣，野中謙一郎，関口和真
+    title: ドライバモデルに基づく車両応答を考慮した小型電気自動車のモデル予測スライディングモード制御
+    etitle: Model predictive sliding mode control control considering desirable vehicle response based on driver model for small electric cars
+    meeting: 2016年自動車技術会春季学術講演会(JSAE-Spring'16)
+    page: 652-655
+    date: "201606"
+  - author: 遠藤弘彬，関口和真，野中謙一郎
+    title: Acrobotにおける時間軸変換を用いた線形化とモデル誤差補償器を併せ持つ制御系の設計
+    etitle: Controller design for Acrobot based on combining orbital feedback linearization and model error compensator
+    meeting: 第60回システム制御情報学会研究発表講演会 (SCI’16)
+    page: 351-1 
+    date: "201605"
+  - author: 戸松匠，野中謙一郎，関口和真，鈴木勝正
+    title: パワーショベルのポンプ最大流量を考慮したモデル予測制御の実験的検証
+    etitle: Experimental Verification of Model Predictive Control Considering Maximum Flow Rate of Pump in Operation of Hydraulic Excavator
+    meeting: 平成28年春季フルードパワーシステム講演会
+    page: "                              "
+    date: "201605"
+  - author: 渡部建人，深石智大，関口和真，野中謙一郎
+    title: L1正則化項を用いた最適化計算による2ホイールスペースクラフトのモデル誤差を考慮した姿勢制御
+    etitle: Attitude Control Considering Modeling Error of 2 Wheels Spacecraft Using L1-Regularization on Parameter Optimization
+    meeting: 第３回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 3G3-5
+    date: "201603"
+  - author: 柳井悠爾，野中謙一郎，関口和真
+    title: 脚車輪型移動ロボットの車輪配置のモデル予測制御 -荷重配分性能の検証-
+    etitle: Model Predictive Wheel Position Control for Leg/Wheel Mobile Robots --Verification of Load Distribution Performance--
+    meeting: 第３回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 1G1-1
+    date: "201603"
+  - author: 伊藤 一樹，野中謙一郎，関口和真
+    title: MHEに基づく車両横滑り角推定における外れ値影響抑制の検証実験
+    etitle: Experimental Verification of Outlier Effect Suppression of Vehicle Side-slip Angle Estimation based on MHE
+    meeting: 第３回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 1C2-2
+    date: "201603"
+  - author: 萩森夕紀，野中謙一郎，関口和真
+    title: 関節角度の制限を考慮した脚車輪型移動ロボットの分割モデルによる予測制御
+    etitle: Model predictive control using partitioned model for leg/wheel mobile robots considering limitation of joint angles
+    meeting: 第３回 計測自動制御学会 制御部門マルチシンポジウム
+    page: 3B4-1
+    date: "201603"

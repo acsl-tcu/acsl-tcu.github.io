@@ -18,7 +18,7 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
       <figure className="flex flex-col items-center">
         <div className="max-h-[300px] flex justify-center items-center overflow-hidden">
           <Image
-            src={`/images/${src}`}
+            src={src}
             alt={caption}
             width={0}
             height={0}
@@ -37,11 +37,11 @@ const Media: React.FC<MediaProps> = ({ src, caption, index }) => {
       <figure className="flex flex-col items-center">
         <div className="max-h-[300px] flex justify-center items-center overflow-hidden">
           <video
-            src={`/images/${src}`}
+            src={src}
             controls
             className="h-full max-h-[300px] w-auto object-contain bg-neutral-100"
           >
-            <source src={`/images/${src}`} type={`video/${videoType}`} />
+            <source src={src} type={`video/${videoType}`} />
             <p>動画を再生するには video タグをサポートしたブラウザが必要です。</p>
           </video>
         </div>

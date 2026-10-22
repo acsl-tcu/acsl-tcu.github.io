@@ -16,9 +16,3 @@ export interface CardProps {
   items: MediaData[];
   set: (items: MediaData[]) => void;
 }
-
-export interface DatabaseFigure {
-  path: string;
-  caption: string;
-  jcaption: string;
-};

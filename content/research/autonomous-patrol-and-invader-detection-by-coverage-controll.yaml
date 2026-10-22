@@ -1,0 +1,21 @@
+order: 340
+type: application
+area: drone
+role: "2: control"
+title: Autonomous Patrol and Invader Detection by Coverage Controlled Quadcopters
+jtitle: 被覆制御によるクアッドコプタの自律巡回と不審者検出
+abst: This paper presents dynamic coverage control using multiple quadcopters for a surveillance of buildings or facilities. The surveillance system requires to move in the task area, detect and follow an invader. For observing an unknown invader, a fixed flight route cannot be chosen. In this paper, an autonomous surveillance method is proposed to detect an unknown invader considering the feature of the mounted sensor on a quadcopter. At the same time, a quadcopter follows an invader while patrolling in the task area. In order to verify the validity of the proposed method, the simulation is performed, and then the result of the simulation shows the effectiveness.
+jabst: 本研究ではビルや施設の監視のために，複数クアッドコプタを用いた動的な被覆制御を提案する．監視システムは作業領域内を移動することと不審者を検出し追跡することが求められる．未知の不審者の観測のためには，固定された飛行ルートは選択されることはできない．この論文では，自律的な監視手法として，クアッドコプタに搭載されたセンサの特徴を考慮した未知不審者の検出を提案する．同時に作業領域内を巡回しながら不審者をクアッドコプタは追跡する．提案手法の動作を検証するためシミュレーションをし，その結果から有効性を示す．
+keywords:
+  - Drone
+  - Cooperation
+  - Multi Agent
+figures:
+  - path: /images/drone_takeuchi_Motion.mp4
+    caption: This movie is a result of simulation about the behavior of multiple quadcopters. The black point shows the invader. Multiple quadcopters patrol around the task area. In addition, each quadcopter chases the invader that is detected by the omnidirectional-range sensor. The invader is chased alternately by quadcopters, cooperative motion is realized.
+    jcaption: この動画は複数クアッドコプタの振る舞いのシミュレーション結果です．黒い点は不審者を示していおり，複数クアッドコプタは作業領域内を巡回し，加えて各機体は全方向センサで不審者を発見したら追跡します．不審者は代わる代わる機体により追跡されており，協調的な動きが実現された．
+  - path: /images/drone_takeuchi_Imp.mp4
+    caption: |-
+      This movie is a result of simulation about the importance map on coverage control. This map shows the degree of observation. 
+      Hot color is an area that is observation insufficient. Cold color is an area that is observation sufficient. Each quadcopter determines motion depending on this map, they move toward the high importance area. In addition, when the invader is detected, high importance map is given to the position of the invader, then a quadcopter that detected the invader chases it. Therefore, an autonomous patrol is realized by multiple quadcopters based on the importance map.
+    jcaption: この動画は被覆制御における重要度マップのシミュレーション結果です．このマップは観測の程度を示しており，赤い色は観測が不十分な領域，青い色は観測が十分な領域を示している．各機体はこのマップに応じて動きを決定しており，重要度が高い領域へ向かって各クアッドコプタは移動する．さらに，不審者が検出されたとき，高い重要度マップが不審者の位置に与えられることで，不審者を検出したクアッドコプタは不審者を追跡する．したがって，重要度マップに基づいた複数クアッドコプタによる自律的な巡回が実現される．

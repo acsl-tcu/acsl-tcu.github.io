@@ -1,0 +1,19 @@
+order: 140
+type: application
+area: omni-directional_vehicle
+role: "3: estimation"
+title: Simultaneous Localization and Mapping for Environment with moving objects based on Moving Horizon Estimation
+jtitle: 移動物体の速度推定を含むMoving Horizon Estimationによる自己位置と環境地図の同時推定
+abst: Self-position and environment map are necessary for a robot control. a simultaneous estimation of them is called SLAM and has been widely studied. And, since surrounding objects are moving in actual environments, a SLAM capable of dealing with their motion is required. In addition to the self-position and the environment map, we estimate velocities of surrounding objects using moving horizon estimation simultaneously in this study. Estimating these velocities, we can obtain the environment map as time-series data including a trajectory of surrounding objects.
+jabst: ロボットの自律移動において自己位置と環境地図の情報は不可欠である．これらの同時推定をSLAMと呼び，盛んに研究が行われてきた．また，実環境においては周辺の物体が移動しているため，物体の移動を扱うことの出来るSLAM手法が求められる．本研究では自己位置と環境地図だけでなく，周辺物体位置の変化速度をMoving Horizon Estimationを用いて同時に推定を行う．速度の推定を行うことで，物体の移動経路も含んだ時系列データとしての環境地図の推定が可能となった．
+keywords:
+  - 4W
+  - LRF
+  - Estimation
+  - MHE
+figures:
+  - path: /images/omni-directional_vehicle_tsuno3.mp4
+    caption: |-
+      A SLAM result with the proposed method. the blue line is the estimated trajectory, the orange points are constructed point cloud map, the black lines are the moving objects, and the orange sector is a scanning range of a sensor. 
+      Map points with estimated velocities can track the moving objects.
+    jcaption: 提案手法によるSLAM結果．青線は推定経路，橙点は構築した点群地図，黒線は移動物体，橙色の扇形はセンサの計測範囲を表している．各地図点の速度を推定する事で，点群地図は移動物体の位置を追従できている．

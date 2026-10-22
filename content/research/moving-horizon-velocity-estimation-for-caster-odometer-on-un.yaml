@@ -1,0 +1,19 @@
+order: 210
+type: application
+area: leg-wheel_mobile_robot
+role: "3: estimation"
+title: |-
+  Moving Horizon Velocity Estimation for
+  Caster Odometer on Uneven Ground
+jtitle: キャスタ型オドメータによる不整地でのMoving Horizon Velocity Estimation
+abst: In our previous study, we developed the odometer having a caster mechanism. We can estimate the translational and rotational velocity of a mobile robot using two of them. When we use the odometers on an uneven ground, the measured values of the odometers change rapidly, which renders difficulty on accurate estimation of vehicle velocity. In this study, we calculate Mahalanobis distance by the algorithm of Extended Kalman Filter (EKF). Using the weight calculated by Mahalanobis distance, we estimate the velocities of the robot equipped with the odometers by Moving Horizon Estimation (MHE). In this paper, we show the effectiveness of the proposed method under the uneven ground by simulation.
+jabst: 先行研究にて，キャスタ機構を持つオドメータを開発した．このオドメータは，2 台用いることで速度推定が可能である．このオドメータを凹凸のある路面で利用することを想定する．その際に，測定値に急激な変化が発生する．また，オドメータの測定ができなくなる．さらに，これらの測定値は，速度推定に影響を与える．本稿では，拡張カルマンフィルタのアルゴリズムから出力推定誤差のマハラノビス距離を算出する．算出したマハラノビス距離から，出力推定誤差を評価する重みを算出する．算出した重みとMoving Horizon Estimation を用いて，速度推定をするアルゴリズムを提案する．そして，凹凸のある路面での提案アルゴリズムの有効性をシミュレーションで示す．
+keywords:
+  - Leg-Wheel
+  - MHE
+  - Estimation
+  - KF/EKF/UKF
+figures:
+  - path: /images/leg-wheel_mobile_robot_ogawa1.jpg
+    caption: Estimation result of MHE using measurement value which occurred outlier on simulation. We can achieve velocity estimation which suppressed effect of outlier.
+    jcaption: 外れ値が生じたシミュレーション上の測定値を使ったMHEによる推定結果．異常値の影響を抑制した速度推定が達成できている．

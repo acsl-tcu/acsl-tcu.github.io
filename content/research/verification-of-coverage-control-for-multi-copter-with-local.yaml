@@ -1,0 +1,22 @@
+order: 330
+type: application
+area: drone
+role: "2: control"
+title: Verification of Coverage Control for Multi-Copter with Local Optimal Solution Avoidance Using Random-walk and Artificial Potential Method
+jtitle: マルチコプターに対する被覆制御とランダムウォークと人工ポテンシャル場法を用いた局所最適解回避法の検証
+abst: This paper combines coverage control, random-walk and artificial potential method to deploy multi-copter type Unmanned Aerial Vehicles (UAVs). With the coverage control, it is able to deploy agents in the coverage area with arbitrary distribution based on the purpose of control. However, when initial position of agents concentrates on one location, it could be fallen into the local optimal solution (local optimal problem). While the local optimal problem, agents could not achieve the distribution based on the purpose of control. Meanwhile, random-walk takes vectorial angle randomly and move constant distance. By using this movement, it is possible to disperse the initial position of UAVs. Therefore, the local optimal problem could be solved by combining random-walk to coverage control. Moreover, using the artificial potential method as a repulsive force to avoid the collision between agents. This paper verifies the validity of proposed method by numerical simulation.
+jabst: |-
+  本論文では被覆制御とランダムウォークと人工ポテンシャル場法を組み合わせたクアッドコプター型の無人航空機(Unmanned Aerial Vehicle:UAV) に対する分布制御を提案する．被覆制御とは目的に沿った任意の分布で領域上に機体を配置する制御手法である．被覆制御の問題点として機体の初期位置が領域上に偏って配置されていると局所最適解に陥り，任意の配置を実現できない場合がある．ここでランダムウォークとはランダムな方向
+  角を取り動く制御手法である．この動きによりエージェントの初期位置を分散させることができると期待できる．よって局所最適問題はランダムウォークを組み合わせることで解決できる．さらに人工ポテンシャル場法を反発力として用いることで機体同士の衝突を防ぐことが期待できる．本論文ではこの提案手法の有効性をシミュレーションにより検証する．
+keywords:
+  - Drone
+figures:
+  - path: /images/drone_naruse1.jpg
+    caption: "Arbitrary distribution "
+    jcaption: 目標配置
+  - path: /images/drone_naruse2.gif
+    caption: The result of conventional coverage control. Most of the agents fall into local optimal solution.
+    jcaption: 被覆制御のみで制御した場合．多くのエージェントが左下に停滞し局所最適解に陥っている．
+  - path: /images/drone_naruse3.gif
+    caption: The result of proposal coverage control. With the effect of random-walk, agents avoid the local optimal solution.
+    jcaption: 提案手法を用いた場合の結果．ランダムウォークを用いたことにより局所最適問題を解決している．

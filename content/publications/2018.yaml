@@ -1,0 +1,227 @@
+year: 2018
+journal:
+  - author: Isao OKAWA, Kenichiro NONAKA
+    language: 2
+    title: Comparative Evaluation of a Trajectory Generator for Obstacle Avoidance Guaranteeing Computational Upper Cost
+    etitle: Comparative Evaluation of a Trajectory Generator for Obstacle Avoidance Guaranteeing Computational Upper Cost
+    magazine: International Journal of Automotive Engineering
+    identifier: 10.20485/jsaeijae.9.2_39
+    page: 39-47
+    date: "201809"
+  - author: 戸松 匠,野中 謙一郎,関口 和真,鈴木 勝正
+    language: 1
+    title: 油圧ショベルにおけるモデル予測追従制御の基礎実験（未知物体押しのけに起因する掘削形状からの逸脱の抑制）
+    etitle: Fundamental Experiment of Model Predictive Tracking Control by Hydraulic Excavator（Suppression of Deviation from Target Shape Caused by Dislodging Unknown Object during Digging Operation）
+    magazine: 日本フルードパワーシステム学会論文集
+    identifier: 10.5739/jfps.49.1
+    page: 1-9
+    date: "201801"
+international:
+  - author: Masataka Naruse，Kazuma Sekiguchi, Kenichiro Nonaka
+    date: "201809"
+    title: Coverage Control for Multi-copter with Avoidance of Local Optimum and Collision Using Change of the Distribution Density Map
+    meeting: SICE Annual Conference 2018
+    page: 551-554
+  - author: Yoshihide Mizushima, Isao Okawa, Kenichiro Nonaka, Kazuma sekiguchi
+    date: "201809"
+    title: Deceleration Control of Automobiles based on Model Predictive Control suppressing Excessive Deceleration
+    meeting: SICE Annual Conference 2018
+    page: 551-554
+  - author: Shotaro Nakahara, Yuji Morihiro, Naoki Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201809"
+    title: Driving Over Steps of Leg / Wheel Mobile Robots based on Model Predictive Control
+    meeting: SICE Annual Conference 2018
+    page: 925-929
+  - author: Koshi Tsuno, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201808"
+    title: Simultaneous Localization and Mapping for Environment with Moving Objects based on Moving Horizon Estimation
+    meeting: 6th IFAC Conference on Nonlinear Model Predictive Control
+  - author: "Koji Shibata,  Naoki Shibata,  Kenichiro Nonaka,  Kazuma Sekiguchi  "
+    date: "201808"
+    title: Model Predictive Obstacle Avoidance Control for Vehicles with Automatic Velocity Suppression using Artificial Potential Field
+    meeting: 6th IFAC Conference on Nonlinear Model Predictive Control
+    page: 373-378
+  - author: Naoki Shibata, Naoki Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201808"
+    title: Model Predictive Control Using Partitioned Model for Leg/Wheel Mobile Robots with Three-Dimensional Motion
+    meeting: 6th IFAC Conference on Nonlinear Model Predictive Control
+  - author: Yuji Morihiro,Naoki Takahashi, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201808"
+    title: Model Predictive Load Distribution Control for Leg/Wheel Mobile Robots on Rough Terrain
+    meeting: 12TH IFAC SYMPOSIUM ON ROBOT CONTROL
+    identifier: 10.1016/j.ifacol.2018.11.594
+    page: 441 - 446
+  - author: Takatsugu Oda, Hiroki Yoshikawa, Naoki Shibata, Kenichiro Nonaka, Kazuma Sekiguchi
+    date: "201805"
+    title: Model Predictive Allocation Control for Leg-Wheel Mobile Robot on Loose Soil considering Wheel Dynamics
+    meeting: 2nd Japanese Modelica Conference 2018
+    identifier: 10.3384/ecp18148240
+    page: 240-244
+domestic:
+  - author: 竹内和，成勢昌隆，関口和真，野中謙一郎
+    title: 未知かつ複雑な領域に対するセンサの測域範囲を考慮した無人航空機の被覆制御
+    meeting: 第61回 自動制御連合講演会
+    page: 101-107
+    date: "201812"
+  - author: 笠原隆宏，津野晃士，野中謙一郎，関口和真
+    title: Moving Horizon Estimation によるSLAMの屋内環境における電動車椅子への適用
+    etitle: Application of Moving Horizon Estimation based SLAM_x000D_ to Electric Wheelchair in Indoor Environment
+    meeting: 第61回 自動制御連合講演会
+    page: 275-278
+    date: "201812"
+  - author: 関口和真,佐藤訓志
+    title: 1入力非線形確率システムの線形ドリフト・アフィン拡散形への厳密な変換について
+    etitle: On Exact Transformation to Linear Drift and Affine Diffusion Form for 1 Input Nonlinear Stochastic Systems
+    meeting: 第61回 自動制御連合講演会
+    page: 133-138
+    date: "201812"
+  - author: 菊池智哉，津野晃士，野中謙一郎，関口和真
+    title: ビジョンセンサを用いた電動車椅子のMoving Horizon State Estimationによる軌道追跡
+    etitle: Moving Horizon State Estimation for Trajectory Tracking of Electric Wheelchair using Vision Sensor
+    meeting: 第61回 自動制御連合講演会
+    page: 1740-1743
+    date: "201811"
+  - author: 柴田浩志，柴田尚輝，野中謙一郎，関口和真
+    title: 人工ポテンシャル場法による自動減速を用いたモデル予測障害物回避制御の実験的検証
+    etitle: Experimental Verification of Model Predictive Obstacle Avoidance Control using Automatic Velocity Suppression due to Artificial Potential Field
+    meeting: 第61回 自動制御連合講演会
+    page: 629-632
+    date: "201811"
+  - author: 水島嘉秀，大川功，野中謙一郎，関口和真
+    title: スラック変数を用いた自動車の過大な加速度を抑制するモデル予測速度制御
+    etitle: Suppressing Excessive Acceleration for Automobiles with Model Predictive Speed Control using Slack Variable
+    meeting: 第61回 自動制御連合講演会
+    page: 1811-1813
+    date: "201811"
+  - author: 柴田尚輝，高橋直樹，野中謙一郎，関口和真
+    title: 脚車輪型移動ロボットの分散モデル予測制御における拘束による影響の数値的検証
+    meeting: 第61回 自動制御連合講演会
+    page: 1476-1479
+    date: "201811"
+  - author: 江口裕介，野中謙一郎，関口和真，鈴木勝正
+    title: 油圧ショベルにおける地中障害物反力を考慮したモデル予測回避制御
+    etitle: |
+      Model Predictive Avoidance Control for Hydraulics Excavators considering Reaction Force from Underground Obstacles
+    meeting: 平成30年春季フルードパワーシステム講演会
+    page: 100-2
+    date: "201805"
+  - author: 関口和真,佐藤訓志
+    title: 多入力確率システムの完全な線形化
+    etitle: Complete Linearization for multi-input stochastic nonlinear systems
+    meeting: 第62回 システム制御情報学会研究発表講演会
+    page: 344-5
+    date: "201805"
+  - author: 山本健太，関口和真，野中謙一郎
+    title: 階層型線形化を用いた自動運転車両の合意制御
+    etitle: "Consensus Control of Autonomous Vehicles using Hierarchical Linearization "
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Fr62-1
+    date: "201803"
+  - author: 須山敬洋，関口和真，野中謙一郎
+    title: 定常的な風外乱を考慮した平滑化フィルタによる外乱マップを用いた無人航空機の外乱抑制制御
+    etitle: The Disturbance Suppression Control of Unmanned Aerial Vehicle using disturbance Map by Smoothing Filter considering Steady Wind Disturbance
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Sa91-4
+    date: "201803"
+  - author: 斉藤雅史，野中謙一郎，関口和真
+    title: 観測精度の異なる地形情報を用いた惑星探査型ローバーのための階層型モデル予測制御
+    etitle: Hierarchical Model Predictive Control utilizing Terrain Evaluation Data with Different Level of Resolutions for Planetary Exploration Rovers
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Sa93-3
+    date: "201803"
+  - author: 小泉柾貴，野中謙一郎，関口和真
+    title: 自己位置推定の特異環境を考慮した移動ロボットの誘導制御法の提案
+    etitle: Verification of Guidance Control Method for Mobile Robot Considering Singular Environment of Localization
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Sa93-4
+    date: "201803"
+  - author: 小川直人，野中謙一郎，関口和真
+    title: キャスタ型オドメータの一部のエンコーダに発生する異常値の影響を抑制した移動ロボットの速度推定
+    etitle: Velocity Estimation of Mobile Robot Suppressing Effect of Abnormal Values Occurring in Some Encoders of Caster Odometer
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Sa62-4
+    date: "201803"
+  - author: 遠藤弘彬，関口和真，野中謙一郎
+    title: 自動運転車両における階層型線形化とFRITに基づいたモデル誤差補償器を併せ持つ制御系の提案
+    etitle: Proposal of Control System for Automatic Driving Vehicle Combining Hierarchical Linearization and Model Error Compensator based on FRIT
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Fr73-5
+    date: "201803"
+  - author: 伊藤大樹，野中謙一郎，関口和真
+    title: 全方向移動車両の過拘束を利用したモデル予測外力抑止制御
+    etitle: Model Predictive Control for External Force Suppression using Over-constrained of Omni-directional Vehicles
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Sa93-5
+    date: "201803"
+  - author: 高橋直樹，野中謙一郎，関口和真
+    title: 地面の凹凸に適合した脚車輪型移動ロボットのモデル予測脚配置制御
+    etitle: Model Predictive Leg Con guration Control for Leg/Wheel Mobile Robot Adapting to Unflat Ground
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Sa93-2
+    date: "201803"
+  - author: 小田貴嗣，野中謙一郎，関口和真
+    title: 任意の到達時間を実現するための車両パラメータの不確かさを考慮したロバストモデル予測運動制御
+    etitle: Robust model predictive motion control considering parameter perturbation of vehicle model to achieve designated arrival time
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: PS-48
+    date: "201803"
+  - author: 西尾祐紀，野中謙一郎，関口和真
+    title: 障害物とロボットのダイナミクスを考慮した可変速度モデル予測回避制御
+    etitle: Model Predictive Avoidance Control with Variable Speed considering Dynamics of Robot and Obstacle
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Fr61-1
+    date: "201803"
+  - author: 相馬淳志，関口和真，野中謙一郎
+    title: オイラーパラメータベースのUKFを用いたクアッドコプターの位置・姿勢推定
+    etitle: Position and Attitude Estimation of Quadcopter by using Euler Parameter based UKF
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Sa91-3
+    date: "201803"
+  - author: 山口諒真，関口和真，野中謙一郎
+    title: オープンソフトウェアを利用したUAVの自律制御
+    etitle: Autonomous control of drones using open source software
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: PS-51
+    date: "201803"
+  - author: 水島嘉秀，大川功，野中謙一郎，関口和真
+    title: モデル予測制御を用いた自動運転車両の減速と停止制御
+    etitle: Deceleration and Stop Control for Autonomous Car using Model Predictive Control
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: PS-17
+    date: "201803"
+  - author: 竹内和，成勢昌隆，関口和真，野中謙一郎
+    title: 測域範囲に制限のあるセンサを用いた未観測領域を考慮した被覆制御
+    etitle: Coverage Control for Limited-range Sensor considering Unobserved Area
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Sa91-5
+    date: "201803"
+  - author: 諏訪湧大，津野晃士，小泉柾貴，野中謙一郎，関口和真
+    title: 屋内環境でのLRF計測値を用いたMoving Horizon EstimationによるSLAMの実証
+    etitle: Verification of SLAM based on Moving Horizon Estimation using LRF Measurements in Indoor environment
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: PS-50
+    date: "201803"
+  - author: 森廣祐士，斉藤雅史，高橋直樹，野中謙一郎，関口和真
+    title: 脚車輪型移動ロボットのモデル予測制御に基づく荷重配分制御
+    etitle: Load distribution based on Model Predictive Control for Leg/Wheel Mobile Robots
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: PS-18
+    date: "201803"
+  - author: 日浦隆徳，野中謙一郎，関口和真
+    title: 平面脚車輪型移動ロボットに対する複数の組込みCPUによる分散MPC実装のためのシステム構築
+    etitle: Construction of System for Leg/Wheel Mobile Robot to Implement Distributed MPC with Multiple Embedded CPUs
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: PS-16
+    date: "201803"
+  - author: 柴田尚輝，野中謙一郎，関口和真
+    title: 脚車輪型移動ロボットのための脚間の干渉を考慮した分散モデル予測制御の提案
+    etitle: Distributed Model Predictive Control Suppressing Interference of Legs for Leg/Wheel Mobile Robots
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: PS-49
+    date: "201803"
+  - author: 吉川大樹，小田貴嗣，野中謙一郎，関口和真
+    title: 軟弱地盤上での車輪による土の締固めの影響を考慮した縦力配分制御
+    etitle: Longitudinal Force Distribution Control considering Soil Compaction due to Wheel Loose Soil
+    meeting: 第5回計測自動制御学会制御部門マルチシンポジウム
+    page: Su91-4
+    date: "201803"

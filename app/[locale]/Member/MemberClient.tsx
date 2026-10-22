@@ -98,7 +98,7 @@ const MemberClient: React.FC<{ years: MemberYear[] }> = ({ years }) => {
 
   return (
     <div className="p-4">
-      <MemberPhoto year={current.year} photo={current.photo} />
+      {current.photo && <MemberPhoto year={current.year} photo={current.photo} />}
       <YearSelector
         texts={["Staff", "Doctoral course", "M2", "M1", "B4"]}
         hrefs={["Staff", "Doctoral course", "M2", "M1", "B4"]}
