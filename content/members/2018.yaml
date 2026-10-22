@@ -1,0 +1,171 @@
+year: 2018
+photo: /images/member/2018.png
+members:
+  - name: Kenichiro Nonaka
+    jname: 野中 謙一郎
+    grade: Prof.
+    subject: Development of novel control theory and its application to mechanical systems
+    jsubject: 新しい制御理論の開発とその車両型ロボット等機械系への応用
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001464
+  - name: Kazuma Sekiguchi
+    jname: 関口 和真
+    grade: Dr.
+    subject: Nonlinear systems control via geometric approach
+    jsubject: 非線形システム制御
+    url: http://www.risys.gl.tcu.ac.jp/Main.php?action=profile&type=detail&tchCd=5001902
+  - name: Katsumasa Suzuki
+    jname: 鈴木 勝正
+    grade: Dr.
+    subject: Study of hydraulic control; construction machinery, parallel link structure, instantaneous boost of pressure, and so on
+    jsubject: 油圧制御に関して、建設機械、パラレルリンク機構、油擊による瞬間増圧装置などの研究
+    url: http://www.comm.tcu.ac.jp/~ksuzuki/
+  - name: Naoki Takahashi
+    jname: 高橋 直樹
+    grade: D5
+    subject: Model Predictive Control for Leg Configuration Control of Leg/Wheel Mobile Robots
+    jsubject: モデル予測制御による脚車輪型移動ロボットの脚位置制御
+  - name: Isao Okawa
+    jname: 大川 功
+    grade: D4
+    subject: Model Predictive Control for Wheel Position of Leg/Wheel Robots considering Passage Width
+    jsubject: 経路の道幅を考慮した脚車輪型ロボット車輪位置のモデル予測制御
+  - name: Naoki Shibata
+    jname: 柴田 尚輝
+    grade: M2
+    subject: Model Predictive Control with Partitioned Model Considering Interference of Subsystems for Leg/Wheel Mobile Robots
+    jsubject: サブシステム間の相互干渉を考慮した脚車輪型移動ロボットの分割モデルを用いたモデル予測制御
+  - name: Naruse Masataka
+    jname: 成勢 昌隆
+    grade: M2
+    subject: Coverage Control for Multi-copter with Avoidance of Local Optimum and Collision
+    jsubject: 局所解収束と衝突を考慮したUAVに対する被覆制御
+  - name: Koushi Tsuno
+    jname: 津野 晃士
+    grade: M2
+    subject: Simultaneous Localization and Mapping for Environment with Moving Objects based on Moving Horizon Estimation
+    jsubject: 移動物体の存在する環境下における自己位置と環境地図の同時推定
+  - name: Yuji Morihiro
+    jname: 森廣 祐士
+    grade: M2
+    subject: Motion Control considering Load Distribution based on Model Predictive Control for Leg/Wheel Mobile Robots
+    jsubject: 脚車輪型移動ロボットのモデル予測制御に基づく荷重を考慮した運動制御
+  - name: Takanori Hiura
+    jname: 日浦 隆徳
+    grade: M2
+    subject: Construction of embedded system for the purpose of using the optimization calculation
+    jsubject: 最適化計算の適用を目的とした組み込みシステムの構築
+  - name: Yusuke Eguchi
+    jname: 江口 裕介
+    grade: M1
+    subject: Model Predictive Avoidance Control for Hydraulics Excavators considering Reaction Force from Underground Obstacles
+    jsubject: 油圧ショベルにおける地中障害物反力を考慮したモデル予測回避制御
+  - name: Shoma Odashima
+    jname: 小田島 将真
+    grade: M1
+    subject: Implementation and control of obstacle avoidance path plan against Autoware
+    jsubject: Autowareに対する障害物回避経路計画の実装と制御
+  - name: Takahiro Kasahara
+    jname: 笠原 隆宏
+    grade: M1
+    subject: Object Recognition Considering Occlusion using LiDAR
+    jsubject: LiDARを用いたオクルージョンを考慮した物体認識
+  - name: Tomoya Kikuchi
+    jname: 菊池 智哉
+    grade: M1
+    subject: Moving Horizon Estimation Integrating Marker Association for Motion Capture
+    jsubject: モーションキャプチャシステムのためのマーカー対応付けを統合したMoving Horizon Estimation
+  - name: Koji Shibata
+    jname: 柴田 浩志
+    grade: M1
+    subject: Model predictive obstacle avoidance control using stochastic infomation in a narrow environment for electric wheelchair
+    jsubject: 電動車椅子のための隘路における確率的な情報を用いたモデル予測障害物回避制御
+  - name: Nagomu Takeuchi
+    jname: 竹内 和
+    grade: M1
+    subject: Coverage Control for UAVs with Limited-range sensor considering unobserved area
+    jsubject: 測域範囲に制限を持つセンサを用いた未観測領域を考慮したUAVの被覆制御
+  - name: Shotaro Nakahara
+    jname: 中原 祥太郎
+    grade: M1
+    subject: ""
+    jsubject: モデル予測制御を用いた立体型脚車輪移動ロボットの段差乗り越え
+  - name: Yoshihide Mizushima
+    jname: 水島 嘉秀
+    grade: M1
+    subject: ""
+    jsubject: モデル予測制御を用いた自動運転車の減速と停止制御
+  - name: Ryoma Yamaguchi
+    jname: 山口 諒真
+    grade: M1
+    subject: Autonomous control of quad copter using open source software
+    jsubject: オープンソースソフトウェアを利用したクアッドコプタの自律制御
+  - name: Ryouya Abe
+    jname: 安部 凌矢
+    grade: B4
+    subject: ""
+    jsubject: 実環境でのマーカー欠落を想定した3次元位置計測カメラによる電動車椅子の実機検証
+  - name: Yasumasa Ishikawa
+    jname: 石川 恭匡
+    grade: B4
+    subject: ""
+    jsubject: 移動物体を考慮したMovingHorizonEstimationによるLiDARを用いたSLAM
+  - name: Ryu Ishizaki
+    jname: 石崎 龍
+    grade: B4
+    subject: ""
+    jsubject: UAVの複数台同時制御の環境構築及び制御の研究
+  - name: Kenji Oishi
+    jname: 大石 健司
+    grade: B4
+    subject: ""
+    jsubject: モデル誤差補償器を用いた階層型線形化によるクワッドコプターの制御性能検証
+  - name: Ryotaro Sugano
+    jname: 菅野 遼太郎
+    grade: B4
+    subject: ""
+    jsubject: 作業状況を考慮した可変ネットワークによるフォーメーション制御
+  - name: Masato Seki
+    jname: 関 万瑳斗
+    grade: B4
+    subject: ""
+    jsubject: 階層型線形化を用いたクアッドコプターの合意制御の実機検証
+  - name: Misaki Takanari
+    jname: 高成 岬
+    grade: B4
+    subject: ""
+    jsubject: 確率制御を用いたUAVの外乱抑制制御
+  - name: Hideki Nishioka
+    jname: 西岡 英輝
+    grade: B4
+    subject: ""
+    jsubject: 油圧ショベルの掘削作業時における負荷を考慮したモデル作成
+  - name: Ryo Nishikawa
+    jname: 西川 亮
+    grade: B4
+    subject: ""
+    jsubject: 探査ローバーのためのエネルギー収支を考慮したモデル予測軌道追従制御
+  - name: Kentaro Hashimoto
+    jname: 橋本 賢太郎
+    grade: B4
+    subject: ""
+    jsubject: 人と車両が混在する複雑な環境における自動運転車の障害物回避
+  - name: Kouki Fushiyama
+    jname: 伏山 航輝
+    grade: B4
+    subject: ""
+    jsubject: 360°カメラを搭載する画像処理による位置推定
+  - name: Shun Masuzawa
+    jname: 増沢 駿
+    grade: B4
+    subject: ""
+    jsubject: エアブレーキの遅れを考慮した大型商業車両の制御系の構築
+  - name: Kensaku Matsumoto
+    jname: 松本 健作
+    grade: B4
+    subject: ""
+    jsubject: 点群データによるモーションキャプチャを用いたUAVのマルチエージェント制御
+  - name: Yugo Yamaguchi
+    jname: 山口 祐剛
+    grade: B4
+    subject: ""
+    jsubject: 動的環境における電動車椅子のための_x000B_リアクティブな障害物回避制御
