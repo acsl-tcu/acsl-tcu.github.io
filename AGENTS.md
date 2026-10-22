@@ -7,7 +7,7 @@
 
 ## Working Rules
 - Preserve the current structure unless the task explicitly asks for refactoring. This repo contains newer localized pages and older admin/internal pages side by side.
-- Prefer small, local changes. Do not rename or reorganize broad areas such as `app/[locale]`, `app/MSE`, `app/BOS`, or `components/DataTable` unless required.
+- Prefer small, local changes. Do not rename or reorganize broad areas such as `app/[locale]` or `app/BOS` unless required.
 - Keep imports using the existing `@/*` alias style.
 - Maintain existing language usage in UI copy. Public pages are Japanese/English; many admin screens are Japanese-first.
 - Do not replace existing external endpoints casually. Several features depend on hard-coded remote services.
@@ -17,7 +17,7 @@
 - `app/page.tsx` and `app/lab/page.tsx`: client-side redirects based on `navigator.language`.
 - `contexts/i18nContext.tsx` and `constants/i18n.ts`: locale/message source of truth.
 - `app/BOS/*`: WebSocket-based Building OS pages.
-- `app/MSE/*` and `app/Dashboard/*`: internal timetable/data management UIs, with some legacy naming and mixed JS/TS.
+- Timetable (MSE) and equipment/books (Dashboard) tools were moved out to the separate `curriculum_mse` and `stock_manager` repositories.
 - `hooks/useDB.tsx`: fetches remote database content from `https://acsl-hp.vercel.app/api/read-database-psql`.
 - `components/lab/BoxImageUploader.tsx`: uploads to a remote API on `acsl-hp.vercel.app`.
 
